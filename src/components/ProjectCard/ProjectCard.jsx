@@ -37,7 +37,31 @@ function ProjectCard({ title, subtitle, description}) {
             </div>
     
 
-            
+            {/* Slider navigation */}
+            <div className="project-slider-nav">
+                <button className="arrow" onClick={prevSlide}>←</button>
+
+                <div className="dots">
+                    {slides.map((_, i) => (
+                        <span
+                        key={i}
+                        className={`dot ${i === current ? "active" : ""}`}
+                        ></span>
+                    ))}
+                    
+                </div>
+
+                <button className="arrow" onClick={nextSlide}>→</button>
+
+                 </div>
+
+                {/* Slide area (only show 1)*/}
+                <div className="project-slides">
+                    <div className="slide">
+                        {slides[current].content}
+                   
+                </div>
+            </div>
         </div>
     );
 
