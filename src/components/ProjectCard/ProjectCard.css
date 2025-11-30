@@ -1,0 +1,91 @@
+.project-card {
+  margin-bottom: 6rem;
+}
+
+.project-text-header h3 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.project-text-header p {
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+.project-main-image .image-placeholder {
+  border: 2px solid black;
+  height: 350px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+/* Slider Navigation */
+.project-slider-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.dot.active {
+  background: black;
+}
+
+/* --- CONTAINER PRINCIPAL DEL SLIDER --- */
+.project-slides {
+  width: 100%;
+  height: auto;
+  overflow: hidden;            /* 👈 OCULTA LOS SLIDES QUE NO ESTÁN ACTIVOS */
+  display: flex;               /* 👈 PONE LOS SLIDES EN FILA HORIZONTAL */
+  scroll-behavior: smooth;
+}
+
+.slide {
+  min-width: 100%;             /* 👈 Cada slide ocupa el 100% del ancho */
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Texto de slide #1 */
+.slide-text {
+  flex-direction: column;
+  text-align: left;
+  max-width: 600px;
+}
+
+/* Placeholders */
+.image-placeholder {
+  width: 300px;
+  height: 200px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
