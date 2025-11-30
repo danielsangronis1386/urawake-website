@@ -2,6 +2,7 @@
   margin-bottom: 6rem;
 }
 
+/* TEXT HEADER */
 .project-text-header h3 {
   font-size: 2rem;
   text-transform: uppercase;
@@ -13,17 +14,7 @@
   margin-top: 0.5rem;
 }
 
-.project-main-image .image-placeholder {
-  border: 2px solid black;
-  height: 350px;
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.3rem;
-}
-
-/* Slider Navigation */
+/* SLIDER NAVIGATION */
 .project-slider-nav {
   display: flex;
   justify-content: center;
@@ -55,35 +46,35 @@
   background: black;
 }
 
-/* --- CONTAINER PRINCIPAL DEL SLIDER --- */
+/* SLIDER */
 .project-slides {
   width: 100%;
   height: auto;
-  overflow: hidden;            /* 👈 OCULTA LOS SLIDES QUE NO ESTÁN ACTIVOS */
-  display: flex;               /* 👈 PONE LOS SLIDES EN FILA HORIZONTAL */
+  overflow: hidden;
+  display: flex;
   scroll-behavior: smooth;
 }
 
 .slide {
-  min-width: 100%;             /* 👈 Cada slide ocupa el 100% del ancho */
+  min-width: 100%;
   padding: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Texto de slide #1 */
+/* TEXT SLIDE */
 .slide-text {
   flex-direction: column;
   text-align: left;
   max-width: 600px;
 }
 
-/* Placeholders */
+/* IMAGE PLACEHOLDER */
 .image-placeholder {
   width: 300px;
   height: 200px;
-  border: 2px solid white;
+  border: 2px solid black; /* <-- CORREGIDO */
   display: flex;
   align-items: center;
   justify-content: center;
