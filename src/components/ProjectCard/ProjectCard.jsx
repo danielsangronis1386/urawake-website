@@ -1,23 +1,21 @@
 import { useState } from "react";
 import "./ProjectCard.css";
 
-
-function ProjectCard({ title, subtitle, description, images}) {
+function ProjectCard({ title, subtitle, description, images }) {
     const slides = [
-       
-       // Generamos los slides de imagenes usando el array de props 
+        // slides de imagen
+        ...images.map((img, index) => ({
+            type: "image",
+            content: (
+                <img
+                    src={img}
+                    alt={`slide ${index + 1}`}
+                    className="project-image"
+                />
+            ),
+        })),
 
-       ...images.map((img, index) => ({
-        type: "image",
-        content: (
-            <img
-                src={img}
-                alt={`slide ${index+1}`}
-                className="project-image"
-            />
-          )
-       })),
-//text
+        // slide final con texto
         {
             type: "text",
             content: (
@@ -25,64 +23,48 @@ function ProjectCard({ title, subtitle, description, images}) {
                     <h4>About this project</h4>
                     <p>{description}</p>
                 </div>
-            )
+            ),
         },
-
-    ]
+    ];
 
     const [current, setCurrent] = useState(0);
+
     const nextSlide = () => {
         setCurrent((prev) => (prev + 1) % slides.length);
     };
 
     const prevSlide = () => {
         setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-    }
-    
+    };
+
     return (
         <div className="project-card">
 
-            {/*Project title + subtitle*/}
+            {/* HEADER */}
             <div className="project-text-header">
                 <h3>{title}</h3>
                 <p>{subtitle}</p>
             </div>
 
-        <div className="project-slider-wrapper">
-    
+            {/* WRAPPER */}
+            <div className="project-slider-wrapper">
 
-            {/* Slider navigation */}
-            <div className="project-slides">
-                <div className="Slide">{slides[current].content}</div>
-            </div>
-
-            <button className
-
-                <div className="dots">
-                    {slides.map((_, i) => (
-                        <span
-                        key={i}
-                        className={`dot ${i === current ? "active" : ""}`}
-                        ></span>
-                    ))}
-                    
-                </div>
-
-                <button className="arrow" onClick={nextSlide}>→</button>
-
-                 </div>
-
-                {/* Slide area (only show 1)*/}
+                {/* SLIDE ACTUAL */}
                 <div className="project-slides">
                     <div className="slide">
                         {slides[current].content}
-                   </div>
-                   
+                    </div>
                 </div>
+
+                {/* FLECHAS */}
+                <button className="arrow arrow-left" onClick={prevSlide}>←</button>
+                <button className="arrow arrow-right" onClick={nextSlide}>→</button>
+
+               
+
             </div>
         </div>
     );
-
 }
 
 export default ProjectCard;
