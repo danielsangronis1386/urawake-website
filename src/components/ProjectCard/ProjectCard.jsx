@@ -4,15 +4,7 @@ import "./ProjectCard.css";
 
 function ProjectCard({ title, subtitle, description, images}) {
     const slides = [
-        {
-            type: "text",
-            content: (
-                <div className="slide-text">
-                    <h4>About this project</h4>
-                    <p>{description}</p>
-                </div>
-            )
-        },
+       
        // Generamos los slides de imagenes usando el array de props 
 
        ...images.map((img, index) => ({
@@ -24,7 +16,17 @@ function ProjectCard({ title, subtitle, description, images}) {
                 className="project-image"
             />
           )
-       }))
+       })),
+//text
+        {
+            type: "text",
+            content: (
+                <div className="slide-text">
+                    <h4>About this project</h4>
+                    <p>{description}</p>
+                </div>
+            )
+        },
 
     ]
 
@@ -50,8 +52,11 @@ function ProjectCard({ title, subtitle, description, images}) {
     
 
             {/* Slider navigation */}
-            <div className="project-slider-nav">
-                <button className="arrow" onClick={prevSlide}>←</button>
+            <div className="project-slides">
+                <div className="Slide">{slides[current].content}</div>
+            </div>
+
+            <button className
 
                 <div className="dots">
                     {slides.map((_, i) => (
