@@ -1,5 +1,8 @@
 import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
+import img1 from "../../assets/clientflow/img1.png";
+import img2 from "../../assets/clientflow/img2.png";
+import img3 from "../../assets/clientflow/img3.png";
 
 function ProjectSection (){
     return (
@@ -13,6 +16,7 @@ function ProjectSection (){
             title="ClientFlow AI"
             subtitle="Freelancer CRM prototype"
             description="ClientFlow AI is a CRM concept designed to simplfy how freelancers track clients, conversations, and bookings"
+            images={[img1, img2, img3]}
             />
          {/* PROJECT 2 Fitness Tracker */}
          <ProjectCard
