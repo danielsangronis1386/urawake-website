@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./ProjectCard.css";
 
 
-function ProjectCard({ title, subtitle, description}) {
+function ProjectCard({ title, subtitle, description, images}) {
     const slides = [
         {
             type: "text",
@@ -13,10 +13,20 @@ function ProjectCard({ title, subtitle, description}) {
                 </div>
             )
         },
-        { type: "image", content: <div className="image-placeholder">SLIDE1</div>},
-        { type: "image", content: <div className="image-placeholder">SLIDE2</div>},
-        { type: "image", content: <div className="image-placeholder">SLIDE3</div>}
-    ];
+       // Generamos los slides de imagenes usando el array de props 
+
+       ...images.map((img, index) => ({
+        type: "image",
+        content: (
+            <img
+                src={img}
+                alt={`slide ${index+1}`}
+                className="project-image"
+            />
+          )
+       }))
+
+    ]
 
     const [current, setCurrent] = useState(0);
     const nextSlide = () => {
@@ -35,6 +45,8 @@ function ProjectCard({ title, subtitle, description}) {
                 <h3>{title}</h3>
                 <p>{subtitle}</p>
             </div>
+
+        <div className="project-slider-wrapper">
     
 
             {/* Slider navigation */}
@@ -59,6 +71,7 @@ function ProjectCard({ title, subtitle, description}) {
                 <div className="project-slides">
                     <div className="slide">
                         {slides[current].content}
+                   </div>
                    
                 </div>
             </div>

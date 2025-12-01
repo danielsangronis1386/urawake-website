@@ -80,3 +80,26 @@
   justify-content: center;
   font-size: 1.2rem;
 }
+
+/* Wrapper para activar el hover */
+.project-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Ocultar flechas por defecto */
+.project-slider-nav .arrow {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar flechas cuando el usuario hace hover sobre el slider */
+.project-slider-wrapper:hover .arrow {
+  opacity: 1;
+}
+
+.arrow {
+  padding: 0.5rem;
+  font-size: 1.8rem;
+}
+
