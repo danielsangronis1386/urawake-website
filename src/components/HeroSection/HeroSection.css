@@ -1,28 +1,38 @@
-/* Fondo completo negro */
+/* HeroSection.css */
 .hero-container {
-  background-color: black;
-  color: white;
+  background-color: var(--c-black);
+  color: var(--c-white);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* --- TOP LEFT --- */
+/* TOP LEFT INFO */
 .hero-top-left {
   position: absolute;
   top: 2rem;
   left: 2rem;
-  font-size: 1rem;
-  line-height: 1.3rem;
-  text-transform: uppercase;
-  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
-/* --- TOP RIGHT --- */
+.hero-top-left p {
+  font-family: var(--f-heading);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* HAMBURGER (Top Right) */
 .hero-top-right {
   position: absolute;
   top: 2rem;
@@ -34,201 +44,63 @@
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
+  width: 32px;
 }
 
 .hamburger span {
-  width: 28px;
-  height: 3px;
-  background: white;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--c-white);
 }
 
+/* CENTER LOGO */
 .hero-center-logo {
-  position: relative;
-  top: -2rem; /* súbelo un poco */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  transform: translateY(-10%);
+  /* slight optical adjustment */
 }
-
 
 .logo-placeholder {
-  border: 2px solid white;
-  padding: 3rem 4rem;
-  font-size: 2rem;
+  border: 2px solid var(--c-white);
+  padding: 2.5rem 4rem;
+  font-family: var(--f-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  color: var(--c-white);
 }
 
-/* Tagline */
-.hero-tagline {
-  margin-top: 2rem;
-  font-size: 1.2rem;
-  opacity: 0.8;
+.hero-tagline p {
+  font-family: var(--f-body);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
 }
 
-/* ===========================
-   MOBILE (max-width: 480px)
-=========================== */
-@media (max-width: 480px) {
+/* RESPONSIVE */
+@media (max-width: 768px) {
 
-  .hero-top-left {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    top: 1rem;
-    left: 1rem;
-  }
-
-  .hamburger span {
-    width: 20px;
-    height: 2px;
-  }
-
+  .hero-top-left,
   .hero-top-right {
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
   }
-
-  .logo-placeholder {
-    padding: 2rem 2.5rem;
-    font-size: 1.2rem;
-  }
-
-  .hero-tagline {
-    font-size: 0.9rem;
-  }
-
-  .hero-center {
-    gap: 1.5rem;
-  }
-}
-
-/* ===========================
-   TABLET (481px – 900px)
-=========================== */
-@media (min-width: 481px) and (max-width: 900px) {
 
   .hero-top-left {
-    font-size: 0.9rem;
-    top: 1.5rem;
     left: 1.5rem;
   }
 
-  .hamburger span {
-    width: 24px;
-    height: 3px;
-  }
-
-  .logo-placeholder {
-    padding: 2.5rem 3.2rem;
-    font-size: 1.6rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.05rem;
-  }
-
-  .hero-center {
-    gap: 1.8rem;
-  }
-}
-
-/* ===========================
-   DESKTOP (901px+)
-=========================== */
-@media (min-width: 901px) {
-
-  .hero-top-left {
-    font-size: 1rem;
-  }
-
-  .logo-placeholder {
-    padding: 3rem 4rem;
-    font-size: 2rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.2rem;
-  }
-}
-
-/* ===========================
-   MOBILE (max-width: 480px)
-=========================== */
-@media (max-width: 480px) {
-
-  .hero-top-left {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    top: 1rem;
-    left: 1rem;
-  }
-
-  .hamburger span {
-    width: 20px;
-    height: 2px;
-  }
-
   .hero-top-right {
-    top: 1rem;
-    right: 1rem;
+    right: 1.5rem;
   }
 
   .logo-placeholder {
-    padding: 2rem 2.5rem;
-    font-size: 1.2rem;
-  }
-
-  .hero-tagline {
-    font-size: 0.9rem;
-  }
-
-  .hero-center {
-    gap: 1.5rem;
-  }
-}
-
-/* ===========================
-   TABLET (481px – 900px)
-=========================== */
-@media (min-width: 481px) and (max-width: 900px) {
-
-  .hero-top-left {
-    font-size: 0.9rem;
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
-  .hamburger span {
-    width: 24px;
-    height: 3px;
-  }
-
-  .logo-placeholder {
-    padding: 2.5rem 3.2rem;
-    font-size: 1.6rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.05rem;
-  }
-
-  .hero-center {
-    gap: 1.8rem;
-  }
-}
-
-/* ===========================
-   DESKTOP (901px+)
-=========================== */
-@media (min-width: 901px) {
-
-  .hero-top-left {
-    font-size: 1rem;
-  }
-
-  .logo-placeholder {
-    padding: 3rem 4rem;
-    font-size: 2rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.2rem;
+    padding: 2rem 3rem;
+    font-size: 1.8rem;
   }
 }

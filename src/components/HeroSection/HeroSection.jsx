@@ -15,18 +15,15 @@ function HeroSection() {
                     <span></span>
                     <span></span>
                     <span></span>
-                </div> 
+                </div>
             </div>
 
             {/* Center Logo */}
             <div className="hero-center-logo">
                 <div className="logo-placeholder">LOGO</div>
-            </div>
-
-
-            {/* Center TAGLINE LOGO */}
-            <div className="hero-tagline">
-                <p>Build Conscious. Code Awake.</p>
+                <div className="hero-tagline">
+                    <p>Build Conscious. Code Awake.</p>
+                </div>
             </div>
 
         </section>

@@ -1,37 +1,50 @@
-import "./ProjectSection.css";
-import ProjectCard from "../ProjectCard";
+import React from 'react';
+import './ProjectSection.css';
+import ProjectCard from '../ProjectCard/ProjectCard';
 
-function ProjectSection (){
-    return (
-        <section className="project-section">
+// Dummy data for now - usually this would come from a data file or props
+const PROJECTS = [
+   {
+      id: 1,
+      title: "CLIENTFLOW AI",
+      subtitle: "Freelancer CRM prototype",
+      description: "The all-in-one business software for freelancers. Whether you're just starting out or growing your business, Clientflow helps you win new clients, organize projects, get paid, and manage your finances.",
+      images: ["placeholder", "placeholder", "placeholder"] // placeholders for now
+   },
+   {
+      id: 2,
+      title: "ROLLINGLOG",
+      subtitle: "Rolling Paper Catalog App",
+      description: "The ultimate step-by-step guide on how to roll with paper. A comprehensive catalog app for enthusiasts.",
+      images: ["placeholder", "placeholder"]
+   },
+   {
+      id: 3,
+      title: "FITNESS TRACKER",
+      subtitle: "Workout Log & Progress App",
+      description: "Work hard to get better life. A creative fitness website tracking workouts, progress, and finding classes.",
+      images: ["placeholder", "placeholder", "placeholder"]
+   }
+];
 
-         <h2 className="project-section-title">PROJECTS</h2>
-         <p className="project-section-subtitle">Selected work from my portafolio</p>
+const ProjectSection = () => {
+   return (
+      <section className="project-section">
+         <div className="project-section-header">
+            <h2>PROJECTS</h2>
+            <p>Selected work from my portfolio</p>
+         </div>
 
-         {/* PROJECT 1 ClienrFlow AI */}
-         <ProjectCard
-            title="ClientFlow AI"
-            subtitle="Freelancer CRM prototype"
-            description="ClientFlow AI is a CRM concept designed to simplfy how freelancers track clients, conversations, and bookings"
-            />
-         {/* PROJECT 2 Fitness Tracker */}
-         <ProjectCard
-            title="Fitness Tracker"
-            subtitle="Workout Log & Progress App"
-            description="A fitness tracking app designed to log workouts, follow progress, and viualize strenght improvements over time."
-            />
-        
-          {/* PROJECT 3 RollingLog Catalog */}
-         <ProjectCard
-            title="RollingLog"
-            subtitle="Rolling Paper Catalog App"
-            description="A web catalog for browsing rolling papers, comparing brands, and exploring product details with a client UI"
-            />
+         <div className="projects-grid">
+            {PROJECTS.map(project => (
+               <ProjectCard
+                  key={project.id}
+                  {...project}
+               />
+            ))}
+         </div>
+      </section>
+   );
+};
 
-         </section>
-
-
-    );
-}
-
-export default ProjectSection
+export default ProjectSection;
