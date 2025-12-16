@@ -1,6 +1,6 @@
 import "./HeroSection.css"
 
-function HeroSection() {
+function HeroSection({ onOpenMenu }) {
     return (
         <section className="hero-container">
             <div className="hero-top-left">
@@ -11,7 +11,7 @@ function HeroSection() {
 
             {/* hamburge on the top right*/}
             <div className="hero-top-right">
-                <div className="hamburger">
+                <div className="hamburger" onClick={onOpenMenu}>
                     <span></span>
                     <span></span>
                     <span></span>
