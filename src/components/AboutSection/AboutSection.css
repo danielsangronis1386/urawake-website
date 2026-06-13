@@ -1,61 +1,140 @@
-/* SECTION CONTAINER */
+/* ===== ABOUT SECTION — URAWAKE STACKHOUSE ===== */
 .about-section {
   width: 100%;
   min-height: 100vh;
-  background: white;
-  color: black;
+  background: var(--black);
+  color: var(--white);
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 5rem;
 
-  padding: 6rem 8rem;
-  border-top: 2px solid black;   /* Brutalist separation line */
+  padding: 6rem 4rem;
+  border-top: 1px solid var(--border);
 }
 
-/* LEFT COLUMN (portrait) */
+.portrait-img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(20%);
+}
+
+/* LEFT COLUMN */
 .portrait-placeholder {
   width: 100%;
-  height: 450px;
-  border: 3px solid black;
+  height: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background: #fefefe;
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  background: #080808;
+  position: relative;
+  overflow: hidden;
 }
 
-/* RIGHT COLUMN (title + bio + skills) */
+/* Corner accents */
+.portrait-placeholder::before,
+.portrait-placeholder::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--neon-green);
+  border-style: solid;
+}
+
+.portrait-placeholder::before {
+  top: 12px;
+  left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.portrait-placeholder::after {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+/* RIGHT COLUMN */
 .about-title {
-  font-size: 3rem;
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 400;
   text-transform: uppercase;
-  font-weight: 800;
+  color: var(--white);
   margin-bottom: 2rem;
+  line-height: 1;
 }
 
 .about-bio {
-  max-width: 480px;
-  font-size: 12.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
   margin-bottom: 3rem;
-  
+  max-width: 460px;
+  border-left: 2px solid var(--neon-green);
+  padding-left: 1.2rem;
 }
 
 /* SKILLS GRID */
+.skills-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon-green);
+  margin-bottom: 1rem;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  max-width: 350px;
+  gap: 0.5rem;
+  max-width: 380px;
 }
 
 .skill-item {
-  border: 2px solid black;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.55rem 0.9rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  font-weight: 600;
-  background: white;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  transition: border-color 0.2s, color 0.2s;
+  cursor: default;
+}
+
+.skill-item:hover {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .portrait-placeholder {
+    height: 320px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .about-section {
+    padding: 5rem 2.5rem;
+    gap: 3rem;
+  }
 }

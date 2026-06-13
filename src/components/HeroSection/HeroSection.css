@@ -1,32 +1,53 @@
-/* Fondo completo negro */
+/* ===== HERO — URAWAKE STACKHOUSE ===== */
 .hero-container {
-  background-color: black;
-  color: white;
+  background-color: var(--black);
+  color: var(--white);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
 }
 
-/* --- TOP LEFT --- */
+/* Grain noise texture overlay */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* TOP LEFT */
 .hero-top-left {
   position: absolute;
   top: 2rem;
-  left: 2rem;
-  font-size: 1rem;
-  line-height: 1.3rem;
+  left: 2.5rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  z-index: 1;
+}
+
+.hero-brand-tag {
+  color: var(--neon-green) !important;
   font-weight: 600;
 }
 
-/* --- TOP RIGHT --- */
+/* TOP RIGHT */
 .hero-top-right {
   position: absolute;
   top: 2rem;
   right: 2rem;
+  z-index: 1;
 }
 
 .hamburger {
@@ -37,97 +58,205 @@
 }
 
 .hamburger span {
+  display: block;
   width: 28px;
-  height: 3px;
-  background: white;
+  height: 2px;
+  background: var(--white);
 }
 
-/* Logo */
-.logo-placeholder {
-  border: 2px solid white;
-  padding: 3rem 4rem;
-  font-size: 2rem;
+.hamburger span:last-child {
+  width: 16px;
+  background: var(--neon-green);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  width: 28px;
+  background: var(--white);
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger span {
+  transition: transform 0.25s ease, opacity 0.2s ease, width 0.2s ease;
+}
+
+/* NAV DROPDOWN */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #000;
+  border: 1px solid var(--border);
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.nav-dropdown.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.nav-link {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  color: rgba(255,255,255,0.6);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.15s ease, padding-left 0.15s ease;
 }
 
-/* Tagline */
+.nav-link:last-child {
+  border-bottom: none;
+}
+
+.nav-link:hover {
+  color: var(--neon-green);
+  padding-left: 1.6rem;
+}
+
+/* CENTER CONTENT */
+.hero-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--neon-green);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  padding-left: 2.5rem;
+}
+
+/* MASSIVE TITLE */
+.hero-title {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(5rem, 28vw, 100vw);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  user-select: none;
+  color: var(--white);
+  width: 100%;
+  word-break: keep-all;
+  white-space: nowrap;
+  transform: scaleX(1.02);
+  transform-origin: left;
+}
+
+/* GLITCH TITLE WRAPPER */
+.glitch-title-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.glitch-word-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  will-change: transform, clip-path, opacity;
+}
+
+.glitch-letter-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-letter-base {
+  display: inline-block;
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+  will-change: transform, filter;
+}
+
+.glitch-letter-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+  opacity: 0;
+  pointer-events: none;
+  white-space: pre;
+  will-change: transform, clip-path, opacity;
+}
+
+/* SUBTITLE — offset right for brutalist asymmetry */
+.hero-subtitle {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(1.8rem, 5vw, 5rem);
+  letter-spacing: 0.25em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+  margin-left: 0;
+  margin-top: 0.4rem;
+  padding-left: 3rem;
+}
+
 .hero-tagline {
-  margin-top: 2rem;
-  font-size: 1.2rem;
-  opacity: 0.8;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  border-left: 2px solid var(--neon-green);
+  padding-left: 1rem;
+  margin-left: 2.5rem;
 }
 
-/* ===========================
-   MOBILE (max-width: 480px)
-=========================== */
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
+  .hero-container {
+    padding: 0 1.5rem;
+  }
   .hero-top-left {
-    font-size: 0.75rem;
-    line-height: 1rem;
     top: 1rem;
     left: 1rem;
+    font-size: 0.65rem;
   }
-
-  .hamburger span {
-    width: 20px;
-    height: 2px;
-  }
-
   .hero-top-right {
     top: 1rem;
     right: 1rem;
   }
-
-  .logo-placeholder {
-    padding: 2rem 2.5rem;
-    font-size: 1.2rem;
-  }
-
-  .hero-tagline {
-    font-size: 0.9rem;
-  }
-}
-
-/* ===========================
-   TABLET (481px – 900px)
-=========================== */
-@media (min-width: 481px) and (max-width: 900px) {
-  .hero-top-left {
-    font-size: 0.9rem;
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
   .hamburger span {
-    width: 24px;
-    height: 3px;
-  }
-
-  .logo-placeholder {
-    padding: 2.5rem 3.2rem;
-    font-size: 1.6rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.05rem;
+    width: 22px;
   }
 }
 
-/* ===========================
-   DESKTOP (901px+)
-=========================== */
-@media (min-width: 901px) {
-  .hero-top-left {
-    font-size: 1rem;
-  }
-
-  .logo-placeholder {
-    padding: 3rem 4rem;
-    font-size: 2rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.2rem;
+@media (min-width: 481px) and (max-width: 900px) {
+  .hero-container {
+    padding: 0 2.5rem;
   }
 }

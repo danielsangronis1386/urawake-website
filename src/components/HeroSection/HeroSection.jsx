@@ -1,32 +1,31 @@
 import "./HeroSection.css"
+import GlitchTitle from "./GlitchTitle"
 
 function HeroSection() {
     return (
         <section className="hero-container">
-            <div className="hero-top-left">
+
+            {/* Noise overlay */}
+            <div className="hero-noise" aria-hidden="true" />
+
+            {/* TOP LEFT — identity */}
+            <div className="hero-top-left mono">
                 <p>Daniel Sangronis</p>
                 <p>Web Developer</p>
-                <p>URAWAKE Stackhouse</p>
+                <p className="hero-brand-tag">URAWAKE Stackhouse</p>
             </div>
 
-            {/* hamburge on the top right*/}
-            <div className="hero-top-right">
-                <div className="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div> 
-            </div>
+            {/* MAIN HERO CONTENT */}
+            <div className="hero-center">
+                <div className="hero-eyebrow mono">// BUILD CONSCIOUS. CODE AWAKE.</div>
 
-            {/* Center Logo */}
-            <div className="hero-center-logo">
-                <div className="logo-placeholder">LOGO</div>
-            </div>
+                <GlitchTitle text="URAWAKE" />
 
+                <h2 className="hero-subtitle">STACKHOUSE</h2>
 
-            {/* Center TAGLINE LOGO */}
-            <div className="hero-tagline">
-                <p>Build Conscious. Code Awake.</p>
+                <p className="hero-tagline mono">
+                    Web development studio — digital, urban, awake.
+                </p>
             </div>
 
         </section>

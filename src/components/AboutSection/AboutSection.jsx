@@ -1,26 +1,28 @@
+import "./AboutSection.css"
+import portrait from "../../assets/about/338448695_890247788711486_6640237707443073491_n.jpg"
+
 function AboutSection() {
     return (
         <section className="about-section">
             {/* LEFT COLUMN */}
             <div className="about-left">
-                <div className="portrait-placeholder">PORTRAIT</div>
-
+                <img src={portrait} alt="Daniel Sangronis" className="portrait-img" />
             </div>
 
             {/* RIGHT COLUMN */}
             <div className="about-right">
-
-                <h2 className ="about-title">ABOUT</h2>
+                <h2 className="about-title">ABOUT</h2>
 
                 <p className="about-bio">
                     I'm Daniel Sangronis, a web developer focused on building clean,
-                    functional interfaces and simple digital system for small bussiness.
-                    I care about clarity, structure, and creating tools that solve
-                    real problems.
+                    functional interfaces and simple digital systems for small businesses.
+                    I care about clarity, structure, and creating tools that solve real problems.
                 </p>
 
+                <p className="skills-label">// Stack</p>
+
                 <div className="skills-grid">
-                    <div className="skill-item">JavasScript</div>
+                    <div className="skill-item">JavaScript</div>
                     <div className="skill-item">React</div>
                     <div className="skill-item">Python</div>
                     <div className="skill-item">Django</div>
@@ -29,7 +31,6 @@ function AboutSection() {
                     <div className="skill-item">REST APIs</div>
                     <div className="skill-item">Git</div>
                 </div>
-
             </div>
         </section>
     )

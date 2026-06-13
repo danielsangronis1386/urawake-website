@@ -1,0 +1,85 @@
+.navbar {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.25s ease, opacity 0.2s ease, width 0.2s ease;
+}
+
+.hamburger span:last-child {
+  width: 16px;
+  background: #39FF14;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  width: 28px;
+  background: #fff;
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.15);
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-dropdown.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.nav-link {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  color: rgba(255,255,255,0.6);
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.nav-link:last-child {
+  border-bottom: none;
+}
+
+.nav-link:hover {
+  color: #39FF14;
+  padding-left: 1.6rem;
+}

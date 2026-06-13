@@ -1,22 +1,40 @@
+/* ===== PROJECT SECTION — URAWAKE STACKHOUSE ===== */
 .project-section {
-  background: white;
-  color: black;
+  background: var(--black);
+  color: var(--white);
   padding: 6rem 4rem;
   width: 100%;
+  border-top: 1px solid var(--border);
 }
 
-.projects-header {
-  margin-bottom: 4rem;
+.project-section-title {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
 }
 
-.projects-header h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
+.project-section-subtitle {
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--neon-green);
+  margin-bottom: 5rem;
+  border-left: 2px solid var(--neon-green);
+  padding-left: 1rem;
 }
 
-.projects-subtitle {
-  font-size: 1rem;
-  opacity: 0.7;
-  margin-top: 0.5rem;
+@media (max-width: 480px) {
+  .project-section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+  .project-section {
+    padding: 5rem 2.5rem;
+  }
 }
