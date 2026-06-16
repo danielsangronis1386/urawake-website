@@ -1,0 +1,223 @@
+/* ===== CONTACT SECTION — URAWAKE STACKHOUSE ===== */
+.contact-section {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+
+  padding: 6rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== LEFT — DECORATIVE ===== */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon-green);
+}
+
+.contact-display {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(4rem, 8vw, 9rem);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.contact-email {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+  word-break: break-all;
+}
+
+.contact-brand {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== RIGHT — FORM ===== */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-title {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  color: var(--white);
+  margin-bottom: 3rem;
+  line-height: 1;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon-green);
+}
+
+.required {
+  color: var(--neon-green);
+}
+
+.contact-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--white);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 0;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.contact-input:focus {
+  border-bottom-color: var(--neon-green);
+}
+
+.contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.contact-textarea {
+  resize: none;
+  line-height: 1.6;
+}
+
+/* NOTE */
+.contact-note {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-top: -0.5rem;
+}
+
+/* ERROR */
+.contact-error {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: #ff4d4d;
+  border-left: 2px solid #ff4d4d;
+  padding-left: 0.8rem;
+}
+
+/* SUBMIT BUTTON */
+.contact-submit {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.contact-submit:hover:not(:disabled) {
+  background: var(--white);
+  color: var(--black);
+}
+
+.contact-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* SUCCESS STATE */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.contact-success-msg {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  border-left: 2px solid var(--neon-green);
+  padding-left: 1.2rem;
+}
+
+.contact-reset {
+  background: none;
+  border: none;
+  color: var(--neon-green);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.contact-reset:hover {
+  opacity: 0.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+    min-height: auto;
+  }
+
+  .contact-left {
+    gap: 1rem;
+  }
+
+  .contact-display {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .contact-section {
+    padding: 5rem 2.5rem;
+    gap: 3rem;
+  }
+}
