@@ -1,14 +1,14 @@
 import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
 
-// ELIOTS ADVENTURE
-import ea1 from "../../assets/eliots-adventure/img1.png";
-import ea2 from "../../assets/eliots-adventure/img2.png";
-import ea3 from "../../assets/eliots-adventure/img3.png";
-// TOURSTODO WEBSITE
-import tw1 from "../../assets/tourstodo-website/img1.png";
-import tw2 from "../../assets/tourstodo-website/img2.png";
-import tw3 from "../../assets/tourstodo-website/img3.png";
+// ELIOTS ADVENTURE — compressed JPEGs
+import ea1 from "../../assets/eliots-adventure/img1.jpg";
+import ea2 from "../../assets/eliots-adventure/img2.jpg";
+import ea3 from "../../assets/eliots-adventure/img3.jpg";
+// TOURSTODO WEBSITE — compressed JPEGs
+import tw1 from "../../assets/tourstodo-website/img1.jpg";
+import tw2 from "../../assets/tourstodo-website/img2.jpg";
+import tw3 from "../../assets/tourstodo-website/img3.jpg";
 // TOURSTODO CRM
 import crm1 from "../../assets/tourstodo-crm/img1.png";
 import crm2 from "../../assets/tourstodo-crm/img2.png";
@@ -17,9 +17,9 @@ import crm3 from "../../assets/tourstodo-crm/img3.png";
 import img1 from "../../assets/clientflow/img1.png";
 import img2 from "../../assets/clientflow/img2.png";
 import img3 from "../../assets/clientflow/img3.png";
-// FITNESS TRACKER IMAGES
-import ft1 from "../../assets/fitnesstracker/img1.png";
-import ft2 from "../../assets/fitnesstracker/img2.png";
+// FITNESS TRACKER — compressed JPEGs
+import ft1 from "../../assets/fitnesstracker/img1.jpg";
+import ft2 from "../../assets/fitnesstracker/img2.jpg";
 import ft3 from "../../assets/fitnesstracker/img3.webp";
 // ROLLINGLOG IMAGES
 import rl1 from "../../assets/rollinglog/img1.webp";
@@ -33,7 +33,6 @@ function ProjectSection() {
             <h2 className="project-section-title">PROJECTS</h2>
             <p className="project-section-subtitle">Selected work from my portfolio</p>
 
-            {/* PROJECT 1 — Eliot's Adventures */}
             <ProjectCard
                 index={0}
                 title="Eliot's Adventures"
@@ -43,7 +42,6 @@ function ProjectSection() {
                 stack={["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Gmail API", "Heroku"]}
             />
 
-            {/* PROJECT 2 — ToursToDo PR Website */}
             <ProjectCard
                 index={1}
                 title="ToursToDo PR"
@@ -53,7 +51,6 @@ function ProjectSection() {
                 stack={["React", "Vite", "React Router v7", "CSS Modules", "Stripe", "Vercel"]}
             />
 
-            {/* PROJECT 3 — ToursToDo CRM */}
             <ProjectCard
                 index={2}
                 title="ToursToDo CRM"
@@ -62,8 +59,6 @@ function ProjectSection() {
                 images={[crm1, crm2, crm3]}
                 stack={["React", "Vite", "Recharts", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe", "SendGrid", "Heroku"]}
             />
-
-            {/* PROJECT 4–6 hidden for now */}
 
         </section>
     );

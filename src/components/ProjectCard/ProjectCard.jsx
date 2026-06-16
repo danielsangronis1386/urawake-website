@@ -10,6 +10,8 @@ function ProjectCard({ title, subtitle, description, images, stack = [], index =
                     src={img}
                     alt={`${title} screenshot ${index + 1}`}
                     className="project-image"
+                    loading="lazy"
+                    decoding="async"
                 />
             ),
         })),
