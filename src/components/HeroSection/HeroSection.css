@@ -168,27 +168,11 @@
   transform-origin: left;
 }
 
-/* GLITCH CANVAS WRAPPER */
-.glitch-canvas-wrapper {
+/* GLITCH TITLE WRAPPER */
+.glitch-title-wrapper {
   position: relative;
   width: 100%;
   display: block;
-  line-height: 0;
-}
-
-.glitch-canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.glitch-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
 }
 
 .glitch-word-layer {
