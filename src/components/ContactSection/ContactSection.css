@@ -22,7 +22,7 @@
 }
 
 .contact-eyebrow {
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--neon-green);
@@ -38,14 +38,14 @@
 }
 
 .contact-email {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.45);
   word-break: break-all;
 }
 
 .contact-brand {
-  font-size: 0.65rem;
+  font-size: 0.82rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.2);
@@ -80,7 +80,7 @@
 }
 
 .contact-label {
-  font-size: 0.65rem;
+  font-size: 0.82rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--neon-green);
@@ -123,7 +123,7 @@
 
 /* NOTE */
 .contact-note {
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.25);
@@ -132,7 +132,7 @@
 
 /* ERROR */
 .contact-error {
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   letter-spacing: 0.06em;
   color: #ff4d4d;
   border-left: 2px solid #ff4d4d;
@@ -185,7 +185,7 @@
   background: none;
   border: none;
   color: var(--neon-green);
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   letter-spacing: 0.12em;
   cursor: pointer;
   text-align: left;
@@ -217,7 +217,7 @@
   }
 
   .contact-email {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     word-break: break-all;
   }
 

@@ -4,7 +4,7 @@ import "./ServicesSection.css";
 const SERVICES = [
     {
         name: "FULL STACK",
-        description: "End-to-end web applications built for real business needs — not templates. From database design to UI, built to scale with your operation.",
+        description: "End-to-end web applications built for real business needs. Not templates. From database design to UI, built to scale with your operation.",
         techs: ["REACT /", "NODE.JS /", "DJANGO /", "POSTGRESQL /"],
     },
     {
@@ -14,13 +14,13 @@ const SERVICES = [
     },
     {
         name: "CRM & TOOLS",
-        description: "Custom internal platforms that replace spreadsheets — leads, bookings, campaigns, and automation built specifically for how your team operates.",
+        description: "Custom internal platforms that replace spreadsheets. Leads, bookings, campaigns, and automation built specifically for how your team operates.",
         techs: ["LEADS /", "BOOKINGS /", "CAMPAIGNS /", "AUTOMATION /"],
     },
     {
-        name: "UI / UX BUILD",
-        description: "Design direction and implementation together. Every element earns its place — motion, hierarchy, and interaction that guide users toward action.",
-        techs: ["FIGMA → CODE /", "RESPONSIVE /", "BRUTALIST /", "MOTION /"],
+        name: "BRAND TO WEB",
+        description: "From brand identity to live interface. We take your visual language or build it from scratch and turn it into a site that moves, converts, and represents your business at full force.",
+        techs: ["IDENTITY → WEB /", "RESPONSIVE /", "MOTION /", "CONVERSION /"],
     },
     {
         name: "DEPLOYMENT",

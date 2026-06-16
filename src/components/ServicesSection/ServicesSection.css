@@ -23,7 +23,7 @@
 }
 
 .services-eyebrow {
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--neon-green);
@@ -165,7 +165,7 @@
 
 /* SERVICE DESCRIPTION */
 .service-description {
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.5);
   max-width: 520px;
