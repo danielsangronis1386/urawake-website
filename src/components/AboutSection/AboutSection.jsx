@@ -58,7 +58,7 @@ function AboutSection() {
                 <h2 className="about-title">JANYERLYN<br />MORALES</h2>
 
                 <p className="about-bio">
-                    I'm Venezuelan, 20 years old, and I specialize in <span className="bio-em">graphic design and illustration</span>.
+                    I'm Venezuelan and I specialize in <span className="bio-em">graphic design and illustration</span>.
                     My work focuses on <span className="bio-em">visual identity</span>, packaging, social media content,
                     and illustration for brands across different industries.
                 </p>

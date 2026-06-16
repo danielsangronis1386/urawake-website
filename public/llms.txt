@@ -1,21 +1,59 @@
 # URAWAKE Stackhouse
-> Web development studio by Daniel Sangronis. Builds full-stack web apps, CRMs, and API integrations for small businesses.
 
-## Contact
-- Email: daniel.sangronis1386@gmail.com
-- Website: https://urawake-website.vercel.app/
+## What is URAWAKE Stackhouse?
+URAWAKE Stackhouse is a web development studio founded by Daniel Sangronis, based in Los Angeles, California. We design and build full-stack web applications, CRMs, and digital tools for small businesses and startups across the United States.
+
+## What does URAWAKE Stackhouse build?
+Full-stack web applications, booking systems, internal CRM platforms, marketing websites, and API integrations. We come in at the brand level — identity, design, and development — and deliver a complete, live product.
+
+## Who is the right client for URAWAKE?
+Small businesses and startups that need more than a template. Our main clientele is in tourism and hospitality, but we work across industries. We're the right fit if you need a partner who can think at the brand level and actually build it.
+
+## Where does URAWAKE Stackhouse operate?
+We serve clients across the United States. Most current clients are based in Puerto Rico and California.
+
+## What does a typical project involve?
+Every project starts with brand and product strategy, then moves into design and development. We build everything to production — no handoffs, no half-finished work.
+
+## Who is Daniel Sangronis?
+Daniel Sangronis is a web developer and creative director based in Los Angeles, California. He started building in late 2025 and has delivered full digital presences for multiple businesses in the tourism and hospitality space. GitHub: https://github.com/danielsangronis1386 | LinkedIn: https://www.linkedin.com/in/daniel-sangronis-65210117a/
 
 ## Services
 - Full-stack development (React, Node.js, Django, PostgreSQL)
 - API integration (Stripe, Gmail API, REST, Webhooks)
-- CRM and business tools (leads, bookings, campaigns, automation)
+- CRM and internal business tools (leads, bookings, campaigns, automation)
 - UI/UX build (Figma to code, responsive, motion-enhanced)
-- Deployment (Vercel, Heroku, Netlify, CI/CD)
+- Deployment and CI/CD (Vercel, Heroku, Netlify)
 
 ## Projects
-- Eliot's Adventures: Full website for a Puerto Rico tour and taxi service with tour listings, travel guides, and online booking. Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma, Stripe, Gmail API, Heroku.
-- ToursToDo PR: Marketing website for ToursToDo Puerto Rico with tour catalog, island guide content, and Stripe-powered booking flow. Stack: React, Vite, React Router, CSS Modules, Stripe, Vercel.
-- ToursToDo CRM: Internal operations platform with lead management, bookings, email campaigns, affiliate tracking, and AI-powered lead qualification. Stack: React, Vite, Node.js, Express, Prisma, PostgreSQL, Stripe, SendGrid, Heroku.
 
-## Stack
-JavaScript, React, Python, Django, Node.js, Express, PostgreSQL, Prisma, REST APIs, Stripe, HTML, CSS, Git, Vercel, Heroku
+### Eliot's Adventures
+Full website and custom CRM for a family-run Puerto Rico tour and taxi service. Features tour listings, travel guides, and online booking. Live at: https://www.eliotsadventures.com/
+Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma, Stripe, Gmail API, Heroku
+
+### ToursToDo PR
+Public-facing marketing website for ToursToDo Puerto Rico. Includes tour catalog with filters, island guide content, FAQ section, and Stripe-powered booking flow.
+Stack: React, Vite, React Router v7, CSS Modules, Stripe, Vercel
+
+### ToursToDo CRM
+Internal operations platform for the ToursToDo team. Manages leads, bookings, customer segments, email campaigns, and affiliate tracking with AI-powered lead qualification.
+Stack: React, Vite, Recharts, Node.js, Express, Prisma, PostgreSQL, Stripe, SendGrid, Heroku
+
+### ClientFlow
+Lightweight CRM and project tracker for freelancers. Manage clients, track project status, log billable hours, and generate invoices.
+Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma
+
+### Fitness Tracker
+Mobile-first fitness app for tracking daily workouts, sets, reps, and personal records. Includes progress charts and a custom exercise library.
+Stack: React, Vite, Recharts, Node.js, Express, PostgreSQL
+
+### RollingLog
+Travel journaling platform where users document trips with geotagged entries, photos, and route maps.
+Stack: React, Vite, Mapbox GL, Node.js, Express, PostgreSQL, Cloudinary
+
+## Tech Stack
+JavaScript, React, Vite, Python, Django, Node.js, Express, PostgreSQL, Prisma, REST APIs, Stripe, SendGrid, Gmail API, Mapbox GL, Recharts, HTML, CSS, Git, Vercel, Heroku, Netlify
+
+## Contact
+- Email: daniel.sangronis1386@gmail.com
+- Website: https://urawake-website.vercel.app/
