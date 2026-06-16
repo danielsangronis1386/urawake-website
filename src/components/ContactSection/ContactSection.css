@@ -201,21 +201,42 @@
 @media (max-width: 768px) {
   .contact-section {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 4rem 1.5rem;
+    gap: 2rem;
+    padding: 3rem 1.2rem 4rem;
     min-height: auto;
   }
 
   .contact-left {
-    gap: 1rem;
+    gap: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
   }
 
   .contact-display {
     font-size: clamp(3.5rem, 18vw, 6rem);
   }
+
+  .contact-email {
+    font-size: 0.7rem;
+    word-break: break-all;
+  }
+
+  .contact-title {
+    font-size: clamp(3rem, 12vw, 5rem);
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    gap: 1.5rem;
+  }
+
+  .contact-submit {
+    padding: 1.1rem;
+    font-size: 1rem;
+  }
 }
 
-@media (min-width: 769px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .contact-section {
     padding: 5rem 2.5rem;
     gap: 3rem;

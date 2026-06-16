@@ -123,16 +123,37 @@
 @media (max-width: 768px) {
   .about-section {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 4rem 1.5rem;
+    gap: 2.5rem;
+    padding: 3rem 1.2rem;
+    min-height: auto;
+  }
+
+  .portrait-img {
+    height: 340px;
   }
 
   .portrait-placeholder {
-    height: 320px;
+    height: 280px;
+  }
+
+  .about-title {
+    font-size: clamp(3rem, 12vw, 5rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-bio {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+
+  .skills-grid {
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 769px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .about-section {
     padding: 5rem 2.5rem;
     gap: 3rem;

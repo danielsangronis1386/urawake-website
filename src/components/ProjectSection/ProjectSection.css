@@ -27,13 +27,17 @@
   padding-left: 1rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .project-section {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.2rem;
+  }
+
+  .project-section-subtitle {
+    margin-bottom: 3rem;
   }
 }
 
-@media (min-width: 481px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .project-section {
     padding: 5rem 2.5rem;
   }

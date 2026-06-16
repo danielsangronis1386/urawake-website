@@ -157,6 +157,16 @@
 .arrow-left  { left: 0; }
 .arrow-right { right: 0; }
 
+/* Always show arrows on touch devices */
+@media (hover: none) {
+  .arrow {
+    opacity: 1;
+    pointer-events: auto;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+  }
+}
+
 /* SLIDE INDICATORS */
 .slide-indicators {
   display: flex;
@@ -199,4 +209,42 @@
   font-size: 1.1rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .project-card {
+    padding: 2rem 1.2rem 3rem;
+  }
+
+  .project-text-header {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+  }
+
+  .project-text-header h3 {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  .project-text-header p {
+    white-space: normal;
+  }
+
+  .project-image {
+    max-height: 240px;
+  }
+
+  .slide-text {
+    padding: 1.5rem 0 1.5rem 1.2rem;
+  }
+
+  .slide-text p {
+    font-size: 0.95rem;
+  }
+
+  .slide-dot {
+    width: 8px;
+    height: 8px;
+  }
 }

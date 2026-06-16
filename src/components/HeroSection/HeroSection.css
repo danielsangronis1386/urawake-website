@@ -237,26 +237,55 @@
 
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .hero-container {
-    padding: 0 1.5rem;
+    padding: 0;
+    overflow: hidden;
   }
+
   .hero-top-left {
-    top: 1rem;
-    left: 1rem;
-    font-size: 0.65rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: 0.6rem;
   }
+
   .hero-top-right {
-    top: 1rem;
-    right: 1rem;
+    top: 1.2rem;
+    right: 1.2rem;
   }
-  .hamburger span {
-    width: 22px;
+
+  .hero-eyebrow {
+    font-size: 0.6rem;
+    padding-left: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    padding-left: 1.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.65rem;
+    margin-left: 1.2rem;
+    margin-top: 1.5rem;
   }
 }
 
-@media (min-width: 481px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .hero-container {
-    padding: 0 2.5rem;
+    padding: 0;
+  }
+
+  .hero-eyebrow {
+    padding-left: 2rem;
+  }
+
+  .hero-subtitle {
+    padding-left: 2rem;
+  }
+
+  .hero-tagline {
+    margin-left: 2rem;
   }
 }
