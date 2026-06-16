@@ -1,14 +1,11 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import "./ContactSection.css";
 
-const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
 function ContactSection() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
-    const [status, setStatus] = useState("idle"); // idle | sending | success | error
+    const [status, setStatus] = useState("idle");
 
     const handleChange = (e) => {
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -19,17 +16,23 @@ function ContactSection() {
         setStatus("sending");
 
         try {
-            await emailjs.send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                {
-                    from_name: form.name,
-                    from_email: form.email,
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    access_key: ACCESS_KEY,
+                    name: form.name,
+                    email: form.email,
                     message: form.message,
-                },
-                PUBLIC_KEY
-            );
-            setStatus("success");
+                    subject: `New message from ${form.name} — URAWAKE Portfolio`,
+                }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                setStatus("success");
+            } else {
+                setStatus("error");
+            }
         } catch {
             setStatus("error");
         }
