@@ -82,10 +82,12 @@ function AboutSection() {
                 <div className="skills-grid">
                     <div className="skill-item">Adobe Illustrator</div>
                     <div className="skill-item">Adobe Photoshop</div>
-                    <div className="skill-item">Figma</div>
+                    <div className="skill-item">Adobe Premiere</div>
                     <div className="skill-item">Branding</div>
                     <div className="skill-item">Illustration</div>
                     <div className="skill-item">Packaging</div>
+                    <div className="skill-item">Social Media</div>
+                    <div className="skill-item">Video Editing</div>
                 </div>
             </div>
 
