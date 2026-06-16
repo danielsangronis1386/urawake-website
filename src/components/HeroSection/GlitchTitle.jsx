@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react"
 
-const LETTER_LAYERS = 60
-const WORD_LAYERS = 60
+const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
+const LETTER_LAYERS = IS_MOBILE ? 50 : 220
+const WORD_LAYERS = IS_MOBILE ? 50 : 220
 const COLORS = Array.from({ length: Math.max(LETTER_LAYERS, WORD_LAYERS) }, (_, i) =>
     i % 3 === 0 ? "#00e5ff" : i % 3 === 1 ? "#ff2d78" : "#ffffff"
 )
