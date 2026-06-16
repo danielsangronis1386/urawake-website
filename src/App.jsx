@@ -12,8 +12,8 @@ function App() {
       <Navbar />
       <HeroSection />
       <section id="projects"><ProjectSection /></section>
-      <section id="about"><AboutSection /></section>
       <ServicesSection />
+      <section id="about"><AboutSection /></section>
       <ContactSection />
     </>
   );
