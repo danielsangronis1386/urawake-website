@@ -4,22 +4,27 @@ import "./ServicesSection.css";
 const SERVICES = [
     {
         name: "FULL STACK",
+        description: "End-to-end web applications built for real business needs — not templates. From database design to UI, built to scale with your operation.",
         techs: ["REACT /", "NODE.JS /", "DJANGO /", "POSTGRESQL /"],
     },
     {
         name: "API INTEGRATION",
+        description: "Connect your site to the tools your business already runs on. Payments, email, bookings, and custom webhooks wired up and working from day one.",
         techs: ["STRIPE /", "GMAIL API /", "REST /", "WEBHOOKS /"],
     },
     {
         name: "CRM & TOOLS",
+        description: "Custom internal platforms that replace spreadsheets — leads, bookings, campaigns, and automation built specifically for how your team operates.",
         techs: ["LEADS /", "BOOKINGS /", "CAMPAIGNS /", "AUTOMATION /"],
     },
     {
         name: "UI / UX BUILD",
+        description: "Design direction and implementation together. Every element earns its place — motion, hierarchy, and interaction that guide users toward action.",
         techs: ["FIGMA → CODE /", "RESPONSIVE /", "BRUTALIST /", "MOTION /"],
     },
     {
         name: "DEPLOYMENT",
+        description: "Production-ready launches with proper CI/CD pipelines. Your site goes live clean, stays up, and gets updated without friction.",
         techs: ["VERCEL /", "HEROKU /", "NETLIFY /", "CI/CD /"],
     },
 ];
@@ -66,6 +71,9 @@ function ServicesSection() {
                             className="service-name"
                             delay={0}
                         />
+                        {service.description && (
+                            <p className="service-description">{service.description}</p>
+                        )}
                         <div className="service-techs">
                             {service.techs.map((tech, ti) => (
                                 <WipeText

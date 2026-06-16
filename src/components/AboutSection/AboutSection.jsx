@@ -14,10 +14,39 @@ function AboutSection() {
                 <h2 className="about-title">ABOUT</h2>
 
                 <p className="about-bio">
-                    I'm Daniel Sangronis, a web developer focused on building clean,
-                    functional interfaces and simple digital systems for small businesses.
-                    I care about clarity, structure, and creating tools that solve real problems.
+                    I'm Daniel Sangronis, a web developer and creative director based in Los Angeles, California.
+                    I started building in late 2025 and have spent the last year turning that into real client work —
+                    designing and developing full digital presences for businesses that had none.
                 </p>
+                <p className="about-bio">
+                    My focus is startups and small businesses that need more than just a website. I come in at the
+                    brand level — identity, graphic design, copywriting direction — and build everything through to
+                    a live, fast, functional product. I've worked primarily in the tourism and hospitality space,
+                    building booking systems, CRMs, and marketing sites for operators in Puerto Rico.
+                </p>
+                <p className="about-bio">
+                    What I care about: every page element should earn its place. No filler, no static blocks —
+                    motion, interaction, and structure that actually converts.
+                </p>
+
+                <div className="about-links">
+                    <a
+                        href="https://github.com/danielsangronis1386"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="about-link mono"
+                    >
+                        // GitHub
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/daniel-sangronis-65210117a/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="about-link mono"
+                    >
+                        // LinkedIn
+                    </a>
+                </div>
 
                 <p className="skills-label">// Stack</p>
 
