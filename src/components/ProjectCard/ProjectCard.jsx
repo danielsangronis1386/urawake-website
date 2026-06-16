@@ -1,73 +1,39 @@
-import { useState } from "react";
 import "./ProjectCard.css";
 
-function ProjectCard({ title, subtitle, description, images, stack = [], index = 0 }) {
-    const slides = [
-        ...images.map((img, index) => ({
-            type: "image",
-            content: (
+function ProjectCard({ project, index, isOpen, scatterStyle, onClick }) {
+    const { title, subtitle, tagline, images } = project;
+
+    const delay = scatterStyle.opacity === 0 ? `${index * 60}ms` : "0ms";
+
+    const cardStyle = {
+        transition: `transform 0.55s cubic-bezier(0.4, 0, 0.2, 1) ${delay}, opacity 0.45s ease ${delay}`,
+        ...scatterStyle,
+    };
+
+    return (
+        <div
+            className="project-card"
+            style={cardStyle}
+            onClick={!isOpen ? onClick : undefined}
+        >
+            <div className="card-thumb">
                 <img
-                    src={img}
-                    alt={`${title} screenshot ${index + 1}`}
-                    className="project-image"
+                    src={images[0]}
+                    alt={title}
+                    className="card-thumb-img"
                     loading="lazy"
                     decoding="async"
                 />
-            ),
-        })),
-        {
-            type: "text",
-            content: (
-                <div className="slide-text">
-                    <h4>// About this project</h4>
-                    <p>{description}</p>
+                <div className="card-thumb-overlay">
+                    <span className="card-open-label">VIEW PROJECT</span>
                 </div>
-            ),
-        },
-    ];
-
-    const [current, setCurrent] = useState(0);
-
-    const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-    const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-
-    return (
-        <div className={`project-card ${index % 2 === 0 ? "card-dark" : "card-light"}`}>
-
-            <div className="project-text-header">
-                <h3>{title}</h3>
-                <p>{subtitle}</p>
             </div>
 
-            {stack.length > 0 && (
-                <div className="project-stack">
-                    {stack.map(tag => (
-                        <span key={tag} className="stack-tag">{tag}</span>
-                    ))}
-                </div>
-            )}
-
-            <div className="project-slider-wrapper">
-                <div className="project-slides">
-                    <div className="slide">
-                        {slides[current].content}
-                    </div>
-                </div>
-
-                <button className="arrow arrow-left" onClick={prevSlide} aria-label="Previous slide">←</button>
-                <button className="arrow arrow-right" onClick={nextSlide} aria-label="Next slide">→</button>
+            <div className="card-info">
+                <h3 className="card-title">{title}</h3>
+                <p className="card-subtitle">{subtitle}</p>
+                <p className="card-description">{tagline}</p>
             </div>
-
-            <div className="slide-indicators" aria-hidden="true">
-                {slides.map((_, i) => (
-                    <div
-                        key={i}
-                        className={`slide-dot${i === current ? " active" : ""}`}
-                        onClick={() => setCurrent(i)}
-                    />
-                ))}
-            </div>
-
         </div>
     );
 }

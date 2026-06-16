@@ -6,7 +6,7 @@ function AboutSection() {
         <section className="about-section">
             {/* LEFT COLUMN */}
             <div className="about-left">
-                <img src={portrait} alt="Daniel Sangronis" className="portrait-img" />
+                <img src={portrait} alt="Daniel Sangronis" className="portrait-img" width="400" height="500" />
             </div>
 
             {/* RIGHT COLUMN */}

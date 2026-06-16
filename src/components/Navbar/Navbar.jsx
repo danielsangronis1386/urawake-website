@@ -25,13 +25,14 @@ function Navbar() {
 
             <nav className={`nav-dropdown ${menuOpen ? "visible" : ""}`}>
                 {NAV_LINKS.map(link => (
-                    <button
+                    <a
                         key={link}
                         className="nav-link mono"
-                        onClick={() => { scrollToSection(link.toLowerCase()); setMenuOpen(false); }}
+                        href={`#${link.toLowerCase()}`}
+                        onClick={(e) => { e.preventDefault(); scrollToSection(link.toLowerCase()); setMenuOpen(false); }}
                     >
                         {link}
-                    </button>
+                    </a>
                 ))}
             </nav>
         </div>

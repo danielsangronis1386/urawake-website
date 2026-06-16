@@ -1,0 +1,21 @@
+# URAWAKE Stackhouse
+> Web development studio by Daniel Sangronis. Builds full-stack web apps, CRMs, and API integrations for small businesses.
+
+## Contact
+- Email: daniel.sangronis1386@gmail.com
+- Website: https://urawake-website.vercel.app/
+
+## Services
+- Full-stack development (React, Node.js, Django, PostgreSQL)
+- API integration (Stripe, Gmail API, REST, Webhooks)
+- CRM and business tools (leads, bookings, campaigns, automation)
+- UI/UX build (Figma to code, responsive, motion-enhanced)
+- Deployment (Vercel, Heroku, Netlify, CI/CD)
+
+## Projects
+- Eliot's Adventures: Full website for a Puerto Rico tour and taxi service with tour listings, travel guides, and online booking. Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma, Stripe, Gmail API, Heroku.
+- ToursToDo PR: Marketing website for ToursToDo Puerto Rico with tour catalog, island guide content, and Stripe-powered booking flow. Stack: React, Vite, React Router, CSS Modules, Stripe, Vercel.
+- ToursToDo CRM: Internal operations platform with lead management, bookings, email campaigns, affiliate tracking, and AI-powered lead qualification. Stack: React, Vite, Node.js, Express, Prisma, PostgreSQL, Stripe, SendGrid, Heroku.
+
+## Stack
+JavaScript, React, Python, Django, Node.js, Express, PostgreSQL, Prisma, REST APIs, Stripe, HTML, CSS, Git, Vercel, Heroku
