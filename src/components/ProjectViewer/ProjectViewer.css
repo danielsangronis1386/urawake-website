@@ -284,3 +284,20 @@
     grid-template-columns: 1fr 300px;
   }
 }
+
+/* LIVE LINK */
+.viewer-live-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--neon-green, #39ff14);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.viewer-live-link:hover {
+  opacity: 1;
+}

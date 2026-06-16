@@ -26,9 +26,10 @@ const PROJECTS = [
     {
         id: 0,
         title: "Eliot's Adventures",
-        subtitle: "Puerto Rico Tour & Taxi Website",
+        subtitle: "Puerto Rico Tour & Taxi Website + CRM",
         tagline: "15 years of the island, one booking away.",
-        description: "Full website for a family-run Puerto Rico tour and taxi service. Features tour listings, travel guides, and online booking — built to reflect 15 years of local expertise across the island.",
+        description: "Full website and custom CRM for a family-run Puerto Rico tour and taxi service. The public site features tour listings, travel guides, and online booking. The internal CRM manages bookings, customer records, and communications — built to reflect 15 years of local expertise across the island.",
+        liveUrl: "https://www.eliotsadventures.com/",
         images: [ea1, ea2, ea3],
         stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Gmail API", "Heroku"],
     },
@@ -88,31 +89,21 @@ const SCATTER = [
     })),
 ];
 
-// All cards scatter — selected goes straight up/back, others fly sideways
-const OFFSETS = [
-    { tx: "0",      ty: "-120px", rot:  "0deg"  }, // selected: up
-    { tx: "-120vw", ty: "-80px",  rot: "-8deg"  },
-    { tx:  "130vw", ty: "-50px",  rot:  "6deg"  },
-    { tx:  "-90vw", ty:  "100px", rot: "-11deg" },
-    { tx:  "110vw", ty:   "70px", rot:   "9deg" },
-    { tx: "-140vw", ty:  "-30px", rot:  "-5deg" },
-    { tx:  "100vw", ty:  "120px", rot:   "7deg" },
+// Grid positions: 3 columns, 2 rows
+// Each card flies in its natural outward direction from the grid center
+const GRID_DIRECTIONS = [
+    { tx: "-120vw", ty: "-120vh", rot: "-10deg" }, // 0: top-left     → ↖
+    { tx:       "0", ty: "-130vh", rot:   "0deg" }, // 1: top-center   → ↑
+    { tx:  "120vw", ty: "-120vh", rot:  "10deg" }, // 2: top-right    → ↗
+    { tx: "-120vw", ty:  "120vh", rot:  "10deg" }, // 3: bottom-left  → ↙
+    { tx:       "0", ty:  "130vh", rot:   "0deg" }, // 4: bottom-center→ ↓
+    { tx:  "120vw", ty:  "120vh", rot: "-10deg" }, // 5: bottom-right → ↘
 ];
 
 function getScatterStyle(cardIdx, selectedIdx) {
     if (selectedIdx === null) return {};
 
-    if (cardIdx === selectedIdx) {
-        return {
-            transform: "translateY(-80px) scale(0.92)",
-            opacity: 0,
-            pointerEvents: "none",
-        };
-    }
-
-    const diff = ((cardIdx - selectedIdx) % OFFSETS.length + OFFSETS.length) % OFFSETS.length;
-    const { tx, ty, rot } = OFFSETS[diff] ?? OFFSETS[1];
-
+    const { tx, ty, rot } = GRID_DIRECTIONS[cardIdx];
     return {
         transform: `translate(${tx}, ${ty}) rotate(${rot})`,
         opacity: 0,

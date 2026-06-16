@@ -3,10 +3,8 @@ import "./ProjectCard.css";
 function ProjectCard({ project, index, isOpen, scatterStyle, onClick }) {
     const { title, subtitle, tagline, images } = project;
 
-    const delay = scatterStyle.opacity === 0 ? `${index * 60}ms` : "0ms";
-
     const cardStyle = {
-        transition: `transform 0.55s cubic-bezier(0.4, 0, 0.2, 1) ${delay}, opacity 0.45s ease ${delay}`,
+        transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease",
         ...scatterStyle,
     };
 

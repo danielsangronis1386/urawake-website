@@ -9,7 +9,7 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
         setSlideIdx(0);
     }, [project.id]);
 
-    const { title, subtitle, description, images, stack } = project;
+    const { title, subtitle, description, images, stack, liveUrl } = project;
 
     const prevSlide = () => setSlideIdx((p) => (p - 1 + images.length) % images.length);
     const nextSlide = () => setSlideIdx((p) => (p + 1) % images.length);
@@ -71,6 +71,17 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
                             <span key={tag} className="viewer-tag">{tag}</span>
                         ))}
                     </div>
+
+                    {liveUrl && (
+                        <a
+                            href={liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="viewer-live-link"
+                        >
+                            // View live site →
+                        </a>
+                    )}
 
                     {/* Project navigation */}
                     <div className="viewer-nav">
