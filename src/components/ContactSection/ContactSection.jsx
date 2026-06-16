@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "./ContactSection.css";
 
-const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
-
 function ContactSection() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
     const [status, setStatus] = useState("idle");
@@ -16,19 +14,13 @@ function ContactSection() {
         setStatus("sending");
 
         try {
-            const res = await fetch("https://api.web3forms.com/submit", {
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    access_key: ACCESS_KEY,
-                    name: form.name,
-                    email: form.email,
-                    message: form.message,
-                    subject: `New message from ${form.name} — URAWAKE Portfolio`,
-                }),
+                body: JSON.stringify(form),
             });
             const data = await res.json();
-            if (data.success) {
+            if (res.ok && data.success) {
                 setStatus("success");
             } else {
                 setStatus("error");
