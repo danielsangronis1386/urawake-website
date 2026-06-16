@@ -1,0 +1,144 @@
+/* ===== SERVICES SECTION — URAWAKE STACKHOUSE ===== */
+.services-section {
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+  padding: 6rem 0 8rem;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* HEADER */
+.services-header {
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+}
+
+.services-title {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.services-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon-green);
+}
+
+/* LIST */
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* BLOCK — one service + its techs */
+.service-block {
+  padding: 3rem 4rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.service-block:last-child {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3rem;
+}
+
+/* ===== WIPE TEXT — shared base/fill layers ===== */
+.wipe-wrap {
+  position: relative;
+  display: block;
+  line-height: 0.92;
+}
+
+/* gray base — always visible */
+.wipe-base {
+  display: block;
+  color: rgba(255, 255, 255, 0.08);
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* white fill — clipped until in view */
+.wipe-fill {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--white);
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+  white-space: nowrap;
+
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
+}
+
+.wipe-wrap.in-view .wipe-fill {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* ===== SERVICE NAME — big title ===== */
+.service-name .wipe-base,
+.service-name .wipe-fill {
+  font-size: clamp(4rem, 9.5vw, 10rem);
+}
+
+.service-name {
+  margin-bottom: 1.5rem;
+}
+
+/* ===== TECH ITEMS — slightly smaller, stacked ===== */
+.service-techs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-left: 0.5rem;
+  padding-bottom: 5rem;
+}
+
+.service-tech .wipe-base,
+.service-tech .wipe-fill {
+  font-size: clamp(2.5rem, 6vw, 6.5rem);
+  color: rgba(255, 255, 255, 0.06);
+}
+
+.service-tech .wipe-fill {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 4rem 0 6rem;
+  }
+
+  .services-header {
+    padding: 0 1.5rem;
+  }
+
+  .service-block {
+    padding: 2rem 1.5rem 0;
+  }
+
+  .service-block:last-child {
+    padding-bottom: 2rem;
+  }
+
+  .service-name .wipe-base,
+  .service-name .wipe-fill {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+  }
+
+  .service-tech .wipe-base,
+  .service-tech .wipe-fill {
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+  }
+
+  .service-techs {
+    padding-bottom: 3rem;
+  }
+}
