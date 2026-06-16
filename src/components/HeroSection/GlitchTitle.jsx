@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 
-const LETTER_LAYERS = 10
-const WORD_LAYERS = 10
+const LETTER_LAYERS = 30
+const WORD_LAYERS = 30
 const COLORS = Array.from({ length: Math.max(LETTER_LAYERS, WORD_LAYERS) }, (_, i) =>
     i % 3 === 0 ? "#00e5ff" : i % 3 === 1 ? "#ff2d78" : "#ffffff"
 )
