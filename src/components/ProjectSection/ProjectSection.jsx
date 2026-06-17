@@ -12,15 +12,6 @@ import tw3 from "../../assets/tourstodo-website/img3.jpg";
 import crm1 from "../../assets/tourstodo-crm/img1.png";
 import crm2 from "../../assets/tourstodo-crm/img2.png";
 import crm3 from "../../assets/tourstodo-crm/img3.png";
-import img1 from "../../assets/clientflow/img1.png";
-import img2 from "../../assets/clientflow/img2.png";
-import img3 from "../../assets/clientflow/img3.png";
-import ft1 from "../../assets/fitnesstracker/img1.jpg";
-import ft2 from "../../assets/fitnesstracker/img2.jpg";
-import ft3 from "../../assets/fitnesstracker/img3.webp";
-import rl1 from "../../assets/rollinglog/img1.webp";
-import rl2 from "../../assets/rollinglog/img2.webp";
-import rl3 from "../../assets/rollinglog/img3.webp";
 
 const PROJECTS = [
     {
@@ -51,33 +42,6 @@ const PROJECTS = [
         images: [crm1, crm2, crm3],
         stack: ["React", "Vite", "Recharts", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe", "SendGrid", "Heroku"],
     },
-    {
-        id: 3,
-        title: "ClientFlow",
-        subtitle: "Client Management Dashboard",
-        tagline: "Your freelance business, finally organized.",
-        description: "Lightweight CRM and project tracker for freelancers. Manage clients, track project status, log billable hours, and generate invoices. All in one place.",
-        images: [img1, img2, img3],
-        stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma"],
-    },
-    {
-        id: 4,
-        title: "Fitness Tracker",
-        subtitle: "Workout Logging App",
-        tagline: "Every rep logged. Every record broken.",
-        description: "Mobile-first fitness app for tracking daily workouts, sets, reps, and personal records. Includes progress charts and a custom exercise library.",
-        images: [ft1, ft2, ft3],
-        stack: ["React", "Vite", "Recharts", "Node.js", "Express", "PostgreSQL"],
-    },
-    {
-        id: 5,
-        title: "RollingLog",
-        subtitle: "Travel Journal Platform",
-        tagline: "Map your journey. Keep it forever.",
-        description: "A travel journaling platform where users document trips with geotagged entries, photos, and route maps. Built for both personal logging and public sharing.",
-        images: [rl1, rl2, rl3],
-        stack: ["React", "Vite", "Mapbox GL", "Node.js", "Express", "PostgreSQL", "Cloudinary"],
-    },
 ];
 
 // Scatter directions: for each selected index, define where each other card flies
@@ -92,12 +56,9 @@ const SCATTER = [
 // Grid positions: 3 columns, 2 rows
 // Each card flies in its natural outward direction from the grid center
 const GRID_DIRECTIONS = [
-    { tx: "-120vw", ty: "-120vh", rot: "-10deg" }, // 0: top-left     → ↖
-    { tx:       "0", ty: "-130vh", rot:   "0deg" }, // 1: top-center   → ↑
-    { tx:  "120vw", ty: "-120vh", rot:  "10deg" }, // 2: top-right    → ↗
-    { tx: "-120vw", ty:  "120vh", rot:  "10deg" }, // 3: bottom-left  → ↙
-    { tx:       "0", ty:  "130vh", rot:   "0deg" }, // 4: bottom-center→ ↓
-    { tx:  "120vw", ty:  "120vh", rot: "-10deg" }, // 5: bottom-right → ↘
+    { tx: "-130vw", ty: "-40vh", rot: "-8deg"  }, // 0: left  → ←
+    { tx:       "0", ty: "-130vh", rot:  "0deg"  }, // 1: center → ↑
+    { tx:  "130vw", ty: "-40vh", rot:  "8deg"  }, // 2: right → →
 ];
 
 function getScatterStyle(cardIdx, selectedIdx) {
