@@ -11,7 +11,8 @@ function randomBetween(a, b) {
     return a + Math.random() * (b - a)
 }
 
-function GlitchLetter({ char, active }) {
+function GlitchLetter({ char }) {
+    const [hovered, setHovered] = useState(false)
     const baseRef = useRef(null)
     const layersRef = useRef([])
     const timeoutRef = useRef(null)
@@ -59,22 +60,26 @@ function GlitchLetter({ char, active }) {
         }
 
         function scheduleNext() {
-            timeoutRef.current = setTimeout(runBurst, randomBetween(200, 800))
+            timeoutRef.current = setTimeout(runBurst, randomBetween(100, 500))
         }
 
         clearTimeout(timeoutRef.current)
 
-        if (active) {
-            scheduleNext()
+        if (hovered) {
+            runBurst()
         } else {
             clearGlitch()
         }
 
         return () => clearTimeout(timeoutRef.current)
-    }, [active])
+    }, [hovered])
 
     return (
-        <span className="glitch-letter-wrapper">
+        <span
+            className="glitch-letter-wrapper"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
             <span className="glitch-letter-base" ref={baseRef}>{char}</span>
             {Array.from({ length: LETTER_LAYERS }).map((_, i) => (
                 <span key={i} className="glitch-letter-layer" ref={el => layersRef.current[i] = el} aria-hidden="true">{char}</span>
@@ -84,67 +89,19 @@ function GlitchLetter({ char, active }) {
 }
 
 function GlitchTitle({ text }) {
-    const [hovered, setHovered] = useState(false)
     const wordLayersRef = useRef([])
-    const timeoutRef = useRef(null)
 
     useEffect(() => {
-        function applyWordGlitch() {
-            const sliceHeight = 100 / WORD_LAYERS
-            wordLayersRef.current.forEach((el, i) => {
-                if (!el) return
-                const shouldShift = Math.random() > 0.4
-                const tx = shouldShift ? randomBetween(-60, 60) : 0
-                el.style.clipPath = `inset(${i * sliceHeight}% 0 ${100 - (i + 1) * sliceHeight}% 0)`
-                el.style.transform = `translateX(${tx}px)`
-                el.style.color = shouldShift ? COLORS[i] : "#ffffff"
-                el.style.opacity = shouldShift ? "0.9" : "0"
-            })
-        }
-
-        function clearWordGlitch() {
-            wordLayersRef.current.forEach(el => {
-                if (!el) return
-                el.style.opacity = "0"
-                el.style.transform = "translateX(0)"
-            })
-        }
-
-        function runBurst() {
-            const frames = Math.floor(randomBetween(4, 12))
-            let count = 0
-            function tick() {
-                if (count >= frames) { clearWordGlitch(); scheduleNext(); return }
-                applyWordGlitch()
-                count++
-                timeoutRef.current = setTimeout(tick, randomBetween(20, 80))
-            }
-            tick()
-        }
-
-        function scheduleNext() {
-            timeoutRef.current = setTimeout(runBurst, randomBetween(200, 800))
-        }
-
-        clearTimeout(timeoutRef.current)
-
-        if (hovered) {
-            scheduleNext()
-        } else {
-            clearWordGlitch()
-        }
-
-        return () => clearTimeout(timeoutRef.current)
-    }, [hovered])
+        wordLayersRef.current.forEach(el => {
+            if (!el) return
+            el.style.opacity = "0"
+        })
+    }, [])
 
     return (
-        <h1
-            className="hero-title glitch-title-wrapper"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-        >
+        <h1 className="hero-title glitch-title-wrapper">
             {text.split("").map((char, i) => (
-                <GlitchLetter key={i} char={char} active={hovered} />
+                <GlitchLetter key={i} char={char} />
             ))}
             {Array.from({ length: WORD_LAYERS }).map((_, i) => (
                 <span
