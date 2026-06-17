@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
 const LETTER_LAYERS = IS_MOBILE ? 8 : 12
@@ -11,13 +11,12 @@ function randomBetween(a, b) {
     return a + Math.random() * (b - a)
 }
 
-function GlitchLetter({ char, delay }) {
+function GlitchLetter({ char, active }) {
     const baseRef = useRef(null)
     const layersRef = useRef([])
+    const timeoutRef = useRef(null)
 
     useEffect(() => {
-        let timeout
-
         function applyGlitch() {
             const sliceHeight = 100 / LETTER_LAYERS
             if (baseRef.current) {
@@ -51,21 +50,28 @@ function GlitchLetter({ char, delay }) {
             const frames = Math.floor(randomBetween(3, 9))
             let count = 0
             function tick() {
-                if (count >= frames) { clearGlitch(); scheduleBurst(); return }
+                if (count >= frames) { clearGlitch(); scheduleNext(); return }
                 applyGlitch()
                 count++
-                timeout = setTimeout(tick, randomBetween(30, 100))
+                timeoutRef.current = setTimeout(tick, randomBetween(30, 100))
             }
             tick()
         }
 
-        function scheduleBurst() {
-            timeout = setTimeout(runBurst, randomBetween(400, 2500))
+        function scheduleNext() {
+            timeoutRef.current = setTimeout(runBurst, randomBetween(200, 800))
         }
 
-        timeout = setTimeout(scheduleBurst, delay)
-        return () => clearTimeout(timeout)
-    }, [delay])
+        clearTimeout(timeoutRef.current)
+
+        if (active) {
+            scheduleNext()
+        } else {
+            clearGlitch()
+        }
+
+        return () => clearTimeout(timeoutRef.current)
+    }, [active])
 
     return (
         <span className="glitch-letter-wrapper">
@@ -78,11 +84,11 @@ function GlitchLetter({ char, delay }) {
 }
 
 function GlitchTitle({ text }) {
+    const [hovered, setHovered] = useState(false)
     const wordLayersRef = useRef([])
+    const timeoutRef = useRef(null)
 
     useEffect(() => {
-        let timeout
-
         function applyWordGlitch() {
             const sliceHeight = 100 / WORD_LAYERS
             wordLayersRef.current.forEach((el, i) => {
@@ -108,26 +114,37 @@ function GlitchTitle({ text }) {
             const frames = Math.floor(randomBetween(4, 12))
             let count = 0
             function tick() {
-                if (count >= frames) { clearWordGlitch(); scheduleBurst(); return }
+                if (count >= frames) { clearWordGlitch(); scheduleNext(); return }
                 applyWordGlitch()
                 count++
-                timeout = setTimeout(tick, randomBetween(20, 80))
+                timeoutRef.current = setTimeout(tick, randomBetween(20, 80))
             }
             tick()
         }
 
-        function scheduleBurst() {
-            timeout = setTimeout(runBurst, randomBetween(800, 3500))
+        function scheduleNext() {
+            timeoutRef.current = setTimeout(runBurst, randomBetween(200, 800))
         }
 
-        scheduleBurst()
-        return () => clearTimeout(timeout)
-    }, [])
+        clearTimeout(timeoutRef.current)
+
+        if (hovered) {
+            scheduleNext()
+        } else {
+            clearWordGlitch()
+        }
+
+        return () => clearTimeout(timeoutRef.current)
+    }, [hovered])
 
     return (
-        <h1 className="hero-title glitch-title-wrapper">
+        <h1
+            className="hero-title glitch-title-wrapper"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
             {text.split("").map((char, i) => (
-                <GlitchLetter key={i} char={char} delay={i * randomBetween(100, 400)} />
+                <GlitchLetter key={i} char={char} active={hovered} />
             ))}
             {Array.from({ length: WORD_LAYERS }).map((_, i) => (
                 <span
