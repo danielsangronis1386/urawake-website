@@ -12,9 +12,9 @@ import tw3 from "../../assets/tourstodo-website/tours2do 3.png";
 import crm1 from "../../assets/tourstodo-crm/img1.png";
 import crm2 from "../../assets/tourstodo-crm/img2.png";
 import crm3 from "../../assets/tourstodo-crm/img3.png";
-import ecrm1 from "../../assets/clientflow/img1.png";
-import ecrm2 from "../../assets/clientflow/img2.png";
-import ecrm3 from "../../assets/clientflow/img3.png";
+import ecrm1 from "../../assets/eliots-adventure/eliotscrm1.png";
+import ecrm2 from "../../assets/eliots-adventure/eliotscrm2.png";
+import ecrm3 from "../../assets/eliots-adventure/eliotscrm3.png";
 
 const PROJECTS = [
     {
