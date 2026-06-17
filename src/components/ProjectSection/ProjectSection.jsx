@@ -3,15 +3,18 @@ import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
 import ProjectViewer from "../ProjectViewer";
 
-import ea1 from "../../assets/eliots-adventure/img1.jpg";
-import ea2 from "../../assets/eliots-adventure/img2.jpg";
-import ea3 from "../../assets/eliots-adventure/img3.jpg";
-import tw1 from "../../assets/tourstodo-website/img1.jpg";
-import tw2 from "../../assets/tourstodo-website/img2.jpg";
-import tw3 from "../../assets/tourstodo-website/img3.jpg";
+import ea1 from "../../assets/eliots-adventure/eliots 1.png";
+import ea2 from "../../assets/eliots-adventure/eliots 2.png";
+import ea3 from "../../assets/eliots-adventure/eliots 3.png";
+import tw1 from "../../assets/tourstodo-website/tours2do 1.png";
+import tw2 from "../../assets/tourstodo-website/tours2do 2.png";
+import tw3 from "../../assets/tourstodo-website/tours2do 3.png";
 import crm1 from "../../assets/tourstodo-crm/img1.png";
 import crm2 from "../../assets/tourstodo-crm/img2.png";
 import crm3 from "../../assets/tourstodo-crm/img3.png";
+import ecrm1 from "../../assets/clientflow/img1.png";
+import ecrm2 from "../../assets/clientflow/img2.png";
+import ecrm3 from "../../assets/clientflow/img3.png";
 
 const PROJECTS = [
     {
@@ -42,6 +45,15 @@ const PROJECTS = [
         images: [crm1, crm2, crm3],
         stack: ["React", "Vite", "Recharts", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe", "SendGrid", "Heroku"],
     },
+    {
+        id: 3,
+        title: "Eliot's CRM",
+        subtitle: "Internal Booking & Customer Platform",
+        tagline: "Every tour, every customer — one dashboard.",
+        description: "Custom CRM built for the Eliot's Adventures operations team. Manages tour bookings, customer records, taxi requests, and communications. Includes Gmail integration and a real-time booking calendar.",
+        images: [ecrm1, ecrm2, ecrm3],
+        stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Gmail API", "Heroku"],
+    },
 ];
 
 // Scatter directions: for each selected index, define where each other card flies
@@ -56,9 +68,10 @@ const SCATTER = [
 // Grid positions: 3 columns, 2 rows
 // Each card flies in its natural outward direction from the grid center
 const GRID_DIRECTIONS = [
-    { tx: "-130vw", ty: "-40vh", rot: "-8deg"  }, // 0: left  → ←
-    { tx:       "0", ty: "-130vh", rot:  "0deg"  }, // 1: center → ↑
-    { tx:  "130vw", ty: "-40vh", rot:  "8deg"  }, // 2: right → →
+    { tx: "-120vw", ty: "-120vh", rot: "-10deg" }, // 0: top-left     → ↖
+    { tx:  "120vw", ty: "-120vh", rot:  "10deg" }, // 1: top-right    → ↗
+    { tx: "-120vw", ty:  "120vh", rot:  "10deg" }, // 2: bottom-left  → ↙
+    { tx:  "120vw", ty:  "120vh", rot: "-10deg" }, // 3: bottom-right → ↘
 ];
 
 function getScatterStyle(cardIdx, selectedIdx) {
