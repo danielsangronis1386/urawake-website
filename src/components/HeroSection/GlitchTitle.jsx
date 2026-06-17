@@ -89,17 +89,65 @@ function GlitchLetter({ char }) {
 }
 
 function GlitchTitle({ text }) {
+    const [hovered, setHovered] = useState(false)
     const wordLayersRef = useRef([])
+    const timeoutRef = useRef(null)
 
     useEffect(() => {
-        wordLayersRef.current.forEach(el => {
-            if (!el) return
-            el.style.opacity = "0"
-        })
-    }, [])
+        function applyWordGlitch() {
+            const sliceHeight = 100 / WORD_LAYERS
+            wordLayersRef.current.forEach((el, i) => {
+                if (!el) return
+                const shouldShift = Math.random() > 0.4
+                const tx = shouldShift ? randomBetween(-60, 60) : 0
+                el.style.clipPath = `inset(${i * sliceHeight}% 0 ${100 - (i + 1) * sliceHeight}% 0)`
+                el.style.transform = `translateX(${tx}px)`
+                el.style.color = shouldShift ? COLORS[i] : "#ffffff"
+                el.style.opacity = shouldShift ? "0.9" : "0"
+            })
+        }
+
+        function clearWordGlitch() {
+            wordLayersRef.current.forEach(el => {
+                if (!el) return
+                el.style.opacity = "0"
+                el.style.transform = "translateX(0)"
+            })
+        }
+
+        function runBurst() {
+            const frames = Math.floor(randomBetween(4, 12))
+            let count = 0
+            function tick() {
+                if (count >= frames) { clearWordGlitch(); scheduleNext(); return }
+                applyWordGlitch()
+                count++
+                timeoutRef.current = setTimeout(tick, randomBetween(20, 80))
+            }
+            tick()
+        }
+
+        function scheduleNext() {
+            timeoutRef.current = setTimeout(runBurst, randomBetween(200, 800))
+        }
+
+        clearTimeout(timeoutRef.current)
+
+        if (hovered) {
+            scheduleNext()
+        } else {
+            clearWordGlitch()
+        }
+
+        return () => clearTimeout(timeoutRef.current)
+    }, [hovered])
 
     return (
-        <h1 className="hero-title glitch-title-wrapper">
+        <h1
+            className="hero-title glitch-title-wrapper"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
             {text.split("").map((char, i) => (
                 <GlitchLetter key={i} char={char} />
             ))}
