@@ -18,7 +18,7 @@
 .card-thumb {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 
 .card-thumb-img {
