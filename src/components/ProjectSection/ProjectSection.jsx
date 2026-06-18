@@ -129,7 +129,7 @@ function ProjectSection() {
     return (
         <section className="project-section">
             <h2 className="project-section-title">PROJECTS</h2>
-            <p className="project-section-subtitle">Selected work from my portfolio</p>
+            <p className="project-section-subtitle">Selected work from the studio</p>
 
             <div className="project-stage">
                 <div className={`project-grid${isScattered ? " grid-scattered" : ""}`}>
