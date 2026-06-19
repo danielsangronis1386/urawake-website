@@ -223,9 +223,8 @@
 
 .glitch-letter-layer {
   position: absolute;
-  top: -10%;
+  top: 0;
   left: 0;
-  height: 120%;
   display: inline-block;
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
   font-size: inherit;
