@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
-const SCANLINES = IS_MOBILE ? 20 : 50
+const SCANLINES = IS_MOBILE ? 20 : 80
 const SHOULD_REDUCE = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
 function randomBetween(a, b) {
@@ -30,21 +30,21 @@ function GlitchLetter({ char }) {
 
             // red channel — offset left
             if (redRef.current) {
-                redRef.current.style.transform = `translateX(${randomBetween(-12, -3)}px)`
-                redRef.current.style.opacity = randomBetween(0.6, 0.9).toString()
+                redRef.current.style.transform = `translateX(${randomBetween(-22, -6)}px)`
+                redRef.current.style.opacity = randomBetween(0.7, 1).toString()
             }
 
             // cyan channel — offset right
             if (cyanRef.current) {
-                cyanRef.current.style.transform = `translateX(${randomBetween(3, 12)}px)`
-                cyanRef.current.style.opacity = randomBetween(0.6, 0.9).toString()
+                cyanRef.current.style.transform = `translateX(${randomBetween(6, 22)}px)`
+                cyanRef.current.style.opacity = randomBetween(0.7, 1).toString()
             }
 
             // scanline blocks — horizontal strips that shift left/right
             linesRef.current.forEach((el, i) => {
                 if (!el) return
-                const active = Math.random() > 0.45
-                const tx = active ? randomBetween(-60, 60) : 0
+                const active = Math.random() > 0.3
+                const tx = active ? randomBetween(-100, 100) : 0
                 el.style.clipPath = `inset(${i * sliceH}% 0 ${100 - (i + 1) * sliceH}% 0)`
                 el.style.transform = `translateX(${tx}px)`
                 el.style.opacity = active ? "1" : "0"
@@ -64,19 +64,19 @@ function GlitchLetter({ char }) {
         }
 
         function runBurst() {
-            const frames = Math.floor(randomBetween(4, 10))
+            const frames = Math.floor(randomBetween(6, 16))
             let count = 0
             function tick() {
                 if (count >= frames) { clearGlitch(); scheduleNext(); return }
                 applyGlitch()
                 count++
-                timeoutRef.current = setTimeout(tick, randomBetween(30, 90))
+                timeoutRef.current = setTimeout(tick, randomBetween(20, 60))
             }
             tick()
         }
 
         function scheduleNext() {
-            timeoutRef.current = setTimeout(runBurst, randomBetween(100, 500))
+            timeoutRef.current = setTimeout(runBurst, randomBetween(50, 250))
         }
 
         clearTimeout(timeoutRef.current)
