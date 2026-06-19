@@ -24,7 +24,7 @@ function HeroSection() {
                 <h2 className="hero-subtitle">STACKHOUSE</h2>
 
                 <p className="hero-tagline mono">
-                    Web development studio. Digital, urban, awake.
+                    Full-stack web development. Digital, urban, awake.
                 </p>
             </div>
 
