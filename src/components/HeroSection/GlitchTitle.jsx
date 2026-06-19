@@ -29,11 +29,8 @@ function GlitchLetter({ char }) {
                 if (!el) return
                 const shouldShift = Math.random() > 0.35
                 const tx = shouldShift ? randomBetween(-80, 80) : 0
-                const rx = shouldShift ? randomBetween(-35, 35) : 0
-                const ry = shouldShift ? randomBetween(-45, 45) : 0
-                const tz = shouldShift ? randomBetween(-30, 30) : 0
                 el.style.clipPath = `inset(${i * sliceHeight}% 0 ${100 - (i + 1) * sliceHeight}% 0)`
-                el.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateX(${rx}deg) rotateY(${ry}deg)`
+                el.style.transform = `translateX(${tx}px)`
                 el.style.color = shouldShift ? COLORS[i] : "#ffffff"
                 el.style.opacity = shouldShift ? "1" : "0"
             })
