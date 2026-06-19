@@ -195,7 +195,7 @@
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
   font-size: inherit;
   line-height: inherit;
-  will-change: transform, filter;
+  will-change: transform;
 }
 
 .glitch-letter-layer {

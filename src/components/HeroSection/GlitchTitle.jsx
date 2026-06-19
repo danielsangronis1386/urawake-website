@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
-// word-level glitch removed — per-letter hover is cleaner
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
 const LETTER_LAYERS = IS_MOBILE ? 8 : 30
+const SHOULD_REDUCE = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
 const COLORS = Array.from({ length: LETTER_LAYERS }, (_, i) =>
     i % 3 === 0 ? "#00e5ff" : i % 3 === 1 ? "#ff2d78" : "#ffffff"
 )
@@ -18,11 +18,12 @@ function GlitchLetter({ char }) {
     const timeoutRef = useRef(null)
 
     useEffect(() => {
+        if (SHOULD_REDUCE) return
+
         function applyGlitch() {
             const sliceHeight = 100 / LETTER_LAYERS
             if (baseRef.current) {
                 baseRef.current.style.transform = `translateX(${randomBetween(-40, 40)}px) skewX(${randomBetween(-6, 6)}deg) scaleY(${randomBetween(0.92, 1.08)})`
-                baseRef.current.style.filter = `brightness(${randomBetween(0.4, 1.8)}) hue-rotate(${randomBetween(-40, 40)}deg)`
             }
             layersRef.current.forEach((el, i) => {
                 if (!el) return
@@ -38,7 +39,6 @@ function GlitchLetter({ char }) {
         function clearGlitch() {
             if (baseRef.current) {
                 baseRef.current.style.transform = "none"
-                baseRef.current.style.filter = "none"
             }
             layersRef.current.forEach(el => {
                 if (!el) return
@@ -66,7 +66,7 @@ function GlitchLetter({ char }) {
         clearTimeout(timeoutRef.current)
 
         if (hovered) {
-            runBurst()
+            timeoutRef.current = setTimeout(runBurst, 60)
         } else {
             clearGlitch()
         }
