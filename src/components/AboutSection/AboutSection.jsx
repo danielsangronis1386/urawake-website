@@ -4,27 +4,7 @@ import janyerlyn from "../../assets/about/janyerlyn morales.png"
 
 function AboutSection() {
     return (
-        <section className="about-section" id="about">
-
-            {/* ── STUDIO INTRO ── */}
-            <div className="about-studio-intro">
-                <h2 className="about-title">ABOUT</h2>
-
-                <p className="about-bio">
-                    <span className="bio-em">URAWAKE Stackhouse</span> is a web development studio based in <span className="bio-em">Los Angeles, California</span>.
-                    We design and build full digital presences for <span className="bio-em">startups and small businesses</span> that need more than a template —
-                    brands that need to exist, function, and convert from day one.
-                </p>
-                <p className="about-bio">
-                    We come in at the brand level: <span className="bio-em">identity, graphic design, development, and delivery</span>.
-                    Our main clientele is in <span className="bio-em">tourism and hospitality</span>, but we take on projects across industries
-                    and work with clients across the <span className="bio-em">United States</span>.
-                </p>
-                <p className="about-bio">
-                    Every element on every page earns its place.
-                    No filler, no static blocks. <span className="bio-em">Motion, interaction, and structure</span> that actually works.
-                </p>
-            </div>
+        <section className="about-section">
 
             {/* ── DANIEL ── */}
             <div className="about-left">
@@ -32,17 +12,22 @@ function AboutSection() {
             </div>
 
             <div className="about-right">
-                <div className="team-member-label">// Founder & Developer</div>
-                <h2 className="about-title">DANIEL<br />SANGRONIS</h2>
+                <h2 className="about-title">ABOUT</h2>
 
                 <p className="about-bio">
-                    I architect and build everything the studio ships — from <span className="bio-em">React frontends</span> to
-                    <span className="bio-em"> backend APIs, databases, and deployment</span>.
-                    If it runs in a browser or on a server, that's my side of the table.
+                    I'm Daniel Sangronis, a <span className="bio-em">web developer</span> and <span className="bio-em">creative director</span> based in <span className="bio-em">Los Angeles, California</span>.
+                    I started building in late 2025 and have spent the last year turning that into real client work,
+                    designing and developing full digital presences for businesses that had none.
                 </p>
                 <p className="about-bio">
-                    I started building in late 2025 and have spent the last year turning that into real client work —
-                    full digital presences for businesses that had none.
+                    My focus is <span className="bio-em">startups and small businesses</span> that need more than just a website.
+                    I work across the <span className="bio-em">United States</span>, coming in at the brand level: identity, graphic design,
+                    copywriting direction, and building everything through to a live, fast, functional product.
+                    My main clientele is in <span className="bio-em">tourism and hospitality</span>, but I take on projects across industries.
+                </p>
+                <p className="about-bio">
+                    What I care about: every page element should earn its place.
+                    No filler, no static blocks. <span className="bio-em">Motion, interaction, and structure</span> that actually converts.
                 </p>
 
                 <div className="about-links">
@@ -56,31 +41,11 @@ function AboutSection() {
                     <div className="skill-item">React</div>
                     <div className="skill-item">Python</div>
                     <div className="skill-item">Django</div>
-                    <div className="skill-item">Node.js</div>
-                    <div className="skill-item">PostgreSQL</div>
+                    <div className="skill-item">HTML</div>
+                    <div className="skill-item">CSS</div>
                     <div className="skill-item">REST APIs</div>
                     <div className="skill-item">Git</div>
                 </div>
-            </div>
-
-            {/* ── LEO ── */}
-            <div className="about-left about-left--placeholder">
-                <div className="portrait-placeholder">LC</div>
-            </div>
-
-            <div className="about-right">
-                <div className="team-member-label">// Project Manager</div>
-                <h2 className="about-title">LEO<br />CALDERA</h2>
-
-                <p className="about-bio">
-                    Leo is the bridge between the studio and the client.
-                    He handles <span className="bio-em">project scoping, client relations, and delivery coordination</span> —
-                    making sure every project starts with the right brief and ends with a satisfied client.
-                </p>
-                <p className="about-bio">
-                    He is the one who finds the opportunities, qualifies them, and keeps the team aligned from kickoff to launch.
-                    No project moves without his sign-off on scope.
-                </p>
             </div>
 
             {/* ── JANYERLYN ── */}
@@ -89,7 +54,7 @@ function AboutSection() {
             </div>
 
             <div className="about-right">
-                <div className="team-member-label">// Graphic Designer</div>
+                <div className="team-member-label">// Team</div>
                 <h2 className="about-title">JANYERLYN<br />MORALES</h2>
 
                 <p className="about-bio">

@@ -10,9 +10,9 @@ function HeroSection() {
 
             {/* TOP LEFT — identity */}
             <div className="hero-top-left mono">
-                <p>URAWAKE Stackhouse</p>
-                <p>Web Development Studio</p>
-                <p className="hero-brand-tag">Los Angeles, CA</p>
+                <p>Daniel Sangronis</p>
+                <p>Web Developer</p>
+                <p className="hero-brand-tag">URAWAKE Stackhouse</p>
             </div>
 
             {/* MAIN HERO CONTENT */}
