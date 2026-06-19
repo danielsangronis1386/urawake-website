@@ -49,7 +49,7 @@ const PROJECTS = [
         id: 3,
         title: "Eliot's CRM",
         subtitle: "Internal Booking & Customer Platform",
-        tagline: "Every tour, every customer — one dashboard.",
+        tagline: "Every tour, every customer. One dashboard.",
         description: "Custom CRM built for the Eliot's Adventures operations team. Manages tour bookings, customer records, taxi requests, and communications. Includes Gmail integration and a real-time booking calendar.",
         images: [ecrm1, ecrm2, ecrm3],
         stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Gmail API", "Heroku"],
