@@ -19,7 +19,7 @@ const SERVICES = [
     },
     {
         name: "BRAND TO WEB",
-        description: "From brand identity to live interface. We take your visual language or build it from scratch and turn it into a site that moves, converts, and represents your business at full force.",
+        description: "From brand identity to live interface. I take your visual language or build it from scratch and turn it into a site that moves, converts, and represents your business at full force. I don't do branding — but I work with a designer I trust. If you need it, I can bring her in.",
         techs: ["IDENTITY → WEB /", "RESPONSIVE /", "MOTION /", "CONVERSION /"],
     },
     {

@@ -70,6 +70,7 @@ function AboutSection() {
 
                 <p className="skills-label">// Brands</p>
                 <div className="about-brands">
+                    <span className="brand-tag">URAWAKE Stackhouse</span>
                     <span className="brand-tag">ToursToDo PR</span>
                     <span className="brand-tag">Eliot's Adventures</span>
                 </div>
