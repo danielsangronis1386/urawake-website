@@ -23,7 +23,7 @@ function GlitchLetter({ char }) {
         function applyGlitch() {
             const sliceHeight = 100 / LETTER_LAYERS
             if (baseRef.current) {
-                baseRef.current.style.transform = `translateX(${randomBetween(-40, 40)}px) skewX(${randomBetween(-6, 6)}deg) scaleY(${randomBetween(0.92, 1.08)})`
+                baseRef.current.style.transform = `translateX(${randomBetween(-40, 40)}px) rotateY(${randomBetween(-60, 60)}deg) rotateX(${randomBetween(-20, 20)}deg) scaleY(${randomBetween(0.92, 1.08)})`
             }
             layersRef.current.forEach((el, i) => {
                 if (!el) return
