@@ -188,6 +188,7 @@
 .glitch-letter-wrapper {
   position: relative;
   display: inline-block;
+  overflow: hidden;
 }
 
 .glitch-channel-red {
