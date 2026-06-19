@@ -8,8 +8,8 @@ function randomBetween(a, b) {
     return a + Math.random() * (b - a)
 }
 
-function GlitchLetter({ char }) {
-    const [hovered, setHovered] = useState(false)
+function GlitchLetter({ char, active }) {
+    const hovered = active
     const baseRef = useRef(null)
     const redRef = useRef(null)
     const cyanRef = useRef(null)
@@ -92,11 +92,7 @@ function GlitchLetter({ char }) {
     }, [hovered])
 
     return (
-        <span
-            className="glitch-letter-wrapper"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-        >
+        <span className="glitch-letter-wrapper">
             {/* base letter */}
             <span className="glitch-letter-base" ref={baseRef}>{char}</span>
 
@@ -120,10 +116,16 @@ function GlitchLetter({ char }) {
 }
 
 function GlitchTitle({ text }) {
+    const [active, setActive] = useState(false)
+
     return (
-        <h1 className="hero-title glitch-title-wrapper">
+        <h1
+            className="hero-title glitch-title-wrapper"
+            onMouseEnter={() => setActive(true)}
+            onMouseLeave={() => setActive(false)}
+        >
             {text.split("").map((char, i) => (
-                <GlitchLetter key={i} char={char} />
+                <GlitchLetter key={i} char={char} active={active} />
             ))}
         </h1>
     )
