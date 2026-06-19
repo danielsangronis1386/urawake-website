@@ -44,11 +44,9 @@ function GlitchLetter({ char, active }) {
                 if (!el) return
                 const active = Math.random() > 0.2
                 const tx = active ? randomBetween(-140, 140) : 0
-                const brightness = active ? randomBetween(0.3, 2.5) : 1
                 el.style.clipPath = `inset(${i * sliceH}% 0 ${100 - (i + 1) * sliceH}% 0)`
                 el.style.transform = `translateX(${tx}px)`
                 el.style.opacity = active ? randomBetween(0.6, 1).toString() : "0"
-                el.style.filter = `brightness(${brightness})`
                 el.style.color = Math.random() > 0.7 ? (Math.random() > 0.5 ? "#ff2d78" : "#00e5ff") : "#ffffff"
             })
         }
