@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
-const LETTER_LAYERS = IS_MOBILE ? 8 : 60
+const SCANLINES = IS_MOBILE ? 20 : 50
 const SHOULD_REDUCE = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
-const COLORS = Array.from({ length: LETTER_LAYERS }, (_, i) =>
-    i % 3 === 0 ? "#00e5ff" : i % 3 === 1 ? "#ff2d78" : "#ffffff"
-)
 
 function randomBetween(a, b) {
     return a + Math.random() * (b - a)
@@ -14,33 +11,52 @@ function randomBetween(a, b) {
 function GlitchLetter({ char }) {
     const [hovered, setHovered] = useState(false)
     const baseRef = useRef(null)
-    const layersRef = useRef([])
+    const redRef = useRef(null)
+    const cyanRef = useRef(null)
+    const linesRef = useRef([])
     const timeoutRef = useRef(null)
 
     useEffect(() => {
         if (SHOULD_REDUCE) return
 
         function applyGlitch() {
-            const sliceHeight = 100 / LETTER_LAYERS
+            const sliceH = 100 / SCANLINES
+
+            // chromatic aberration on base
             if (baseRef.current) {
-                baseRef.current.style.transform = `translateX(${randomBetween(-40, 40)}px) rotateY(${randomBetween(-60, 60)}deg) rotateX(${randomBetween(-20, 20)}deg) scaleY(${randomBetween(0.92, 1.08)})`
+                const shift = randomBetween(-6, 6)
+                baseRef.current.style.transform = `translateX(${shift}px)`
             }
-            layersRef.current.forEach((el, i) => {
+
+            // red channel — offset left
+            if (redRef.current) {
+                redRef.current.style.transform = `translateX(${randomBetween(-12, -3)}px)`
+                redRef.current.style.opacity = randomBetween(0.6, 0.9).toString()
+            }
+
+            // cyan channel — offset right
+            if (cyanRef.current) {
+                cyanRef.current.style.transform = `translateX(${randomBetween(3, 12)}px)`
+                cyanRef.current.style.opacity = randomBetween(0.6, 0.9).toString()
+            }
+
+            // scanline blocks — horizontal strips that shift left/right
+            linesRef.current.forEach((el, i) => {
                 if (!el) return
-                const shouldShift = Math.random() > 0.35
-                const tx = shouldShift ? randomBetween(-80, 80) : 0
-                el.style.clipPath = `inset(${i * sliceHeight}% 0 ${100 - (i + 1) * sliceHeight}% 0)`
+                const active = Math.random() > 0.45
+                const tx = active ? randomBetween(-60, 60) : 0
+                el.style.clipPath = `inset(${i * sliceH}% 0 ${100 - (i + 1) * sliceH}% 0)`
                 el.style.transform = `translateX(${tx}px)`
-                el.style.color = shouldShift ? COLORS[i] : "#ffffff"
-                el.style.opacity = shouldShift ? "1" : "0"
+                el.style.opacity = active ? "1" : "0"
+                el.style.color = "#ffffff"
             })
         }
 
         function clearGlitch() {
-            if (baseRef.current) {
-                baseRef.current.style.transform = "none"
-            }
-            layersRef.current.forEach(el => {
+            if (baseRef.current) baseRef.current.style.transform = "none"
+            if (redRef.current) { redRef.current.style.opacity = "0"; redRef.current.style.transform = "none" }
+            if (cyanRef.current) { cyanRef.current.style.opacity = "0"; cyanRef.current.style.transform = "none" }
+            linesRef.current.forEach(el => {
                 if (!el) return
                 el.style.opacity = "0"
                 el.style.transform = "translateX(0)"
@@ -48,13 +64,13 @@ function GlitchLetter({ char }) {
         }
 
         function runBurst() {
-            const frames = Math.floor(randomBetween(3, 9))
+            const frames = Math.floor(randomBetween(4, 10))
             let count = 0
             function tick() {
                 if (count >= frames) { clearGlitch(); scheduleNext(); return }
                 applyGlitch()
                 count++
-                timeoutRef.current = setTimeout(tick, randomBetween(30, 100))
+                timeoutRef.current = setTimeout(tick, randomBetween(30, 90))
             }
             tick()
         }
@@ -80,9 +96,23 @@ function GlitchLetter({ char }) {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
+            {/* base letter */}
             <span className="glitch-letter-base" ref={baseRef}>{char}</span>
-            {Array.from({ length: LETTER_LAYERS }).map((_, i) => (
-                <span key={i} className="glitch-letter-layer" ref={el => layersRef.current[i] = el} aria-hidden="true">{char}</span>
+
+            {/* red channel */}
+            <span className="glitch-letter-base glitch-channel-red" ref={redRef} aria-hidden="true">{char}</span>
+
+            {/* cyan channel */}
+            <span className="glitch-letter-base glitch-channel-cyan" ref={cyanRef} aria-hidden="true">{char}</span>
+
+            {/* scanline layers */}
+            {Array.from({ length: SCANLINES }).map((_, i) => (
+                <span
+                    key={i}
+                    className="glitch-letter-layer"
+                    ref={el => linesRef.current[i] = el}
+                    aria-hidden="true"
+                >{char}</span>
             ))}
         </span>
     )

@@ -188,7 +188,28 @@
 .glitch-letter-wrapper {
   position: relative;
   display: inline-block;
-  perspective: 300px;
+}
+
+.glitch-channel-red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ff2d78 !important;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.glitch-channel-cyan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #00e5ff !important;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
 }
 
 .glitch-letter-base {
