@@ -54,7 +54,7 @@ function AboutSection() {
             </div>
 
             <div className="about-right">
-                <div className="team-member-label">// Team</div>
+                <div className="team-member-label">// Collaborator</div>
                 <h2 className="about-title">JANYERLYN<br />MORALES</h2>
 
                 <p className="about-bio">
