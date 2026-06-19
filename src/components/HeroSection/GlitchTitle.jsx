@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
-const LETTER_LAYERS = IS_MOBILE ? 8 : 30
+const LETTER_LAYERS = IS_MOBILE ? 8 : 60
 const SHOULD_REDUCE = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
 const COLORS = Array.from({ length: LETTER_LAYERS }, (_, i) =>
     i % 3 === 0 ? "#00e5ff" : i % 3 === 1 ? "#ff2d78" : "#ffffff"
