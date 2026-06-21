@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
 const SCANLINES = IS_MOBILE ? 20 : 120
@@ -9,6 +9,7 @@ function randomBetween(a, b) {
 }
 
 function GlitchLetter({ char }) {
+    const [hovered, setHovered] = useState(false)
     const baseRef = useRef(null)
     const redRef = useRef(null)
     const cyanRef = useRef(null)
@@ -77,14 +78,23 @@ function GlitchLetter({ char }) {
             timeoutRef.current = setTimeout(runBurst, randomBetween(20, 120))
         }
 
-        // each letter starts its own independent cycle with a random offset
-        timeoutRef.current = setTimeout(runBurst, randomBetween(0, 800))
+        clearTimeout(timeoutRef.current)
+
+        if (hovered) {
+            timeoutRef.current = setTimeout(runBurst, 60)
+        } else {
+            clearGlitch()
+        }
 
         return () => clearTimeout(timeoutRef.current)
-    }, [])
+    }, [hovered])
 
     return (
-        <span className="glitch-letter-wrapper">
+        <span
+            className="glitch-letter-wrapper"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
             {/* base letter */}
             <span className="glitch-letter-base" ref={baseRef}>{char}</span>
 
@@ -116,5 +126,6 @@ function GlitchTitle({ text }) {
         </h1>
     )
 }
+
 
 export default GlitchTitle
