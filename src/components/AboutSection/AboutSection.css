@@ -2,11 +2,11 @@
 .about-section {
   width: 100%;
   min-height: 100vh;
-  background: #0d2214;
+  background: #00FFFF;
   color: var(--white);
 
   display: grid;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: clamp(14rem, 22vw, 28rem) 1fr;
 
   padding: 0;
   border-top: 1px solid var(--border);
@@ -190,33 +190,36 @@
   color: var(--neon-green);
 }
 
-/* VERTICAL SECTION LABEL */
-.section-label-vertical {
+/* VERTICAL SECTION LABEL — BRUTALIST */
+.about-section .section-label-vertical {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(0.7rem, 1vw, 0.9rem);
-  letter-spacing: 0.25em;
+  font-size: clamp(14rem, 22vw, 28rem);
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.2);
+  color: #000;
   align-self: stretch;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid var(--border);
+  border-right: 3px solid #000;
   user-select: none;
+  line-height: 0.85;
+  overflow: hidden;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .about-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: clamp(5rem, 22vw, 8rem) 1fr;
     min-height: auto;
   }
 
-  .section-label-vertical {
-    display: none;
+  .about-section .section-label-vertical {
+    font-size: clamp(4rem, 18vw, 7rem);
+    border-right-width: 2px;
   }
 
   .about-grid {

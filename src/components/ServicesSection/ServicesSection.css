@@ -1,31 +1,33 @@
 /* ===== SERVICES SECTION — URAWAKE STACKHOUSE ===== */
 .services-section {
   width: 100%;
-  background: #1a0d2e;
+  background: #8A2BE2;
   color: var(--white);
   padding: 0;
   border-top: 1px solid var(--border);
   overflow: hidden;
 
   display: grid;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: clamp(14rem, 22vw, 28rem) 1fr;
 }
 
-.section-label-vertical {
+.services-section .section-label-vertical {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(0.7rem, 1vw, 0.9rem);
-  letter-spacing: 0.25em;
+  font-size: clamp(14rem, 22vw, 28rem);
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
   align-self: stretch;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid var(--border);
+  border-right: 3px solid rgba(255, 255, 255, 0.15);
   user-select: none;
+  line-height: 0.85;
+  overflow: hidden;
 }
 
 .services-body {
@@ -126,11 +128,12 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .services-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: clamp(5rem, 22vw, 8rem) 1fr;
   }
 
-  .section-label-vertical {
-    display: none;
+  .services-section .section-label-vertical {
+    font-size: clamp(4rem, 18vw, 7rem);
+    border-right-width: 2px;
   }
 
   .services-body {
