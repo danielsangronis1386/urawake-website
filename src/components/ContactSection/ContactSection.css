@@ -2,7 +2,7 @@
 .contact-section {
   width: 100%;
   min-height: 100vh;
-  background: var(--dark-surface);
+  background: #12100a;
   color: var(--white);
 
   display: grid;

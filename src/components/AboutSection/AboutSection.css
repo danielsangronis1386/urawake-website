@@ -2,7 +2,7 @@
 .about-section {
   width: 100%;
   min-height: 100vh;
-  background: var(--black);
+  background: #0a100a;
   color: var(--white);
 
   display: grid;
