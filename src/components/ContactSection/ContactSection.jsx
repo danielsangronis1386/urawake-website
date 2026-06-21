@@ -38,6 +38,10 @@ function ContactSection() {
     return (
         <section className="contact-section" id="contact">
 
+            <div className="section-label-vertical">CONTACT</div>
+
+            <div className="contact-body">
+
             {/* LEFT — decorative */}
             <div className="contact-left">
                 <p className="contact-eyebrow mono">// Let's build something</p>
@@ -48,7 +52,6 @@ function ContactSection() {
 
             {/* RIGHT — form */}
             <div className="contact-right">
-                <h2 className="contact-title">CONTACT</h2>
 
                 {status === "success" ? (
                     <div className="contact-success">
@@ -131,6 +134,8 @@ function ContactSection() {
                     </form>
                 )}
             </div>
+
+            </div>{/* contact-body */}
 
         </section>
     );
