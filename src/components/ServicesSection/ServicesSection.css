@@ -23,7 +23,7 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   border-right: 3px solid rgba(255, 255, 255, 0.15);
   user-select: none;
   line-height: 0.85;
