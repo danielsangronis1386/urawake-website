@@ -58,10 +58,10 @@ function ServicesSection() {
     return (
         <section className="services-section" id="services">
 
-            <div className="services-header">
-                <h2 className="services-title">SERVICES</h2>
-                <p className="services-eyebrow mono">// What I build</p>
-            </div>
+            <div className="section-label-vertical">SERVICES</div>
+
+            <div className="services-body">
+            <p className="services-eyebrow mono">// What I build</p>
 
             <div className="services-list">
                 {SERVICES.map((service, si) => (
@@ -87,6 +87,7 @@ function ServicesSection() {
                     </div>
                 ))}
             </div>
+            </div>{/* end services-body */}
 
         </section>
     );

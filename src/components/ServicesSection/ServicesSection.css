@@ -1,25 +1,35 @@
 /* ===== SERVICES SECTION — URAWAKE STACKHOUSE ===== */
 .services-section {
   width: 100%;
-  background: #0f0f18;
+  background: #1a0d2e;
   color: var(--white);
-  padding: 6rem 0 8rem;
+  padding: 0;
   border-top: 1px solid var(--border);
   overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 3rem 1fr;
 }
 
-/* HEADER */
-.services-header {
-  padding: 0 4rem;
-  margin-bottom: 4rem;
-}
-
-.services-title {
+.section-label-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 0.6rem;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+  user-select: none;
+}
+
+.services-body {
+  padding: 6rem 0 8rem;
 }
 
 .services-eyebrow {
@@ -27,6 +37,9 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--neon-green);
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+  display: block;
 }
 
 /* LIST */
@@ -113,10 +126,18 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .services-section {
+    grid-template-columns: 1fr;
+  }
+
+  .section-label-vertical {
+    display: none;
+  }
+
+  .services-body {
     padding: 3rem 0 5rem;
   }
 
-  .services-header {
+  .services-eyebrow {
     padding: 0 1.2rem;
     margin-bottom: 2rem;
   }
@@ -154,7 +175,7 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .services-header {
+  .services-eyebrow {
     padding: 0 2.5rem;
   }
 

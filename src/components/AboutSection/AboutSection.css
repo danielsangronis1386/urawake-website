@@ -2,15 +2,21 @@
 .about-section {
   width: 100%;
   min-height: 100vh;
-  background: #0a100a;
+  background: #0d2214;
   color: var(--white);
 
   display: grid;
+  grid-template-columns: 3rem 1fr;
+
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
-
   padding: 6rem 4rem;
-  border-top: 1px solid var(--border);
 }
 
 .portrait-img {
@@ -184,13 +190,39 @@
   color: var(--neon-green);
 }
 
+/* VERTICAL SECTION LABEL */
+.section-label-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+  user-select: none;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .about-section {
     grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .section-label-vertical {
+    display: none;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
     gap: 2.5rem;
     padding: 3rem 1.2rem;
-    min-height: auto;
   }
 
   .portrait-img {
@@ -200,11 +232,6 @@
 
   .portrait-placeholder {
     height: 280px;
-  }
-
-  .about-title {
-    font-size: clamp(3rem, 12vw, 5rem);
-    margin-bottom: 1.2rem;
   }
 
   .about-bio {
@@ -220,7 +247,7 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .about-section {
+  .about-grid {
     padding: 5rem 2.5rem;
     gap: 3rem;
   }

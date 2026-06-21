@@ -128,7 +128,9 @@ function ProjectSection() {
 
     return (
         <section className="project-section">
-            <h2 className="project-section-title">PROJECTS</h2>
+            <div className="section-label-vertical">PROJECTS</div>
+
+            <div className="project-body">
             <p className="project-section-subtitle">Selected work from my portfolio</p>
 
             <div className="project-stage">
@@ -162,6 +164,7 @@ function ProjectSection() {
                     />
                 )}
             </div>
+            </div>{/* end project-body */}
         </section>
     );
 }

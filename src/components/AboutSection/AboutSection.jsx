@@ -6,14 +6,16 @@ function AboutSection() {
     return (
         <section className="about-section">
 
+            <div className="section-label-vertical">ABOUT</div>
+
+            <div className="about-grid">
+
             {/* ── DANIEL ── */}
             <div className="about-left">
                 <img src={portrait} alt="Daniel Sangronis" className="portrait-img" width="400" height="500" />
             </div>
 
             <div className="about-right">
-                <h2 className="about-title">ABOUT</h2>
-
                 <p className="about-bio">
                     I'm Daniel Sangronis, a <span className="bio-em">web developer</span> and <span className="bio-em">creative director</span> based in <span className="bio-em">Los Angeles, California</span>.
                     I started building in late 2025 and have spent the last year turning that into real client work,
@@ -91,6 +93,8 @@ function AboutSection() {
                     <div className="skill-item">Video Editing</div>
                 </div>
             </div>
+
+            </div>{/* end about-grid */}
 
         </section>
     )

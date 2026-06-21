@@ -1,23 +1,35 @@
 /* ===== PROJECT SECTION ===== */
 .project-section {
-  background: #0d1117;
+  background: #0d1a3a;
   color: var(--white);
-  padding: 6rem 4rem;
+  padding: 0;
   width: 100%;
   border-top: 1px solid var(--border);
   overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 3rem 1fr;
 }
 
-.project-section-title {
+.section-label-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 1;
-  color: #000;
-  background: var(--neon-green);
-  display: inline-block;
-  padding: 0 0.4em;
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5rem;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+  user-select: none;
+}
+
+.project-body {
+  padding: 6rem 4rem;
 }
 
 .project-section-subtitle {
@@ -54,6 +66,14 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .project-section {
+    grid-template-columns: 1fr;
+  }
+
+  .section-label-vertical {
+    display: none;
+  }
+
+  .project-body {
     padding: 3rem 1.2rem;
   }
 
@@ -67,7 +87,7 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .project-section {
+  .project-body {
     padding: 5rem 2.5rem;
   }
 
