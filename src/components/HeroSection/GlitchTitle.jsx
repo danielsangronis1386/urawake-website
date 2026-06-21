@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 const IS_MOBILE = typeof window !== "undefined" && window.innerWidth < 768
 const SCANLINES = IS_MOBILE ? 20 : 120
@@ -8,8 +8,7 @@ function randomBetween(a, b) {
     return a + Math.random() * (b - a)
 }
 
-function GlitchLetter({ char, active }) {
-    const hovered = active
+function GlitchLetter({ char }) {
     const baseRef = useRef(null)
     const redRef = useRef(null)
     const cyanRef = useRef(null)
@@ -42,11 +41,11 @@ function GlitchLetter({ char, active }) {
             // scanline blocks
             linesRef.current.forEach((el, i) => {
                 if (!el) return
-                const active = Math.random() > 0.2
-                const tx = active ? randomBetween(-140, 140) : 0
+                const on = Math.random() > 0.2
+                const tx = on ? randomBetween(-140, 140) : 0
                 el.style.clipPath = `inset(${i * sliceH}% 0 ${100 - (i + 1) * sliceH}% 0)`
                 el.style.transform = `translateX(${tx}px)`
-                el.style.opacity = active ? randomBetween(0.6, 1).toString() : "0"
+                el.style.opacity = on ? randomBetween(0.6, 1).toString() : "0"
                 el.style.color = Math.random() > 0.7 ? (Math.random() > 0.5 ? "#ff2d78" : "#00e5ff") : "#ffffff"
             })
         }
@@ -78,16 +77,11 @@ function GlitchLetter({ char, active }) {
             timeoutRef.current = setTimeout(runBurst, randomBetween(20, 120))
         }
 
-        clearTimeout(timeoutRef.current)
-
-        if (hovered) {
-            timeoutRef.current = setTimeout(runBurst, 60)
-        } else {
-            clearGlitch()
-        }
+        // each letter starts its own independent cycle with a random offset
+        timeoutRef.current = setTimeout(runBurst, randomBetween(0, 800))
 
         return () => clearTimeout(timeoutRef.current)
-    }, [hovered])
+    }, [])
 
     return (
         <span className="glitch-letter-wrapper">
@@ -114,16 +108,10 @@ function GlitchLetter({ char, active }) {
 }
 
 function GlitchTitle({ text }) {
-    const [active, setActive] = useState(false)
-
     return (
-        <h1
-            className="hero-title glitch-title-wrapper"
-            onMouseEnter={() => setActive(true)}
-            onMouseLeave={() => setActive(false)}
-        >
+        <h1 className="hero-title glitch-title-wrapper">
             {text.split("").map((char, i) => (
-                <GlitchLetter key={i} char={char} active={active} />
+                <GlitchLetter key={i} char={char} />
             ))}
         </h1>
     )
