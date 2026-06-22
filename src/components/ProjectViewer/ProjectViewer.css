@@ -287,7 +287,17 @@
 
   .viewer-arrow {
     opacity: 1;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    background: var(--black);
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    padding: 0.8rem 1.4rem;
   }
+
+  .viewer-arrow-left  { left: 0; right: auto; }
+  .viewer-arrow-right { right: 0; left: auto; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
