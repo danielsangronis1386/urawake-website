@@ -28,6 +28,10 @@ function CaseStudyPage() {
     const cs = CASE_STUDIES.find((c) => c.slug === slug);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [slug]);
+
+    useEffect(() => {
         if (!cs) return;
 
         const url = `https://urawake.dev/case-studies/${cs.slug}`;

@@ -232,8 +232,12 @@
   }
 
   .cs-title-word {
-    font-size: clamp(3.5rem, 22vw, 7rem);
+    font-size: clamp(2.8rem, 16vw, 6rem);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    display: block;
+    width: 100%;
   }
 
   .cs-hero-right {

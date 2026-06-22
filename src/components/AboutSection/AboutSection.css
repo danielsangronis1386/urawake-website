@@ -213,19 +213,23 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .about-section {
-    grid-template-columns: clamp(5rem, 22vw, 8rem) 1fr;
+    grid-template-columns: 1fr;
     min-height: auto;
   }
 
+  /* hide vertical label on mobile — takes too much width */
   .about-section .section-label-vertical {
-    font-size: clamp(4rem, 18vw, 7rem);
-    border-right-width: 2px;
+    display: none;
   }
 
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     padding: 3rem 1.2rem;
+  }
+
+  .about-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
   .portrait-img {
