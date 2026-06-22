@@ -43,6 +43,7 @@ const PROJECTS = [
         description: "Custom CRM built for the ToursToDo operations team. Manages leads, bookings, customer segments, email campaigns, and affiliate tracking. Includes Gmail sync and AI-powered lead qualification.",
         images: [crm1, crm2, crm3],
         stack: ["React", "Vite", "Recharts", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe", "SendGrid", "Heroku"],
+        caseStudySlug: "tourstodopr",
     },
     {
         id: 3,

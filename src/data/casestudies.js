@@ -56,6 +56,54 @@ The business went from zero online presence to a fully operational booking syste
             },
         ],
     },
+    {
+        slug: "tourstodopr",
+        title: "ToursToDo PR",
+        metaTitle: "ToursToDo PR Case Study — Custom CRM & Email Automation | URAWAKE",
+        metaDescription: "How URAWAKE replaced Freshworks with a custom CRM for a Puerto Rico adventure tour operator — automated bookings, drip sequences, affiliate portal, and 8 integrations in one system.",
+        subtitle: "From Freshworks dependency and manual Gmail replies to a fully custom CRM with automated flows, campaign engine, and affiliate portal",
+        industry: "Adventure Tourism",
+        location: "Puerto Rico",
+        duration: "In progress — CRM in production",
+        liveUrl: "https://tourstodopr.com",
+        stack: ["React 18", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "SendGrid", "Gmail IMAP", "FareHarbor", "Stripe", "Google Gemini", "Bokun", "JWT", "Render", "Netlify"],
+        sections: [
+            {
+                heading: "The client",
+                body: `ToursToDo PR is an adventure tourism operator in Puerto Rico offering hiking, kayak, snorkel, ATV, horseback riding, city tours, and more. They run a high volume of bookings through FareHarbor and had built their customer operations on top of Freshworks and manual Gmail.
+
+The business was growing. The tooling underneath it was expensive, fragmented, and required a person to read and respond to every single email by hand.`,
+            },
+            {
+                heading: "The problem",
+                body: `Every booking confirmation from FareHarbor arrived as an email. Every customer follow-up went out manually from Gmail. There was no centralized view of leads, customers, or subscribers as distinct groups. No automation. No drip sequences. No way to run a campaign without exporting a list and sending one by one.
+
+Freshworks handled the CRM layer but at a recurring monthly cost, with no customization for how a tour operator actually works, and no integration with the tools already in use.
+
+The team spent significant time every day doing work that should have been automatic.`,
+            },
+            {
+                heading: "What we built",
+                body: `We built a full CRM from scratch, designed around how ToursToDo PR actually operates.
+
+The system separates contacts into three independent cohorts: leads, customers, and subscribers, each with their own segmentation logic. A campaign engine lets the team build and send emails to any dynamic audience segment, with open and click tracking via pixel. A Flow Engine handles drip automation with configurable triggers: days before a tour, days after a tour, days after enrollment. Every pre and post-tour communication now runs without human intervention.
+
+The inbox is synced via Gmail IMAP, centralizing all incoming client communication in one place. Emails are composed and refined with Google Gemini. Digital waivers are generated as PDFs with electronic signature. An affiliate portal gives partners a self-serve dashboard to track clicks and commissions without any manual reporting.
+
+Bookings arrive via FareHarbor webhook and email parsing. Leads flow in from WordPress forms and Meta ads. Everything lives in one system with 32 data models and 8 external integrations.`,
+            },
+            {
+                heading: "The results",
+                body: `The monthly Freshworks cost is gone, replaced entirely by a system built for this specific business.
+
+Zero manual emails go out for booking sequences. The Flow Engine handles every pre-tour and post-tour communication automatically. Three independent audience cohorts with dynamic segmentation give the team control over campaigns that did not exist before.
+
+Eight external systems, FareHarbor, SendGrid, Gmail, Stripe, WordPress, Meta, Google Gemini, and Bokun, are consolidated into a single interface. The affiliate program runs itself. Waivers are signed digitally and stored as PDFs.
+
+The web migration from WordPress to React is in active development. The CRM is already in production.`,
+            },
+        ],
+    },
 ];
 
 export default CASE_STUDIES;
