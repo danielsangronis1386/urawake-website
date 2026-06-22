@@ -102,7 +102,7 @@ function CaseStudyPage() {
             {/* HERO */}
             <div className="cs-hero">
                 <div className="cs-hero-top">
-                    <button className="cs-back mono" onClick={() => navigate(-1)}>← Back</button>
+                    <button className="cs-back mono" onClick={() => navigate("/#projects")}>← Back</button>
                     <h1 className="cs-title">
                         {titleWords.map((word, i) => (
                             <span

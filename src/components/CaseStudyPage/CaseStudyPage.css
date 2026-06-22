@@ -21,6 +21,7 @@
   flex-direction: column;
   gap: 2rem;
   overflow: visible;
+  position: relative;
 }
 
 /* BOTTOM — two column meta row */
@@ -32,7 +33,9 @@
 }
 
 .cs-back {
-  display: inline-block;
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.4);
@@ -42,7 +45,6 @@
   cursor: pointer;
   transition: color 0.2s;
   text-transform: uppercase;
-  padding-left: 2.5rem;
   font-family: "Inter", sans-serif;
 }
 .cs-back:hover { color: var(--neon-green); }

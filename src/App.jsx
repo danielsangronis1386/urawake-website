@@ -21,6 +21,16 @@ const SECTION_URLS = {
 
 function HomePage() {
   useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }, []);
+
+  useEffect(() => {
     const sections = [
       document.getElementById('hero'),
       document.getElementById('projects'),
