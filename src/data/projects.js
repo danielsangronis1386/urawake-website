@@ -4,9 +4,11 @@ import ea3 from "../assets/eliots-adventure/eliots 3.png";
 import tw1 from "../assets/tourstodo-website/tours2do 1.png";
 import tw2 from "../assets/tourstodo-website/tours2do 2.png";
 import tw3 from "../assets/tourstodo-website/tours2do 3.png";
-import crm1 from "../assets/tourstodo-crm/img1.png";
-import crm2 from "../assets/tourstodo-crm/img2.png";
-import crm3 from "../assets/tourstodo-crm/img3.png";
+import crm0 from "../assets/tourstodo-crm/torstodcrm0.png";
+import crm1 from "../assets/tourstodo-crm/torstodcrm1.png";
+import crm2 from "../assets/tourstodo-crm/torstodcrm2.png";
+import crm3 from "../assets/tourstodo-crm/torstodcrm3.png";
+import crm4 from "../assets/tourstodo-crm/torstodcrm4.png";
 import ecrm1 from "../assets/eliots-adventure/eliotscrm1.png";
 import ecrm2 from "../assets/eliots-adventure/eliotscrm2.png";
 import ecrm3 from "../assets/eliots-adventure/eliotscrm3.png";
@@ -41,7 +43,7 @@ const PROJECTS = [
         subtitle: "Internal Operations Platform",
         tagline: "Operations at full speed, zero spreadsheets.",
         description: "Custom CRM built for the ToursToDo operations team. Manages leads, bookings, customer segments, email campaigns, and affiliate tracking. Includes Gmail sync and AI-powered lead qualification.",
-        images: [crm1, crm2, crm3],
+        images: [crm0, crm1, crm2, crm3, crm4],
         stack: ["React", "Vite", "Recharts", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe", "SendGrid", "Heroku"],
         caseStudySlug: "tourstodopr",
     },
