@@ -42,6 +42,13 @@ function ContactSection() {
 
             <div className="contact-body">
 
+            {/* CTA — fills empty space above form */}
+            <div className="contact-cta">
+                <p className="contact-cta-text">YOUR NEXT PROJECT STARTS HERE. LET'S BUILD SOMETHING THAT WORKS.</p>
+                <span className="contact-cta-arrow">↓</span>
+            </div>
+
+            <div className="contact-form-row">
             {/* LEFT — decorative */}
             <div className="contact-left">
                 <p className="contact-eyebrow mono">// Get in touch</p>
@@ -140,15 +147,9 @@ function ContactSection() {
                     </form>
                 )}
             </div>
+            </div>{/* contact-form-row */}
 
             </div>{/* contact-body */}
-
-            <div className="contact-cta">
-                <p className="contact-cta-text">
-                    YOUR NEXT PROJECT STARTS HERE. LET'S BUILD SOMETHING THAT WORKS.
-                </p>
-                <span className="contact-cta-arrow">↑</span>
-            </div>
 
         </section>
     );
