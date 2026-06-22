@@ -12,7 +12,7 @@
 }
 
 .project-section .section-label-vertical {
-  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
   text-orientation: mixed;
 
   font-family: "Archivo Black", sans-serif;
@@ -23,7 +23,7 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-right: 3px solid rgba(255, 255, 255, 0.15);
   user-select: none;
   line-height: 0.85;
