@@ -16,7 +16,7 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: clamp(14rem, 22vw, 28rem);
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -55,7 +55,7 @@
 }
 
 .contact-display {
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: clamp(4rem, 8vw, 9rem);
   line-height: 0.9;
   color: transparent;
@@ -113,7 +113,7 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   color: #000;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   padding: 0.6rem 0;
   outline: none;
@@ -164,7 +164,7 @@
   background: transparent;
   border: 1px solid #000;
   color: #000;
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 1.1rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;

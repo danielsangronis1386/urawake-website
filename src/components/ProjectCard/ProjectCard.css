@@ -70,7 +70,7 @@
 }
 
 .card-title {
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: clamp(1.3rem, 2vw, 1.7rem);
   font-weight: 400;
   text-transform: uppercase;
@@ -88,7 +88,7 @@
 }
 
 .card-description {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.05rem;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.6);

@@ -155,7 +155,7 @@
 
 /* MASSIVE TITLE */
 .hero-title {
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: clamp(5rem, 28vw, 100vw);
   line-height: 0.82;
   letter-spacing: -0.02em;
@@ -215,7 +215,7 @@
 
 .glitch-letter-base {
   display: inline-block;
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: inherit;
   line-height: inherit;
   will-change: transform;
@@ -226,7 +226,7 @@
   top: 0;
   left: 0;
   display: inline-block;
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: inherit;
   line-height: inherit;
   opacity: 0;
@@ -237,7 +237,7 @@
 
 /* SUBTITLE — offset right for brutalist asymmetry */
 .hero-subtitle {
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: clamp(1.8rem, 5vw, 5rem);
   letter-spacing: 0.25em;
   color: transparent;
