@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./ProjectViewer.css";
 
 function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
@@ -9,7 +10,7 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
         setSlideIdx(0);
     }, [project.id]);
 
-    const { title, subtitle, description, images, stack, liveUrl } = project;
+    const { title, subtitle, description, images, stack, liveUrl, caseStudySlug } = project;
 
     const prevSlide = () => setSlideIdx((p) => (p - 1 + images.length) % images.length);
     const nextSlide = () => setSlideIdx((p) => (p + 1) % images.length);
@@ -81,6 +82,12 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
                         >
                             // View live site →
                         </a>
+                    )}
+
+                    {caseStudySlug && (
+                        <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link viewer-case-study-link">
+                            // Read case study →
+                        </Link>
                     )}
 
                     {/* Project navigation */}
