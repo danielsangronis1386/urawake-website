@@ -7,7 +7,7 @@ function scrollToSection(id) {
     const el = document.getElementById(id)
     if (el) {
         window.history.pushState(null, "", `#${id}`);
-        window.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 }
 
