@@ -61,12 +61,16 @@ function ProjectSection() {
         setSelected(idx);
         setViewerProject(PROJECTS[idx]);
         window.history.pushState(null, "", `/projects/${PROJECTS[idx].slug}`);
-        setTimeout(() => setShowViewer(true), 900);
+        setTimeout(() => {
+            setShowViewer(true);
+            document.body.classList.add("viewer-open");
+        }, 900);
     }, []);
 
     const closeProject = useCallback(() => {
         setShowViewer(false);
         setClosing(true);
+        document.body.classList.remove("viewer-open");
         window.history.pushState(null, "", "/#projects");
         setTimeout(() => {
             setSelected(null);
