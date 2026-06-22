@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
 import ProjectViewer from "../ProjectViewer";
@@ -38,6 +39,23 @@ function ProjectSection() {
     const [viewerProject, setViewerProject] = useState(null);
     const [showViewer, setShowViewer] = useState(false);
     const [closing, setClosing] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        const slug = location.state?.openProject;
+        if (!slug) return;
+        const idx = PROJECTS.findIndex((p) => p.caseStudySlug === slug);
+        if (idx === -1) return;
+        // scroll to projects section then open viewer
+        const el = document.getElementById("projects");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(() => {
+            setSelected(idx);
+            setViewerProject(PROJECTS[idx]);
+            window.history.replaceState(null, "", `/projects/${PROJECTS[idx].slug}`);
+            setTimeout(() => setShowViewer(true), 900);
+        }, 400);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const openProject = useCallback((idx) => {
         setSelected(idx);
