@@ -58,7 +58,7 @@ The business went from zero online presence to a fully operational booking syste
     },
     {
         slug: "tourstodopr",
-        title: "ToursToDo PR",
+        title: "Tours ToDo PR",
         metaTitle: "ToursToDo PR Case Study — Custom CRM & Email Automation | URAWAKE",
         metaDescription: "How URAWAKE replaced Freshworks with a custom CRM for a Puerto Rico adventure tour operator — automated bookings, drip sequences, affiliate portal, and 8 integrations in one system.",
         subtitle: "From Freshworks dependency and manual Gmail replies to a fully custom CRM with automated flows, campaign engine, and affiliate portal",
