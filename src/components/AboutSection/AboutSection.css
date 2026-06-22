@@ -255,3 +255,75 @@
     gap: 3rem;
   }
 }
+
+/* ===== COLLAGE CARD ===== */
+.collage-card {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  overflow: visible;
+}
+
+/* solid color background square */
+.collage-bg {
+  position: absolute;
+  width: 78%;
+  height: 88%;
+  top: 6%;
+  right: 0;
+  z-index: 0;
+}
+.collage-bg--cyan  { background: #00FFFF; }
+.collage-bg--green { background: var(--neon-green); }
+
+/* AWAKE word — behind photo */
+.collage-word {
+  position: absolute;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(4rem, 11vw, 13rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #000;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.collage-word--back {
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.collage-word--front {
+  bottom: 0;
+  right: -2%;
+  z-index: 3;
+}
+
+/* photo container */
+.collage-photo-wrap {
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  width: 72%;
+  height: 80%;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 #000;
+}
+
+.collage-photo-wrap--offset {
+  top: 5%;
+  left: 18%;
+}
+
+.collage-photo-wrap .portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: #000;
+  filter: grayscale(100%);
+}

@@ -12,7 +12,14 @@ function AboutSection() {
 
             {/* ── DANIEL ── */}
             <div className="about-left">
-                <img src={portrait} alt="Daniel Sangronis" className="portrait-img" width="400" height="500" />
+                <div className="collage-card">
+                    <div className="collage-bg collage-bg--cyan" />
+                    <div className="collage-word collage-word--back">AWAKE</div>
+                    <div className="collage-photo-wrap">
+                        <img src={portrait} alt="Daniel Sangronis" className="portrait-img" />
+                    </div>
+                    <div className="collage-word collage-word--front">AWAKE</div>
+                </div>
             </div>
 
             <div className="about-right">
@@ -52,7 +59,14 @@ function AboutSection() {
 
             {/* ── JANYERLYN ── */}
             <div className="about-left">
-                <img src={janyerlyn} alt="Janyerlyn Morales" className="portrait-img" width="400" height="500" />
+                <div className="collage-card">
+                    <div className="collage-bg collage-bg--green" />
+                    <div className="collage-word collage-word--back">AWAKE</div>
+                    <div className="collage-photo-wrap collage-photo-wrap--offset">
+                        <img src={janyerlyn} alt="Janyerlyn Morales" className="portrait-img" />
+                    </div>
+                    <div className="collage-word collage-word--front">AWAKE</div>
+                </div>
             </div>
 
             <div className="about-right">
