@@ -137,9 +137,9 @@
 
 .cs-section-body p {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   line-height: 1.9;
-  color: rgba(255,255,255,0.6);
+  color: var(--white);
   margin-bottom: 1.4rem;
 }
 
