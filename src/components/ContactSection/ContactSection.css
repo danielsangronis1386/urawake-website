@@ -3,6 +3,7 @@
   width: 100%;
   background: #39FF14;
   color: #000;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: clamp(14rem, 22vw, 28rem) 1fr;

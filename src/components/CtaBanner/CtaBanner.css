@@ -1,0 +1,63 @@
+.cta-banner {
+  width: 100%;
+  background: #fff;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  overflow: hidden;
+}
+
+.cta-banner-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 4rem;
+  text-decoration: none;
+  gap: 2rem;
+  transition: background 0.2s ease;
+}
+
+.cta-banner-link:hover {
+  background: #000;
+}
+
+.cta-banner-link:hover .cta-banner-text,
+.cta-banner-link:hover .cta-banner-arrow {
+  color: #39FF14;
+}
+
+.cta-banner-text {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 5rem);
+  line-height: 1.0;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.cta-banner-arrow {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(3rem, 6vw, 7rem);
+  color: #000;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-banner-link:hover .cta-banner-arrow {
+  transform: translateX(12px);
+}
+
+@media (max-width: 768px) {
+  .cta-banner-link {
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cta-banner-arrow {
+    align-self: flex-end;
+  }
+}
