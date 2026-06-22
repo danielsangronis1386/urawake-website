@@ -20,6 +20,7 @@ const PROJECTS = [
         tagline: "15 years of the island, one booking away.",
         description: "Full website and custom CRM for a family-run Puerto Rico tour and taxi service. The public site features tour listings, travel guides, and online booking. The internal CRM manages bookings, customer records, and communications. Built to reflect 15 years of local expertise across the island.",
         liveUrl: "https://www.eliotsadventures.com/",
+        caseStudySlug: "eliots-adventures",
         images: [ea1, ea2, ea3],
         stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Gmail API", "Heroku"],
     },

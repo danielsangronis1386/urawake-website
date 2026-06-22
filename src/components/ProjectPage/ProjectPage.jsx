@@ -33,7 +33,7 @@ function ProjectPage() {
         );
     }
 
-    const { title, subtitle, description, images, stack, liveUrl } = project;
+    const { title, subtitle, description, images, stack, liveUrl, caseStudySlug } = project;
 
     const prevSlide = () => setSlideIdx((p) => (p - 1 + images.length) % images.length);
     const nextSlide = () => setSlideIdx((p) => (p + 1) % images.length);
@@ -108,6 +108,12 @@ function ProjectPage() {
                         >
                             // View live site →
                         </a>
+                    )}
+
+                    {caseStudySlug && (
+                        <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link" style={{ display: "block", marginTop: "0.5rem" }}>
+                            // Read case study →
+                        </Link>
                     )}
 
                     <div className="viewer-nav">
