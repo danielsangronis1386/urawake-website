@@ -117,17 +117,15 @@ The CRM launched alongside the public website and handled over 100 bookings and 
         sections: [
             {
                 heading: "The client",
-                body: `ToursToDo PR is an adventure tourism operator in Puerto Rico offering hiking, kayak, snorkel, ATV, horseback riding, city tours, and more. They run a high volume of bookings through FareHarbor and had built their customer operations on top of Freshworks and manual Gmail.
+                body: `ToursToDo PR is an adventure tourism operator in Puerto Rico offering hiking, kayak, snorkel, ATV, horseback riding, city tours, and more. They run a high volume of bookings through FareHarbor with no centralized system to manage customer operations, relying entirely on manual Gmail.
 
-The business was growing. The tooling underneath it was expensive, fragmented, and required a person to read and respond to every single email by hand.`,
+The business was growing. The tooling underneath it was nonexistent, fragmented, and required a person to read and respond to every single email by hand.`,
             },
             {
                 heading: "The problem",
                 body: `Every booking confirmation from FareHarbor arrived as an email. Every customer follow-up went out manually from Gmail. There was no centralized view of leads, customers, or subscribers as distinct groups. No automation. No drip sequences. No way to run a campaign without exporting a list and sending one by one.
 
-Freshworks handled the CRM layer but at a recurring monthly cost, with no customization for how a tour operator actually works, and no integration with the tools already in use.
-
-The team spent significant time every day doing work that should have been automatic.`,
+There was no CRM, no automation, no way to run a campaign without exporting a list and sending one by one. The team spent significant time every day doing work that should have been automatic.`,
             },
             {
                 heading: "What we built",
@@ -141,7 +139,7 @@ Bookings arrive via FareHarbor webhook and email parsing. Leads flow in from Wor
             },
             {
                 heading: "The results",
-                body: `The monthly Freshworks cost is gone, replaced entirely by a system built for this specific business.
+                body: `Where there was nothing, there is now a full system built for this specific business.
 
 Zero manual emails go out for booking sequences. The Flow Engine handles every pre-tour and post-tour communication automatically. Three independent audience cohorts with dynamic segmentation give the team control over campaigns that did not exist before.
 
