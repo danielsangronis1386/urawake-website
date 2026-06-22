@@ -54,6 +54,7 @@ const PROJECTS = [
         description: "Custom CRM built for the Eliot's Adventures operations team. Manages tour bookings, customer records, taxi requests, and communications. Includes Gmail integration and a real-time booking calendar.",
         images: [ecrm1, ecrm2, ecrm3],
         stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Gmail API", "Heroku"],
+        caseStudySlug: "eliots-crm",
     },
 ];
 

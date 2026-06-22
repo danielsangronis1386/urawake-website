@@ -57,6 +57,50 @@ The business went from zero online presence to a fully operational booking syste
         ],
     },
     {
+        slug: "eliots-crm",
+        title: "Eliot's CRM",
+        metaTitle: "Eliot's Adventures CRM Case Study — Custom Booking & Operations Platform | URAWAKE",
+        metaDescription: "How URAWAKE built the internal operations platform behind Eliot's Adventures — Gmail inbox parsing, automatic Airbnb and Viator booking creation, waiver tracking, and a full booking calendar.",
+        subtitle: "The operations engine behind the booking system — Gmail parsing, automated booking creation, waiver dashboard, and full customer history in one platform",
+        industry: "Tourism & Hospitality",
+        location: "Puerto Rico",
+        duration: "4 months (Feb – Jun 2026)",
+        liveUrl: null,
+        stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Gmail API", "PDFKit", "JWT", "Heroku"],
+        sections: [
+            {
+                heading: "The client",
+                body: `Eliot's Adventures is a husband-and-wife tour operation in Puerto Rico. While the public website handles customer bookings and payments, the internal side of the business ran entirely on the owners' phones and memory.
+
+Every confirmation email from Airbnb and Viator had to be read manually, copied into a spreadsheet, and tracked by hand. Waivers were physical paper. There was no customer history, no analytics, no way to know what was happening in the business without asking someone directly.`,
+            },
+            {
+                heading: "The problem",
+                body: `The manual intake process was the bottleneck. A booking from Airbnb arrives as a confirmation email. Someone reads it, extracts the details, creates a record, follows up with the customer, sends a waiver, tracks whether it came back. When it cancels, someone reads that email too, finds the record, and updates it.
+
+Multiply that by dozens of bookings a month across multiple platforms and the math breaks down. The business was handling volume that the system was not built for.`,
+            },
+            {
+                heading: "What we built",
+                body: `We built a full internal operations platform alongside the public booking site.
+
+The booking calendar shows every reservation in real time with its full lifecycle state: confirmed, cancelled, rescheduled, no-show, paid. Staff can create, edit, and manage bookings directly. Customer profiles track history, notes, and all past interactions across every tour and transfer.
+
+The Gmail inbox syncs every 5 minutes. When an Airbnb confirmation email arrives, a booking is created automatically. When a Viator cancellation arrives, the booking is cancelled. What used to take 15 minutes of manual entry per booking now takes zero. Staff accounts with JWT authentication allow multiple team members to access the system with their own credentials.
+
+Waivers are generated per booking and tracked through a dedicated dashboard. Quote generation with PDF export lets the team send professional estimates in seconds. Promo codes and booking analytics give the owners a live view of revenue, occupancy, and customer behavior.`,
+            },
+            {
+                heading: "The results",
+                body: `The manual intake process is gone. Every Airbnb and Viator booking enters the system automatically. Every cancellation is handled the same way. The owners no longer spend time reading confirmation emails and copying details into a spreadsheet.
+
+With dozens of bookings per month at roughly 15 minutes of manual intake each, the automation returns approximately 20 hours per month to the operations team. Waiver tracking moved entirely off paper. Customer history is now searchable and attached to every booking.
+
+The CRM launched alongside the public website and handled over 100 bookings and 130 waivers in its first 4 months in production.`,
+            },
+        ],
+    },
+    {
         slug: "tourstodopr",
         title: "Tours ToDo PR",
         metaTitle: "ToursToDo PR Case Study — Custom CRM & Email Automation | URAWAKE",
