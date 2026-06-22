@@ -58,7 +58,7 @@ The business went from zero online presence to a fully operational booking syste
     },
     {
         slug: "eliots-crm",
-        title: "Eliot's CRM",
+        title: "Eliot's Adventures CRM",
         metaTitle: "Eliot's Adventures CRM Case Study — Custom Booking & Operations Platform | URAWAKE",
         metaDescription: "How URAWAKE built the internal operations platform behind Eliot's Adventures — Gmail inbox parsing, automatic Airbnb and Viator booking creation, waiver tracking, and a full booking calendar.",
         subtitle: "The operations engine behind the booking system — Gmail parsing, automated booking creation, waiver dashboard, and full customer history in one platform",
