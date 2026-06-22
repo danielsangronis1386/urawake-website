@@ -69,7 +69,7 @@ function ProjectSection() {
     const isScattered = selected !== null; // keep grid borderless during both open AND close
 
     return (
-        <section className="project-section">
+        <section className="project-section" id="projects">
             <div className="section-label-vertical">PROJECTS</div>
 
             <div className="project-body">

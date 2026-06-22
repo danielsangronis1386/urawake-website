@@ -4,7 +4,7 @@ import janyerlyn from "../../assets/about/janyerlyn morales.png"
 
 function AboutSection() {
     return (
-        <section className="about-section">
+        <section className="about-section" id="about">
 
             <div className="section-label-vertical">ABOUT</div>
 
