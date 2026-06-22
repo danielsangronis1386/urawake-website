@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
 import ProjectViewer from "../ProjectViewer";
@@ -29,39 +30,43 @@ function ProjectSection() {
     const [viewerProject, setViewerProject] = useState(null);
     const [showViewer, setShowViewer] = useState(false);
     const [closing, setClosing] = useState(false);
+    const navigate = useNavigate();
 
     const openProject = useCallback((idx) => {
         setSelected(idx);
         setViewerProject(PROJECTS[idx]);
-        // Wait for last card to finish: 5 * 60ms delay + 550ms animation
+        navigate(`/projects/${PROJECTS[idx].slug}`, { replace: false });
         setTimeout(() => setShowViewer(true), 900);
-    }, []);
+    }, [navigate]);
 
     const closeProject = useCallback(() => {
         setShowViewer(false);
         setClosing(true);
+        navigate("/#projects", { replace: false });
         setTimeout(() => {
             setSelected(null);
             setViewerProject(null);
             setClosing(false);
         }, 650);
-    }, []);
+    }, [navigate]);
 
     const goPrev = useCallback(() => {
         setSelected((prev) => {
             const next = (prev - 1 + PROJECTS.length) % PROJECTS.length;
             setViewerProject(PROJECTS[next]);
+            navigate(`/projects/${PROJECTS[next].slug}`, { replace: true });
             return next;
         });
-    }, []);
+    }, [navigate]);
 
     const goNext = useCallback(() => {
         setSelected((prev) => {
             const next = (prev + 1) % PROJECTS.length;
             setViewerProject(PROJECTS[next]);
+            navigate(`/projects/${PROJECTS[next].slug}`, { replace: true });
             return next;
         });
-    }, []);
+    }, [navigate]);
 
     const isScattered = selected !== null; // keep grid borderless during both open AND close
 
