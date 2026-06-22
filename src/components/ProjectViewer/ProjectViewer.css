@@ -159,14 +159,13 @@
 
 .viewer-title {
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: 400;
   text-transform: uppercase;
   color: var(--white);
   line-height: 1.05;
   letter-spacing: 0.01em;
   margin-bottom: 0.4rem;
-  word-break: break-word;
 }
 
 .viewer-subtitle {
