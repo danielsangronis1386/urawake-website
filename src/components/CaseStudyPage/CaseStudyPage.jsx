@@ -107,7 +107,7 @@ function CaseStudyPage() {
                         {titleWords.map((word, i) => (
                             <span
                                 key={i}
-                                className={`cs-title-word${i < titleWords.length - 1 ? " cs-title-word--label" : ""}`}
+                                className={`cs-title-word${i < (cs.titleLabelWords || 0) ? " cs-title-word--label" : ""}`}
                             >{word}</span>
                         ))}
                     </h1>
