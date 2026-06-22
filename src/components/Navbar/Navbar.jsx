@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./Navbar.css"
 
-const NAV_LINKS = ["About", "Projects", "Services", "Contact"]
+const NAV_LINKS = ["Projects", "Services", "About", "Contact"]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
