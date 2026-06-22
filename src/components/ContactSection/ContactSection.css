@@ -237,9 +237,9 @@
 .contact-cta {
   flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   padding: 5rem 4rem 3rem;
   gap: 2rem;
 }
@@ -254,9 +254,9 @@
 }
 
 .contact-cta-arrow {
-  width: clamp(5rem, 10vw, 12rem);
-  height: clamp(6rem, 12vw, 14rem);
-  flex-shrink: 0;
+  font-size: clamp(3rem, 5vw, 6rem);
+  color: #000;
+  line-height: 1;
 }
 
 .contact-form-row {
