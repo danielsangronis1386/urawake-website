@@ -6,80 +6,109 @@
   padding: 0 0 8rem;
 }
 
-.cs-back {
-  display: inline-block;
-  font-family: "DM Mono", monospace;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: var(--neon-green);
-  text-decoration: none;
-  padding: 2rem 2.5rem;
-  opacity: 0.8;
-  transition: opacity 0.2s;
+/* HERO */
+.cs-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  border-bottom: 1px solid var(--border);
 }
 
-.cs-back:hover { opacity: 1; }
+/* LEFT — massive stacked title */
+.cs-hero-left {
+  border-right: 1px solid var(--border);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-/* HEADER */
-.cs-header {
-  padding: 3rem 2.5rem 4rem;
-  border-bottom: 1px solid var(--border);
-  max-width: 900px;
+.cs-back {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+  text-transform: uppercase;
+}
+.cs-back:hover { color: var(--neon-green); }
+
+.cs-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  line-height: 0.85;
+}
+
+.cs-title-word {
+  font-family: "Bebas Neue", "Inter Tight", sans-serif;
+  font-size: clamp(5rem, 13vw, 16rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  display: block;
+  color: var(--white);
+}
+
+/* RIGHT — info */
+.cs-hero-right {
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.5rem;
 }
 
 .cs-eyebrow {
-  font-size: 0.82rem;
-  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--neon-green);
-  margin-bottom: 1.5rem;
 }
 
-.cs-title {
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(4rem, 9vw, 9rem);
-  line-height: 0.88;
-  letter-spacing: -0.02em;
+.cs-industry {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin: 0 0 1.5rem;
+  color: rgba(255,255,255,0.3);
+  margin: 0;
 }
 
 .cs-subtitle {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.6);
-  max-width: 680px;
-  margin-bottom: 2rem;
-  border-left: 2px solid var(--neon-green);
-  padding-left: 1.2rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--white);
+  margin: 0;
+  max-width: 480px;
 }
 
 .cs-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
   letter-spacing: 0.08em;
+  line-height: 1.8;
+  text-transform: uppercase;
 }
-
-.cs-meta-sep { opacity: 0.3; }
 
 .cs-live-link {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--neon-green);
   text-decoration: none;
-  opacity: 0.8;
   transition: opacity 0.2s;
 }
-.cs-live-link:hover { opacity: 1; }
+.cs-live-link:hover { opacity: 0.7; }
 
-/* METRICS — brutalist scatter */
+/* METRICS */
 .cs-metrics {
   padding: 5rem 2.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0;
-  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .cs-metric {
@@ -89,13 +118,11 @@
   padding: 0 4rem 3.5rem 0;
 }
 
-/* each metric gets its own massive size — asymmetric on purpose */
 .cs-metric:nth-child(1) .cs-metric-value { font-size: clamp(6rem, 14vw, 14rem); }
-.cs-metric:nth-child(2) .cs-metric-value { font-size: clamp(4rem, 9vw, 9rem);  color: var(--neon-green); }
+.cs-metric:nth-child(2) .cs-metric-value { font-size: clamp(4rem, 9vw, 9rem); color: var(--neon-green); }
 .cs-metric:nth-child(3) .cs-metric-value { font-size: clamp(5rem, 11vw, 11rem); }
-.cs-metric:nth-child(4) .cs-metric-value { font-size: clamp(3rem, 7vw, 7rem);  color: rgba(255,255,255,0.4); }
+.cs-metric:nth-child(4) .cs-metric-value { font-size: clamp(3rem, 7vw, 7rem); color: rgba(255,255,255,0.4); }
 .cs-metric:nth-child(5) .cs-metric-value { font-size: clamp(5rem, 10vw, 10rem); color: var(--neon-green); }
-.cs-metric:nth-child(6) .cs-metric-value { font-size: clamp(3.5rem, 7vw, 7rem); color: rgba(255,255,255,0.25); }
 
 .cs-metric-value {
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
@@ -106,11 +133,10 @@
 }
 
 .cs-metric-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
-  padding-left: 0.1rem;
+  color: rgba(255,255,255,0.3);
 }
 
 /* BODY */
@@ -137,13 +163,8 @@
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.05rem;
   line-height: 1.85;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255,255,255,0.65);
   margin-bottom: 1.4rem;
-}
-
-.cs-section-body strong {
-  color: var(--white);
-  font-weight: 600;
 }
 
 /* STACK */
@@ -153,9 +174,9 @@
 }
 
 .cs-stack-label {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.15em;
-  color: var(--neon-green);
+  color: rgba(255,255,255,0.3);
   margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
@@ -167,12 +188,12 @@
 }
 
 .cs-tag {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.35rem 0.8rem;
   border: 1px solid var(--border);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255,255,255,0.4);
 }
 
 /* FOOTER */
@@ -181,15 +202,14 @@
 }
 
 .cs-back-projects {
-  font-family: "DM Mono", monospace;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   letter-spacing: 0.1em;
-  color: var(--neon-green);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
   text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
-.cs-back-projects:hover { opacity: 1; }
+.cs-back-projects:hover { color: var(--neon-green); }
 
 .cs-not-found {
   display: flex;
@@ -204,17 +224,26 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .cs-header { padding: 2rem 1.2rem 3rem; }
-  .cs-back { padding: 1.5rem 1.2rem; }
-
-  .cs-metrics {
-    grid-template-columns: repeat(2, 1fr);
+  .cs-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 
-  .cs-metric:nth-child(3) { border-right: 1px solid var(--border); }
-  .cs-metric:nth-child(4) { border-top: 1px solid var(--border); }
-  .cs-metric:nth-child(2n) { border-right: none; }
+  .cs-hero-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 1.2rem 2.5rem;
+    gap: 2rem;
+  }
 
+  .cs-title-word { font-size: clamp(4rem, 18vw, 8rem); }
+
+  .cs-hero-right {
+    padding: 2.5rem 1.2rem;
+    justify-content: flex-start;
+  }
+
+  .cs-metrics { padding: 3rem 1.2rem; }
   .cs-body { padding: 4rem 1.2rem 0; gap: 3rem; }
   .cs-stack-full { padding: 3rem 1.2rem 0; }
   .cs-footer { padding: 3rem 1.2rem 0; }

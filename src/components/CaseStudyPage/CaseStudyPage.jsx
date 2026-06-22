@@ -9,6 +9,14 @@ function renderBody(text) {
     ));
 }
 
+function splitTitle(title) {
+    const words = title.split(" ");
+    if (words.length === 1) return words;
+    if (words.length === 2) return words;
+    // 3+ words: try to split into ~2 chars per line visually
+    return words;
+}
+
 function CaseStudyPage() {
     const { slug } = useParams();
     const cs = CASE_STUDIES.find((c) => c.slug === slug);
@@ -35,30 +43,42 @@ function CaseStudyPage() {
         );
     }
 
+    const titleWords = splitTitle(cs.title);
+
     return (
         <article className="cs-page">
-            <Link to="/" className="cs-back">← Back</Link>
 
-            <header className="cs-header">
-                <div className="cs-eyebrow mono">// Case Study · {cs.industry} · {cs.location}</div>
-                <h1 className="cs-title">{cs.title}</h1>
-                <p className="cs-subtitle">{cs.subtitle}</p>
+            {/* HERO — two column: massive title left, info right */}
+            <div className="cs-hero">
+                <div className="cs-hero-left">
+                    <Link to="/" className="cs-back mono">← Back</Link>
+                    <h1 className="cs-title">
+                        {titleWords.map((word, i) => (
+                            <span key={i} className="cs-title-word">{word}</span>
+                        ))}
+                    </h1>
+                </div>
 
-                <div className="cs-meta mono">
-                    <span>{cs.duration}</span>
-                    <span className="cs-meta-sep">·</span>
-                    <span>{cs.stack.slice(0, 5).join(", ")}{cs.stack.length > 5 ? ` +${cs.stack.length - 5} more` : ""}</span>
+                <div className="cs-hero-right">
+                    <div className="cs-eyebrow mono">Case Study</div>
+                    <p className="cs-industry mono">{cs.industry} · {cs.location}</p>
+                    <p className="cs-subtitle">{cs.subtitle}</p>
+
+                    <div className="cs-meta mono">
+                        <span>{cs.duration}</span>
+                        <br />
+                        <span>{cs.stack.slice(0, 5).join(", ")}{cs.stack.length > 5 ? ` +${cs.stack.length - 5} more` : ""}</span>
+                    </div>
+
                     {cs.liveUrl && (
-                        <>
-                            <span className="cs-meta-sep">·</span>
-                            <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="cs-live-link">
-                                View live site →
-                            </a>
-                        </>
+                        <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="cs-live-link mono">
+                            View live site →
+                        </a>
                     )}
                 </div>
-            </header>
+            </div>
 
+            {/* METRICS */}
             <div className="cs-metrics">
                 {cs.metrics.map((m) => (
                     <div key={m.label} className="cs-metric">
@@ -68,6 +88,7 @@ function CaseStudyPage() {
                 ))}
             </div>
 
+            {/* BODY */}
             <div className="cs-body">
                 {cs.sections.map((section) => (
                     <section key={section.heading} className="cs-section">
@@ -80,7 +101,7 @@ function CaseStudyPage() {
             </div>
 
             <div className="cs-stack-full">
-                <div className="cs-stack-label mono">// Stack</div>
+                <div className="cs-stack-label mono">Stack</div>
                 <div className="cs-tags">
                     {cs.stack.map((tag) => (
                         <span key={tag} className="cs-tag mono">{tag}</span>
@@ -89,8 +110,9 @@ function CaseStudyPage() {
             </div>
 
             <div className="cs-footer">
-                <Link to="/#projects" className="cs-back-projects">← All projects</Link>
+                <Link to="/#projects" className="cs-back-projects mono">← All projects</Link>
             </div>
+
         </article>
     );
 }
