@@ -222,19 +222,36 @@
   .cs-hero-left {
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 1.5rem 1.2rem 2.5rem;
+    padding: 1.5rem 0 2.5rem;
     gap: 2rem;
+    overflow: hidden;
   }
 
-  .cs-title-word { font-size: clamp(4rem, 18vw, 8rem); }
+  .cs-back {
+    padding-left: 1.2rem;
+  }
+
+  .cs-title-word {
+    font-size: clamp(3.5rem, 22vw, 7rem);
+    white-space: nowrap;
+  }
 
   .cs-hero-right {
     padding: 2.5rem 1.2rem;
     justify-content: flex-start;
   }
 
-  .cs-metrics { padding: 3rem 1.2rem; }
-  .cs-body { padding: 4rem 1.2rem 0; gap: 3rem; }
+  .cs-section-heading {
+    font-size: clamp(2.8rem, 12vw, 6rem);
+    padding: 1.5rem 1.2rem 1rem;
+    overflow: hidden;
+  }
+
+  .cs-section-body {
+    padding: 2rem 1.2rem 3rem;
+  }
+
+  .cs-body { gap: 0; }
   .cs-stack-full { padding: 3rem 1.2rem 0; }
   .cs-footer { padding: 3rem 1.2rem 0; }
 }

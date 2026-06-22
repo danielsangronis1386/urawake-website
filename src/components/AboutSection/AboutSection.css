@@ -26,7 +26,7 @@
   object-position: center;
   display: block;
   background: #000;
-  filter: grayscale(20%);
+  filter: none;
 }
 
 /* LEFT COLUMN */
@@ -325,5 +325,28 @@
   object-fit: cover;
   object-position: top center;
   background: #000;
-  filter: grayscale(100%);
+  filter: none;
+}
+
+/* ===== COLLAGE MOBILE ===== */
+@media (max-width: 768px) {
+  .collage-card {
+    height: 380px;
+  }
+
+  .collage-word {
+    font-size: clamp(2.5rem, 14vw, 5rem);
+  }
+
+  .collage-photo-wrap {
+    top: 12%;
+    left: 8%;
+    width: 80%;
+    height: 76%;
+  }
+
+  .collage-photo-wrap--offset {
+    top: 8%;
+    left: 12%;
+  }
 }

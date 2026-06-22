@@ -4,19 +4,28 @@ import ProjectCard from "../ProjectCard";
 import ProjectViewer from "../ProjectViewer";
 import PROJECTS from "../../data/projects";
 
-// Grid positions: 3 columns, 2 rows
-// Each card flies in its natural outward direction from the grid center
+// Desktop: cards fly outward diagonally
 const GRID_DIRECTIONS = [
-    { tx: "-120vw", ty: "-120vh", rot: "-10deg" }, // 0: top-left     → ↖
-    { tx:  "120vw", ty: "-120vh", rot:  "10deg" }, // 1: top-right    → ↗
-    { tx: "-120vw", ty:  "120vh", rot:  "10deg" }, // 2: bottom-left  → ↙
-    { tx:  "120vw", ty:  "120vh", rot: "-10deg" }, // 3: bottom-right → ↘
+    { tx: "-120vw", ty: "-120vh", rot: "-10deg" },
+    { tx:  "120vw", ty: "-120vh", rot:  "10deg" },
+    { tx: "-120vw", ty:  "120vh", rot:  "10deg" },
+    { tx:  "120vw", ty:  "120vh", rot: "-10deg" },
+];
+
+// Mobile: cards fly up or down (no horizontal)
+const GRID_DIRECTIONS_MOBILE = [
+    { tx: "0", ty: "-130vh", rot: "0deg" },
+    { tx: "0", ty: "-130vh", rot: "0deg" },
+    { tx: "0", ty:  "130vh", rot: "0deg" },
+    { tx: "0", ty:  "130vh", rot: "0deg" },
 ];
 
 function getScatterStyle(cardIdx, selectedIdx) {
     if (selectedIdx === null) return {};
 
-    const { tx, ty, rot } = GRID_DIRECTIONS[cardIdx];
+    const isMobile = window.innerWidth <= 768;
+    const dirs = isMobile ? GRID_DIRECTIONS_MOBILE : GRID_DIRECTIONS;
+    const { tx, ty, rot } = dirs[cardIdx] || dirs[0];
     return {
         transform: `translate(${tx}, ${ty}) rotate(${rot})`,
         opacity: 0,
