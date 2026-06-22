@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
 import ProjectViewer from "../ProjectViewer";
@@ -30,43 +29,42 @@ function ProjectSection() {
     const [viewerProject, setViewerProject] = useState(null);
     const [showViewer, setShowViewer] = useState(false);
     const [closing, setClosing] = useState(false);
-    const navigate = useNavigate();
 
     const openProject = useCallback((idx) => {
         setSelected(idx);
         setViewerProject(PROJECTS[idx]);
-        navigate(`/projects/${PROJECTS[idx].slug}`, { replace: false });
+        window.history.pushState(null, "", `/projects/${PROJECTS[idx].slug}`);
         setTimeout(() => setShowViewer(true), 900);
-    }, [navigate]);
+    }, []);
 
     const closeProject = useCallback(() => {
         setShowViewer(false);
         setClosing(true);
-        navigate("/#projects", { replace: false });
+        window.history.pushState(null, "", "/#projects");
         setTimeout(() => {
             setSelected(null);
             setViewerProject(null);
             setClosing(false);
         }, 650);
-    }, [navigate]);
+    }, []);
 
     const goPrev = useCallback(() => {
         setSelected((prev) => {
             const next = (prev - 1 + PROJECTS.length) % PROJECTS.length;
             setViewerProject(PROJECTS[next]);
-            navigate(`/projects/${PROJECTS[next].slug}`, { replace: true });
+            window.history.replaceState(null, "", `/projects/${PROJECTS[next].slug}`);
             return next;
         });
-    }, [navigate]);
+    }, []);
 
     const goNext = useCallback(() => {
         setSelected((prev) => {
             const next = (prev + 1) % PROJECTS.length;
             setViewerProject(PROJECTS[next]);
-            navigate(`/projects/${PROJECTS[next].slug}`, { replace: true });
+            window.history.replaceState(null, "", `/projects/${PROJECTS[next].slug}`);
             return next;
         });
-    }, [navigate]);
+    }, []);
 
     const isScattered = selected !== null; // keep grid borderless during both open AND close
 
