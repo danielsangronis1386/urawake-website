@@ -56,4 +56,4 @@ JavaScript, React, Vite, Python, Django, Node.js, Express, PostgreSQL, Prisma, R
 
 ## Contact
 - Email: daniel.sangronis1386@gmail.com
-- Website: https://urawake-website.vercel.app/
+- Website: https://urawake.dev/

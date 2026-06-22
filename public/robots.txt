@@ -13,4 +13,4 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-Sitemap: https://urawake-website.vercel.app/sitemap.xml
+Sitemap: https://urawake.dev/sitemap.xml
