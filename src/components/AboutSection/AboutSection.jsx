@@ -30,8 +30,9 @@ function AboutSection() {
                 </p>
                 <p className="about-bio">
                     My focus is <span className="bio-em">startups and small businesses</span> that need more than just a website.
-                    I work across the <span className="bio-em">United States</span>, coming in at the brand level: identity, graphic design,
-                    copywriting direction, and building everything through to a live, fast, functional product.
+                    I work across the <span className="bio-em">United States</span> building UI/UX — from structure and interaction
+                    to a live, fast, functional product. When a project needs brand direction, I work alongside
+                    graphic designers and creatives, guiding the visual identity and copywriting as <span className="bio-em">creative director</span> — not executing the artwork myself.
                     My main clientele is in <span className="bio-em">tourism and hospitality</span>, but I take on projects across industries.
                 </p>
                 <p className="about-bio">
