@@ -50,7 +50,7 @@ const PROJECTS = [
     {
         id: 3,
         slug: "eliots-crm",
-        title: "Eliot's CRM",
+        title: "Eliot's Adventures CRM",
         subtitle: "Internal Booking & Customer Platform",
         tagline: "Every tour, every customer. One dashboard.",
         description: "Custom CRM built for the Eliot's Adventures operations team. Manages tour bookings, customer records, taxi requests, and communications. Includes Gmail integration and a real-time booking calendar.",
