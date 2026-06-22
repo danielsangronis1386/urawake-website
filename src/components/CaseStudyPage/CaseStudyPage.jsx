@@ -4,12 +4,9 @@ import CASE_STUDIES from "../../data/casestudies";
 import "./CaseStudyPage.css";
 
 function renderBody(text) {
-    return text.split("\n\n").map((para, i) => {
-        const html = para
-            .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-            .replace(/\n/g, "<br />");
-        return <p key={i} dangerouslySetInnerHTML={{ __html: html }} />;
-    });
+    return text.split("\n\n").map((para, i) => (
+        <p key={i}>{para.replace(/\n/g, " ")}</p>
+    ));
 }
 
 function CaseStudyPage() {
