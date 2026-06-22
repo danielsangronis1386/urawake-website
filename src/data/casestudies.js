@@ -4,7 +4,7 @@ const CASE_STUDIES = [
         title: "Eliot's Adventures",
         metaTitle: "Eliot's Adventures Case Study — Full-Stack Tour Booking System | URAWAKE",
         metaDescription: "How URAWAKE built a complete tour booking website and CRM for a Puerto Rico tour operator — 100+ bookings, ~20 hours/month automated, from zero online presence.",
-        subtitle: "From zero online presence to 121 bookings and $22,399 in revenue",
+        subtitle: "From zero online presence to a fully operational tour booking system in 4 months.",
         industry: "Tourism & Hospitality",
         location: "Puerto Rico",
         duration: "4 months (Feb – Jun 2026)",
