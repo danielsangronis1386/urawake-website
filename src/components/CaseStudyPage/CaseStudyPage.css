@@ -14,13 +14,14 @@
   border-bottom: 1px solid var(--border);
 }
 
-/* LEFT — massive stacked title */
+/* LEFT — title fills the entire column */
 .cs-hero-left {
   border-right: 1px solid var(--border);
-  padding: 2.5rem;
+  padding: 2.5rem 0 2.5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .cs-back {
@@ -31,6 +32,7 @@
   text-decoration: none;
   transition: color 0.2s;
   text-transform: uppercase;
+  padding-left: 2.5rem;
 }
 .cs-back:hover { color: var(--neon-green); }
 
@@ -39,16 +41,17 @@
   flex-direction: column;
   gap: 0;
   margin: 0;
-  line-height: 0.85;
+  line-height: 0.82;
 }
 
 .cs-title-word {
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(5rem, 13vw, 16rem);
-  letter-spacing: -0.03em;
+  font-size: 19vw;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   display: block;
   color: var(--white);
+  white-space: nowrap;
 }
 
 /* RIGHT — info */
@@ -57,7 +60,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .cs-eyebrow {
@@ -102,69 +105,56 @@
 }
 .cs-live-link:hover { opacity: 0.7; }
 
-/* METRICS */
-.cs-metrics {
-  padding: 5rem 2.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.cs-metric {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding: 0 4rem 3.5rem 0;
-}
-
-.cs-metric:nth-child(1) .cs-metric-value { font-size: clamp(6rem, 14vw, 14rem); }
-.cs-metric:nth-child(2) .cs-metric-value { font-size: clamp(4rem, 9vw, 9rem); color: var(--neon-green); }
-.cs-metric:nth-child(3) .cs-metric-value { font-size: clamp(5rem, 11vw, 11rem); }
-.cs-metric:nth-child(4) .cs-metric-value { font-size: clamp(3rem, 7vw, 7rem); color: rgba(255,255,255,0.4); }
-.cs-metric:nth-child(5) .cs-metric-value { font-size: clamp(5rem, 10vw, 10rem); color: var(--neon-green); }
-
-.cs-metric-value {
-  font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  line-height: 0.88;
-  letter-spacing: -0.03em;
-  color: var(--white);
-  display: block;
-}
-
-.cs-metric-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-}
-
-/* BODY */
+/* BODY — brutalist sections, no max-width, full bleed headings */
 .cs-body {
-  max-width: 780px;
-  padding: 6rem 2.5rem 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 0;
+}
+
+.cs-section {
+  border-bottom: 1px solid var(--border);
+  padding: 0;
 }
 
 .cs-section-heading {
   font-family: "Bebas Neue", "Inter Tight", sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-size: clamp(5rem, 14vw, 18rem);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
   color: var(--white);
-  margin-bottom: 1.5rem;
+  margin: 0;
+  padding: 2rem 2.5rem 1.5rem;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 0.8rem;
+}
+
+.cs-section-body {
+  padding: 3rem 2.5rem 4rem;
+  max-width: 860px;
 }
 
 .cs-section-body p {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.85;
-  color: rgba(255,255,255,0.65);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.6);
   margin-bottom: 1.4rem;
+}
+
+/* alternating brutalist indent for disorganization */
+.cs-section:nth-child(even) .cs-section-body {
+  margin-left: auto;
+  padding-left: 6rem;
+}
+
+.cs-section:nth-child(odd) .cs-section-heading {
+  color: var(--white);
+}
+.cs-section:nth-child(even) .cs-section-heading {
+  color: var(--neon-green);
+  padding-left: 8vw;
 }
 
 /* STACK */

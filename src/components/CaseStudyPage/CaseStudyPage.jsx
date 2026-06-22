@@ -78,16 +78,6 @@ function CaseStudyPage() {
                 </div>
             </div>
 
-            {/* METRICS */}
-            <div className="cs-metrics">
-                {cs.metrics.map((m) => (
-                    <div key={m.label} className="cs-metric">
-                        <span className="cs-metric-value">{m.value}</span>
-                        <span className="cs-metric-label mono">{m.label}</span>
-                    </div>
-                ))}
-            </div>
-
             {/* BODY */}
             <div className="cs-body">
                 {cs.sections.map((section) => (
