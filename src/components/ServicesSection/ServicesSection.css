@@ -153,17 +153,18 @@
     padding-bottom: 2rem;
   }
 
-  /* Allow wrapping on small screens */
+  /* Allow wrapping on small screens — no mid-word breaks */
   .wipe-base,
   .wipe-fill {
     white-space: normal;
-    word-break: break-word;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
   .service-name .wipe-base,
   .service-name .wipe-fill {
-    font-size: clamp(2.4rem, 11vw, 4.5rem);
-    line-height: 0.95;
+    font-size: clamp(2rem, 9vw, 3.8rem);
+    line-height: 1;
   }
 
   .service-tech .wipe-base,
