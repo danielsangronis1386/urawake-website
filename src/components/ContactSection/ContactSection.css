@@ -1,7 +1,6 @@
 /* ===== CONTACT SECTION — URAWAKE STACKHOUSE ===== */
 .contact-section {
   width: 100%;
-  min-height: 100vh;
   background: #39FF14;
   color: #000;
 
@@ -43,7 +42,7 @@
 .contact-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.5rem;
 }
 
