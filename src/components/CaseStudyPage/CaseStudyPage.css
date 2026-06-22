@@ -8,19 +8,27 @@
 
 /* HERO */
 .cs-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   border-bottom: 1px solid var(--border);
 }
 
-/* LEFT — title fills the entire column */
-.cs-hero-left {
-  border-right: 1px solid var(--border);
-  padding: 2.5rem 0 2.5rem 0;
+/* TOP — full-width title */
+.cs-hero-top {
+  padding: 2.5rem 0 0 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2rem;
+  overflow: visible;
+}
+
+/* BOTTOM — two column meta row */
+.cs-hero-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  border-top: 1px solid var(--border);
 }
 
 .cs-back {
@@ -60,6 +68,7 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 2rem;
+  border-left: 1px solid var(--border);
 }
 
 .cs-eyebrow {
@@ -214,16 +223,15 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .cs-hero {
-    grid-template-columns: 1fr;
     min-height: auto;
   }
 
-  .cs-hero-left {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 0 2.5rem;
-    gap: 2rem;
-    overflow: hidden;
+  .cs-hero-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-hero-top {
+    padding: 1.5rem 0 2rem;
   }
 
   .cs-back {
@@ -241,6 +249,8 @@
   .cs-hero-right {
     padding: 2.5rem 1.2rem;
     justify-content: flex-start;
+    border-left: none;
+    border-top: 1px solid var(--border);
   }
 
   .cs-section-heading {

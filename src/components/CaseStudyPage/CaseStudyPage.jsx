@@ -98,9 +98,9 @@ function CaseStudyPage() {
     return (
         <article className="cs-page">
 
-            {/* HERO — two column: massive title left, info right */}
+            {/* HERO */}
             <div className="cs-hero">
-                <div className="cs-hero-left">
+                <div className="cs-hero-top">
                     <Link to="/" className="cs-back mono">← Back</Link>
                     <h1 className="cs-title">
                         {titleWords.map((word, i) => (
@@ -109,6 +109,7 @@ function CaseStudyPage() {
                     </h1>
                 </div>
 
+                <div className="cs-hero-meta">
                 <div className="cs-hero-right">
                     <div className="cs-eyebrow mono">Case Study</div>
                     <p className="cs-industry mono">{cs.industry} · {cs.location}</p>
@@ -126,6 +127,7 @@ function CaseStudyPage() {
                         </a>
                     )}
                 </div>
+                </div>{/* cs-hero-meta */}
             </div>
 
             {/* BODY */}
