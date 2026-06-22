@@ -156,7 +156,7 @@
 /* MASSIVE TITLE */
 .hero-title {
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(5rem, 28vw, 100vw);
+  font-size: clamp(4rem, 17vw, 100vw);
   line-height: 0.82;
   letter-spacing: -0.02em;
   user-select: none;
