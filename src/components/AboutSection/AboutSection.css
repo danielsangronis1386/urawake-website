@@ -37,7 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -94,7 +94,7 @@
 }
 
 .brand-tag {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -128,7 +128,7 @@
 .bio-em {
   color: #000;
   text-transform: uppercase;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.85em;
   letter-spacing: 0.06em;
 }
@@ -142,7 +142,7 @@
 }
 
 .about-link {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.88rem;
   color: #000;
   text-decoration: none;
@@ -157,7 +157,7 @@
 
 /* SKILLS GRID */
 .skills-label {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.82rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -175,7 +175,7 @@
 .skill-item {
   border: 1px solid rgba(0, 0, 0, 0.25);
   padding: 0.55rem 0.9rem;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.88rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;

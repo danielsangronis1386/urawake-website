@@ -25,7 +25,7 @@
   border: 1px solid var(--border);
   color: var(--white);
   font-size: 1rem;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
@@ -83,7 +83,7 @@
   background: var(--black);
   border: 1px solid var(--neon-green);
   color: var(--neon-green);
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   padding: 0.6rem 1rem;
   cursor: pointer;
@@ -149,7 +149,7 @@
 }
 
 .viewer-label {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -169,7 +169,7 @@
 }
 
 .viewer-subtitle {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -184,7 +184,7 @@
 }
 
 .viewer-about-label {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -210,7 +210,7 @@
 }
 
 .viewer-tag {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -232,7 +232,7 @@
   background: transparent;
   border: 1px solid var(--neon-green);
   color: var(--neon-green);
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   width: 2.4rem;
   height: 2.4rem;
@@ -249,7 +249,7 @@
 }
 
 .viewer-nav-count {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.4);
@@ -289,7 +289,7 @@
 .viewer-live-link {
   display: inline-block;
   margin-top: 1.25rem;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.88rem;
   color: var(--neon-green, #39ff14);
   text-decoration: none;

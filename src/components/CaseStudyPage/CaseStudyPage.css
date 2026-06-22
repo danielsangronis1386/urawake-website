@@ -209,7 +209,7 @@
   min-height: 60vh;
   gap: 1rem;
   color: rgba(255,255,255,0.4);
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
 }
 
 /* RESPONSIVE */

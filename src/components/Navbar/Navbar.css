@@ -71,7 +71,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", sans-serif;
   transition: color 0.15s ease, padding-left 0.15s ease;
 }
 
