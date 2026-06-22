@@ -281,6 +281,11 @@
     min-height: 220px;
   }
 
+  .viewer-img {
+    object-fit: contain;
+    background: #000;
+  }
+
   .viewer-right {
     padding: 1.5rem 1.2rem 4rem;
   }

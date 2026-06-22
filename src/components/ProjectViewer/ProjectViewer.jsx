@@ -42,6 +42,7 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
                         )}
                     </div>
 
+
                     {/* Thumbnail strip */}
                     <div className="viewer-thumbs">
                         {images.map((img, i) => (
