@@ -4,6 +4,9 @@
   cursor: pointer;
   position: relative;
   will-change: transform, opacity;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card:hover .card-thumb-overlay {

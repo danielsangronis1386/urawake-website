@@ -1,18 +1,26 @@
 import "./ProjectCard.css";
 
 function ProjectCard({ project, index, isOpen, scatterStyle, onClick }) {
-    const { title, subtitle, tagline, images } = project;
+    const { title, subtitle, tagline, images, slug } = project;
 
     const cardStyle = {
         transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease",
         ...scatterStyle,
     };
 
+    const handleClick = (e) => {
+        if (isOpen) return;
+        e.preventDefault();
+        onClick();
+    };
+
     return (
-        <div
+        <a
+            href={`/projects/${slug}`}
             className="project-card"
             style={cardStyle}
-            onClick={!isOpen ? onClick : undefined}
+            onClick={handleClick}
+            aria-label={`View project: ${title}`}
         >
             <div className="card-thumb">
                 <img
@@ -32,7 +40,7 @@ function ProjectCard({ project, index, isOpen, scatterStyle, onClick }) {
                 <p className="card-subtitle">{subtitle}</p>
                 <p className="card-description">{tagline}</p>
             </div>
-        </div>
+        </a>
     );
 }
 
