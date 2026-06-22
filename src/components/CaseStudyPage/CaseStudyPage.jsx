@@ -3,6 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import CASE_STUDIES from "../../data/casestudies";
 import "./CaseStudyPage.css";
 
+function setMeta(attr, key, value) {
+    let el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) { el = document.createElement("meta"); el.setAttribute(attr, key); document.head.appendChild(el); }
+    el.setAttribute("content", value);
+}
+
 function renderBody(text) {
     return text.split("\n\n").map((para, i) => (
         <p key={i}>{para.replace(/\n/g, " ")}</p>
@@ -22,15 +28,55 @@ function CaseStudyPage() {
     const cs = CASE_STUDIES.find((c) => c.slug === slug);
 
     useEffect(() => {
-        if (cs) {
-            document.title = cs.metaTitle;
-            let meta = document.querySelector('meta[name="description"]');
-            if (meta) meta.setAttribute("content", cs.metaDescription);
-        }
+        if (!cs) return;
+
+        const url = `https://urawake.dev/case-studies/${cs.slug}`;
+
+        // Title + description
+        document.title = cs.metaTitle;
+        setMeta("name", "description", cs.metaDescription);
+
+        // Canonical
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+        canonical.setAttribute("href", url);
+
+        // OG tags
+        setMeta("property", "og:title", cs.metaTitle);
+        setMeta("property", "og:description", cs.metaDescription);
+        setMeta("property", "og:url", url);
+
+        // Twitter
+        setMeta("name", "twitter:title", cs.metaTitle);
+        setMeta("name", "twitter:description", cs.metaDescription);
+
+        // CreativeWork schema
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": cs.title,
+            "description": cs.metaDescription,
+            "url": url,
+            "author": { "@type": "Person", "name": "Daniel Sangronis", "url": "https://urawake.dev/" },
+            "keywords": cs.stack.join(", "),
+            "dateCreated": cs.duration.match(/(\w+ \d{4})/)?.[1] ?? "2026",
+            ...(cs.liveUrl ? { "sameAs": cs.liveUrl } : {}),
+        };
+        let schemaEl = document.getElementById("cs-schema");
+        if (!schemaEl) { schemaEl = document.createElement("script"); schemaEl.id = "cs-schema"; schemaEl.type = "application/ld+json"; document.head.appendChild(schemaEl); }
+        schemaEl.textContent = JSON.stringify(schema);
+
         return () => {
             document.title = "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse";
-            let meta = document.querySelector('meta[name="description"]');
-            if (meta) meta.setAttribute("content", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses.");
+            setMeta("name", "description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses in Los Angeles, CA.");
+            let canonical = document.querySelector('link[rel="canonical"]');
+            if (canonical) canonical.setAttribute("href", "https://urawake.dev/");
+            setMeta("property", "og:title", "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse");
+            setMeta("property", "og:description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses in Los Angeles, CA.");
+            setMeta("property", "og:url", "https://urawake.dev/");
+            setMeta("name", "twitter:title", "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse");
+            setMeta("name", "twitter:description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses in Los Angeles, CA.");
+            document.getElementById("cs-schema")?.remove();
         };
     }, [cs]);
 
