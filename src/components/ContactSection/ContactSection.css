@@ -63,6 +63,20 @@
   letter-spacing: 0.02em;
 }
 
+.contact-intro {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.75;
+  color: rgba(0,0,0,0.75);
+}
+
+.contact-email-link {
+  color: #000;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .contact-email {
   font-size: 0.9rem;
   letter-spacing: 0.06em;

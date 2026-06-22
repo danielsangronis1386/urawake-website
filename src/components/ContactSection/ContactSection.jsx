@@ -44,9 +44,15 @@ function ContactSection() {
 
             {/* LEFT — decorative */}
             <div className="contact-left">
-                <p className="contact-eyebrow mono">// Let's build something</p>
+                <p className="contact-eyebrow mono">// Get in touch</p>
                 <h2 className="contact-display">LET'S<br />TALK</h2>
-                <p className="contact-email mono">daniel.sangronis1386@gmail.com</p>
+                <p className="contact-intro">
+                    If you'd like to make an inquiry, feel free to get in touch using the form and I will respond as soon as possible.
+                </p>
+                <p className="contact-intro">
+                    If you prefer to contact me directly, send your email to{" "}
+                    <a href="mailto:info@urawake.dev" className="contact-email-link">info@urawake.dev</a>
+                </p>
                 <p className="contact-brand mono">URAWAKE STACKHOUSE</p>
             </div>
 

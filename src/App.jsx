@@ -9,6 +9,7 @@ import ContactSection from './components/ContactSection';
 import ServicesSection from './components/ServicesSection';
 import ProjectPage from './components/ProjectPage/ProjectPage';
 import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
+import Footer from './components/Footer/Footer';
 
 const SECTION_URLS = {
   hero:     '/',
@@ -52,6 +53,7 @@ function HomePage() {
       <ServicesSection />
       <section id="about"><AboutSection /></section>
       <ContactSection />
+      <Footer />
     </>
   );
 }
