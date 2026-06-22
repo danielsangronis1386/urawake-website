@@ -254,9 +254,10 @@
 }
 
 .contact-cta-arrow {
-  font-size: clamp(3rem, 5vw, 6rem);
-  color: #000;
-  line-height: 1;
+  width: clamp(4rem, 8vw, 10rem);
+  height: clamp(5rem, 10vw, 12rem);
+  align-self: flex-end;
+  flex-shrink: 0;
 }
 
 .contact-form-row {

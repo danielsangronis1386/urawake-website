@@ -45,7 +45,10 @@ function ContactSection() {
             {/* CTA — fills empty space above form */}
             <div className="contact-cta">
                 <p className="contact-cta-text">YOUR NEXT PROJECT STARTS HERE. LET'S BUILD SOMETHING THAT WORKS.</p>
-                <span className="contact-cta-arrow">↓</span>
+                <svg className="contact-cta-arrow" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="40" y1="0" x2="40" y2="78" stroke="#000" strokeWidth="22" strokeLinecap="butt"/>
+                    <polyline points="8,52 40,92 72,52" fill="none" stroke="#000" strokeWidth="22" strokeLinecap="butt" strokeLinejoin="miter"/>
+                </svg>
             </div>
 
             <div className="contact-form-row">
