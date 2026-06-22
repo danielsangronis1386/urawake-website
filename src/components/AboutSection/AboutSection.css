@@ -214,12 +214,23 @@
 @media (max-width: 768px) {
   .about-section {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
     min-height: auto;
   }
 
-  /* hide vertical label on mobile — takes too much width */
   .about-section .section-label-vertical {
-    display: none;
+    writing-mode: horizontal-tb;
+    transform: none;
+    border-right: none;
+    border-bottom: 3px solid #000;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: clamp(4rem, 22vw, 7rem);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    height: auto;
+    line-height: 1;
+    overflow: visible;
   }
 
   .about-grid {
