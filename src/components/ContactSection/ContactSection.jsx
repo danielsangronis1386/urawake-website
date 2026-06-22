@@ -143,26 +143,6 @@ function ContactSection() {
 
             </div>{/* contact-body */}
 
-            {/* PROCESS BAND */}
-            <div className="process-band">
-                <div className="process-step">
-                    <span className="process-num">01</span>
-                    <span className="process-label">DISCOVERY</span>
-                    <span className="process-desc">We align on goals, stack, and timeline before a single line of code.</span>
-                </div>
-                <div className="process-divider" />
-                <div className="process-step">
-                    <span className="process-num">02</span>
-                    <span className="process-label">BUILD</span>
-                    <span className="process-desc">Full-stack development with weekly check-ins and live previews.</span>
-                </div>
-                <div className="process-divider" />
-                <div className="process-step">
-                    <span className="process-num">03</span>
-                    <span className="process-label">LAUNCH</span>
-                    <span className="process-desc">Deployed, tested, and handed off with docs and support.</span>
-                </div>
-            </div>
 
         </section>
     );
