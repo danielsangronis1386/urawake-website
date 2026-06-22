@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import CASE_STUDIES from "../../data/casestudies";
 import "./CaseStudyPage.css";
 
@@ -25,6 +25,7 @@ function splitTitle(title) {
 
 function CaseStudyPage() {
     const { slug } = useParams();
+    const navigate = useNavigate();
     const cs = CASE_STUDIES.find((c) => c.slug === slug);
 
     useEffect(() => {
@@ -101,10 +102,13 @@ function CaseStudyPage() {
             {/* HERO */}
             <div className="cs-hero">
                 <div className="cs-hero-top">
-                    <Link to="/" className="cs-back mono">← Back</Link>
+                    <button className="cs-back mono" onClick={() => navigate(-1)}>← Back</button>
                     <h1 className="cs-title">
                         {titleWords.map((word, i) => (
-                            <span key={i} className="cs-title-word">{word}</span>
+                            <span
+                                key={i}
+                                className={`cs-title-word${i < titleWords.length - 1 ? " cs-title-word--label" : ""}`}
+                            >{word}</span>
                         ))}
                     </h1>
                 </div>
