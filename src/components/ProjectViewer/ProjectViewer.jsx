@@ -86,7 +86,7 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
 
                     {caseStudySlug && (
                         <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link viewer-case-study-link">
-                            // Read case study →
+                            // The Work →
                         </Link>
                     )}
 

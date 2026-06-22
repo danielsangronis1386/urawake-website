@@ -112,7 +112,7 @@ function ProjectPage() {
 
                     {caseStudySlug && (
                         <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link" style={{ display: "block", marginTop: "0.5rem" }}>
-                            // Read case study →
+                            // The Work →
                         </Link>
                     )}
 

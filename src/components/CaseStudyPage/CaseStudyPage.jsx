@@ -115,7 +115,7 @@ function CaseStudyPage() {
 
                 <div className="cs-hero-meta">
                 <div className="cs-hero-right">
-                    <div className="cs-eyebrow mono">Case Study</div>
+                    <div className="cs-eyebrow mono">The Work</div>
                     <p className="cs-industry mono">{cs.industry} · {cs.location}</p>
                     <p className="cs-subtitle">{cs.subtitle}</p>
 
