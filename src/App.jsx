@@ -10,7 +10,6 @@ import ServicesSection from './components/ServicesSection';
 import ProjectPage from './components/ProjectPage/ProjectPage';
 import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
 import Footer from './components/Footer/Footer';
-import CtaBanner from './components/CtaBanner/CtaBanner';
 
 const SECTION_URLS = {
   hero:     '/',
@@ -54,7 +53,6 @@ function HomePage() {
       <ServicesSection />
       <section id="about"><AboutSection /></section>
       <ContactSection />
-      <CtaBanner />
       <Footer />
     </>
   );

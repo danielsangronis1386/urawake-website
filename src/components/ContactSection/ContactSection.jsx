@@ -143,6 +143,12 @@ function ContactSection() {
 
             </div>{/* contact-body */}
 
+            <div className="contact-cta">
+                <p className="contact-cta-text">
+                    YOUR NEXT PROJECT STARTS HERE. LET'S BUILD SOMETHING THAT WORKS.
+                </p>
+                <span className="contact-cta-arrow">↑</span>
+            </div>
 
         </section>
     );

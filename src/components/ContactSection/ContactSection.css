@@ -229,6 +229,35 @@
   opacity: 0.6;
 }
 
+/* ===== CONTACT CTA ===== */
+.contact-cta {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 4rem 4rem 5rem;
+  border-top: 2px solid #000;
+  gap: 2rem;
+}
+
+.contact-cta-text {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(3rem, 7vw, 9rem);
+  line-height: 0.92;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  flex: 1;
+}
+
+.contact-cta-arrow {
+  font-size: clamp(4rem, 8vw, 10rem);
+  color: #000;
+  line-height: 1;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .contact-section {
