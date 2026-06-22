@@ -5,7 +5,10 @@ const NAV_LINKS = ["About", "Projects", "Services", "Contact"]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
-    if (el) window.scrollTo({ top: el.offsetTop, behavior: "smooth" })
+    if (el) {
+        window.history.pushState(null, "", `#${id}`);
+        window.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+    }
 }
 
 function Navbar() {
