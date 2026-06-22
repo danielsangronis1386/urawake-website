@@ -3,7 +3,7 @@ const CASE_STUDIES = [
         slug: "eliots-adventures",
         title: "Eliot's Adventures",
         metaTitle: "Eliot's Adventures Case Study — Full-Stack Tour Booking System | URAWAKE",
-        metaDescription: "How URAWAKE built a complete tour booking website and CRM for a Puerto Rico tour operator — 121 bookings, $22,399 revenue, and 20 hours/month automated from zero online presence.",
+        metaDescription: "How URAWAKE built a complete tour booking website and CRM for a Puerto Rico tour operator — 100+ bookings, ~20 hours/month automated, from zero online presence.",
         subtitle: "From zero online presence to 121 bookings and $22,399 in revenue",
         industry: "Tourism & Hospitality",
         location: "Puerto Rico",
@@ -11,11 +11,10 @@ const CASE_STUDIES = [
         liveUrl: "https://www.eliotsadventures.com/",
         stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Gmail API", "Heroku", "PDFKit"],
         metrics: [
-            { label: "Total bookings", value: "121" },
-            { label: "Revenue processed", value: "$22,399" },
-            { label: "Unique customers", value: "119" },
+            { label: "Bookings in first 4 months", value: "100+" },
+            { label: "Unique customers", value: "100+" },
             { label: "Hours/month automated", value: "~20" },
-            { label: "Waivers digitized", value: "133" },
+            { label: "Waivers digitized", value: "130+" },
             { label: "Commits", value: "389" },
         ],
         sections: [
@@ -45,9 +44,9 @@ Staff accounts with JWT authentication let multiple team members access the syst
             },
             {
                 heading: "The results",
-                body: `In production since launch, the platform has processed 121 bookings from 119 unique customers — $22,399 in revenue run entirely through the system. May 2026 alone saw 83 bookings. 133 digital waivers have been created, with 98 signed (74% completion rate).
+                body: `In the first four months in production, the platform handled over 100 bookings from more than 100 unique customers — all processed online, all paid through Stripe, none requiring a phone call to confirm.
 
-The manual time savings are material. At 83 bookings per month, with an estimated 15 minutes of manual intake, follow-up, and entry per booking, the automation accounts for roughly 20 hours per month returned to the owners. Airbnb and Viator email parsing and automatic waiver collection add further savings that are harder to quantify but immediately visible in their day-to-day.
+The manual time savings are material. With dozens of bookings per month at an estimated 15 minutes of manual intake, follow-up, and entry each, the automation accounts for roughly 20 hours per month returned to the owners. Airbnb and Viator email parsing and automatic waiver collection add further savings that are harder to quantify but immediately visible in their day-to-day.
 
 The business went from zero online presence to a fully operational booking system in 4 months across 389 commits.`,
             },
