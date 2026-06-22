@@ -143,6 +143,13 @@ function ContactSection() {
 
             </div>{/* contact-body */}
 
+            {/* AVAILABILITY STRIP */}
+            <div className="availability-strip">
+                <div className="availability-dot" />
+                <span className="availability-text mono">CURRENTLY ACCEPTING NEW PROJECTS — Q3 2026</span>
+                <a href="mailto:info@urawake.dev" className="availability-cta">START A PROJECT →</a>
+            </div>
+
         </section>
     );
 }
