@@ -8,7 +8,7 @@
   overflow: hidden;
 
   display: grid;
-  grid-template-columns: 22vw 1fr;
+  grid-template-columns: clamp(14rem, 22vw, 28rem) 1fr;
 }
 
 .services-section .section-label-vertical {
@@ -16,7 +16,7 @@
   text-orientation: mixed;
 
   font-family: "Archivo Black", sans-serif;
-  font-size: 22vw;
+  font-size: clamp(14rem, 22vw, 28rem);
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);

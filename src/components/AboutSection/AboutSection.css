@@ -6,7 +6,7 @@
   color: #fff;
 
   display: grid;
-  grid-template-columns: 22vw 1fr;
+  grid-template-columns: clamp(14rem, 22vw, 28rem) 1fr;
 
   padding: 0;
   border-top: 1px solid var(--border);
@@ -196,7 +196,7 @@
   text-orientation: mixed;
 
   font-family: "Archivo Black", sans-serif;
-  font-size: 22vw;
+  font-size: clamp(14rem, 22vw, 28rem);
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: #fff;
