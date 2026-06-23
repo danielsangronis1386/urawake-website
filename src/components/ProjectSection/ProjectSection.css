@@ -28,6 +28,7 @@
   user-select: none;
   line-height: 0.85;
   overflow: hidden;
+  padding-bottom: clamp(4rem, 8vw, 10rem);
 }
 
 .project-body {
