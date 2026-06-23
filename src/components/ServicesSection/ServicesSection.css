@@ -99,7 +99,7 @@
 /* ===== SERVICE NAME — big title ===== */
 .service-name .wipe-base,
 .service-name .wipe-fill {
-  font-size: clamp(4rem, 9.5vw, 10rem);
+  font-size: clamp(5rem, 12vw, 13rem);
 }
 
 .service-name {
@@ -117,7 +117,7 @@
 
 .service-tech .wipe-base,
 .service-tech .wipe-fill {
-  font-size: clamp(2.5rem, 6vw, 6.5rem);
+  font-size: clamp(3.2rem, 7.5vw, 8.5rem);
   color: rgba(255, 255, 255, 0.06);
 }
 
