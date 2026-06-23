@@ -16,7 +16,7 @@
   text-orientation: mixed;
 
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(14rem, 22vw, 28rem);
+  font-size: clamp(10rem, 16vw, 20rem);
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
