@@ -190,9 +190,9 @@
 
 /* SERVICE DESCRIPTION */
 .service-description {
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
   max-width: 520px;
   margin-bottom: 1.5rem;
   font-family: "Inter", sans-serif;
