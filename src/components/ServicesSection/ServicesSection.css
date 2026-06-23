@@ -197,3 +197,15 @@
   margin-bottom: 1.5rem;
   font-family: "Inter", sans-serif;
 }
+
+@media (max-width: 1440px) {
+  .services-body {
+    padding: 4rem 0 5rem;
+  }
+  .service-block {
+    padding: 2rem 2.5rem 0;
+  }
+  .service-block:last-child {
+    padding-bottom: 2rem;
+  }
+}

@@ -365,3 +365,10 @@
     left: 12%;
   }
 }
+
+@media (max-width: 1440px) {
+  .about-grid {
+    gap: 3rem;
+    padding: 4rem 2.5rem;
+  }
+}
