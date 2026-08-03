@@ -1,0 +1,290 @@
+/* ===== PROPOSAL PAGE ===== */
+.proposal-page {
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}
+
+.proposal-not-found {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}
+
+/* HEADER */
+.proposal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4rem 0 3rem;
+    background: #000;
+}
+
+.proposal-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.proposal-from {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+
+.proposal-brand {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.proposal-heading-sub {
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #39FF14;
+}
+
+/* CONTAINER */
+.proposal-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+/* INTRO */
+.proposal-intro {
+    padding: 4rem 0 3rem;
+}
+
+.proposal-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.proposal-intro-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 680px;
+}
+
+/* RULE */
+.proposal-rule {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* CONCEPT SECTION */
+.proposal-concept {
+    padding: 5rem 0;
+}
+
+.proposal-concept-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.proposal-number {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.85;
+    color: rgba(255, 255, 255, 0.08);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.proposal-concept-title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.proposal-concept-subtitle {
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #39FF14;
+}
+
+/* CONCEPT BODY */
+.proposal-concept-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+/* LOGO DISPLAY */
+.proposal-logo-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4rem 3rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.proposal-logo-display--warm {
+    background: #faf4e8;
+}
+
+.proposal-logo-display--dark {
+    background: #fff;
+}
+
+.proposal-logo-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+}
+
+/* DETAILS */
+.proposal-concept-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.proposal-detail-block {}
+
+.proposal-detail-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+.proposal-detail-text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* COLOR STRIP */
+.proposal-color-strip {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.proposal-swatch {
+    padding: 0.6rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    min-width: 100px;
+}
+
+/* FOOTER CTA */
+.proposal-footer-cta {
+    padding: 6rem 0 7rem;
+    background: #000;
+}
+
+.proposal-cta-title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+}
+
+.proposal-cta-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+}
+
+.proposal-cta-btn {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #000;
+    background: #39FF14;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.proposal-cta-btn:hover {
+    opacity: 0.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .proposal-header-inner,
+    .proposal-container {
+        padding: 0 1.5rem;
+    }
+
+    .proposal-header {
+        padding: 3rem 0 2rem;
+    }
+
+    .proposal-concept {
+        padding: 3.5rem 0;
+    }
+
+    .proposal-concept-body {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .proposal-logo-display {
+        position: static;
+        padding: 3rem 2rem;
+    }
+
+    .proposal-concept-header {
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .proposal-footer-cta {
+        padding: 4rem 0 5rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .proposal-header-inner,
+    .proposal-container {
+        padding: 0 2.5rem;
+    }
+
+    .proposal-concept-body {
+        gap: 3rem;
+    }
+}

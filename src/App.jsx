@@ -9,6 +9,7 @@ import ContactSection from './components/ContactSection';
 import ServicesSection from './components/ServicesSection';
 import ProjectPage from './components/ProjectPage/ProjectPage';
 import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
+import ProposalPage from './components/ProposalPage/ProposalPage';
 import Footer from './components/Footer/Footer';
 
 const SECTION_URLS = {
@@ -74,6 +75,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/projects/:slug" element={<ProjectPage />} />
       <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
+      <Route path="/proposals/:slug" element={<ProposalPage />} />
     </Routes>
   );
 }
