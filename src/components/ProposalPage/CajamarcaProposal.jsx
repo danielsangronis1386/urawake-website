@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo1 from "../../assets/logosprop/Cajamarca.png";
+import logo1 from "../../assets/logosprop/cajamarcal logo.png";
 import logo2 from "../../assets/logosprop/cajamarca logo 2.png";
 import "./ProposalPage.css";
 
