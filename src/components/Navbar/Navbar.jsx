@@ -1,7 +1,12 @@
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 import "./Navbar.css"
 
-const SCROLL_LINKS = ["Projects", "Services", "Contact"]
+const SCROLL_LINKS = [
+    { label: "Projects",  id: "projects" },
+    { label: "Services",  id: "services" },
+    { label: "Contact",   id: "contact"  },
+]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
@@ -13,6 +18,18 @@ function scrollToSection(id) {
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const location = useLocation()
+    const isHome = location.pathname === "/"
+
+    function handleScrollLink(e, id) {
+        e.preventDefault()
+        setMenuOpen(false)
+        if (isHome) {
+            scrollToSection(id)
+        } else {
+            window.location.href = `/#${id}`
+        }
+    }
 
     return (
         <div className="navbar">
@@ -27,14 +44,19 @@ function Navbar() {
             </div>
 
             <nav className={`nav-dropdown ${menuOpen ? "visible" : ""}`}>
-                {SCROLL_LINKS.map(link => (
+                {!isHome && (
+                    <a className="nav-link mono" href="/" onClick={() => setMenuOpen(false)}>
+                        ← Home
+                    </a>
+                )}
+                {SCROLL_LINKS.map(({ label, id }) => (
                     <a
-                        key={link}
+                        key={id}
                         className="nav-link mono"
-                        href={`#${link.toLowerCase()}`}
-                        onClick={(e) => { e.preventDefault(); scrollToSection(link.toLowerCase()); setMenuOpen(false); }}
+                        href={`/#${id}`}
+                        onClick={(e) => handleScrollLink(e, id)}
                     >
-                        {link}
+                        {label}
                     </a>
                 ))}
                 <a
