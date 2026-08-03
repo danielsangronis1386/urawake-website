@@ -243,6 +243,88 @@
     opacity: 0.85;
 }
 
+/* REFERENCES */
+.proposal-references {
+    padding: 5rem 0;
+}
+
+.proposal-ref-title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.proposal-ref-intro {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 620px;
+    margin-bottom: 3rem;
+}
+
+.proposal-ref-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 3rem;
+}
+
+.proposal-ref-item {
+    padding: 2rem 2rem 2.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.proposal-ref-item:nth-child(2n) {
+    border-right: none;
+}
+
+.proposal-ref-item:nth-child(3),
+.proposal-ref-item:nth-child(4) {
+    border-bottom: none;
+}
+
+.proposal-ref-name {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #39FF14;
+    margin-bottom: 0.8rem;
+}
+
+.proposal-ref-read {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.proposal-ref-synthesis {
+    border-left: 2px solid #39FF14;
+    padding-left: 1.5rem;
+}
+
+.proposal-ref-synthesis-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+.proposal-ref-synthesis-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 680px;
+}
+
 /* LIGHTBOX */
 .proposal-lightbox {
     position: fixed;
@@ -295,6 +377,22 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .proposal-ref-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proposal-ref-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .proposal-ref-item:nth-child(3) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .proposal-ref-item:nth-child(4) {
+        border-bottom: none;
+    }
+
     .proposal-header-inner,
     .proposal-container {
         padding: 0 1.5rem;

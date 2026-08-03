@@ -39,6 +39,55 @@ function CajamarcaProposal() {
             {/* DIVIDER */}
             <div className="proposal-rule" />
 
+            {/* REFERENCES */}
+            <section className="proposal-references">
+                <div className="proposal-container">
+                    <p className="proposal-eyebrow mono">// Creative References</p>
+                    <h3 className="proposal-ref-title">What We Studied. What We Rejected. What We Kept.</h3>
+                    <p className="proposal-ref-intro">
+                        You shared four references that define the competitive landscape for city and destination .com brands.
+                        We studied each one carefully before touching a single design element.
+                    </p>
+
+                    <div className="proposal-ref-grid">
+                        <div className="proposal-ref-item">
+                            <p className="proposal-ref-name">IziPeru</p>
+                            <p className="proposal-ref-read">
+                                Strong mascot energy and a clear local personality. The character with sunglasses immediately communicates fun and approachability. What it lacks: visual structure. The mark feels loose, more like a sticker than a brand.
+                            </p>
+                        </div>
+                        <div className="proposal-ref-item">
+                            <p className="proposal-ref-name">Peru.com</p>
+                            <p className="proposal-ref-read">
+                                Clean circular format that travels well across platforms. The restraint works. What it lacks: personality. Nothing in the mark tells you what Peru feels like — it could be any country.
+                            </p>
+                        </div>
+                        <div className="proposal-ref-item">
+                            <p className="proposal-ref-name">NewYork.com</p>
+                            <p className="proposal-ref-read">
+                                High contrast, bold typography, strong emblem format. It communicates authority instantly. What it lacks: warmth. The tone is cold and corporate — fine for a city brand, wrong for a destination that should invite people in.
+                            </p>
+                        </div>
+                        <div className="proposal-ref-item">
+                            <p className="proposal-ref-name">Nashville.com</p>
+                            <p className="proposal-ref-read">
+                                The most regionally specific of the four. The guitar silhouette and layered typography make the city's identity unmistakable. What it lacks: versatility. The mark is too complex to scale cleanly at small sizes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="proposal-ref-synthesis">
+                        <p className="proposal-ref-synthesis-label mono">// Our Direction</p>
+                        <p className="proposal-ref-synthesis-text">
+                            We took the mascot energy from IziPeru, the circular structure from Peru.com, the contrast and emblem authority from NewYork.com, and the regional specificity from Nashville.com.
+                            Then we pushed further. Both concepts below are built to be more ownable, more scalable, and more distinctly Cajamarca than any of the references alone.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div className="proposal-rule" />
+
             {/* PROPOSAL 01 */}
             <section className="proposal-concept">
                 <div className="proposal-container">
