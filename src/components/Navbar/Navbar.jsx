@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./Navbar.css"
 
-const NAV_LINKS = ["Projects", "Services", "Contact"]
+const SCROLL_LINKS = ["Projects", "Services", "Contact"]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
@@ -27,7 +27,7 @@ function Navbar() {
             </div>
 
             <nav className={`nav-dropdown ${menuOpen ? "visible" : ""}`}>
-                {NAV_LINKS.map(link => (
+                {SCROLL_LINKS.map(link => (
                     <a
                         key={link}
                         className="nav-link mono"
@@ -37,6 +37,13 @@ function Navbar() {
                         {link}
                     </a>
                 ))}
+                <a
+                    className="nav-link mono"
+                    href="/team"
+                    onClick={() => setMenuOpen(false)}
+                >
+                    Meet the Team
+                </a>
             </nav>
         </div>
     )

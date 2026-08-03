@@ -62,7 +62,6 @@ function HomePage() {
       <section id="hero"><HeroSection /></section>
       <section id="projects"><ProjectSection /></section>
       <ServicesSection />
-      {/* <section id="about"><AboutSection /></section> */}
       <ContactSection />
       <Footer />
     </>
@@ -76,6 +75,7 @@ function App() {
       <Route path="/projects/:slug" element={<ProjectPage />} />
       <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
       <Route path="/proposals/:slug" element={<ProposalPage />} />
+      <Route path="/team" element={<><Navbar /><AboutSection /></>} />
     </Routes>
   );
 }
