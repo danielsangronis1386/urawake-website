@@ -21,9 +21,9 @@
 
 .portrait-img {
   width: 100%;
-  height: 520px;
-  object-fit: contain;
-  object-position: center;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
   display: block;
   background: #000;
   filter: none;
@@ -32,7 +32,7 @@
 /* LEFT COLUMN */
 .portrait-placeholder {
   width: 100%;
-  height: 520px;
+  height: clamp(320px, 40vw, 560px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   justify-content: center;
@@ -275,7 +275,7 @@
 .collage-card {
   position: relative;
   width: 100%;
-  height: 580px;
+  height: clamp(380px, 45vw, 620px);
   overflow: hidden;
 }
 
