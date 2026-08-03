@@ -1,10 +1,19 @@
+import { useState } from "react";
 import logo1 from "../../assets/logosprop/Cajamarca.png";
 import logo2 from "../../assets/logosprop/cajamarca logo 2.png";
 import "./ProposalPage.css";
 
 function CajamarcaProposal() {
+    const [lightbox, setLightbox] = useState(null);
     return (
         <div className="proposal-page">
+
+            {lightbox && (
+                <div className="proposal-lightbox" onClick={() => setLightbox(null)}>
+                    <button className="proposal-lightbox-close" onClick={() => setLightbox(null)}>✕</button>
+                    <img src={lightbox} alt="Logo expanded" className="proposal-lightbox-img" onClick={e => e.stopPropagation()} />
+                </div>
+            )}
 
             {/* HEADER */}
             <header className="proposal-header">
@@ -43,7 +52,7 @@ function CajamarcaProposal() {
 
                     <div className="proposal-concept-body">
                         <div className="proposal-logo-display proposal-logo-display--warm">
-                            <img src={logo1} alt="Cajamarca — The Festival Sunset Badge" className="proposal-logo-img" />
+                            <img src={logo1} alt="Cajamarca — The Festival Sunset Badge" className="proposal-logo-img proposal-logo-clickable" onClick={() => setLightbox(logo1)} />
                         </div>
 
                         <div className="proposal-concept-details">
@@ -114,7 +123,7 @@ function CajamarcaProposal() {
 
                     <div className="proposal-concept-body">
                         <div className="proposal-logo-display proposal-logo-display--dark">
-                            <img src={logo2} alt="Cajamarca — The Modern Monochrome Emblem" className="proposal-logo-img" />
+                            <img src={logo2} alt="Cajamarca — The Modern Monochrome Emblem" className="proposal-logo-img proposal-logo-clickable" onClick={() => setLightbox(logo2)} />
                         </div>
 
                         <div className="proposal-concept-details">

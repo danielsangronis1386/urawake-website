@@ -147,7 +147,7 @@
 }
 
 .proposal-logo-display--warm {
-    background: #faf4e8;
+    background: #fff;
 }
 
 .proposal-logo-display--dark {
@@ -241,6 +241,56 @@
 
 .proposal-cta-btn:hover {
     opacity: 0.85;
+}
+
+/* LIGHTBOX */
+.proposal-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.proposal-lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: block;
+    cursor: default;
+    background: #fff;
+}
+
+.proposal-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 1rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.proposal-lightbox-close:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.proposal-logo-clickable {
+    cursor: zoom-in;
 }
 
 /* RESPONSIVE */
