@@ -20,7 +20,7 @@ function CajamarcaProposal() {
                 <div className="proposal-header-inner">
                     <p className="proposal-from mono">// Prepared by URAWAKE Stackhouse</p>
                     <h1 className="proposal-brand">CAJAMARCA.COM</h1>
-                    <p className="proposal-heading-sub">Brand Identity Proposal — Two Creative Directions</p>
+                    <p className="proposal-heading-sub">Brand Identity Proposal: Two Creative Directions</p>
                 </div>
             </header>
 
@@ -59,13 +59,13 @@ function CajamarcaProposal() {
                         <div className="proposal-ref-item">
                             <p className="proposal-ref-name">Peru.com</p>
                             <p className="proposal-ref-read">
-                                Clean circular format that travels well across platforms. The restraint works. What it lacks: personality. Nothing in the mark tells you what Peru feels like — it could be any country.
+                                Clean circular format that travels well across platforms. The restraint works. What it lacks: personality. Nothing in the mark tells you what Peru feels like. It could be any country.
                             </p>
                         </div>
                         <div className="proposal-ref-item">
                             <p className="proposal-ref-name">NewYork.com</p>
                             <p className="proposal-ref-read">
-                                High contrast, bold typography, strong emblem format. It communicates authority instantly. What it lacks: warmth. The tone is cold and corporate — fine for a city brand, wrong for a destination that should invite people in.
+                                High contrast, bold typography, strong emblem format. It communicates authority instantly. What it lacks: warmth. The tone is cold and corporate. Fine for a city brand, wrong for a destination that should invite people in.
                             </p>
                         </div>
                         <div className="proposal-ref-item">
@@ -133,7 +133,7 @@ function CajamarcaProposal() {
                                 <p className="proposal-detail-text">
                                     Horizontal color stripes referencing festival flags and Peruvian textiles.
                                     A mountain range silhouette grounds the mark in the Cajamarca landscape.
-                                    A mascot with sunglasses brings energy and character — approachable, confident, iconic.
+                                    A mascot with sunglasses brings energy and character: approachable, confident, iconic.
                                 </p>
                             </div>
 
@@ -199,7 +199,7 @@ function CajamarcaProposal() {
                             <div className="proposal-detail-block">
                                 <p className="proposal-detail-label mono">// Visual Language</p>
                                 <p className="proposal-detail-text">
-                                    A sleek mascot silhouette rendered in white against dark — refined, not ornate.
+                                    A sleek mascot silhouette rendered in white against dark. Refined, not ornate.
                                     Heavy display lettering with tight tracking creates authority.
                                     Minimal detail ensures the mark scales cleanly from business card to billboard.
                                 </p>
