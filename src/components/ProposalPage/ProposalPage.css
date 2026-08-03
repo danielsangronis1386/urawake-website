@@ -371,8 +371,19 @@
     border-color: #fff;
 }
 
-.proposal-logo-clickable {
+.proposal-logo-protected {
+    position: relative;
     cursor: zoom-in;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.proposal-logo-shield {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    user-select: none;
 }
 
 /* RESPONSIVE */

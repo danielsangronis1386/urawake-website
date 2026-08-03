@@ -11,7 +11,7 @@ function CajamarcaProposal() {
             {lightbox && (
                 <div className="proposal-lightbox" onClick={() => setLightbox(null)}>
                     <button className="proposal-lightbox-close" onClick={() => setLightbox(null)}>✕</button>
-                    <img src={lightbox} alt="Logo expanded" className="proposal-lightbox-img" onClick={e => e.stopPropagation()} />
+                    <img src={lightbox} alt="Logo expanded" className="proposal-lightbox-img" onClick={e => e.stopPropagation()} draggable="false" onContextMenu={e => e.preventDefault()} />
                 </div>
             )}
 
@@ -101,7 +101,10 @@ function CajamarcaProposal() {
 
                     <div className="proposal-concept-body">
                         <div className="proposal-logo-display proposal-logo-display--warm">
-                            <img src={logo1} alt="Cajamarca — The Festival Sunset Badge" className="proposal-logo-img proposal-logo-clickable" onClick={() => setLightbox(logo1)} />
+                            <div className="proposal-logo-protected" onClick={() => setLightbox(logo1)}>
+                                <img src={logo1} alt="Cajamarca — The Festival Sunset Badge" className="proposal-logo-img" draggable="false" onContextMenu={e => e.preventDefault()} />
+                                <div className="proposal-logo-shield" />
+                            </div>
                         </div>
 
                         <div className="proposal-concept-details">
@@ -172,7 +175,10 @@ function CajamarcaProposal() {
 
                     <div className="proposal-concept-body">
                         <div className="proposal-logo-display proposal-logo-display--dark">
-                            <img src={logo2} alt="Cajamarca — The Modern Monochrome Emblem" className="proposal-logo-img proposal-logo-clickable" onClick={() => setLightbox(logo2)} />
+                            <div className="proposal-logo-protected" onClick={() => setLightbox(logo2)}>
+                                <img src={logo2} alt="Cajamarca — The Modern Monochrome Emblem" className="proposal-logo-img" draggable="false" onContextMenu={e => e.preventDefault()} />
+                                <div className="proposal-logo-shield" />
+                            </div>
                         </div>
 
                         <div className="proposal-concept-details">
