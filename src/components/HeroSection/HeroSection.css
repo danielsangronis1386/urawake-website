@@ -237,11 +237,10 @@
 
 /* HERO LOGO */
 .hero-logo {
-  width: 140%;
-  height: 140%;
-  object-fit: contain;
+  width: 90vw;
+  height: auto;
   display: block;
-  mix-blend-mode: screen;
+  filter: invert(1);
   user-select: none;
   position: absolute;
   top: 50%;
@@ -298,8 +297,7 @@
   }
 
   .hero-logo {
-    width: 160%;
-    height: 160%;
+    width: 95vw;
   }
 
   .hero-subtitle {
