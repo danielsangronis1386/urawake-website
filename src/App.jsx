@@ -62,7 +62,7 @@ function HomePage() {
       <section id="hero"><HeroSection /></section>
       <section id="projects"><ProjectSection /></section>
       <ServicesSection />
-      <section id="about"><AboutSection /></section>
+      {/* <section id="about"><AboutSection /></section> */}
       <ContactSection />
       <Footer />
     </>

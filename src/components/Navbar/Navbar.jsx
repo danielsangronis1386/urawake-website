@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./Navbar.css"
 import logo from "../../assets/logos/LOGO-01.png"
 
-const NAV_LINKS = ["Projects", "Services", "About", "Contact"]
+const NAV_LINKS = ["Projects", "Services", "Contact"]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
