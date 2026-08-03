@@ -237,7 +237,7 @@ function CajamarcaProposal() {
                         color palette, typography guide, usage rules, and final file delivery.
                     </p>
                     <a
-                        href="mailto:daniel.sangronis1386@gmail.com?subject=Cajamarca Brand Proposal — Feedback"
+                        href="mailto:info@urawake.dev?subject=Cajamarca Brand Proposal — Feedback"
                         className="proposal-cta-btn"
                     >
                         // Send Feedback →
