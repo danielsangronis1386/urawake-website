@@ -14,8 +14,8 @@ const INVOICES = {
         },
         lineItems: [
             {
-                description: "Server Hosting + Maintenance",
-                detail: "Heroku Basic Dyno + PostgreSQL Essential — Dec 10, 2025 to Aug 3, 2026",
+                description: "Hosting + Maintenance",
+                period: "Dec 10, 2025 → Aug 3, 2026",
                 months: 8,
                 rate: 15,
                 total: 120.00,
@@ -38,8 +38,8 @@ const INVOICES = {
         },
         lineItems: [
             {
-                description: "Server Hosting + Maintenance",
-                detail: "Heroku Basic Dyno + PostgreSQL Essential — Mar 20, 2026 to Aug 3, 2026",
+                description: "Hosting + Maintenance",
+                period: "Mar 20, 2026 → Aug 3, 2026",
                 months: 4.5,
                 rate: 15,
                 total: 67.50,
