@@ -386,6 +386,65 @@
     user-select: none;
 }
 
+/* DOWNLOAD BUTTON */
+.proposal-download {
+    padding: 2rem 0;
+    background: #000;
+}
+
+.proposal-download-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Inter", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.proposal-download-btn:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* PRINT */
+@media print {
+    @page {
+        margin: 0;
+        size: A4;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .proposal-page {
+        background: #0a0a0a !important;
+        color: #fff !important;
+    }
+
+    .proposal-cta-btn,
+    .proposal-lightbox,
+    .proposal-logo-shield,
+    .proposal-download,
+    .no-print {
+        display: none !important;
+    }
+
+    .proposal-logo-display {
+        position: static !important;
+        break-inside: avoid;
+    }
+
+    .proposal-concept-body {
+        break-inside: avoid;
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .proposal-ref-grid {

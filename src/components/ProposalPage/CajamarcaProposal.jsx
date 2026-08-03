@@ -233,6 +233,17 @@ function CajamarcaProposal() {
 
             <div className="proposal-rule" />
 
+            <div className="proposal-rule" />
+
+            {/* DOWNLOAD */}
+            <div className="proposal-download no-print">
+                <div className="proposal-container">
+                    <button className="proposal-download-btn" onClick={() => window.print()}>
+                        // Download as PDF ↓
+                    </button>
+                </div>
+            </div>
+
             {/* FOOTER CTA */}
             <section className="proposal-footer-cta">
                 <div className="proposal-container">
