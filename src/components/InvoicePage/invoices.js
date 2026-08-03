@@ -26,6 +26,7 @@ const INVOICES = {
     },
     "eliots-adventures": {
         invoiceNumber: "INV-2026-002",
+        paymentLink: "https://buy.stripe.com/4gMfZg2Ez4cX5Vn447dwc02",
         issued: "August 3, 2026",
         due: "August 3, 2026",
         client: {
