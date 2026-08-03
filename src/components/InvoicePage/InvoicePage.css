@@ -262,7 +262,7 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .invoice-page {
-        padding: 2rem 0 4rem;
+        padding: 1.5rem 0 4rem;
     }
 
     .invoice-container {
@@ -289,14 +289,56 @@
         padding: 1.5rem;
     }
 
-    .invoice-table th,
-    .invoice-table td {
-        padding: 1rem 1.5rem;
+    /* COLLAPSE TABLE INTO CARDS ON MOBILE */
+    .invoice-table thead {
+        display: none;
     }
 
-    .invoice-table th:last-child,
-    .invoice-table td:last-child {
-        padding-right: 1.5rem;
+    .invoice-table,
+    .invoice-table tbody,
+    .invoice-table tr,
+    .invoice-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .invoice-table tr {
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .invoice-table td {
+        padding: 0.3rem 0;
+        border: none;
+        text-align: left !important;
+        font-size: 0.88rem;
+    }
+
+    .invoice-table td:first-child {
+        padding-left: 0;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+    }
+
+    .invoice-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.68rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.25);
+        margin-bottom: 0.15rem;
+    }
+
+    .invoice-table td:first-child::before {
+        display: none;
+    }
+
+    .invoice-amount {
+        font-size: 1.1rem;
     }
 
     .invoice-total-row {

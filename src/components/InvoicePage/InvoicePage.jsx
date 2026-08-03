@@ -65,11 +65,11 @@ function InvoicePage() {
                         {inv.lineItems.map((item, i) => (
                             <tr key={i}>
                                 <td className="invoice-item-num">{i + 1}</td>
-                                <td><p className="invoice-item-name">{item.description}</p></td>
-                                <td className="invoice-item-period">{item.period}</td>
-                                <td>{item.months}</td>
-                                <td>${item.rate.toFixed(2)}/mo</td>
-                                <td className="invoice-amount">${item.total.toFixed(2)}</td>
+                                <td data-label="Item"><p className="invoice-item-name">{item.description}</p></td>
+                                <td data-label="Period" className="invoice-item-period">{item.period}</td>
+                                <td data-label="Months">{item.months}</td>
+                                <td data-label="Rate">${item.rate.toFixed(2)}/mo</td>
+                                <td data-label="Total" className="invoice-amount">${item.total.toFixed(2)}</td>
                             </tr>
                         ))}
                     </tbody>
