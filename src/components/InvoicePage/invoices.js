@@ -3,6 +3,7 @@ const INVOICES = {
         invoiceNumber: "INV-2026-001",
         issued: "August 3, 2026",
         due: "August 3, 2026",
+        paymentLink: "https://buy.stripe.com/5kQ7sKcf910L5Vn6cfdwc01",
         client: {
             name: "ToursToDo PR",
             contact: "ToursToDo Operations Team",

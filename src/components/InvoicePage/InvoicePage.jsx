@@ -88,8 +88,13 @@ function InvoicePage() {
                 {/* PAYMENT */}
                 <div className="invoice-payment">
                     <p className="invoice-section-label mono">// Payment</p>
+                    {inv.paymentLink && (
+                        <a href={inv.paymentLink} target="_blank" rel="noopener noreferrer" className="invoice-pay-btn">
+                            Pay ${inv.total.toFixed(2)} Now →
+                        </a>
+                    )}
                     <p className="invoice-payment-text">
-                        To arrange payment or ask any questions, contact us at{" "}
+                        Questions? Contact us at{" "}
                         <a href={`mailto:${inv.from.email}?subject=Invoice ${inv.invoiceNumber}`} className="invoice-email-link">
                             {inv.from.email}
                         </a>
