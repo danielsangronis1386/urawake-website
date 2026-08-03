@@ -122,12 +122,11 @@
 .invoice-table {
     width: 100%;
     border-collapse: collapse;
-    padding: 0 3rem;
-    display: table;
+    table-layout: fixed;
 }
 
 .invoice-table th {
-    padding: 1.2rem 3rem;
+    padding: 1rem 1rem 1rem 0;
     text-align: left;
     font-size: 0.72rem;
     letter-spacing: 0.15em;
@@ -137,25 +136,47 @@
     font-weight: 400;
 }
 
+.invoice-table th:first-child,
+.invoice-table td:first-child {
+    width: 40px;
+    padding-left: 3rem;
+}
+
+.invoice-table th:nth-child(2),
+.invoice-table td:nth-child(2) {
+    width: 30%;
+}
+
+.invoice-table th:nth-child(3),
+.invoice-table td:nth-child(3) {
+    width: 28%;
+}
+
+.invoice-table th:nth-child(4),
+.invoice-table td:nth-child(4) {
+    width: 10%;
+    text-align: center;
+}
+
+.invoice-table th:nth-child(5),
+.invoice-table td:nth-child(5) {
+    width: 14%;
+    text-align: right;
+}
+
 .invoice-table th:last-child,
 .invoice-table td:last-child {
     text-align: right;
     padding-right: 3rem;
+    width: 14%;
 }
 
 .invoice-table td {
-    padding: 1.8rem 3rem 1.8rem;
-    vertical-align: top;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    padding: 1.8rem 1rem 1.8rem 0;
+    vertical-align: middle;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.invoice-table td:nth-child(2),
-.invoice-table td:nth-child(3) {
-    white-space: nowrap;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.85rem;
 }
 
 .invoice-item-num {
