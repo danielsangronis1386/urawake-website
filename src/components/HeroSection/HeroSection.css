@@ -237,11 +237,15 @@
 
 /* HERO LOGO */
 .hero-logo {
-  width: clamp(320px, 70vw, 900px);
-  height: auto;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
   display: block;
   mix-blend-mode: screen;
   user-select: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* SUBTITLE — offset right for brutalist asymmetry */
@@ -293,7 +297,8 @@
   }
 
   .hero-logo {
-    width: clamp(240px, 90vw, 480px);
+    width: 100vw;
+    height: 100vh;
   }
 
   .hero-subtitle {
