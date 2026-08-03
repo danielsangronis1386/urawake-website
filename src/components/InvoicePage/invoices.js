@@ -2,7 +2,7 @@ const INVOICES = {
     "tourstodo": {
         invoiceNumber: "INV-2026-001",
         issued: "August 3, 2026",
-        due: "August 17, 2026",
+        due: "August 3, 2026",
         client: {
             name: "ToursToDo PR",
             contact: "ToursToDo Operations Team",
@@ -26,7 +26,7 @@ const INVOICES = {
     "eliots-adventures": {
         invoiceNumber: "INV-2026-002",
         issued: "August 3, 2026",
-        due: "August 17, 2026",
+        due: "August 3, 2026",
         client: {
             name: "Eliot's Adventures",
             contact: "Eliot's Adventures Operations Team",
