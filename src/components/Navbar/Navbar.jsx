@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "./Navbar.css"
-import logo from "../../assets/logos/LOGO-01.png"
 
 const NAV_LINKS = ["Projects", "Services", "Contact"]
 
@@ -17,10 +16,6 @@ function Navbar() {
 
     return (
         <div className="navbar">
-            <a href="/" className="navbar-logo-link" aria-label="Home">
-                <img src={logo} alt="URAWAKE Stackhouse" className="navbar-logo" />
-            </a>
-
             <div
                 className={`hamburger ${menuOpen ? "open" : ""}`}
                 onClick={() => setMenuOpen(prev => !prev)}

@@ -235,6 +235,15 @@
   will-change: transform, clip-path, opacity;
 }
 
+/* HERO LOGO */
+.hero-logo {
+  width: clamp(320px, 70vw, 900px);
+  height: auto;
+  display: block;
+  mix-blend-mode: screen;
+  user-select: none;
+}
+
 /* SUBTITLE — offset right for brutalist asymmetry */
 .hero-subtitle {
   font-family: "Archivo Black", sans-serif;
@@ -281,6 +290,10 @@
     font-size: 0.78rem;
     padding-left: 1.2rem;
     margin-bottom: 0.8rem;
+  }
+
+  .hero-logo {
+    width: clamp(240px, 90vw, 480px);
   }
 
   .hero-subtitle {
