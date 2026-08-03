@@ -236,16 +236,58 @@
 }
 
 /* HERO LOGO */
-.hero-logo {
-  width: 90vw;
-  height: auto;
-  display: block;
-  filter: invert(1);
-  user-select: none;
+.hero-logo-glitch {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 90vw;
+}
+
+.hero-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: invert(1);
+  user-select: none;
+}
+
+/* GLITCH LAYERS */
+.glitch-r,
+.glitch-c {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-r {
+  filter: invert(1) saturate(4) hue-rotate(290deg);
+  mix-blend-mode: screen;
+  animation: glitch-r 5s infinite;
+}
+
+.glitch-c {
+  filter: invert(1) saturate(4) hue-rotate(150deg);
+  mix-blend-mode: screen;
+  animation: glitch-c 5s infinite;
+}
+
+@keyframes glitch-r {
+  0%,  82%, 100% { opacity: 0; transform: translateX(0);    clip-path: none; }
+  83%            { opacity: 0.9; transform: translateX(-5px); clip-path: inset(10% 0 70% 0); }
+  85%            { opacity: 0.9; transform: translateX(4px);  clip-path: inset(55% 0 10% 0); }
+  87%            { opacity: 0.9; transform: translateX(-3px); clip-path: inset(30% 0 40% 0); }
+  89%            { opacity: 0; }
+}
+
+@keyframes glitch-c {
+  0%,  82%, 100% { opacity: 0; transform: translateX(0);   clip-path: none; }
+  83%            { opacity: 0.9; transform: translateX(5px);  clip-path: inset(10% 0 70% 0); }
+  85%            { opacity: 0.9; transform: translateX(-4px); clip-path: inset(55% 0 10% 0); }
+  87%            { opacity: 0.9; transform: translateX(3px);  clip-path: inset(30% 0 40% 0); }
+  89%            { opacity: 0; }
 }
 
 /* SUBTITLE — offset right for brutalist asymmetry */
@@ -296,7 +338,7 @@
     margin-bottom: 0.8rem;
   }
 
-  .hero-logo {
+  .hero-logo-glitch {
     width: 95vw;
   }
 

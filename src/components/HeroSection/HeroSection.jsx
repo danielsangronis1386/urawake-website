@@ -19,7 +19,11 @@ function HeroSection() {
             <div className="hero-center">
                 <div className="hero-eyebrow mono">// BUILD CONSCIOUS. CODE AWAKE.</div>
 
-                <img src={logo} alt="URAWAKE Stackhouse" className="hero-logo" />
+                <div className="hero-logo-glitch">
+                    <img src={logo} alt="URAWAKE Stackhouse" className="hero-logo" />
+                    <img src={logo} aria-hidden="true" className="hero-logo glitch-r" />
+                    <img src={logo} aria-hidden="true" className="hero-logo glitch-c" />
+                </div>
 
                 <p className="hero-tagline mono">
                     Full-stack web development. Digital, urban, awake.
