@@ -35,8 +35,8 @@ function WipeText({ text, className, delay = 0 }) {
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) setInView(true); },
-            { threshold: 0.5 }
+            ([entry]) => { setInView(entry.isIntersecting); },
+            { threshold: 0.3 }
         );
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();

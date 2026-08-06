@@ -1,7 +1,7 @@
 /* ===== SERVICES SECTION — URAWAKE STACKHOUSE ===== */
 .services-section {
   width: 100%;
-  background: #8A2BE2;
+  background: #000;
   color: var(--white);
   padding: 0;
   border-top: 1px solid var(--border);
@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border-right: 3px solid rgba(255, 255, 255, 0.15);
+  border-right: 3px solid rgba(255, 255, 255, 0.08);
   user-select: none;
   line-height: 0.85;
   overflow: hidden;
@@ -71,7 +71,7 @@
 /* gray base — always visible */
 .wipe-base {
   display: block;
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.15);
   font-family: "Archivo Black", sans-serif;
   letter-spacing: -0.01em;
 }
@@ -118,11 +118,11 @@
 .service-tech .wipe-base,
 .service-tech .wipe-fill {
   font-size: clamp(3.2rem, 7.5vw, 8.5rem);
-  color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.1);
 }
 
 .service-tech .wipe-fill {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* ===== RESPONSIVE ===== */
