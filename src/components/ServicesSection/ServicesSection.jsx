@@ -41,13 +41,15 @@ function ServiceBlock({ service, index }) {
             const rect = blockRef.current.getBoundingClientRect();
             const vh = window.innerHeight;
 
-            // progress: 0 when block bottom is at viewport bottom, 1 when block top is at viewport top
+            // use block center so fill completes as soon as block is mostly visible
+            const blockCenter = rect.top + rect.height * 0.5;
+            const start = vh * 0.95;
+            const end = vh * 0.5;
             const progress = Math.min(1, Math.max(0,
-                (vh - rect.top) / (vh + rect.height)
+                (start - blockCenter) / (start - end)
             ));
 
             fills.forEach((el) => {
-                // fill left to right as progress increases
                 const pct = Math.round((1 - progress) * 100);
                 el.style.clipPath = `inset(0 ${pct}% 0 0)`;
             });
