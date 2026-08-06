@@ -1,5 +1,5 @@
 import "./HeroSection.css"
-import logo from "../../assets/logos/LOGO-01.png"
+import GlitchTitle from "./GlitchTitle"
 
 function HeroSection() {
     return (
@@ -19,11 +19,9 @@ function HeroSection() {
             <div className="hero-center">
                 <div className="hero-eyebrow mono">// BUILD CONSCIOUS. CODE AWAKE.</div>
 
-                <div className="hero-logo-glitch">
-                    <img src={logo} alt="URAWAKE Stackhouse" className="hero-logo" />
-                    <img src={logo} aria-hidden="true" className="hero-logo glitch-r" />
-                    <img src={logo} aria-hidden="true" className="hero-logo glitch-c" />
-                </div>
+                <GlitchTitle text="URAWAKE" />
+
+                <h2 className="hero-subtitle">STACKHOUSE</h2>
 
                 <p className="hero-tagline mono">
                     Full-stack web development. Digital, urban, awake.
