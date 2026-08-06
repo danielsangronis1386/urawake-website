@@ -35,8 +35,19 @@ function WipeText({ text, className, delay = 0 }) {
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => { setInView(entry.isIntersecting); },
-            { threshold: 0.3 }
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    // entering viewport — fill
+                    setInView(true);
+                } else {
+                    // leaving viewport — only unfill if exiting from the BOTTOM
+                    // (user scrolled back up), keep filled if exiting from top (scrolled past)
+                    if (entry.boundingClientRect.top > 0) {
+                        setInView(false);
+                    }
+                }
+            },
+            { threshold: 0.15 }
         );
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
