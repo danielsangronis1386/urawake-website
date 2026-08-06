@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./ServicesSection.css";
 
 const SERVICES = [
@@ -19,7 +19,7 @@ const SERVICES = [
     },
     {
         name: "BRAND TO WEB",
-        description: "From brand identity to live interface. I take your visual language or build it from scratch and turn it into a site that moves, converts, and represents your business at full force. I don't do branding, but I work with a designer I trust. If you need it, I can bring her in.",
+        description: "From brand identity to live interface. I take your visual language or build it from scratch and turn it into a site that moves, converts, and represents your business at full force.",
         techs: ["IDENTITY → WEB /", "RESPONSIVE /", "MOTION /", "CONVERSION /"],
     },
     {
@@ -29,77 +29,72 @@ const SERVICES = [
     },
 ];
 
-function WipeText({ text, className, delay = 0 }) {
-    const [inView, setInView] = useState(false);
-    const ref = useRef(null);
+function ServiceBlock({ service, index }) {
+    const blockRef = useRef(null);
+    const fillsRef = useRef([]);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    // entering viewport — fill
-                    setInView(true);
-                } else {
-                    // leaving viewport — only unfill if exiting from the BOTTOM
-                    // (user scrolled back up), keep filled if exiting from top (scrolled past)
-                    if (entry.boundingClientRect.top > 0) {
-                        setInView(false);
-                    }
-                }
-            },
-            { threshold: 0.15 }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
+        const fills = fillsRef.current.filter(Boolean);
+
+        function update() {
+            if (!blockRef.current) return;
+            const rect = blockRef.current.getBoundingClientRect();
+            const vh = window.innerHeight;
+
+            // progress: 0 when block bottom is at viewport bottom, 1 when block top is at viewport top
+            const progress = Math.min(1, Math.max(0,
+                (vh - rect.top) / (vh + rect.height)
+            ));
+
+            fills.forEach((el) => {
+                // fill left to right as progress increases
+                const pct = Math.round((1 - progress) * 100);
+                el.style.clipPath = `inset(0 ${pct}% 0 0)`;
+            });
+        }
+
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+        return () => window.removeEventListener("scroll", update);
     }, []);
 
+    const addFill = (el) => { if (el) fillsRef.current.push(el); };
+
     return (
-        <span
-            ref={ref}
-            className={`wipe-wrap ${className}${inView ? " in-view" : ""}`}
-            style={{ "--delay": `${delay}ms` }}
-        >
-            <span className="wipe-base" aria-hidden="true">{text}</span>
-            <span className="wipe-fill">{text}</span>
-        </span>
+        <div ref={blockRef} className="service-block">
+            <span className="wipe-wrap service-name">
+                <span className="wipe-base" aria-hidden="true">{service.name}</span>
+                <span className="wipe-fill scroll-fill" ref={addFill}>{service.name}</span>
+            </span>
+
+            {service.description && (
+                <p className="service-description">{service.description}</p>
+            )}
+
+            <div className="service-techs">
+                {service.techs.map((tech, ti) => (
+                    <span key={ti} className="wipe-wrap service-tech">
+                        <span className="wipe-base" aria-hidden="true">{tech}</span>
+                        <span className="wipe-fill scroll-fill" ref={addFill}>{tech}</span>
+                    </span>
+                ))}
+            </div>
+        </div>
     );
 }
 
 function ServicesSection() {
     return (
         <section className="services-section" id="services">
-
             <div className="section-label-vertical">SERVICES</div>
-
             <div className="services-body">
-            <p className="services-eyebrow mono">// What I build</p>
-
-            <div className="services-list">
-                {SERVICES.map((service, si) => (
-                    <div key={si} className="service-block">
-                        <WipeText
-                            text={service.name}
-                            className="service-name"
-                            delay={0}
-                        />
-                        {service.description && (
-                            <p className="service-description">{service.description}</p>
-                        )}
-                        <div className="service-techs">
-                            {service.techs.map((tech, ti) => (
-                                <WipeText
-                                    key={ti}
-                                    text={tech}
-                                    className="service-tech"
-                                    delay={ti * 80}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                <p className="services-eyebrow mono">// What I build</p>
+                <div className="services-list">
+                    {SERVICES.map((service, si) => (
+                        <ServiceBlock key={si} service={service} index={si} />
+                    ))}
+                </div>
             </div>
-            </div>{/* end services-body */}
-
         </section>
     );
 }

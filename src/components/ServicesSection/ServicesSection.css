@@ -76,7 +76,7 @@
   letter-spacing: -0.01em;
 }
 
-/* white fill — clipped until in view */
+/* white fill — controlled by scroll via inline style */
 .wipe-fill {
   display: block;
   position: absolute;
@@ -87,13 +87,11 @@
   letter-spacing: -0.01em;
   pointer-events: none;
   white-space: nowrap;
-
   clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
 }
 
-.wipe-wrap.in-view .wipe-fill {
-  clip-path: inset(0 0% 0 0);
+.scroll-fill {
+  will-change: clip-path;
 }
 
 /* ===== SERVICE NAME — big title ===== */
