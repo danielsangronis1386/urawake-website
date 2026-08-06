@@ -86,7 +86,8 @@
   font-family: "Archivo Black", sans-serif;
   letter-spacing: -0.01em;
   pointer-events: none;
-  white-space: nowrap;
+  white-space: normal;
+  width: 100%;
   clip-path: inset(0 100% 0 0);
 }
 
@@ -97,7 +98,7 @@
 /* ===== SERVICE NAME — big title ===== */
 .service-name .wipe-base,
 .service-name .wipe-fill {
-  font-size: clamp(5rem, 12vw, 13rem);
+  font-size: clamp(3.5rem, 12vw, 13rem);
 }
 
 .service-name {
