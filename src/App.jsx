@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './App.css'
 import Navbar from "./components/Navbar/Navbar";
@@ -79,6 +79,7 @@ function App() {
       <Route path="/team" element={<><Navbar /><AboutSection /><Footer /></>} />
       <Route path="/why-us" element={<WhyUsPage />} />
       <Route path="/invoices/:slug" element={<InvoicePage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
