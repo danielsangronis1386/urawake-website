@@ -16,10 +16,9 @@ import Footer from './components/Footer/Footer';
 
 const SECTION_URLS = {
   hero:     '/',
-  projects: '/projects',
-  services: '/services',
-  about:    '/about',
-  contact:  '/contact',
+  projects: '/#projects',
+  services: '/#services',
+  contact:  '/#contact',
 };
 
 function HomePage() {
@@ -51,7 +50,7 @@ function HomePage() {
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0, rootMargin: "-40% 0px -50% 0px" }
     );
 
     sections.forEach((s) => observer.observe(s));
