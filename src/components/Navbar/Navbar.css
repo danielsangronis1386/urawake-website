@@ -13,8 +13,7 @@
 .navbar-logo {
   pointer-events: all;
   display: block;
-  width: clamp(120px, 15vw, 210px);
-  overflow: hidden;
+  width: clamp(120px, 15vw, 200px);
   opacity: 0;
   transform: translateY(-6px);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -26,11 +25,10 @@
 }
 
 .navbar-logo img {
-  width: 140%;
+  width: 100%;
   height: auto;
   display: block;
   filter: invert(1);
-  margin: -8% -20%;
 }
 
 .hamburger {
