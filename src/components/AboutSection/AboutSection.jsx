@@ -1,17 +1,28 @@
+import { useEffect, useRef } from "react";
 import "./AboutSection.css"
 import portrait from "../../assets/about/Daniel Sangronis.png"
 import janyerlyn from "../../assets/about/janyerlyn morales.png"
 
 function AboutSection() {
-    return (
-        <section className="about-section" id="about">
+    const sectionRef = useRef(null);
 
-            <div className="section-label-vertical">ABOUT</div>
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+        requestAnimationFrame(() => {
+            el.classList.add("team-entered");
+        });
+    }, []);
+
+    return (
+        <section className="about-section" id="about" ref={sectionRef}>
+
+            <div className="section-label-vertical">TEAM</div>
 
             <div className="about-grid">
 
             {/* ── DANIEL ── */}
-            <div className="about-left">
+            <div className="about-left team-reveal" style={{ "--delay": "0s" }}>
                 <div className="collage-card">
                     <div className="collage-bg collage-bg--cyan" />
                     <div className="collage-word collage-word--back">AWAKE</div>
@@ -22,7 +33,10 @@ function AboutSection() {
                 </div>
             </div>
 
-            <div className="about-right">
+            <div className="about-right team-reveal" style={{ "--delay": "0.1s" }}>
+                <div className="team-member-label">// Founder</div>
+                <h2 className="about-title">DANIEL<br />SANGRONIS</h2>
+
                 <p className="about-bio">
                     I'm Daniel Sangronis, a <span className="bio-em">web developer</span> and <span className="bio-em">creative director</span> based in <span className="bio-em">Los Angeles, California</span>.
                     I started building in late 2025 and have spent the last year turning that into real client work,
@@ -59,7 +73,7 @@ function AboutSection() {
             </div>
 
             {/* ── JANYERLYN ── */}
-            <div className="about-left">
+            <div className="about-left team-reveal" style={{ "--delay": "0.2s" }}>
                 <div className="collage-card">
                     <div className="collage-bg collage-bg--green" />
                     <div className="collage-word collage-word--back">AWAKE</div>
@@ -70,7 +84,7 @@ function AboutSection() {
                 </div>
             </div>
 
-            <div className="about-right">
+            <div className="about-right team-reveal" style={{ "--delay": "0.3s" }}>
                 <div className="team-member-label">// Collaborator</div>
                 <h2 className="about-title">JANYERLYN<br />MORALES</h2>
 
