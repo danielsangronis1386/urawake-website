@@ -29,30 +29,23 @@ const SERVICES = [
     },
 ];
 
-function ServiceBlock({ service, index }) {
-    const blockRef = useRef(null);
-    const fillsRef = useRef([]);
+function WipeText({ children, className = "", as: Tag = "span" }) {
+    const baseRef = useRef(null);
+    const fillRef = useRef(null);
 
     useEffect(() => {
-        const fills = fillsRef.current.filter(Boolean);
+        const fill = fillRef.current;
+        const base = baseRef.current;
+        if (!fill || !base) return;
 
         function update() {
-            if (!blockRef.current) return;
-            const rect = blockRef.current.getBoundingClientRect();
+            const rect = base.getBoundingClientRect();
             const vh = window.innerHeight;
-
-            // use block center so fill completes as soon as block is mostly visible
-            const blockCenter = rect.top + rect.height * 0.5;
-            const start = vh * 0.95;
+            const center = rect.top + rect.height * 0.5;
+            const start = vh * 0.92;
             const end = vh * 0.5;
-            const progress = Math.min(1, Math.max(0,
-                (start - blockCenter) / (start - end)
-            ));
-
-            fills.forEach((el) => {
-                const pct = Math.round((1 - progress) * 100);
-                el.style.clipPath = `inset(0 ${pct}% 0 0)`;
-            });
+            const progress = Math.min(1, Math.max(0, (start - center) / (start - end)));
+            fill.style.clipPath = `inset(0 ${Math.round((1 - progress) * 100)}% 0 0)`;
         }
 
         window.addEventListener("scroll", update, { passive: true });
@@ -60,25 +53,28 @@ function ServiceBlock({ service, index }) {
         return () => window.removeEventListener("scroll", update);
     }, []);
 
-    const addFill = (el) => { if (el) fillsRef.current.push(el); };
-
     return (
-        <div ref={blockRef} className="service-block">
-            <span className="wipe-wrap service-name">
-                <span className="wipe-base" aria-hidden="true">{service.name}</span>
-                <span className="wipe-fill scroll-fill" ref={addFill}>{service.name}</span>
-            </span>
+        <span className={`wipe-wrap ${className}`}>
+            <Tag className="wipe-base" ref={baseRef} aria-hidden="true">{children}</Tag>
+            <Tag className="wipe-fill scroll-fill" ref={fillRef}>{children}</Tag>
+        </span>
+    );
+}
+
+function ServiceBlock({ service }) {
+    return (
+        <div className="service-block">
+            <WipeText className="service-name">{service.name}</WipeText>
 
             {service.description && (
-                <p className="service-description">{service.description}</p>
+                <WipeText className="service-description-wipe" as="p">
+                    {service.description}
+                </WipeText>
             )}
 
             <div className="service-techs">
                 {service.techs.map((tech, ti) => (
-                    <span key={ti} className="wipe-wrap service-tech">
-                        <span className="wipe-base" aria-hidden="true">{tech}</span>
-                        <span className="wipe-fill scroll-fill" ref={addFill}>{tech}</span>
-                    </span>
+                    <WipeText key={ti} className="service-tech">{tech}</WipeText>
                 ))}
             </div>
         </div>
@@ -93,7 +89,7 @@ function ServicesSection() {
                 <p className="services-eyebrow mono">// What I build</p>
                 <div className="services-list">
                     {SERVICES.map((service, si) => (
-                        <ServiceBlock key={si} service={service} index={si} />
+                        <ServiceBlock key={si} service={service} />
                     ))}
                 </div>
             </div>

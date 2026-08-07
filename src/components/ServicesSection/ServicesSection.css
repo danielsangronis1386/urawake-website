@@ -187,14 +187,30 @@
   }
 }
 
-/* SERVICE DESCRIPTION */
-.service-description {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 520px;
+/* SERVICE DESCRIPTION — wipe version */
+.service-description-wipe {
+  display: block;
   margin-bottom: 1.5rem;
+}
+
+.service-description-wipe .wipe-base,
+.service-description-wipe .wipe-fill {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 520px;
   font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: normal;
+  width: 100%;
+}
+
+.service-description-wipe .wipe-base {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.service-description-wipe .wipe-fill {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 1440px) {
