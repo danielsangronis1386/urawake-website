@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
+import logo from "../../assets/logos/LOGO-01.png"
 import "./Navbar.css"
 
 const SCROLL_LINKS = [
@@ -19,8 +20,21 @@ function scrollToSection(id) {
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [aboutOpen, setAboutOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
     const location = useLocation()
     const isHome = location.pathname === "/"
+
+    useEffect(() => {
+        if (!isHome) return;
+        function onScroll() {
+            setScrolled(window.scrollY > window.innerHeight * 0.6)
+        }
+        window.addEventListener("scroll", onScroll, { passive: true })
+        onScroll()
+        return () => window.removeEventListener("scroll", onScroll)
+    }, [isHome])
+
+    const showLogo = !isHome || scrolled
 
     function handleScrollLink(e, id) {
         e.preventDefault()
@@ -40,6 +54,14 @@ function Navbar() {
 
     return (
         <div className="navbar">
+            <a
+                href="/"
+                className={`navbar-logo ${showLogo ? "navbar-logo--visible" : ""}`}
+                aria-label="URAWAKE Stackhouse home"
+            >
+                <img src={logo} alt="URAWAKE" />
+            </a>
+
             <div
                 className={`hamburger ${menuOpen ? "open" : ""}`}
                 onClick={() => { setMenuOpen(prev => !prev); setAboutOpen(false); }}
