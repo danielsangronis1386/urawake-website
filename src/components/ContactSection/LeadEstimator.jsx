@@ -1,24 +1,22 @@
 import { useState } from "react";
-import { STEPS, calculateEstimate, formatPrice, summarizeAnswers } from "./estimator";
+import { PATHS, STEPS, calculateEstimate, formatPrice, summarizeAnswers } from "./estimator";
 import "./LeadEstimator.css";
 
-const emptyAnswers = { projectType: "", pages: "", design: "", features: [], timeline: "" };
 const emptyLead = { name: "", email: "", phone: "", company: "" };
 
 function LeadEstimator() {
     const [stepIndex, setStepIndex] = useState(0);
-    const [answers, setAnswers] = useState(emptyAnswers);
+    const [answers, setAnswers] = useState({});
     const [lead, setLead] = useState(emptyLead);
-    const [status, setStatus] = useState("idle"); // idle | sending | error | done
+    const [status, setStatus] = useState("idle");
     const [direction, setDirection] = useState("forward");
+    const [path, setPath] = useState(["projectType"]);
 
-    const totalSteps = STEPS.length;
-    const step = STEPS[stepIndex];
-    const onGate = stepIndex === totalSteps;
+    const onGate = stepIndex === path.length;
     const revealed = status === "done";
-
-    // Progress includes the lead-capture step as the final segment.
-    const progress = Math.round((Math.min(stepIndex, totalSteps) / totalSteps) * 100);
+    const currentStepId = path[stepIndex];
+    const step = STEPS[currentStepId];
+    const progress = Math.round((Math.min(stepIndex, path.length) / path.length) * 100);
 
     const goTo = (index, dir) => {
         setDirection(dir);
@@ -26,16 +24,26 @@ function LeadEstimator() {
     };
 
     const selectSingle = (value) => {
-        setAnswers((prev) => ({ ...prev, [step.id]: value }));
-        goTo(stepIndex + 1, "forward");
+        const newAnswers = { ...answers, [step.id]: value };
+        setAnswers(newAnswers);
+
+        // After projectType, lock in the path
+        if (step.id === "projectType") {
+            const newPath = PATHS[value] ?? PATHS.other;
+            setPath(newPath);
+        }
+
+        setDirection("forward");
+        setStepIndex(stepIndex + 1);
     };
 
-    const toggleFeature = (value) => {
+    const toggleMulti = (value) => {
+        const current = Array.isArray(answers[step.id]) ? answers[step.id] : [];
         setAnswers((prev) => ({
             ...prev,
-            features: prev.features.includes(value)
-                ? prev.features.filter((f) => f !== value)
-                : [...prev.features, value],
+            [step.id]: current.includes(value)
+                ? current.filter((v) => v !== value)
+                : [...current, value],
         }));
     };
 
@@ -51,8 +59,8 @@ function LeadEstimator() {
         e.preventDefault();
         setStatus("sending");
 
-        const estimate = calculateEstimate(answers);
-        const summary = summarizeAnswers(answers);
+        const estimate = calculateEstimate(answers, path);
+        const summary = summarizeAnswers(answers, path);
 
         const body = [
             `New estimate request from urawake.dev`,
@@ -73,14 +81,15 @@ function LeadEstimator() {
     };
 
     const restart = () => {
-        setAnswers(emptyAnswers);
+        setAnswers({});
         setLead(emptyLead);
         setStatus("idle");
+        setPath(["projectType"]);
         goTo(0, "back");
     };
 
-    if (revealed || status === "error") {
-        const { low, high } = calculateEstimate(answers);
+    if (revealed) {
+        const { low, high } = calculateEstimate(answers, path);
 
         return (
             <div className="est" data-state="result">
@@ -92,7 +101,7 @@ function LeadEstimator() {
                     </p>
 
                     <ul className="est-summary">
-                        {summarizeAnswers(answers).map((row) => (
+                        {summarizeAnswers(answers, path).map((row) => (
                             <li key={row.id} className="est-summary-row">
                                 <span className="est-summary-q mono">{row.question}</span>
                                 <span className="est-summary-a">{row.answer}</span>
@@ -119,20 +128,18 @@ function LeadEstimator() {
 
     return (
         <div className="est">
-            {/* PROGRESS */}
             <div className="est-progress">
                 <div className="est-progress-bar" style={{ width: `${progress}%` }} />
             </div>
 
             <div className="est-meta">
-                <span className="mono">{onGate ? "06 / Your details" : step.label}</span>
+                <span className="mono">{onGate ? `0${path.length + 1} / Your details` : step?.label}</span>
                 <span className="mono">
-                    {Math.min(stepIndex + 1, totalSteps + 1)} / {totalSteps + 1}
+                    {Math.min(stepIndex + 1, path.length + 1)} / {path.length + 1}
                 </span>
             </div>
 
-            {/* One question at a time, keyed so each step replays the enter animation */}
-            <div className={`est-stage est-anim-${direction}`} key={onGate ? "gate" : step.id}>
+            <div className={`est-stage est-anim-${direction}`} key={onGate ? "gate" : currentStepId}>
                 {onGate ? (
                     <form className="est-form" onSubmit={handleSubmit} noValidate>
                         <h3 className="est-question">YOUR ESTIMATE IS READY.</h3>
@@ -195,7 +202,7 @@ function LeadEstimator() {
                                 ← Back
                             </button>
                             <button type="submit" className="est-submit" disabled={status === "sending"}>
-                                {status === "sending" ? "UNLOCKING..." : "UNLOCK MY ESTIMATE"}
+                                {status === "sending" ? "OPENING..." : "UNLOCK MY ESTIMATE"}
                             </button>
                         </div>
                     </form>
@@ -206,10 +213,11 @@ function LeadEstimator() {
 
                         <div className={`est-options ${step.type === "multi" ? "est-options-multi" : ""}`}>
                             {step.options.map((option, i) => {
+                                const val = answers[step.id];
                                 const selected =
                                     step.type === "multi"
-                                        ? answers.features.includes(option.value)
-                                        : answers[step.id] === option.value;
+                                        ? (Array.isArray(val) ? val : []).includes(option.value)
+                                        : val === option.value;
 
                                 return (
                                     <button
@@ -221,7 +229,7 @@ function LeadEstimator() {
                                         style={{ "--i": i }}
                                         onClick={() =>
                                             step.type === "multi"
-                                                ? toggleFeature(option.value)
+                                                ? toggleMulti(option.value)
                                                 : selectSingle(option.value)
                                         }
                                     >
@@ -248,7 +256,7 @@ function LeadEstimator() {
                                     className="est-submit"
                                     onClick={() => goTo(stepIndex + 1, "forward")}
                                 >
-                                    {answers.features.length ? "CONTINUE" : "SKIP"}
+                                    {(Array.isArray(answers[step.id]) && answers[step.id].length) ? "CONTINUE" : "SKIP"}
                                 </button>
                             )}
                         </div>
