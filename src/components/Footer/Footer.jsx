@@ -1,13 +1,5 @@
 import "./Footer.css";
 
-function scrollTo(id) {
-    const el = document.getElementById(id);
-    if (el) {
-        window.history.pushState(null, "", `#${id}`);
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-}
-
 function Footer() {
     const year = new Date().getFullYear();
 
@@ -16,10 +8,10 @@ function Footer() {
             <div className="footer-top">
                 <span className="footer-brand">URAWAKE STACKHOUSE</span>
                 <nav className="footer-nav">
-                    <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo("about"); }}>About</a>
-                    <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo("projects"); }}>Projects</a>
-                    <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo("services"); }}>Services</a>
-                    <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a>
+                    <a href="/team">About</a>
+                    <a href="/#projects">Projects</a>
+                    <a href="/#services">Services</a>
+                    <a href="/#contact">Contact</a>
                 </nav>
             </div>
 

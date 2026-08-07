@@ -6,23 +6,23 @@ import "./WhyUsPage.css";
 const REASONS = [
     {
         number: "01",
-        title: "WE BUILD. WE DON'T TEMPLATE.",
-        body: "ToursToDo PR, Eliot's Adventures, Cajamarca. Every project was coded from zero. Custom logic, custom design, built around what that specific business needs. We don't drag and drop and call it a website.",
+        title: "INSPIRATION FROM THE BEST. BUILT FOR YOU.",
+        body: "We study what works across the web, then throw out everything that doesn't fit your business. Custom code, custom logic, built around how you actually operate. We don't drag and drop and call it a website.",
     },
     {
         number: "02",
-        title: "FULL PRESENCE, NOT JUST A PAGE.",
-        body: "ToursToDo runs on a Django backend we built and maintain. Eliot's Adventures has a full CRM to manage bookings and customer data. Our clients don't get a page, they get a working system that fits how their business actually runs day to day.",
+        title: "WE DON'T END WHEN THE PROJECT DOES.",
+        body: "ToursToDo runs on a Django backend we still maintain. Eliot's Adventures has a CRM we keep updated. We stay in it with you after launch because a website that nobody touches eventually breaks, and we'd rather not let that happen to something we built.",
     },
     {
         number: "03",
-        title: "BRAND AND DEV, SAME TEAM.",
-        body: "Janyerlyn handles the visual identity. Daniel handles the code. We work on the same project at the same time, not handing files back and forth between strangers. That's why what we ship looks intentional, because it is.",
+        title: "BRAND AND DEV. SAME TEAM. SAME GOAL.",
+        body: "Janyerlyn owns the visual identity. Daniel owns the code. Both working on the same project at the same time. What we ship looks intentional because the person who designed it and the person who built it were in the same room.",
     },
     {
         number: "04",
-        title: "TOURISM IS WHAT WE KNOW.",
-        body: "Both of our main clients are in tourism and hospitality. We know the booking flows, the seasonal pressure, the need to convert a visitor who found you on Google into someone who actually pays. We've solved those problems before and we know where the gaps are.",
+        title: "WE KNOW TOURISM. WE LEARN EVERYTHING ELSE.",
+        body: "Most of our work has been in tourism and hospitality. We know booking flows, seasonal traffic, and what it takes to convert a visitor into a paying customer. But the approach works across industries and we take on projects outside our lane when the problem is interesting enough.",
     },
 ];
 
@@ -60,8 +60,8 @@ function WhyUsPage() {
                 </div>
 
                 <div className="whyus-cta whyus-reveal">
-                    <p className="whyus-cta-text">Ready to build something real?</p>
-                    <a href="/#contact" className="whyus-cta-btn mono">// Get in touch</a>
+                    <p className="whyus-cta-text">Tell us your pain points. We got you.</p>
+                    <a href="/#contact" className="whyus-cta-btn mono">// Let's talk</a>
                 </div>
             </div>
             <Footer />
