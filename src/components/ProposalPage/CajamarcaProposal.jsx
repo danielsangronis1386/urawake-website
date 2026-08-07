@@ -102,7 +102,7 @@ function CajamarcaProposal() {
                     <div className="proposal-concept-body">
                         <div className="proposal-logo-display proposal-logo-display--warm">
                             <div className="proposal-logo-protected" onClick={() => setLightbox(logo1)}>
-                                <img src={logo1} alt="Cajamarca — The Festival Sunset Badge" className="proposal-logo-img" draggable="false" onContextMenu={e => e.preventDefault()} />
+                                <img src={logo1} alt="Cajamarca: The Festival Sunset Badge" className="proposal-logo-img" draggable="false" onContextMenu={e => e.preventDefault()} />
                                 <div className="proposal-logo-shield" />
                             </div>
                         </div>
@@ -176,7 +176,7 @@ function CajamarcaProposal() {
                     <div className="proposal-concept-body">
                         <div className="proposal-logo-display proposal-logo-display--dark">
                             <div className="proposal-logo-protected" onClick={() => setLightbox(logo2)}>
-                                <img src={logo2} alt="Cajamarca — The Modern Monochrome Emblem" className="proposal-logo-img" draggable="false" onContextMenu={e => e.preventDefault()} />
+                                <img src={logo2} alt="Cajamarca: The Modern Monochrome Emblem" className="proposal-logo-img" draggable="false" onContextMenu={e => e.preventDefault()} />
                                 <div className="proposal-logo-shield" />
                             </div>
                         </div>
@@ -254,7 +254,7 @@ function CajamarcaProposal() {
                         color palette, typography guide, usage rules, and final file delivery.
                     </p>
                     <a
-                        href="mailto:info@urawake.dev?subject=Cajamarca Brand Proposal — Feedback"
+                        href="mailto:info@urawake.dev?subject=Cajamarca Brand Proposal Feedback"
                         className="proposal-cta-btn"
                     >
                         // Send Feedback →

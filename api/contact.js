@@ -41,15 +41,15 @@ export default async function handler(req, res) {
         const range = `${formatMoney(estimate.low)} to ${formatMoney(estimate.high)}`;
         const rows = Array.isArray(summary) ? summary : [];
 
-        subject = `New lead — ${name} (${range}) — URAWAKE Estimator`;
+        subject = `New lead: ${name} (${range}) | URAWAKE Estimator`;
 
         text = [
             `Estimated investment: ${range}`,
             "",
             `Name: ${name}`,
             `Email: ${email}`,
-            `Phone: ${phone || "—"}`,
-            `Company: ${company || "—"}`,
+            `Phone: ${phone || "Not provided"}`,
+            `Company: ${company || "Not provided"}`,
             "",
             ...rows.map((r) => `${r.question} ${r.answer}`),
         ].join("\n");
@@ -59,8 +59,8 @@ export default async function handler(req, res) {
             <p>
                 <strong>Name:</strong> ${escapeHtml(name)}<br>
                 <strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a><br>
-                <strong>Phone:</strong> ${escapeHtml(phone) || "&mdash;"}<br>
-                <strong>Company:</strong> ${escapeHtml(company) || "&mdash;"}
+                <strong>Phone:</strong> ${escapeHtml(phone) || "Not provided"}<br>
+                <strong>Company:</strong> ${escapeHtml(company) || "Not provided"}
             </p>
             <h3>Answers</h3>
             <ul>
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
             </ul>
         `;
     } else {
-        subject = `New message from ${name} — URAWAKE Portfolio`;
+        subject = `New message from ${name} (URAWAKE Portfolio)`;
         text = `Name: ${name}\nEmail: ${email}\n\n${message}`;
         html = `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p><p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`;
     }

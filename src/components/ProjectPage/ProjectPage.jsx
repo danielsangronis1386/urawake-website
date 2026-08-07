@@ -13,9 +13,9 @@ function ProjectPage() {
 
     useEffect(() => {
         if (project) {
-            document.title = `${project.title} — Daniel Sangronis`;
+            document.title = `${project.title} | Daniel Sangronis`;
         } else {
-            document.title = "Project Not Found — Daniel Sangronis";
+            document.title = "Project Not Found | Daniel Sangronis";
         }
         return () => { document.title = "Daniel Sangronis"; };
     }, [project]);
@@ -52,7 +52,7 @@ function ProjectPage() {
             <Link to="/#projects" className="project-page-back">← Back</Link>
 
             <div className="viewer-inner">
-                {/* LEFT — image slider */}
+                {/* LEFT: image slider */}
                 <div className="viewer-left">
                     <div className="viewer-slider">
                         <img
@@ -82,7 +82,7 @@ function ProjectPage() {
                     </div>
                 </div>
 
-                {/* RIGHT — project info */}
+                {/* RIGHT: project info */}
                 <div className="viewer-right">
                     <div className="viewer-label">PROJECT</div>
                     <h1 className="viewer-title">{title}</h1>

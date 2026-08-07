@@ -50,7 +50,7 @@
   min-height: 520px;
 }
 
-/* LEFT — SLIDER */
+/* LEFT: SLIDER */
 .viewer-left {
   border-right: 1px solid var(--border);
   display: flex;
@@ -141,7 +141,7 @@
   display: block;
 }
 
-/* RIGHT — INFO */
+/* RIGHT: INFO */
 .viewer-right {
   padding: 2.5rem 2rem 2rem;
   display: flex;

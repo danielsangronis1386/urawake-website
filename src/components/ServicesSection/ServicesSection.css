@@ -1,4 +1,4 @@
-/* ===== SERVICES SECTION — URAWAKE STACKHOUSE ===== */
+/* ===== SERVICES SECTION: URAWAKE STACKHOUSE ===== */
 .services-section {
   width: 100%;
   background: #000;
@@ -50,7 +50,7 @@
   flex-direction: column;
 }
 
-/* BLOCK — one service + its techs */
+/* BLOCK: one service + its techs */
 .service-block {
   padding: 3rem 4rem 0;
   border-top: 1px solid var(--border);
@@ -61,14 +61,14 @@
   padding-bottom: 3rem;
 }
 
-/* ===== WIPE TEXT — shared base/fill layers ===== */
+/* ===== WIPE TEXT: shared base/fill layers ===== */
 .wipe-wrap {
   position: relative;
   display: block;
   line-height: 0.92;
 }
 
-/* gray base — always visible */
+/* gray base: always visible */
 .wipe-base {
   display: block;
   color: rgba(255, 255, 255, 0.15);
@@ -76,7 +76,7 @@
   letter-spacing: -0.01em;
 }
 
-/* white fill — controlled by scroll via inline style */
+/* white fill: controlled by scroll via inline style */
 .wipe-fill {
   display: block;
   position: absolute;
@@ -95,7 +95,7 @@
   will-change: clip-path;
 }
 
-/* ===== SERVICE NAME — big title ===== */
+/* ===== SERVICE NAME: big title ===== */
 .service-name .wipe-base,
 .service-name .wipe-fill {
   font-size: clamp(3.5rem, 12vw, 13rem);
@@ -105,7 +105,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* ===== TECH ITEMS — slightly smaller, stacked ===== */
+/* ===== TECH ITEMS: slightly smaller, stacked ===== */
 .service-techs {
   display: flex;
   flex-direction: column;
@@ -152,7 +152,7 @@
     padding-bottom: 2rem;
   }
 
-  /* Allow wrapping on small screens — no mid-word breaks */
+  /* Allow wrapping on small screens: no mid-word breaks */
   .wipe-base,
   .wipe-fill {
     white-space: normal;
@@ -187,7 +187,7 @@
   }
 }
 
-/* SERVICE DESCRIPTION — wipe version */
+/* SERVICE DESCRIPTION: wipe version */
 .service-description-wipe {
   display: block;
   margin-bottom: 1.5rem;

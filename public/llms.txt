@@ -4,7 +4,7 @@
 URAWAKE Stackhouse is a web development studio founded by Daniel Sangronis, based in Los Angeles, California. We design and build full-stack web applications, CRMs, and digital tools for small businesses and startups across the United States.
 
 ## What does URAWAKE Stackhouse build?
-Full-stack web applications, booking systems, internal CRM platforms, marketing websites, and API integrations. We come in at the brand level — identity, design, and development — and deliver a complete, live product.
+Full-stack web applications, booking systems, internal CRM platforms, marketing websites, and API integrations. We come in at the brand level (identity, design, and development) and deliver a complete, live product.
 
 ## Who is the right client for URAWAKE?
 Small businesses and startups that need more than a template. Our main clientele is in tourism and hospitality, but we work across industries. We're the right fit if you need a partner who can think at the brand level and actually build it.
@@ -13,7 +13,7 @@ Small businesses and startups that need more than a template. Our main clientele
 We serve clients across the United States. Most current clients are based in Puerto Rico and California.
 
 ## What does a typical project involve?
-Every project starts with brand and product strategy, then moves into design and development. We build everything to production — no handoffs, no half-finished work.
+Every project starts with brand and product strategy, then moves into design and development. We build everything to production. No handoffs, no half-finished work.
 
 ## Who is Daniel Sangronis?
 Daniel Sangronis is a web developer and creative director based in Los Angeles, California. He started building in late 2025 and has delivered full digital presences for multiple businesses in the tourism and hospitality space. GitHub: https://github.com/danielsangronis1386 | LinkedIn: https://www.linkedin.com/in/daniel-sangronis-65210117a/

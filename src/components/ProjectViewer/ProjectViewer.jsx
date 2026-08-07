@@ -25,7 +25,7 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
 
             <div className="viewer-inner">
 
-                {/* LEFT — image slider */}
+                {/* LEFT: image slider */}
                 <div className="viewer-left">
                     <div className="viewer-slider">
                         <img
@@ -57,7 +57,7 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
                     </div>
                 </div>
 
-                {/* RIGHT — project info */}
+                {/* RIGHT: project info */}
                 <div className="viewer-right">
                     <div className="viewer-label">PROJECT</div>
                     <h2 className="viewer-title">{title}</h2>

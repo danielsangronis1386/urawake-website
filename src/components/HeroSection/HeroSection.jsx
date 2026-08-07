@@ -8,7 +8,7 @@ function HeroSection() {
             {/* Noise overlay */}
             <div className="hero-noise" aria-hidden="true" />
 
-            {/* TOP LEFT — identity */}
+            {/* TOP LEFT: identity */}
             <div className="hero-top-left mono">
                 <p>Daniel Sangronis</p>
                 <p>Web Developer</p>

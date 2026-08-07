@@ -103,7 +103,7 @@ function InvoicePage() {
 
                 {/* FOOTER */}
                 <footer className="invoice-footer">
-                    <p className="mono">// {inv.from.name} — {inv.from.web}</p>
+                    <p className="mono">// {inv.from.name} | {inv.from.web}</p>
                 </footer>
 
             </div>

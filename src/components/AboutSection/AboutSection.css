@@ -11,7 +11,7 @@
   transform: translateY(0);
 }
 
-/* ===== ABOUT SECTION — URAWAKE STACKHOUSE ===== */
+/* ===== ABOUT SECTION: URAWAKE STACKHOUSE ===== */
 .about-section {
   width: 100%;
   min-height: 100vh;
@@ -203,7 +203,7 @@
   color: #fff;
 }
 
-/* VERTICAL SECTION LABEL — BRUTALIST */
+/* VERTICAL SECTION LABEL: BRUTALIST */
 .about-section .section-label-vertical {
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -306,7 +306,7 @@
 .collage-bg--cyan  { background: #00FFFF; }
 .collage-bg--green { background: var(--neon-green); }
 
-/* AWAKE word — behind photo */
+/* AWAKE word: behind photo */
 .collage-word {
   position: absolute;
   font-family: "Archivo Black", sans-serif;

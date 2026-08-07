@@ -94,7 +94,7 @@ function Navbar() {
                     </a>
                 ))}
 
-                {/* About — nested */}
+                {/* About: nested */}
                 <button
                     className={`nav-link mono nav-link--parent ${aboutOpen ? "active" : ""}`}
                     onClick={() => setAboutOpen(prev => !prev)}

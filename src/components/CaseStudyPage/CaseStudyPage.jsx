@@ -72,15 +72,15 @@ function CaseStudyPage() {
         schemaEl.textContent = JSON.stringify(schema);
 
         return () => {
-            document.title = "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse";
-            setMeta("name", "description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses in Los Angeles, CA.");
+            document.title = "Daniel Sangronis | Full Stack Web Developer | URAWAKE Stackhouse";
+            setMeta("name", "description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL. Custom websites and digital tools for US small businesses in Los Angeles, CA.");
             let canonical = document.querySelector('link[rel="canonical"]');
             if (canonical) canonical.setAttribute("href", "https://urawake.dev/");
-            setMeta("property", "og:title", "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse");
-            setMeta("property", "og:description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses in Los Angeles, CA.");
+            setMeta("property", "og:title", "Daniel Sangronis | Full Stack Web Developer | URAWAKE Stackhouse");
+            setMeta("property", "og:description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL. Custom websites and digital tools for US small businesses in Los Angeles, CA.");
             setMeta("property", "og:url", "https://urawake.dev/");
-            setMeta("name", "twitter:title", "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse");
-            setMeta("name", "twitter:description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses in Los Angeles, CA.");
+            setMeta("name", "twitter:title", "Daniel Sangronis | Full Stack Web Developer | URAWAKE Stackhouse");
+            setMeta("name", "twitter:description", "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL. Custom websites and digital tools for US small businesses in Los Angeles, CA.");
             document.getElementById("cs-schema")?.remove();
         };
     }, [cs]);

@@ -1,4 +1,4 @@
-/* ===== HERO — URAWAKE STACKHOUSE ===== */
+/* ===== HERO: URAWAKE STACKHOUSE ===== */
 .hero-container {
   background-color: var(--black);
   color: var(--white);
@@ -290,7 +290,7 @@
   89%            { opacity: 0; }
 }
 
-/* SUBTITLE — offset right for brutalist asymmetry */
+/* SUBTITLE: offset right for brutalist asymmetry */
 .hero-subtitle {
   font-family: "Archivo Black", sans-serif;
   font-size: clamp(1.8rem, 5vw, 5rem);

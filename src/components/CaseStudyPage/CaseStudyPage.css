@@ -14,7 +14,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-/* TOP — full-width title */
+/* TOP: full-width title */
 .cs-hero-top {
   padding: 2.5rem 0 0 0;
   display: flex;
@@ -24,7 +24,7 @@
   position: relative;
 }
 
-/* BOTTOM — two column meta row */
+/* BOTTOM: two column meta row */
 .cs-hero-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -73,7 +73,7 @@
   color: rgba(255,255,255,0.5);
 }
 
-/* RIGHT — info */
+/* RIGHT: info */
 .cs-hero-right {
   padding: 2.5rem 3rem;
   display: flex;
@@ -125,7 +125,7 @@
 }
 .cs-live-link:hover { opacity: 0.7; }
 
-/* BODY — brutalist sections, no max-width, full bleed headings */
+/* BODY: brutalist sections, no max-width, full bleed headings */
 .cs-body {
   padding: 0;
   display: flex;
