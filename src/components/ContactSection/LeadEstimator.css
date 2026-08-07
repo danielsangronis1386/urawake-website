@@ -326,6 +326,23 @@
   text-underline-offset: 3px;
 }
 
+.est-result-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.est-submit--outline {
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+}
+
+.est-submit--outline:hover {
+  background: rgba(0,0,0,0.08);
+}
+
 .est-reset {
   align-self: flex-start;
   background: none;
