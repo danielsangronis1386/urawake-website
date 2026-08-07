@@ -10,6 +10,7 @@
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.55s ease, transform 0.55s ease;
+    will-change: opacity, transform;
 }
 
 .whyus-entered .whyus-reveal {
@@ -69,12 +70,13 @@
 }
 
 .whyus-block {
-    display: grid;
-    grid-template-columns: 5rem 1fr;
-    gap: 2rem;
-    padding: 4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    align-items: start;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 2rem;
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  align-items: start;
+  transform: translateZ(0);
 }
 
 .whyus-number {

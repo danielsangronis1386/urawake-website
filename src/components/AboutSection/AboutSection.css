@@ -290,6 +290,8 @@
   width: 100%;
   height: clamp(380px, 45vw, 620px);
   overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* solid color background square */

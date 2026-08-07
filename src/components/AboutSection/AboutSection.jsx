@@ -27,7 +27,7 @@ function AboutSection() {
                     <div className="collage-bg collage-bg--cyan" />
                     <div className="collage-word collage-word--back">AWAKE</div>
                     <div className="collage-photo-wrap">
-                        <img src={portrait} alt="Daniel Sangronis" className="portrait-img" />
+                        <img src={portrait} alt="Daniel Sangronis" className="portrait-img" decoding="async" />
                     </div>
                     <div className="collage-word collage-word--front">AWAKE</div>
                 </div>
@@ -78,7 +78,7 @@ function AboutSection() {
                     <div className="collage-bg collage-bg--green" />
                     <div className="collage-word collage-word--back">AWAKE</div>
                     <div className="collage-photo-wrap collage-photo-wrap--offset">
-                        <img src={janyerlyn} alt="Janyerlyn Morales" className="portrait-img" />
+                        <img src={janyerlyn} alt="Janyerlyn Morales" className="portrait-img" loading="lazy" decoding="async" />
                     </div>
                     <div className="collage-word collage-word--front">AWAKE</div>
                 </div>
