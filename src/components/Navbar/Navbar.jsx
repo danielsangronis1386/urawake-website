@@ -18,12 +18,14 @@ function scrollToSection(id) {
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [aboutOpen, setAboutOpen] = useState(false)
     const location = useLocation()
     const isHome = location.pathname === "/"
 
     function handleScrollLink(e, id) {
         e.preventDefault()
         setMenuOpen(false)
+        setAboutOpen(false)
         if (isHome) {
             scrollToSection(id)
         } else {
@@ -31,11 +33,16 @@ function Navbar() {
         }
     }
 
+    function handleNavLink() {
+        setMenuOpen(false)
+        setAboutOpen(false)
+    }
+
     return (
         <div className="navbar">
             <div
                 className={`hamburger ${menuOpen ? "open" : ""}`}
-                onClick={() => setMenuOpen(prev => !prev)}
+                onClick={() => { setMenuOpen(prev => !prev); setAboutOpen(false); }}
                 aria-label="Toggle menu"
             >
                 <span></span>
@@ -45,7 +52,7 @@ function Navbar() {
 
             <nav className={`nav-dropdown ${menuOpen ? "visible" : ""}`}>
                 {!isHome && (
-                    <a className="nav-link mono" href="/" onClick={() => setMenuOpen(false)}>
+                    <a className="nav-link mono" href="/" onClick={handleNavLink}>
                         ← Home
                     </a>
                 )}
@@ -59,13 +66,23 @@ function Navbar() {
                         {label}
                     </a>
                 ))}
-                <a
-                    className="nav-link mono"
-                    href="/team"
-                    onClick={() => setMenuOpen(false)}
+
+                {/* About — nested */}
+                <button
+                    className={`nav-link mono nav-link--parent ${aboutOpen ? "active" : ""}`}
+                    onClick={() => setAboutOpen(prev => !prev)}
                 >
-                    Meet the Team
-                </a>
+                    About
+                    <span className="nav-arrow">{aboutOpen ? "▲" : "▼"}</span>
+                </button>
+                <div className={`nav-sub ${aboutOpen ? "nav-sub--open" : ""}`}>
+                    <a className="nav-link mono nav-link--sub" href="/team" onClick={handleNavLink}>
+                        Meet the Team
+                    </a>
+                    <a className="nav-link mono nav-link--sub" href="/why-us" onClick={handleNavLink}>
+                        Why Us
+                    </a>
+                </div>
             </nav>
         </div>
     )

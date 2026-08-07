@@ -11,6 +11,7 @@ import ProjectPage from './components/ProjectPage/ProjectPage';
 import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
 import ProposalPage from './components/ProposalPage/ProposalPage';
 import InvoicePage from './components/InvoicePage/InvoicePage';
+import WhyUsPage from './components/WhyUsPage/WhyUsPage';
 import Footer from './components/Footer/Footer';
 
 const SECTION_URLS = {
@@ -77,6 +78,7 @@ function App() {
       <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
       <Route path="/proposals/:slug" element={<ProposalPage />} />
       <Route path="/team" element={<><Navbar /><AboutSection /><Footer /></>} />
+      <Route path="/why-us" element={<WhyUsPage />} />
       <Route path="/invoices/:slug" element={<InvoicePage />} />
     </Routes>
   );
