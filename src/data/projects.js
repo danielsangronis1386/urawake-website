@@ -1,17 +1,17 @@
-import ea1 from "../assets/eliots-adventure/eliots 1.png";
-import ea2 from "../assets/eliots-adventure/eliots 2.png";
-import ea3 from "../assets/eliots-adventure/eliots 3.png";
-import tw1 from "../assets/tourstodo-website/tours2do 1.png";
-import tw2 from "../assets/tourstodo-website/tours2do 2.png";
-import tw3 from "../assets/tourstodo-website/tours2do 3.png";
-import crm0 from "../assets/tourstodo-crm/torstodcrm0.png";
-import crm1 from "../assets/tourstodo-crm/torstodcrm1.png";
-import crm2 from "../assets/tourstodo-crm/torstodcrm2.png";
-import crm3 from "../assets/tourstodo-crm/torstodcrm3.png";
-import crm4 from "../assets/tourstodo-crm/torstodcrm4.png";
-import ecrm1 from "../assets/eliots-adventure/eliotscrm1.png";
-import ecrm2 from "../assets/eliots-adventure/eliotscrm2.png";
-import ecrm3 from "../assets/eliots-adventure/eliotscrm3.png";
+import ea1 from "../assets/eliots-adventure/eliots 1.jpg";
+import ea2 from "../assets/eliots-adventure/eliots 2.jpg";
+import ea3 from "../assets/eliots-adventure/eliots 3.jpg";
+import tw1 from "../assets/tourstodo-website/tours2do 1.jpg";
+import tw2 from "../assets/tourstodo-website/tours2do 2.jpg";
+import tw3 from "../assets/tourstodo-website/tours2do 3.jpg";
+import crm0 from "../assets/tourstodo-crm/torstodcrm0.jpg";
+import crm1 from "../assets/tourstodo-crm/torstodcrm1.jpg";
+import crm2 from "../assets/tourstodo-crm/torstodcrm2.jpg";
+import crm3 from "../assets/tourstodo-crm/torstodcrm3.jpg";
+import crm4 from "../assets/tourstodo-crm/torstodcrm4.jpg";
+import ecrm1 from "../assets/eliots-adventure/eliotscrm1.jpg";
+import ecrm2 from "../assets/eliots-adventure/eliotscrm2.jpg";
+import ecrm3 from "../assets/eliots-adventure/eliotscrm3.jpg";
 
 const PROJECTS = [
     {

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./AboutSection.css"
-import portrait from "../../assets/about/Daniel Sangronis.png"
-import janyerlyn from "../../assets/about/janyerlyn morales.png"
+import portrait from "../../assets/about/Daniel Sangronis.jpg"
+import janyerlyn from "../../assets/about/janyerlyn morales.jpg"
 
 function AboutSection() {
     const sectionRef = useRef(null);
