@@ -242,6 +242,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
+  cursor: pointer;
 }
 
 .hero-logo {
@@ -288,6 +289,59 @@
   85%            { opacity: 0.9; transform: translateX(-4px); clip-path: inset(55% 0 10% 0); }
   87%            { opacity: 0.9; transform: translateX(3px);  clip-path: inset(30% 0 40% 0); }
   89%            { opacity: 0; }
+}
+
+/* HOVER: the ambient 5s burst gives way to a constant, tighter glitch.
+   Gated on real pointers so it never sticks after a tap on touch screens. */
+@media (hover: hover) {
+  .hero-logo-glitch:hover .glitch-r {
+    animation: glitch-r-hover 0.55s steps(1, end) infinite;
+  }
+
+  .hero-logo-glitch:hover .glitch-c {
+    animation: glitch-c-hover 0.55s steps(1, end) infinite;
+  }
+
+  .hero-logo-glitch:hover .hero-logo:not(.glitch-r):not(.glitch-c) {
+    animation: glitch-base-hover 0.55s steps(1, end) infinite;
+  }
+}
+
+@keyframes glitch-r-hover {
+  0%   { opacity: 0.9; transform: translateX(-6px); clip-path: inset(8% 0 74% 0); }
+  20%  { opacity: 0.9; transform: translateX(5px);  clip-path: inset(48% 0 34% 0); }
+  40%  { opacity: 0.9; transform: translateX(-4px); clip-path: inset(66% 0 12% 0); }
+  60%  { opacity: 0.9; transform: translateX(7px);  clip-path: inset(24% 0 58% 0); }
+  80%  { opacity: 0.9; transform: translateX(-3px); clip-path: inset(80% 0 4% 0); }
+  100% { opacity: 0.9; transform: translateX(2px);  clip-path: inset(14% 0 68% 0); }
+}
+
+@keyframes glitch-c-hover {
+  0%   { opacity: 0.9; transform: translateX(6px);  clip-path: inset(70% 0 10% 0); }
+  20%  { opacity: 0.9; transform: translateX(-5px); clip-path: inset(18% 0 62% 0); }
+  40%  { opacity: 0.9; transform: translateX(4px);  clip-path: inset(40% 0 42% 0); }
+  60%  { opacity: 0.9; transform: translateX(-7px); clip-path: inset(84% 0 2% 0); }
+  80%  { opacity: 0.9; transform: translateX(3px);  clip-path: inset(30% 0 52% 0); }
+  100% { opacity: 0.9; transform: translateX(-2px); clip-path: inset(58% 0 26% 0); }
+}
+
+/* Slices of the white layer shift too, so the mark itself looks torn */
+@keyframes glitch-base-hover {
+  0%,  100% { transform: translateX(0); clip-path: none; }
+  20%       { transform: translateX(2px);  clip-path: inset(36% 0 46% 0); }
+  40%       { transform: translateX(-2px); clip-path: none; }
+  60%       { transform: translateX(3px);  clip-path: inset(62% 0 20% 0); }
+  80%       { transform: translateX(-1px); clip-path: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-r,
+  .glitch-c,
+  .hero-logo-glitch:hover .glitch-r,
+  .hero-logo-glitch:hover .glitch-c,
+  .hero-logo-glitch:hover .hero-logo:not(.glitch-r):not(.glitch-c) {
+    animation: none;
+  }
 }
 
 /* SUBTITLE: offset right for brutalist asymmetry */
