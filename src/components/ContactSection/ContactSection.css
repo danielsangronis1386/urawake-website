@@ -1,4 +1,4 @@
-/* ===== CONTACT SECTION — URAWAKE STACKHOUSE ===== */
+/* ===== CONTACT SECTION: URAWAKE STACKHOUSE ===== */
 .contact-section {
   width: 100%;
   background: #39FF14;
@@ -9,7 +9,7 @@
   border-top: 1px solid var(--border);
 }
 
-/* VERTICAL SECTION LABEL — BRUTALIST */
+/* VERTICAL SECTION LABEL: BRUTALIST */
 .contact-section .section-label-vertical {
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -43,7 +43,7 @@
   padding: 6rem 4rem;
 }
 
-/* ===== LEFT — DECORATIVE ===== */
+/* ===== LEFT: DECORATIVE ===== */
 .contact-left {
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-/* ===== RIGHT — FORM ===== */
+/* ===== RIGHT: FORM ===== */
 .contact-right {
   display: flex;
   flex-direction: column;

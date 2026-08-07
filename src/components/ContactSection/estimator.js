@@ -1,4 +1,4 @@
-/* ===== LEAD ESTIMATOR — QUESTIONS + PRICING MODEL ===== */
+/* ===== LEAD ESTIMATOR: QUESTIONS + PRICING MODEL ===== */
 
 export const STEPS = [
     {
@@ -7,12 +7,12 @@ export const STEPS = [
         label: "01 / Project type",
         question: "WHAT TYPE OF PROJECT DO YOU NEED?",
         options: [
-            { value: "business",  label: "Business Website",     price: 1400 },
-            { value: "landing",   label: "Landing Page",         price: 700  },
-            { value: "crm",       label: "CRM / Dashboard",      price: 3500 },
-            { value: "ecommerce", label: "E-commerce",           price: 3000 },
-            { value: "custom",    label: "Custom Web Application", price: 4500 },
-            { value: "other",     label: "Other",                price: 1500 },
+            { value: "landing",   label: "Landing Page",           price: 600  },
+            { value: "business",  label: "Business Website",       price: 1200 },
+            { value: "ecommerce", label: "E-commerce",             price: 2200 },
+            { value: "crm",       label: "CRM / Dashboard",        price: 2800 },
+            { value: "custom",    label: "Custom Web Application",  price: 3500 },
+            { value: "other",     label: "Other",                  price: 1000 },
         ],
     },
     {
@@ -22,9 +22,9 @@ export const STEPS = [
         question: "HOW MANY PAGES?",
         options: [
             { value: "1",     label: "1",        price: 0    },
-            { value: "2-5",   label: "2 to 5",   price: 600  },
-            { value: "6-10",  label: "6 to 10",  price: 1400 },
-            { value: "10+",   label: "10+",      price: 2600 },
+            { value: "2-5",   label: "2 to 5",   price: 400  },
+            { value: "6-10",  label: "6 to 10",  price: 900  },
+            { value: "10+",   label: "10+",      price: 1800 },
         ],
     },
     {
@@ -34,8 +34,8 @@ export const STEPS = [
         question: "DO YOU ALREADY HAVE A DESIGN?",
         options: [
             { value: "yes",      label: "Yes",                  price: 0   },
-            { value: "no",       label: "No",                   price: 300 },
-            { value: "included", label: "Need design included", price: 900 },
+            { value: "no",       label: "No",                   price: 200 },
+            { value: "included", label: "Need design included", price: 700 },
         ],
     },
     {
@@ -43,16 +43,16 @@ export const STEPS = [
         type: "multi",
         label: "04 / Features",
         question: "DO YOU NEED ANY OF THESE FEATURES?",
-        hint: "Select all that apply — or skip.",
+        hint: "Select all that apply, or skip.",
         options: [
-            { value: "auth",     label: "Authentication",   price: 600  },
-            { value: "admin",    label: "Admin Dashboard",  price: 1200 },
-            { value: "payments", label: "Payments",         price: 800  },
-            { value: "booking",  label: "Booking System",   price: 900  },
-            { value: "blog",     label: "Blog",             price: 400  },
-            { value: "cms",      label: "CMS",              price: 700  },
-            { value: "ai",       label: "AI Features",      price: 1500 },
-            { value: "api",      label: "API Integrations", price: 700  },
+            { value: "auth",     label: "Authentication",   price: 400 },
+            { value: "booking",  label: "Booking System",   price: 600 },
+            { value: "payments", label: "Payments",         price: 500 },
+            { value: "admin",    label: "Admin Dashboard",  price: 900 },
+            { value: "cms",      label: "CMS",              price: 500 },
+            { value: "blog",     label: "Blog",             price: 300 },
+            { value: "api",      label: "API Integrations", price: 500 },
+            { value: "ai",       label: "AI Features",      price: 1100 },
         ],
     },
     {
@@ -61,8 +61,8 @@ export const STEPS = [
         label: "05 / Timeline",
         question: "WHAT'S YOUR EXPECTED TIMELINE?",
         options: [
-            { value: "asap",     label: "ASAP",           multiplier: 1.25 },
-            { value: "month",    label: "Within a month", multiplier: 1.1  },
+            { value: "asap",     label: "ASAP",           multiplier: 1.2  },
+            { value: "month",    label: "Within a month", multiplier: 1.05 },
             { value: "quarter",  label: "2 to 3 months",  multiplier: 1    },
             { value: "flexible", label: "Flexible",       multiplier: 0.95 },
         ],
@@ -101,14 +101,14 @@ export function calculateEstimate(answers) {
 
 export const formatPrice = (n) => `$${n.toLocaleString("en-US")}`;
 
-/** Human-readable answer summary — shown on the result card and emailed as the lead. */
+/** Human-readable answer summary, shown on the result card and emailed as the lead. */
 export function summarizeAnswers(answers) {
     return STEPS.map((step) => {
         const value = answers[step.id];
         const text =
             step.type === "multi"
                 ? (value ?? []).map((v) => findOption(step.id, v)?.label).filter(Boolean).join(", ") || "None"
-                : findOption(step.id, value)?.label ?? "—";
+                : findOption(step.id, value)?.label ?? "Not answered";
 
         return { id: step.id, question: step.question, answer: text };
     });

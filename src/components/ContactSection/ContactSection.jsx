@@ -9,7 +9,7 @@ function ContactSection() {
 
             <div className="contact-body">
 
-            {/* CTA — fills empty space above the estimator */}
+            {/* CTA above the estimator */}
             <div className="contact-cta">
                 <p className="contact-cta-text">GET AN INSTANT PROJECT ESTIMATE.</p>
                 <svg className="contact-cta-arrow" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
@@ -18,13 +18,13 @@ function ContactSection() {
             </div>
 
             <div className="contact-form-row">
-            {/* LEFT — decorative */}
+            {/* LEFT: decorative */}
             <div className="contact-left">
                 <p className="contact-eyebrow mono">// Estimate your website in under 60 seconds</p>
                 <h2 className="contact-display">HOW<br />MUCH?</h2>
                 <p className="contact-intro">
-                    Answer five quick questions and get a ballpark investment range for your project —
-                    no back-and-forth, no waiting on a quote.
+                    Answer five quick questions and get a ballpark investment range for your project.
+                    No back-and-forth, no waiting on a quote.
                 </p>
                 <p className="contact-intro">
                     Prefer to talk it through instead? Send your email to{" "}
@@ -33,7 +33,7 @@ function ContactSection() {
                 <p className="contact-brand mono">URAWAKE STACKHOUSE</p>
             </div>
 
-            {/* RIGHT — estimator */}
+            {/* RIGHT: estimator */}
             <div className="contact-right">
                 <LeadEstimator />
             </div>

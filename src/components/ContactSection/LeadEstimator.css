@@ -1,4 +1,4 @@
-/* ===== LEAD ESTIMATOR — URAWAKE STACKHOUSE ===== */
+/* ===== LEAD ESTIMATOR: URAWAKE STACKHOUSE ===== */
 .est {
   display: flex;
   flex-direction: column;
@@ -122,7 +122,7 @@
   border-color: #000;
 }
 
-/* Square marker — fills in when the option is selected */
+/* Square marker, fills in when the option is selected */
 .est-option-check {
   width: 0.85rem;
   height: 0.85rem;

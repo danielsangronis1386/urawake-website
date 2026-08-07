@@ -47,25 +47,29 @@ function LeadEstimator() {
         setLead((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setStatus("sending");
 
         const estimate = calculateEstimate(answers);
         const summary = summarizeAnswers(answers);
 
-        try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...lead, type: "estimate", answers, summary, estimate }),
-            });
-            const data = await res.json();
-            // The estimate is the visitor's reward — don't withhold it over a mail failure.
-            setStatus(res.ok && data.success ? "done" : "error");
-        } catch {
-            setStatus("error");
-        }
+        const body = [
+            `New estimate request from urawake.dev`,
+            ``,
+            `NAME: ${lead.name}`,
+            `EMAIL: ${lead.email}`,
+            lead.phone ? `PHONE: ${lead.phone}` : null,
+            lead.company ? `COMPANY: ${lead.company}` : null,
+            ``,
+            `ESTIMATE: ${formatPrice(estimate.low)} to ${formatPrice(estimate.high)}`,
+            ``,
+            ...summary.map((r) => `${r.question}\n${r.answer}`),
+        ].filter((l) => l !== null).join("\n");
+
+        const mailto = `mailto:info@urawake.dev?subject=${encodeURIComponent(`New Project Estimate — ${lead.name}`)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailto;
+        setStatus("done");
     };
 
     const restart = () => {
@@ -101,17 +105,9 @@ function LeadEstimator() {
                         after discussing your project.
                     </p>
 
-                    {status === "error" ? (
-                        <p className="est-error mono">
-                            // We couldn't deliver your details automatically. Email{" "}
-                            <a href="mailto:info@urawake.dev" className="est-error-link">info@urawake.dev</a>{" "}
-                            and we'll pick it up from here.
-                        </p>
-                    ) : (
-                        <p className="est-note mono">
-                            // A copy is on its way — we'll follow up at {lead.email}
-                        </p>
-                    )}
+                    <p className="est-note mono">
+                        // Your email client opened with this estimate pre-filled. Hit send and we will follow up.
+                    </p>
 
                     <button type="button" className="est-reset mono" onClick={restart}>
                         // Start over
@@ -135,7 +131,7 @@ function LeadEstimator() {
                 </span>
             </div>
 
-            {/* One question at a time — keyed so each step replays the enter animation */}
+            {/* One question at a time, keyed so each step replays the enter animation */}
             <div className={`est-stage est-anim-${direction}`} key={onGate ? "gate" : step.id}>
                 {onGate ? (
                     <form className="est-form" onSubmit={handleSubmit} noValidate>
