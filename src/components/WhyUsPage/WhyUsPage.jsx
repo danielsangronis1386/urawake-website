@@ -7,22 +7,22 @@ const REASONS = [
     {
         number: "01",
         title: "WE BUILD. WE DON'T TEMPLATE.",
-        body: "Every project we've delivered — ToursToDo PR, Eliot's Adventures, Cajamarca — was built from scratch. Custom code, custom design, custom logic. No Wix, no Squarespace, no shortcuts that come back to bite you six months later.",
+        body: "ToursToDo PR, Eliot's Adventures, Cajamarca. Every project was coded from zero. Custom logic, custom design, built around what that specific business needs. We don't drag and drop and call it a website.",
     },
     {
         number: "02",
         title: "FULL PRESENCE, NOT JUST A PAGE.",
-        body: "Our clients don't get a static brochure site. They get booking integrations, CRM tools, SEO foundations, and real infrastructure. ToursToDo runs on a custom Django backend. Eliot's Adventures has a full content management flow. We build for how a business actually operates.",
+        body: "ToursToDo runs on a Django backend we built and maintain. Eliot's Adventures has a full CRM to manage bookings and customer data. Our clients don't get a page, they get a working system that fits how their business actually runs day to day.",
     },
     {
         number: "03",
-        title: "BRAND + DEV UNDER ONE ROOF.",
-        body: "Most agencies hand you off between a designer and a developer who've never met. We work together from day one — Janyerlyn handles visual identity, Daniel handles the build. The result is a product where the design and the code speak the same language.",
+        title: "BRAND AND DEV, SAME TEAM.",
+        body: "Janyerlyn handles the visual identity. Daniel handles the code. We work on the same project at the same time, not handing files back and forth between strangers. That's why what we ship looks intentional, because it is.",
     },
     {
         number: "04",
-        title: "TOURISM + HOSPITALITY IS OUR LANE.",
-        body: "We didn't stumble into this industry. Our two main clients are tourism-based businesses in Puerto Rico and the Caribbean. We understand booking flows, seasonal traffic, multilingual audiences, and what actually converts a traveler into a client.",
+        title: "TOURISM IS WHAT WE KNOW.",
+        body: "Both of our main clients are in tourism and hospitality. We know the booking flows, the seasonal pressure, the need to convert a visitor who found you on Google into someone who actually pays. We've solved those problems before and we know where the gaps are.",
     },
 ];
 
