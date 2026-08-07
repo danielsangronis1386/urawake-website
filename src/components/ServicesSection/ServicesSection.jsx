@@ -29,52 +29,27 @@ const SERVICES = [
     },
 ];
 
-function WipeText({ children, className = "", as: Tag = "span" }) {
-    const baseRef = useRef(null);
-    const fillRef = useRef(null);
-
-    useEffect(() => {
-        const fill = fillRef.current;
-        const base = baseRef.current;
-        if (!fill || !base) return;
-
-        function update() {
-            const rect = base.getBoundingClientRect();
-            const vh = window.innerHeight;
-            const center = rect.top + rect.height * 0.5;
-            const start = vh * 0.92;
-            const end = vh * 0.5;
-            const progress = Math.min(1, Math.max(0, (start - center) / (start - end)));
-            fill.style.clipPath = `inset(0 ${Math.round((1 - progress) * 100)}% 0 0)`;
-        }
-
-        window.addEventListener("scroll", update, { passive: true });
-        update();
-        return () => window.removeEventListener("scroll", update);
-    }, []);
-
-    return (
-        <span className={`wipe-wrap ${className}`}>
-            <Tag className="wipe-base" ref={baseRef} aria-hidden="true">{children}</Tag>
-            <Tag className="wipe-fill scroll-fill" ref={fillRef}>{children}</Tag>
-        </span>
-    );
-}
-
 function ServiceBlock({ service }) {
     return (
         <div className="service-block">
-            <WipeText className="service-name">{service.name}</WipeText>
+            <span className="wipe-wrap service-name">
+                <span className="wipe-base" aria-hidden="true">{service.name}</span>
+                <span className="wipe-fill scroll-fill">{service.name}</span>
+            </span>
 
             {service.description && (
-                <WipeText className="service-description-wipe" as="p">
-                    {service.description}
-                </WipeText>
+                <span className="wipe-wrap service-description-wipe">
+                    <p className="wipe-base" aria-hidden="true">{service.description}</p>
+                    <p className="wipe-fill scroll-fill">{service.description}</p>
+                </span>
             )}
 
             <div className="service-techs">
                 {service.techs.map((tech, ti) => (
-                    <WipeText key={ti} className="service-tech">{tech}</WipeText>
+                    <span key={ti} className="wipe-wrap service-tech">
+                        <span className="wipe-base" aria-hidden="true">{tech}</span>
+                        <span className="wipe-fill scroll-fill">{tech}</span>
+                    </span>
                 ))}
             </div>
         </div>
@@ -82,8 +57,44 @@ function ServiceBlock({ service }) {
 }
 
 function ServicesSection() {
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        const fills = Array.from(section.querySelectorAll(".scroll-fill"));
+
+        let ticking = false;
+        function update() {
+            const vh = window.innerHeight;
+            fills.forEach((fill) => {
+                const base = fill.previousElementSibling;
+                if (!base) return;
+                const rect = base.getBoundingClientRect();
+                const center = rect.top + rect.height * 0.5;
+                const start = vh * 0.92;
+                const end = vh * 0.5;
+                const progress = Math.min(1, Math.max(0, (start - center) / (start - end)));
+                fill.style.clipPath = `inset(0 ${Math.round((1 - progress) * 100)}% 0 0)`;
+            });
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(update);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        update();
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
     return (
-        <section className="services-section" id="services">
+        <section className="services-section" id="services" ref={sectionRef}>
             <div className="section-label-vertical">SERVICES</div>
             <div className="services-body">
                 <p className="services-eyebrow mono">// What I build</p>
