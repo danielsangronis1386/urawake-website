@@ -13,7 +13,7 @@
 .navbar-logo {
   pointer-events: all;
   display: block;
-  width: clamp(160px, 20vw, 280px);
+  width: clamp(120px, 15vw, 210px);
   overflow: hidden;
   opacity: 0;
   transform: translateY(-6px);
@@ -169,7 +169,7 @@
   }
 
   .navbar-logo {
-    width: clamp(120px, 35vw, 200px);
+    width: clamp(90px, 25vw, 140px);
   }
 
   body.viewer-open .navbar {
