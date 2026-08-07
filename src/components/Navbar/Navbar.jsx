@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useLocation } from "react-router-dom"
 import logo from "../../assets/logos/LOGO-01.png"
 import "./Navbar.css"
@@ -20,21 +20,25 @@ function scrollToSection(id) {
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [aboutOpen, setAboutOpen] = useState(false)
-    const [scrolled, setScrolled] = useState(false)
+    const logoRef = useRef(null)
     const location = useLocation()
     const isHome = location.pathname === "/"
 
     useEffect(() => {
-        if (!isHome) return;
+        const el = logoRef.current
+        if (!el) return
+        if (!isHome) {
+            el.classList.add("navbar-logo--visible")
+            return
+        }
         function onScroll() {
-            setScrolled(window.scrollY > window.innerHeight * 0.6)
+            const past = window.scrollY > window.innerHeight * 0.6
+            el.classList.toggle("navbar-logo--visible", past)
         }
         window.addEventListener("scroll", onScroll, { passive: true })
         onScroll()
         return () => window.removeEventListener("scroll", onScroll)
     }, [isHome])
-
-    const showLogo = !isHome || scrolled
 
     function handleScrollLink(e, id) {
         e.preventDefault()
@@ -56,7 +60,8 @@ function Navbar() {
         <div className="navbar">
             <a
                 href="/"
-                className={`navbar-logo ${showLogo ? "navbar-logo--visible" : ""}`}
+                className="navbar-logo"
+                ref={logoRef}
                 aria-label="URAWAKE Stackhouse home"
             >
                 <img src={logo} alt="URAWAKE" />
