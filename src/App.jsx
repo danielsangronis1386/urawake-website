@@ -29,6 +29,10 @@ function HomePage() {
         const el = document.getElementById(hash);
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
+    } else {
+      // Client-side navigation keeps the previous page's scroll offset,
+      // so landing home from another route would drop you mid-page.
+      window.scrollTo(0, 0);
     }
   }, []);
 
@@ -58,14 +62,14 @@ function HomePage() {
   }, []);
 
   return (
-    <>
+    <div className="page-fade">
       <Navbar />
       <section id="hero"><HeroSection /></section>
       <section id="projects"><ProjectSection /></section>
       <ServicesSection />
       <ContactSection />
       <Footer />
-    </>
+    </div>
   );
 }
 

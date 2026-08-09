@@ -9,3 +9,19 @@ body, html, #root {
   min-height: 100%;
   width: 100%;
 }
+
+/* Route entry: a short fade so arriving on a page does not snap into place */
+.page-fade {
+  animation: page-fade-in 0.4s ease-out both;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade {
+    animation: none;
+  }
+}
