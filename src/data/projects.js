@@ -33,6 +33,8 @@ const PROJECTS = [
         subtitle: "Tour Operator Website",
         tagline: "Discover Puerto Rico, tour by tour.",
         description: "Public-facing marketing website for ToursToDo Puerto Rico. Includes tour catalog with filters, island guide content, FAQ section, and Stripe-powered booking flow.",
+        liveUrl: "https://tourstodopr-website.vercel.app/",
+        caseStudySlug: "tourstodo-website",
         images: [tw1, tw2, tw3],
         stack: ["React", "Vite", "React Router v7", "CSS Modules", "Stripe", "Vercel"],
     },

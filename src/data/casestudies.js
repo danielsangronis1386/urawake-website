@@ -103,6 +103,42 @@ The CRM launched alongside the public website and handled over 100 bookings and 
         ],
     },
     {
+        // DRAFT: placeholder copy so the website project has its own case study
+        // to link to. Every claim here is drawn from the build itself; no
+        // outcome numbers, because none have been measured yet. Daniel to
+        // rewrite with the real story and results.
+        slug: "tourstodo-website",
+        title: "Tours ToDo Website",
+        titleLabelWords: 0,
+        metaTitle: "ToursToDo PR: The Work | Tour Operator Website | URAWAKE",
+        metaDescription: "How URAWAKE rebuilt the ToursToDo Puerto Rico website: a React tour catalog with filters, island guide content, and a Stripe booking flow, replacing a WordPress site.",
+        subtitle: "Replacing a WordPress site with a React storefront built around how travellers actually pick a tour",
+        industry: "Adventure Tourism",
+        location: "Puerto Rico",
+        duration: "In progress, awaiting client cutover",
+        // The client has not pointed their domain at the new build yet.
+        liveUrl: "https://tourstodopr-website.vercel.app/",
+        stack: ["React", "Vite", "React Router v7", "CSS Modules", "Stripe", "Vercel"],
+        sections: [
+            {
+                heading: "The client",
+                body: `ToursToDo PR is an adventure tourism operator in Puerto Rico running hiking, kayak, snorkel, ATV, horseback riding, and city tours. Their public presence was a WordPress site that had grown by accretion rather than design.
+
+The same engagement produced their internal CRM. This is the half a traveller sees.`,
+            },
+            {
+                heading: "The problem",
+                body: `A tour operator's website has one job: get a visitor from "I have three days in Puerto Rico" to a booked seat. The WordPress site made that path longer than it needed to be, and every change to it meant working around the theme rather than with it.`,
+            },
+            {
+                heading: "What we built",
+                body: `A React storefront built around the catalog: tours filterable by the things travellers actually decide on, island guide content that answers the questions asked before booking, an FAQ section, and a Stripe-powered booking flow.
+
+Routing runs on React Router v7, styles are scoped per component, and the whole thing deploys to Vercel.`,
+            },
+        ],
+    },
+    {
         slug: "tourstodopr",
         title: "Tours ToDo PR",
         titleLabelWords: 0,
@@ -112,7 +148,9 @@ The CRM launched alongside the public website and handled over 100 bookings and 
         industry: "Adventure Tourism",
         location: "Puerto Rico",
         duration: "In progress, CRM in production",
-        liveUrl: "https://tourstodopr.com",
+        // tourstodopr.com still serves the client's old WordPress site; the
+        // build lives on Vercel until they cut over.
+        liveUrl: "https://tourstodopr-website.vercel.app/",
         stack: ["React 18", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "SendGrid", "Gmail IMAP", "FareHarbor", "Stripe", "Google Gemini", "Bokun", "JWT", "Render", "Netlify"],
         sections: [
             {
