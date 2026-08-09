@@ -1,0 +1,96 @@
+/* ===== TERMINAL CTA =====
+   Same face as the hero's typed slogan. Monospaced by requirement: the width
+   is measured per line, and a proportional face would type in uneven jumps. */
+.terminal-cta {
+  position: relative;
+  padding: 5rem 2.5rem 7rem;
+}
+
+.terminal-line {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  color: var(--neon-green);
+  letter-spacing: 0;
+  margin-bottom: 2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6em;
+}
+
+/* Set on the spans directly: a global `p, span, li` rule beats inheritance */
+.terminal-prompt,
+.terminal-typed {
+  font-family: "MonoBlaze", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.terminal-prompt {
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+}
+
+.terminal-typed {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: var(--typed-width, auto);
+}
+
+.terminal-cta.is-typing .terminal-typed {
+  animation: terminal-type 1.6s steps(40, end) both;
+  animation-delay: 0.35s;
+}
+
+@keyframes terminal-type {
+  from { width: 0; }
+  to   { width: var(--typed-width); }
+}
+
+.terminal-caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.05em;
+  background: var(--neon-green);
+  vertical-align: -0.15em;
+}
+
+.terminal-cta.is-typing .terminal-caret {
+  animation: terminal-blink 0.8s steps(1, end) infinite;
+}
+
+@keyframes terminal-blink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-action {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--neon-green);
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.terminal-action:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .terminal-cta {
+    padding: 3.5rem 1.2rem 5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-cta.is-typing .terminal-typed,
+  .terminal-cta.is-typing .terminal-caret {
+    animation: none;
+    width: var(--typed-width, auto);
+  }
+}

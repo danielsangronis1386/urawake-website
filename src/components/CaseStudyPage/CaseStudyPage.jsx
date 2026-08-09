@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import TerminalCTA from "../TerminalCTA/TerminalCTA";
 import CASE_STUDIES from "../../data/casestudies";
 import "./CaseStudyPage.css";
 
@@ -156,6 +157,8 @@ function CaseStudyPage() {
                     ))}
                 </div>
             </div>
+
+            <TerminalCTA line="Got a problem like this one? Let's fix it." />
 
             <div className="cs-footer">
                 <Link to="/#projects" className="cs-back-projects mono">← All projects</Link>
