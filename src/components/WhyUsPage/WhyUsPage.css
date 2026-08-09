@@ -25,7 +25,12 @@
 .whyus-entered .whyus-cta               { transition-delay: 0.5s; }
 
 /* HEADER */
+/* Opaque, so it covers the page's texture layer: the WHY US? title holds this
+   screen on its own and reads sharper against flat black. The texture picks up
+   again below the rule. */
 .whyus-header {
+    position: relative;
+    background: var(--black);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding: 7rem 0 4rem;
 }
@@ -82,7 +87,8 @@
 .whyus-number {
     font-family: "Archivo Black", sans-serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
-    color: rgba(255,255,255,0.08);
+    /* Was 0.08, which the grain behind it swallowed entirely */
+    color: rgba(255,255,255,0.32);
     line-height: 1;
     user-select: none;
 }
@@ -106,17 +112,91 @@
 }
 
 /* CTA */
+/* Opaque, so it covers the page's texture layer. The container is capped at
+   1100px, so the black is bled out to both edges: a plain background would
+   read as a black patch sitting on the grain. */
 .whyus-cta {
+    position: relative;
     max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 4rem 7rem;
+
+    background: var(--black);
+    box-shadow: 0 0 0 100vmax var(--black);
+    clip-path: inset(0 -100vmax);   /* keeps the bleed horizontal only */
 }
 
+/* ===== TERMINAL LINE =====
+   Same face as the hero's typed slogan. Monospaced by requirement: the type-in
+   measures its width in character units, so a proportional face would type in
+   uneven jumps. */
 .whyus-cta-text {
-    font-family: "Archivo Black", sans-serif;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    color: #fff;
-    margin-bottom: 1.5rem;
+    font-family: "MonoBlaze", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    color: var(--neon-green);
+    letter-spacing: 0;   /* ch maths below assume no tracking */
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6em;
+}
+
+/* Set explicitly: a global `span` rule beats inherited font-family */
+.whyus-prompt,
+.whyus-typed {
+    font-family: "MonoBlaze", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.whyus-prompt {
+    color: rgba(255, 255, 255, 0.35);
+    white-space: nowrap;
+}
+
+.whyus-typed {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: bottom;
+    width: 37ch;   /* the line is 37 characters */
+}
+
+/* Types itself out once the section scrolls in, not on page load, so the
+   visitor is looking at it when it happens. */
+.whyus-entered .whyus-typed {
+    animation: whyus-type 1.6s steps(37, end) both;
+    animation-delay: 0.45s;
+}
+
+@keyframes whyus-type {
+    from { width: 0; }
+    to   { width: 37ch; }
+}
+
+.whyus-caret {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.05em;
+    background: var(--neon-green);
+    vertical-align: -0.15em;
+}
+
+.whyus-entered .whyus-caret {
+    animation: whyus-blink 0.8s steps(1, end) infinite;
+}
+
+@keyframes whyus-blink {
+    0%, 49%   { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whyus-entered .whyus-typed,
+    .whyus-entered .whyus-caret {
+        animation: none;
+        width: 37ch;
+    }
 }
 
 .whyus-cta-btn {

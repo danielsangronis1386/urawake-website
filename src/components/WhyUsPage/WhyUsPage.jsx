@@ -60,7 +60,11 @@ function WhyUsPage() {
                 </div>
 
                 <div className="whyus-cta whyus-reveal">
-                    <p className="whyus-cta-text">Tell us your pain points. We got you.</p>
+                    <p className="whyus-cta-text">
+                        <span className="whyus-prompt" aria-hidden="true">urawake@stackhouse:~$</span>
+                        <span className="whyus-typed">Tell us your pain points. We got you.</span>
+                        <span className="whyus-caret" aria-hidden="true" />
+                    </p>
                     <a href="/#contact" className="whyus-cta-btn mono">// Let's talk</a>
                 </div>
             </div>
