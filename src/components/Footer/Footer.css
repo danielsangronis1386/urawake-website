@@ -15,12 +15,17 @@
     gap: 1.5rem;
 }
 
+/* The wordmark itself, cropped to its ink: the source file carries ~62% empty
+   height, which would have shrunk the readable part to nothing at this size. */
 .footer-brand {
-    font-family: "Archivo Black", sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    letter-spacing: 0.04em;
-    color: #fff;
-    text-transform: uppercase;
+    display: block;
+    line-height: 0;
+}
+
+.footer-brand img {
+    display: block;
+    height: clamp(2.1rem, 4vw, 3.1rem);
+    width: auto;
 }
 
 .footer-nav {
@@ -71,6 +76,7 @@
 
 @media (max-width: 768px) {
     .site-footer { padding: 2.5rem 1.2rem 1.5rem; }
+    .footer-brand img { height: 2.1rem; }
     .footer-top { flex-direction: column; align-items: flex-start; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
 }

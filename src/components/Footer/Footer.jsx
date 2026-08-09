@@ -1,3 +1,4 @@
+import logo from "../../assets/logos/logo-wordmark-trim.png";
 import "./Footer.css";
 
 function Footer() {
@@ -6,7 +7,9 @@ function Footer() {
     return (
         <footer className="site-footer">
             <div className="footer-top">
-                <span className="footer-brand">URAWAKE STACKHOUSE</span>
+                <a href="/" className="footer-brand" aria-label="URAWAKE Stackhouse home">
+                    <img src={logo} alt="URAWAKE Stackhouse" />
+                </a>
                 <nav className="footer-nav">
                     <a href="/team">About</a>
                     <a href="/#projects">Projects</a>
