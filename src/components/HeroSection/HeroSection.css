@@ -17,7 +17,7 @@
 /* Grain noise texture overlay */
 .hero-noise {
   position: absolute;
-  inset: 0;
+  inset: -5%;   /* slack so the hover jitter never exposes an edge */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
@@ -253,7 +253,48 @@
   user-select: none;
 }
 
-/* GLITCH LAYERS */
+/* ===== LAYER INVENTORY =====
+   Every layer below is idle until JS marks the wrapper as hovered, and the
+   breaks only fire while data-break holds a variant. Nothing animates on
+   its own, which is what keeps this off the main thread when untouched. */
+
+/* Colour variants, one visible at a time */
+.hero-logo-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Displaced slices of the mark */
+.hero-shard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  filter: invert(1);
+  will-change: transform, clip-path;
+}
+
+/* The symbol the wordmark collapses into */
+.hero-isotipo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 105%;
+  width: auto;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform, opacity;
+}
+
+/* RGB channel copies */
 .glitch-r,
 .glitch-c {
   position: absolute;
@@ -275,6 +316,7 @@
   animation: glitch-c 5s infinite;
 }
 
+/* Ambient burst when nobody is touching it */
 @keyframes glitch-r {
   0%,  82%, 100% { opacity: 0; transform: translateX(0);    clip-path: none; }
   83%            { opacity: 0.9; transform: translateX(-5px); clip-path: inset(10% 0 70% 0); }
@@ -291,53 +333,9 @@
   89%            { opacity: 0; }
 }
 
-/* HOVER: the ambient 5s burst gives way to a constant, tighter glitch.
-   Gated on real pointers so it never sticks after a tap on touch screens. */
-@media (hover: hover) {
-  .hero-logo-glitch:hover .glitch-r {
-    animation: glitch-r-hover 0.55s steps(1, end) infinite;
-  }
-
-  .hero-logo-glitch:hover .glitch-c {
-    animation: glitch-c-hover 0.55s steps(1, end) infinite;
-  }
-
-  .hero-logo-glitch:hover .hero-logo:not(.glitch-r):not(.glitch-c) {
-    animation: glitch-base-hover 0.55s steps(1, end) infinite;
-  }
-}
-
-@keyframes glitch-r-hover {
-  0%   { opacity: 0.9; transform: translateX(-6px); clip-path: inset(8% 0 74% 0); }
-  20%  { opacity: 0.9; transform: translateX(5px);  clip-path: inset(48% 0 34% 0); }
-  40%  { opacity: 0.9; transform: translateX(-4px); clip-path: inset(66% 0 12% 0); }
-  60%  { opacity: 0.9; transform: translateX(7px);  clip-path: inset(24% 0 58% 0); }
-  80%  { opacity: 0.9; transform: translateX(-3px); clip-path: inset(80% 0 4% 0); }
-  100% { opacity: 0.9; transform: translateX(2px);  clip-path: inset(14% 0 68% 0); }
-}
-
-@keyframes glitch-c-hover {
-  0%   { opacity: 0.9; transform: translateX(6px);  clip-path: inset(70% 0 10% 0); }
-  20%  { opacity: 0.9; transform: translateX(-5px); clip-path: inset(18% 0 62% 0); }
-  40%  { opacity: 0.9; transform: translateX(4px);  clip-path: inset(40% 0 42% 0); }
-  60%  { opacity: 0.9; transform: translateX(-7px); clip-path: inset(84% 0 2% 0); }
-  80%  { opacity: 0.9; transform: translateX(3px);  clip-path: inset(30% 0 52% 0); }
-  100% { opacity: 0.9; transform: translateX(-2px); clip-path: inset(58% 0 26% 0); }
-}
-
-/* Slices of the white layer shift too, so the mark itself looks torn */
-@keyframes glitch-base-hover {
-  0%,  100% { transform: translateX(0); clip-path: none; }
-  20%       { transform: translateX(2px);  clip-path: inset(36% 0 46% 0); }
-  40%       { transform: translateX(-2px); clip-path: none; }
-  60%       { transform: translateX(3px);  clip-path: inset(62% 0 20% 0); }
-  80%       { transform: translateX(-1px); clip-path: none; }
-}
-
-/* ===== SIGNAL TEAR OVERLAY =====
-   Broken-broadcast scanlines, drawn with gradients and masked to the logo
-   artwork so the bars only exist inside the letterforms. No extra image
-   requests: the mask reuses the logo file the hero already loads. */
+/* ===== SCANLINE OVERLAYS =====
+   Masked to the logo artwork so the bars only exist inside the letterforms.
+   The mask reuses the file the hero already loads. */
 .hero-logo-glitch::before,
 .hero-logo-glitch::after {
   content: "";
@@ -355,7 +353,6 @@
   mask-repeat: no-repeat;
 }
 
-/* Coarse RGB bands: the colored tearing */
 .hero-logo-glitch::before {
   background: repeating-linear-gradient(
     0deg,
@@ -370,7 +367,6 @@
   background-size: 100% 14px;
 }
 
-/* Fine dark scanlines over the top, for CRT line texture */
 .hero-logo-glitch::after {
   background: repeating-linear-gradient(
     0deg,
@@ -381,40 +377,14 @@
   mix-blend-mode: overlay;
 }
 
-@media (hover: hover) {
-  .hero-logo-glitch:hover::before {
-    opacity: 0.85;
-    animation: signal-roll 0.9s linear infinite;
-  }
-
-  .hero-logo-glitch:hover::after {
-    opacity: 0.5;
-    animation: signal-roll-fine 1.4s linear infinite;
-  }
-}
-
-/* Bars roll upward like a desynced signal. Animating background-position
-   keeps the mask still, so only the bars move, not the logo shape. */
-@keyframes signal-roll {
-  from { background-position: 0 0; }
-  to   { background-position: 0 -140px; }
-}
-
-@keyframes signal-roll-fine {
-  from { background-position: 0 0; }
-  to   { background-position: 0 30px; }
-}
-
-/* ===== TEAR BANDS =====
-   Slabs of the broken-signal gradient masked to the logo artwork, so the
-   tearing lives strictly inside the letterforms. The source PNG carries a
-   lot of empty padding, and the mask discards it for free. */
+/* Unmasked bands that tear across the negative space */
 .hero-tear {
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
   mix-blend-mode: screen;
+  z-index: 1;
   will-change: clip-path, background-position;
 
   -webkit-mask-image: url("/logo.png");
@@ -438,66 +408,222 @@
   background-size: 100% 20px;
 }
 
-@media (hover: hover) {
-  .hero-logo-glitch:hover .hero-tear {
-    opacity: 0.75;
-  }
-
-  .hero-logo-glitch:hover .hero-tear:nth-of-type(1) {
-    animation: tear-a 0.7s steps(1, end) infinite;
-  }
-
-  .hero-logo-glitch:hover .hero-tear:nth-of-type(2) {
-    animation: tear-b 0.5s steps(1, end) infinite;
-  }
-
-  .hero-logo-glitch:hover .hero-tear:nth-of-type(3) {
-    animation: tear-c 1.1s steps(1, end) infinite;
-  }
+/* ===== RESTING HOVER =====
+   Between breaks the logo just breathes: colour rotates, scanlines whisper.
+   This is the calm the breaks interrupt. */
+.hero-logo-glitch.is-live .hero-logo-color {
+  animation: logo-color-swap 2.4s steps(1, end) infinite;
+  animation-delay: calc(var(--i) * -0.6s);
 }
 
-/* Each band exposes a different slice and skews it, which reads as the
-   S-shaped smear of a desynced signal. */
-@keyframes tear-a {
-  0%   { clip-path: inset(18% 0 68% 0); background-position: -14px 0; }
-  33%  { clip-path: inset(44% 0 46% 0); background-position: 10px -8px; }
-  66%  { clip-path: inset(6% 0 86% 0);  background-position: -6px 6px; }
-  100% { clip-path: inset(30% 0 58% 0); background-position: 18px -4px; }
+.hero-logo-glitch.is-live::before {
+  opacity: 0.18;
+  animation: signal-roll 1.6s linear infinite;
 }
 
-@keyframes tear-b {
-  0%   { clip-path: inset(62% 0 26% 0); background-position: 12px 4px; }
-  33%  { clip-path: inset(78% 0 12% 0); background-position: -16px -6px; }
-  66%  { clip-path: inset(52% 0 40% 0); background-position: 6px 8px; }
-  100% { clip-path: inset(70% 0 22% 0); background-position: -10px 0; }
+.hero-logo-glitch.is-live::after {
+  opacity: 0.22;
+  animation: signal-roll-fine 2.2s linear infinite;
 }
 
-@keyframes tear-c {
-  0%   { clip-path: inset(88% 0 4% 0);  background-position: -20px -4px; }
-  33%  { clip-path: inset(2% 0 94% 0);  background-position: 16px 6px; }
-  66%  { clip-path: inset(36% 0 60% 0); background-position: -4px -8px; }
-  100% { clip-path: inset(94% 0 1% 0);  background-position: 8px 2px; }
+.hero-logo-glitch.is-live .hero-logo:not(.glitch-r):not(.glitch-c):not(.hero-logo-color):not(.hero-shard) {
+  opacity: 0.12;
+}
+
+@keyframes logo-color-swap {
+  0%,  24.9% { opacity: 1; }
+  25%, 100%  { opacity: 0; }
+}
+
+@keyframes signal-roll {
+  from { background-position: 0 0; }
+  to   { background-position: 0 -140px; }
+}
+
+@keyframes signal-roll-fine {
+  from { background-position: 0 0; }
+  to   { background-position: 0 30px; }
+}
+
+/* ===== VARIANT A: EXPLODE =====
+   Pieces thrown out of frame, total blackout, collapse into the isotipo. */
+.hero-logo-glitch[data-break="a"] .hero-shard {
+  animation: a-shard 0.75s steps(1, end) 1;
+  animation-delay: calc(var(--i) * 0.03s);
+}
+
+.hero-logo-glitch[data-break="a"] .hero-isotipo {
+  animation: a-isotipo 0.75s steps(1, end) 1;
+}
+
+.hero-logo-glitch[data-break="a"] .hero-logo-color,
+.hero-logo-glitch[data-break="a"]::before,
+.hero-logo-glitch[data-break="a"]::after,
+.hero-logo-glitch[data-break="a"] .hero-tear {
+  animation-name: a-blackout;
+  animation-duration: 0.75s;
+  animation-timing-function: steps(1, end);
+  animation-iteration-count: 1;
+}
+
+.hero-logo-glitch[data-break="a"] .glitch-r {
+  animation: a-channel-r 0.75s steps(1, end) 1;
+}
+
+.hero-logo-glitch[data-break="a"] .glitch-c {
+  animation: a-channel-c 0.75s steps(1, end) 1;
+}
+
+@keyframes a-shard {
+  0%   { opacity: 1; clip-path: inset(6% 0 80% 0);  transform: translate3d(-260px, -34px, 0) skewX(-14deg); }
+  16%  { opacity: 1; clip-path: inset(46% 0 34% 0); transform: translate3d(310px, 26px, 0) skewX(10deg); }
+  30%  { opacity: 1; clip-path: inset(70% 0 12% 0); transform: translate3d(-180px, 48px, 0) skewX(-8deg); }
+  42%, 58% { opacity: 0; }
+  66%  { opacity: 1; clip-path: inset(30% 0 52% 0); transform: translate3d(24px, -6px, 0); }
+  80%  { opacity: 0.8; clip-path: inset(62% 0 22% 0); transform: translate3d(-14px, 3px, 0); }
+  100% { opacity: 0; }
+}
+
+@keyframes a-isotipo {
+  0%, 40%  { opacity: 0; transform: translate3d(-50%, -50%, 0) scale(1.3); }
+  44%      { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1.05); }
+  50%      { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(0.9); }
+  56%      { opacity: 1; transform: translate3d(-52%, -50%, 0) scale(0.98); }
+  62%      { opacity: 0.5; transform: translate3d(-48%, -50%, 0) scale(1.15); }
+  66%, 100% { opacity: 0; }
+}
+
+@keyframes a-blackout {
+  0%, 41%    { visibility: visible; }
+  42%, 58%   { visibility: hidden; }
+  59%, 100%  { visibility: visible; }
+}
+
+@keyframes a-channel-r {
+  0%   { opacity: 1; transform: translateX(-190px) skewX(-12deg); clip-path: inset(20% 0 44% 0); }
+  22%  { opacity: 1; transform: translateX(240px) skewX(9deg);    clip-path: inset(52% 0 18% 0); }
+  42%, 58% { opacity: 0; }
+  70%  { opacity: 0.9; transform: translateX(-40px); clip-path: inset(14% 0 68% 0); }
+  100% { opacity: 0; }
+}
+
+@keyframes a-channel-c {
+  0%   { opacity: 1; transform: translateX(220px) skewX(11deg);   clip-path: inset(8% 0 60% 0); }
+  22%  { opacity: 1; transform: translateX(-260px) skewX(-14deg); clip-path: inset(58% 0 14% 0); }
+  42%, 58% { opacity: 0; }
+  70%  { opacity: 0.9; transform: translateX(36px); clip-path: inset(46% 0 36% 0); }
+  100% { opacity: 0; }
+}
+
+/* ===== VARIANT B: SNAP =====
+   A hard flinch. Channels split and recover, no blackout, no symbol. */
+.hero-logo-glitch[data-break="b"] .glitch-r {
+  animation: b-channel-r 0.26s steps(1, end) 1;
+}
+
+.hero-logo-glitch[data-break="b"] .glitch-c {
+  animation: b-channel-c 0.26s steps(1, end) 1;
+}
+
+.hero-logo-glitch[data-break="b"] .hero-logo:not(.glitch-r):not(.glitch-c):not(.hero-logo-color):not(.hero-shard) {
+  animation: b-base 0.26s steps(1, end) 1;
+}
+
+.hero-logo-glitch[data-break="b"]::before {
+  animation: b-scan 0.26s steps(1, end) 1;
+}
+
+@keyframes b-channel-r {
+  0%   { opacity: 1; transform: translateX(-70px); clip-path: inset(24% 0 40% 0); }
+  40%  { opacity: 1; transform: translateX(46px);  clip-path: inset(58% 0 22% 0); }
+  75%  { opacity: 1; transform: translateX(-18px); clip-path: inset(10% 0 72% 0); }
+  100% { opacity: 0; }
+}
+
+@keyframes b-channel-c {
+  0%   { opacity: 1; transform: translateX(64px);  clip-path: inset(52% 0 20% 0); }
+  40%  { opacity: 1; transform: translateX(-52px); clip-path: inset(16% 0 60% 0); }
+  75%  { opacity: 1; transform: translateX(22px);  clip-path: inset(72% 0 8% 0); }
+  100% { opacity: 0; }
+}
+
+@keyframes b-base {
+  0%   { opacity: 0.9; transform: translateX(0); }
+  40%  { opacity: 0.5; transform: translateX(10px); }
+  75%  { opacity: 0.8; transform: translateX(-6px); }
+  100% { opacity: 0.12; transform: translateX(0); }
+}
+
+@keyframes b-scan {
+  0%, 100% { opacity: 0.18; }
+  40%      { opacity: 0.9; }
+}
+
+/* ===== VARIANT C: REWIND =====
+   No explosion. The mark slides apart in horizontal bands, like tape
+   dragging across the head. */
+.hero-logo-glitch[data-break="c"] .hero-tear {
+  animation: c-tear 0.9s steps(1, end) 1;
+  animation-delay: calc(var(--i, 0) * 0.05s);
+}
+
+.hero-logo-glitch[data-break="c"] .hero-shard {
+  animation: c-shard 0.9s steps(1, end) 1;
+  animation-delay: calc(var(--i) * 0.09s);
+}
+
+.hero-logo-glitch[data-break="c"]::after {
+  animation: c-scan 0.9s linear 1;
+}
+
+@keyframes c-tear {
+  0%   { opacity: 0.7; clip-path: inset(0 0 88% 0);  background-position: 0 0; }
+  25%  { opacity: 0.7; clip-path: inset(24% 0 62% 0); background-position: 0 -40px; }
+  50%  { opacity: 0.7; clip-path: inset(50% 0 36% 0); background-position: 0 -90px; }
+  75%  { opacity: 0.7; clip-path: inset(74% 0 14% 0); background-position: 0 -150px; }
+  100% { opacity: 0; }
+}
+
+@keyframes c-shard {
+  0%   { opacity: 0.7; clip-path: inset(4% 0 84% 0);  transform: translate3d(70px, 0, 0); }
+  25%  { opacity: 0.7; clip-path: inset(28% 0 58% 0); transform: translate3d(-96px, 0, 0); }
+  50%  { opacity: 0.7; clip-path: inset(54% 0 32% 0); transform: translate3d(120px, 0, 0); }
+  75%  { opacity: 0.7; clip-path: inset(78% 0 10% 0); transform: translate3d(-64px, 0, 0); }
+  100% { opacity: 0; }
+}
+
+@keyframes c-scan {
+  from { opacity: 0.6; background-position: 0 0; }
+  to   { opacity: 0.2; background-position: 0 220px; }
+}
+
+/* The grain across the hero lifts while the logo is live */
+.hero-container:has(.hero-logo-glitch.is-live) .hero-noise {
+  opacity: 0.6;
+}
+
+.hero-container:has(.hero-logo-glitch[data-break]) .hero-noise {
+  opacity: 0.9;
+  animation: noise-jitter 0.14s steps(1, end) infinite;
+}
+
+@keyframes noise-jitter {
+  0%   { transform: translate3d(0, 0, 0); }
+  25%  { transform: translate3d(-2%, 1%, 0); }
+  50%  { transform: translate3d(2%, -1%, 0); }
+  75%  { transform: translate3d(-1%, -2%, 0); }
+  100% { transform: translate3d(1%, 2%, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-logo-glitch:hover .hero-tear {
-    animation: none;
-    opacity: 0;
-  }
-
   .glitch-r,
   .glitch-c,
-  .hero-logo-glitch:hover .glitch-r,
-  .hero-logo-glitch:hover .glitch-c,
-  .hero-logo-glitch:hover .hero-logo:not(.glitch-r):not(.glitch-c),
-  .hero-logo-glitch:hover::before,
-  .hero-logo-glitch:hover::after {
+  .hero-logo-glitch.is-live .hero-logo-color,
+  .hero-logo-glitch.is-live::before,
+  .hero-logo-glitch.is-live::after,
+  .hero-logo-glitch[data-break] *,
+  .hero-container:has(.hero-logo-glitch[data-break]) .hero-noise {
     animation: none;
-  }
-
-  .hero-logo-glitch:hover::before,
-  .hero-logo-glitch:hover::after {
-    opacity: 0;
   }
 }
 
@@ -511,17 +637,6 @@
   margin-left: 0;
   margin-top: 0.4rem;
   padding-left: 3rem;
-}
-
-.hero-tagline {
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 2.5rem;
-  border-left: 2px solid var(--neon-green);
-  padding-left: 1rem;
-  margin-left: 2.5rem;
 }
 
 
@@ -557,12 +672,6 @@
     font-size: clamp(1.2rem, 5vw, 2.5rem);
     padding-left: 1.5rem;
   }
-
-  .hero-tagline {
-    font-size: 0.65rem;
-    margin-left: 1.2rem;
-    margin-top: 1.5rem;
-  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -577,8 +686,96 @@
   .hero-subtitle {
     padding-left: 2rem;
   }
+}
 
-  .hero-tagline {
-    margin-left: 2rem;
+/* ===== TYPED INTRO =====
+   The hero opens on the slogan alone, typed out like an old terminal, and
+   hands over to the wordmark once the glitch takes it. The logo is hidden
+   but present, so it is already decoded and ready to paint. */
+.hero-typed {
+  display: inline-block;
+  overflow: hidden;
+  /* The caret is a right border. Under the global border-box it would eat the
+     last characters out of the measured width, so this box keeps them apart. */
+  box-sizing: content-box;
+  white-space: nowrap;
+  vertical-align: bottom;
+
+  /* Monospaced by requirement: the typing measures its width in character
+     units, so a proportional face would type in uneven jumps. */
+  font-family: "MonoBlaze", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --tracking: 0.15em;   /* must match .hero-eyebrow's letter-spacing */
+  --typed-width: calc(var(--chars) * (1ch + var(--tracking)));
+  border-right: 0.55em solid var(--neon-green);
+}
+
+.hero-container[data-phase="typing"] .hero-typed {
+  width: 0;
+  animation:
+    type-in 1.75s steps(var(--chars), end) forwards,
+    caret 0.8s steps(1, end) infinite;
+}
+
+.hero-container[data-phase="ready"] .hero-typed {
+  width: var(--typed-width);
+  animation: caret 0.8s steps(1, end) infinite;
+}
+
+@keyframes type-in {
+  from { width: 0; }
+  to   { width: var(--typed-width); }
+}
+
+@keyframes caret {
+  0%, 49%   { border-right-color: var(--neon-green); }
+  50%, 100% { border-right-color: transparent; }
+}
+
+/* The wordmark waits offstage until the handover */
+.hero-container[data-phase="typing"] .hero-logo-glitch,
+.hero-container[data-phase="ready"] .hero-logo-glitch {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* HANDOVER: the slogan is torn away, the wordmark lands */
+.hero-container[data-phase="revealed"] .hero-typed {
+  width: var(--typed-width);
+  border-right-color: transparent;
+  animation: copy-dissolve 0.52s steps(1, end) forwards;
+}
+
+.hero-container[data-phase="revealed"] .hero-logo-glitch {
+  opacity: 1;
+  animation: logo-land 0.42s steps(3, end);
+}
+
+@keyframes logo-land {
+  0%   { opacity: 0; clip-path: inset(46% 0 46% 0); }
+  33%  { opacity: 1; clip-path: inset(18% 0 24% 0); transform: translate(-50%, -50%) translateX(12px); }
+  66%  { opacity: 1; clip-path: inset(4% 0 0 0);    transform: translate(-50%, -50%) translateX(-6px); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+/* Torn away in slices rather than faded, to match the logo's own break */
+@keyframes copy-dissolve {
+  0%   { opacity: 1; clip-path: inset(0 0 0 0); transform: translateX(0); }
+  20%  { opacity: 1; clip-path: inset(0 0 46% 0); transform: translateX(6px); }
+  40%  { opacity: 1; clip-path: inset(52% 0 0 0); transform: translateX(-10px); }
+  55%  { opacity: 0.6; clip-path: inset(0 62% 0 0); transform: translateX(14px); }
+  70%  { opacity: 0.4; clip-path: inset(0 0 0 48%); transform: translateX(-6px); }
+  85%  { opacity: 0.15; clip-path: inset(38% 0 38% 0); }
+  100% { opacity: 0; clip-path: inset(50% 0 50% 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-container[data-phase] .hero-typed {
+    width: var(--typed-width);
+    animation: none;
+    border-right-color: transparent;
+  }
+
+  .hero-container[data-phase="revealed"] .hero-logo-glitch {
+    animation: none;
   }
 }

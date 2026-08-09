@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import "./ServicesSection.css";
 
+const TAGLINE = "Full-stack web development. Digital, urban, awake.";
+
 const SERVICES = [
     {
         name: "FULL STACK",
@@ -98,6 +100,13 @@ function ServicesSection() {
             <div className="section-label-vertical">SERVICES</div>
             <div className="services-body">
                 <p className="services-eyebrow mono">// What I build</p>
+
+                {/* Moved out of the hero: this is where a visitor is actually
+                    asking what the studio does. Wipes in like the rest. */}
+                <span className="wipe-wrap services-intro">
+                    <p className="wipe-base" aria-hidden="true">{TAGLINE}</p>
+                    <p className="wipe-fill scroll-fill">{TAGLINE}</p>
+                </span>
                 <div className="services-list">
                     {SERVICES.map((service, si) => (
                         <ServiceBlock key={si} service={service} />

@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "MonoBlaze";
+  src: url("./assets/fonts/WEB/MonoBlaze.woff2") format("woff2"),
+       url("./assets/fonts/WEB/MonoBlaze.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* LOCAL FONTS */
 @font-face {
   font-family: "Archivo Black";
