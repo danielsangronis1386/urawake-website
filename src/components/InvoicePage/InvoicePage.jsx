@@ -17,7 +17,7 @@ function InvoicePage() {
 
     return (
         <div className="invoice-page">
-            <Navbar />
+            <Navbar logoOnly />
             <div className="invoice-container">
 
                 {/* HEADER */}

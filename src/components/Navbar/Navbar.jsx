@@ -17,7 +17,7 @@ function scrollToSection(id) {
     }
 }
 
-function Navbar() {
+function Navbar({ logoOnly = false }) {
     const [menuOpen, setMenuOpen] = useState(false)
     const [aboutOpen, setAboutOpen] = useState(false)
     const logoRef = useRef(null)
@@ -133,50 +133,55 @@ function Navbar() {
                 <img src={logo} alt="URAWAKE" />
             </a>
 
-            <div
-                className={`hamburger ${menuOpen ? "open" : ""}`}
-                onClick={() => { setMenuOpen(prev => !prev); setAboutOpen(false); }}
-                aria-label="Toggle menu"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <nav className={`nav-dropdown ${menuOpen ? "visible" : ""}`}>
-                {!isHome && (
-                    <a className="nav-link mono" href="/" onClick={handleHomeLink}>
-                        ← Home
-                    </a>
-                )}
-                {SCROLL_LINKS.map(({ label, id }) => (
-                    <a
-                        key={id}
-                        className="nav-link mono"
-                        href={`/#${id}`}
-                        onClick={(e) => handleScrollLink(e, id)}
+            {!logoOnly && (
+                <>
+                    <div
+                        className={`hamburger ${menuOpen ? "open" : ""}`}
+                        onClick={() => { setMenuOpen(prev => !prev); setAboutOpen(false); }}
+                        aria-label="Toggle menu"
                     >
-                        {label}
-                    </a>
-                ))}
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-                {/* About: nested */}
-                <button
-                    className={`nav-link mono nav-link--parent ${aboutOpen ? "active" : ""}`}
-                    onClick={() => setAboutOpen(prev => !prev)}
-                >
-                    About
-                    <span className="nav-arrow">{aboutOpen ? "▲" : "▼"}</span>
-                </button>
-                <div className={`nav-sub ${aboutOpen ? "nav-sub--open" : ""}`}>
-                    <a className="nav-link mono nav-link--sub" href="/team" onClick={handleNavLink}>
-                        Meet the Team
-                    </a>
-                    <a className="nav-link mono nav-link--sub" href="/why-us" onClick={handleNavLink}>
-                        Why Us
-                    </a>
-                </div>
-            </nav>
+                    <nav className={`nav-dropdown ${menuOpen ? "visible" : ""}`}>
+                        {!isHome && (
+                            <a className="nav-link mono" href="/" onClick={handleHomeLink}>
+                                ← Home
+                            </a>
+                        )}
+                        {SCROLL_LINKS.map(({ label, id }) => (
+                            <a
+                                key={id}
+                                className="nav-link mono"
+                                href={`/#${id}`}
+                                onClick={(e) => handleScrollLink(e, id)}
+                            >
+                                {label}
+                            </a>
+                        ))}
+
+                        {/* About: nested */}
+                        <button
+                            className={`nav-link mono nav-link--parent ${aboutOpen ? "active" : ""}`}
+                            onClick={() => setAboutOpen(prev => !prev)}
+                        >
+                            About
+                            <span className="nav-arrow">{aboutOpen ? "▲" : "▼"}</span>
+                        </button>
+                        <div className={`nav-sub ${aboutOpen ? "nav-sub--open" : ""}`}>
+                            <a className="nav-link mono nav-link--sub" href="/team" onClick={handleNavLink}>
+                                Meet the Team
+                            </a>
+                            <a className="nav-link mono nav-link--sub" href="/why-us" onClick={handleNavLink}>
+                                Why Us
+                            </a>
+                        </div>
+                    </nav>
+                </>
+            )}
+
         </div>
     )
 }

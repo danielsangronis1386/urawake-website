@@ -21,7 +21,7 @@ function ProposalPage() {
 
     return (
         <>
-            <Navbar />
+            <Navbar logoOnly />
             <ProposalComponent />
         </>
     );
