@@ -334,13 +334,91 @@
   80%       { transform: translateX(-1px); clip-path: none; }
 }
 
+/* ===== SIGNAL TEAR OVERLAY =====
+   Broken-broadcast scanlines, drawn with gradients and masked to the logo
+   artwork so the bars only exist inside the letterforms. No extra image
+   requests: the mask reuses the logo file the hero already loads. */
+.hero-logo-glitch::before,
+.hero-logo-glitch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+
+  -webkit-mask-image: url("../../assets/logos/LOGO-01.png");
+  mask-image: url("../../assets/logos/LOGO-01.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Coarse RGB bands: the colored tearing */
+.hero-logo-glitch::before {
+  background: repeating-linear-gradient(
+    0deg,
+    #ff2d78 0px,  #ff2d78 2px,
+    #00e5ff 2px,  #00e5ff 4px,
+    #ffffff 4px,  #ffffff 5px,
+    #39ff14 5px,  #39ff14 7px,
+    #000000 7px,  #000000 9px,
+    #8a2be2 9px,  #8a2be2 11px,
+    #000000 11px, #000000 14px
+  );
+  background-size: 100% 14px;
+}
+
+/* Fine dark scanlines over the top, for CRT line texture */
+.hero-logo-glitch::after {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.85) 0px, rgba(0, 0, 0, 0.85) 1px,
+    rgba(255, 255, 255, 0.9) 1px, rgba(255, 255, 255, 0.9) 2px
+  );
+  background-size: 100% 3px;
+  mix-blend-mode: overlay;
+}
+
+@media (hover: hover) {
+  .hero-logo-glitch:hover::before {
+    opacity: 0.85;
+    animation: signal-roll 0.9s linear infinite;
+  }
+
+  .hero-logo-glitch:hover::after {
+    opacity: 0.5;
+    animation: signal-roll-fine 1.4s linear infinite;
+  }
+}
+
+/* Bars roll upward like a desynced signal. Animating background-position
+   keeps the mask still, so only the bars move, not the logo shape. */
+@keyframes signal-roll {
+  from { background-position: 0 0; }
+  to   { background-position: 0 -140px; }
+}
+
+@keyframes signal-roll-fine {
+  from { background-position: 0 0; }
+  to   { background-position: 0 30px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .glitch-r,
   .glitch-c,
   .hero-logo-glitch:hover .glitch-r,
   .hero-logo-glitch:hover .glitch-c,
-  .hero-logo-glitch:hover .hero-logo:not(.glitch-r):not(.glitch-c) {
+  .hero-logo-glitch:hover .hero-logo:not(.glitch-r):not(.glitch-c),
+  .hero-logo-glitch:hover::before,
+  .hero-logo-glitch:hover::after {
     animation: none;
+  }
+
+  .hero-logo-glitch:hover::before,
+  .hero-logo-glitch:hover::after {
+    opacity: 0;
   }
 }
 
