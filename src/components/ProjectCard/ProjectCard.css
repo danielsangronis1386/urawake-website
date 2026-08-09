@@ -1,7 +1,7 @@
 /* ===== PROJECT CARD (grid thumbnail) ===== */
 .project-card {
   background: var(--black);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   position: relative;
   will-change: transform, opacity;
   display: block;

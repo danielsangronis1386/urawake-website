@@ -124,3 +124,32 @@ p, span, li {
   color: #ff0090;
   animation: glitch-shift 4.2s infinite reverse;
 }
+
+/* ===== CURSOR =====
+   The isotipo replaces the pointer on anything clickable. Browsers cap cursor
+   images at 128px and are happiest at 32, so this is a dedicated small render
+   rather than the full-size mark. The hotspot sits at its centre, which reads
+   as a reticle over the brutalist layout.
+
+   It lives in a variable because component stylesheets load after this file
+   and their own `cursor: pointer` would otherwise win on order alone. Every
+   value keeps `pointer` as the fallback: if the image fails, the affordance
+   survives. */
+:root {
+  --cursor-pointer: url("/cursor.png") 16 16, pointer;
+}
+
+@media (min-resolution: 2dppx) {
+  :root {
+    --cursor-pointer: url("/cursor-2x.png") 16 16, pointer;
+  }
+}
+
+a,
+button,
+summary,
+[role="button"],
+input[type="submit"],
+label[for] {
+  cursor: var(--cursor-pointer);
+}
