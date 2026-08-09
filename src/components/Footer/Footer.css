@@ -9,7 +9,9 @@
     gap: 2rem;
 }
 
-/* Grain bleeding down from the top edge. The file is white-on-black and blends
+/* Diamond plate bleeding down from the top edge. A separate file from the
+   grain used elsewhere: this one is a regular pattern, and it compresses
+   better than the irregular grain despite carrying more detail. The file is white-on-black and blends
    with screen, where black is a no-op: same result as a transparent PNG, but it
    compresses like a photo instead of like noise with an alpha channel. */
 .footer-grunge {
@@ -18,7 +20,7 @@
     z-index: -1;
     pointer-events: none;
 
-    background: url("/footer-grunge.webp") top center / cover no-repeat;
+    background: url("/footer-texture.webp") top center / cover no-repeat;
     mix-blend-mode: screen;
     opacity: 0.14;
 
