@@ -405,7 +405,86 @@
   to   { background-position: 0 30px; }
 }
 
+/* ===== TEAR BANDS =====
+   Slabs of the broken-signal gradient masked to the logo artwork, so the
+   tearing lives strictly inside the letterforms. The source PNG carries a
+   lot of empty padding, and the mask discards it for free. */
+.hero-tear {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: clip-path, background-position;
+
+  -webkit-mask-image: url("../../assets/logos/LOGO-01.png");
+  mask-image: url("../../assets/logos/LOGO-01.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  background: repeating-linear-gradient(
+    0deg,
+    #ff2d78 0px,  #ff2d78 3px,
+    #000000 3px,  #000000 5px,
+    #00e5ff 5px,  #00e5ff 8px,
+    #ffffff 8px,  #ffffff 9px,
+    #39ff14 9px,  #39ff14 11px,
+    #000000 11px, #000000 13px,
+    #8a2be2 13px, #8a2be2 16px,
+    #000000 16px, #000000 20px
+  );
+  background-size: 100% 20px;
+}
+
+@media (hover: hover) {
+  .hero-logo-glitch:hover .hero-tear {
+    opacity: 0.75;
+  }
+
+  .hero-logo-glitch:hover .hero-tear:nth-of-type(1) {
+    animation: tear-a 0.7s steps(1, end) infinite;
+  }
+
+  .hero-logo-glitch:hover .hero-tear:nth-of-type(2) {
+    animation: tear-b 0.5s steps(1, end) infinite;
+  }
+
+  .hero-logo-glitch:hover .hero-tear:nth-of-type(3) {
+    animation: tear-c 1.1s steps(1, end) infinite;
+  }
+}
+
+/* Each band exposes a different slice and skews it, which reads as the
+   S-shaped smear of a desynced signal. */
+@keyframes tear-a {
+  0%   { clip-path: inset(18% 0 68% 0); background-position: -14px 0; }
+  33%  { clip-path: inset(44% 0 46% 0); background-position: 10px -8px; }
+  66%  { clip-path: inset(6% 0 86% 0);  background-position: -6px 6px; }
+  100% { clip-path: inset(30% 0 58% 0); background-position: 18px -4px; }
+}
+
+@keyframes tear-b {
+  0%   { clip-path: inset(62% 0 26% 0); background-position: 12px 4px; }
+  33%  { clip-path: inset(78% 0 12% 0); background-position: -16px -6px; }
+  66%  { clip-path: inset(52% 0 40% 0); background-position: 6px 8px; }
+  100% { clip-path: inset(70% 0 22% 0); background-position: -10px 0; }
+}
+
+@keyframes tear-c {
+  0%   { clip-path: inset(88% 0 4% 0);  background-position: -20px -4px; }
+  33%  { clip-path: inset(2% 0 94% 0);  background-position: 16px 6px; }
+  66%  { clip-path: inset(36% 0 60% 0); background-position: -4px -8px; }
+  100% { clip-path: inset(94% 0 1% 0);  background-position: 8px 2px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .hero-logo-glitch:hover .hero-tear {
+    animation: none;
+    opacity: 0;
+  }
+
   .glitch-r,
   .glitch-c,
   .hero-logo-glitch:hover .glitch-r,

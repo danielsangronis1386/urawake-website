@@ -23,6 +23,11 @@ function HeroSection() {
                     <img src={logo} alt="URAWAKE Stackhouse" className="hero-logo" />
                     <img src={logo} aria-hidden="true" className="hero-logo glitch-r" />
                     <img src={logo} aria-hidden="true" className="hero-logo glitch-c" />
+
+                    {/* Full-bleed signal tear bands, hover only */}
+                    <div className="hero-tear" aria-hidden="true" />
+                    <div className="hero-tear" aria-hidden="true" />
+                    <div className="hero-tear" aria-hidden="true" />
                 </div>
 
                 <p className="hero-tagline mono">
