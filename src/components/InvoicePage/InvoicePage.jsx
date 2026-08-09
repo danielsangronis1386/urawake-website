@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import INVOICES from "./invoices";
 import "./InvoicePage.css";
 
@@ -16,6 +17,7 @@ function InvoicePage() {
 
     return (
         <div className="invoice-page">
+            <Navbar />
             <div className="invoice-container">
 
                 {/* HEADER */}

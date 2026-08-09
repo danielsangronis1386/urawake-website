@@ -7,7 +7,9 @@
 }
 
 /* HERO */
+/* Top padding clears the fixed navbar logo */
 .cs-hero {
+  padding-top: 6rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

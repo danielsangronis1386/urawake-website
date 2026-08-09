@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import CajamarcaProposal from "./CajamarcaProposal";
 import "./ProposalPage.css";
 
@@ -18,7 +19,12 @@ function ProposalPage() {
         );
     }
 
-    return <ProposalComponent />;
+    return (
+        <>
+            <Navbar />
+            <ProposalComponent />
+        </>
+    );
 }
 
 export default ProposalPage;

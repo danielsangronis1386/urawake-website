@@ -1,7 +1,9 @@
 /* Import viewer styles */
 @import "../ProjectViewer/ProjectViewer.css";
 
+/* Top padding clears the fixed navbar logo */
 .project-page {
+    padding-top: 6rem;
     min-height: 100vh;
     background: var(--dark-surface);
     display: flex;

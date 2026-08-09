@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import PROJECTS from "../../data/projects";
 import "./ProjectPage.css";
 
@@ -49,6 +50,7 @@ function ProjectPage() {
 
     return (
         <div className="project-page">
+            <Navbar />
             <Link to="/#projects" className="project-page-back">← Back</Link>
 
             <div className="viewer-inner">

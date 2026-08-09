@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import CASE_STUDIES from "../../data/casestudies";
 import "./CaseStudyPage.css";
 
@@ -98,6 +99,7 @@ function CaseStudyPage() {
 
     return (
         <article className="cs-page">
+            <Navbar />
 
             {/* HERO */}
             <div className="cs-hero">
