@@ -1,5 +1,5 @@
 import "./HeroSection.css"
-import logo from "../../assets/logos/LOGO-01.png"
+const logo = "/logo.png"
 
 function HeroSection() {
     return (

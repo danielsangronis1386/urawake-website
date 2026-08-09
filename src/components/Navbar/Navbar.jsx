@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import logo from "../../assets/logos/LOGO-01.png"
+const logo = "/logo.png"
 import "./Navbar.css"
 
 const SCROLL_LINKS = [

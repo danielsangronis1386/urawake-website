@@ -347,8 +347,8 @@
   pointer-events: none;
   mix-blend-mode: screen;
 
-  -webkit-mask-image: url("../../assets/logos/LOGO-01.png");
-  mask-image: url("../../assets/logos/LOGO-01.png");
+  -webkit-mask-image: url("/logo.png");
+  mask-image: url("/logo.png");
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -417,8 +417,8 @@
   mix-blend-mode: screen;
   will-change: clip-path, background-position;
 
-  -webkit-mask-image: url("../../assets/logos/LOGO-01.png");
-  mask-image: url("../../assets/logos/LOGO-01.png");
+  -webkit-mask-image: url("/logo.png");
+  mask-image: url("/logo.png");
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
