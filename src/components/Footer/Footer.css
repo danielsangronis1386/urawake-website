@@ -1,10 +1,29 @@
 .site-footer {
+    position: relative;
+    isolation: isolate;   /* keeps the blend off everything above the footer */
     background: #000;
     border-top: 1px solid rgba(255,255,255,0.15);
     padding: 3rem 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+
+/* Grain bleeding down from the top edge. The file is white-on-black and blends
+   with screen, where black is a no-op: same result as a transparent PNG, but it
+   compresses like a photo instead of like noise with an alpha channel. */
+.footer-grunge {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: url("/footer-grunge.webp") top center / cover no-repeat;
+    mix-blend-mode: screen;
+    opacity: 0.14;
+
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
 }
 
 .footer-top {

@@ -153,3 +153,54 @@ input[type="submit"],
 label[for] {
   cursor: var(--cursor-pointer);
 }
+
+/* ===== GLOBAL GRAIN (TESTING) =====
+   The same file the footer and case studies already load, applied to every
+   black surface on the site. Attachment is fixed on purpose: it anchors the
+   texture to the viewport, so separate sections share one continuous grain
+   instead of each restarting its own crop at the seam.
+
+   Left out on purpose: the neon-green contact section, where a screen blend
+   would wash the colour out; Services, whose wipe-in text needs a flat surface
+   to read against; and the hero, which already runs its own noise layer that
+   this one only muddied.
+
+   To pull this back out, delete this block. Nothing else references it. */
+.project-section,
+.about-section,
+.whyus-page,
+.project-page,
+.invoice-page,
+.proposal-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.project-section::after,
+.about-section::after,
+.whyus-page::after,
+.project-page::after,
+.invoice-page::after,
+.proposal-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: url("/footer-grunge.webp") center / cover no-repeat fixed;
+  mix-blend-mode: screen;
+  opacity: 0.08;
+}
+
+@media (max-width: 900px) {
+  .project-section::after,
+  .about-section::after,
+  .whyus-page::after,
+  .project-page::after,
+  .invoice-page::after,
+  .proposal-page::after {
+    background-attachment: scroll;
+    opacity: 0.05;
+  }
+}

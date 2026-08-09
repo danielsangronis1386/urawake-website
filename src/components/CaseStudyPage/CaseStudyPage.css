@@ -129,14 +129,43 @@
 
 /* BODY: brutalist sections, no max-width, full bleed headings */
 .cs-body {
+  position: relative;
+  isolation: isolate;   /* keeps the blend from reaching the rest of the page */
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
+/* One continuous grain layer behind every section. It lives on the body rather
+   than on each section, because a layer per section restarted the texture at
+   every divider and broke the stroke. Attached to the viewport so it neither
+   stretches over the full page height nor tiles into visible seams. */
+.cs-body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: url("/footer-grunge.webp") center / cover no-repeat fixed;
+  mix-blend-mode: screen;
+  opacity: 0.09;
+}
+
+@media (max-width: 900px) {
+  .cs-body::after {
+    /* iOS handles fixed attachment poorly, and the columns have stacked by
+       here anyway, so the grain steps back instead. */
+    background-attachment: scroll;
+    opacity: 0.06;
+  }
+}
+
+/* No dividers: the grain behind these sections is one continuous surface, and
+   a 1px rule cut straight through it. The giant headings and the alternating
+   indent carry the separation on their own. */
 .cs-section {
-  border-bottom: 1px solid var(--border);
   padding: 0;
 }
 
@@ -149,7 +178,6 @@
   color: var(--white);
   margin: 0;
   padding: 2rem 2.5rem 1.5rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .cs-section-body {

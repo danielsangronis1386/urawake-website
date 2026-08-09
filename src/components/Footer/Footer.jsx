@@ -6,6 +6,7 @@ function Footer() {
 
     return (
         <footer className="site-footer">
+            <div className="footer-grunge" aria-hidden="true" />
             <div className="footer-top">
                 <a href="/" className="footer-brand" aria-label="URAWAKE Stackhouse home">
                     <img src={logo} alt="URAWAKE Stackhouse" />
