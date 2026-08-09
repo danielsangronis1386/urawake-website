@@ -42,7 +42,7 @@ function WhyUsPage() {
                 <header className="whyus-header">
                     <div className="whyus-header-inner">
                         <p className="whyus-from mono">// URAWAKE Stackhouse</p>
-                        <h1 className="whyus-title">WHY<br />US.</h1>
+                        <h1 className="whyus-title">WHY<br />US?</h1>
                         <p className="whyus-sub mono">Real work. Real results. No middlemen.</p>
                     </div>
                 </header>
