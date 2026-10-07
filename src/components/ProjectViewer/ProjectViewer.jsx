@@ -59,18 +59,17 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
 
                 {/* RIGHT: project info */}
                 <div className="viewer-right">
-                    <div className="viewer-label">PROJECT</div>
+                    <div className="viewer-label mono">PROJECT</div>
                     <h2 className="viewer-title">{title}</h2>
                     <p className="viewer-subtitle">{subtitle}</p>
 
                     <div className="viewer-divider" />
 
-                    <div className="viewer-about-label">ABOUT</div>
                     <p className="viewer-description">{description}</p>
 
                     <div className="viewer-stack">
                         {stack.map((tag) => (
-                            <span key={tag} className="viewer-tag">{tag}</span>
+                            <span key={tag} className="viewer-tag mono">{tag}</span>
                         ))}
                     </div>
 
@@ -79,22 +78,22 @@ function ProjectViewer({ project, current, total, onClose, onPrev, onNext }) {
                             href={liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="viewer-live-link"
+                            className="viewer-live-link mono"
                         >
-                            // View live site →
+                            View live site →
                         </a>
                     )}
 
                     {caseStudySlug && (
-                        <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link viewer-case-study-link">
-                            // The Work →
+                        <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link viewer-case-study-link mono">
+                            Read the case study →
                         </Link>
                     )}
 
                     {/* Project navigation */}
                     <div className="viewer-nav">
                         <button className="viewer-nav-btn" onClick={onPrev} aria-label="Previous project">←</button>
-                        <span className="viewer-nav-count">
+                        <span className="viewer-nav-count mono">
                             {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                         </span>
                         <button className="viewer-nav-btn" onClick={onNext} aria-label="Next project">→</button>

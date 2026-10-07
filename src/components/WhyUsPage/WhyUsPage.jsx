@@ -7,8 +7,8 @@ import "./WhyUsPage.css";
 const REASONS = [
     {
         number: "01",
-        title: "INSPIRATION FROM THE BEST. BUILT FOR YOU.",
-        body: "We study what works across the web, then throw out everything that doesn't fit your business. Custom code, custom logic, built around how you actually operate. We don't drag and drop and call it a website.",
+        title: "NO TEMPLATES. NO PAGE BUILDERS.",
+        body: "Every site is written in code around how the business actually runs. Eliot's Adventures books tours, airport transfers, and waivers through one system because that is what their week looks like. We don't drag and drop and call it a website.",
     },
     {
         number: "02",
@@ -30,6 +30,7 @@ const REASONS = [
 function WhyUsPage() {
     const pageRef = useRef(null);
 
+
     useEffect(() => {
         const el = pageRef.current;
         if (!el) return;
@@ -42,9 +43,9 @@ function WhyUsPage() {
             <div className="whyus-page" ref={pageRef}>
                 <header className="whyus-header">
                     <div className="whyus-header-inner">
-                        <p className="whyus-from mono">// URAWAKE Stackhouse</p>
+                        <p className="whyus-from mono">URAWAKE Stackhouse</p>
                         <h1 className="whyus-title">WHY<br />US?</h1>
-                        <p className="whyus-sub mono">Real work. Real results. No middlemen.</p>
+                        <p className="whyus-sub mono">Two of us. You talk to the people doing the work.</p>
                     </div>
                 </header>
 

@@ -46,7 +46,7 @@
         "@id": "https://urawake.dev/#daniel-sangronis",
         "name": "Daniel Sangronis",
         "jobTitle": "Full Stack Web Developer",
-        "email": "daniel.sangronis1386@gmail.com",
+        "email": "info@urawake.dev",
         "url": "https://urawake.dev/",
         "knowsAbout": ["JavaScript", "React", "Python", "Django", "Node.js", "PostgreSQL", "REST APIs", "CSS", "Stripe", "CRM Development"],
         "worksFor": { "@id": "https://urawake.dev/#urawake-stackhouse" },
@@ -79,7 +79,7 @@
       "@id": "https://urawake.dev/#urawake-stackhouse",
       "name": "URAWAKE Stackhouse",
       "url": "https://urawake.dev/",
-      "email": "daniel.sangronis1386@gmail.com",
+      "email": "info@urawake.dev",
       "slogan": "Build conscious. Code awake.",
       "areaServed": "United States",
       "priceRange": "$$",
@@ -89,6 +89,13 @@
         "addressRegion": "CA",
         "addressCountry": "US"
       },
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://urawake.dev/favicon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://urawake.dev/og-image-v2.png",
       "founder": { "@id": "https://urawake.dev/#daniel-sangronis" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -104,7 +111,9 @@
     }
     </script>
 
-    <!-- Structured Data: Portfolio ItemList (all 6 projects) -->
+    <!-- Structured Data: Portfolio ItemList -->
+    <!-- Each item points at its own case study on this site. Keep in sync with
+         src/data/casestudies.js and src/data/projects.js. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -113,56 +122,44 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "item": {
           "@type": "CreativeWork",
+          "@id": "https://urawake.dev/case-studies/eliots-adventures#work",
           "name": "Eliot's Adventures",
-          "url": "https://www.eliotsadventures.com/",
-          "dateCreated": "2025-01-01",
-          "description": "Full website and CRM for a family-run Puerto Rico tour and taxi service with tour listings, travel guides, and online booking.",
-          "programmingLanguage": ["React", "Node.js", "PostgreSQL", "Stripe", "Heroku"],
+          "url": "https://urawake.dev/case-studies/eliots-adventures",
+          "sameAs": "https://www.eliotsadventures.com/",
+          "dateCreated": "2026-02-01",
+          "description": "Full website and booking system for a family-run Puerto Rico tour and taxi service with tour listings, travel guides, and online booking.",
+          "programmingLanguage": ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Gmail API", "Heroku"],
           "creator": { "@id": "https://urawake.dev/#daniel-sangronis" }
         }},
         { "@type": "ListItem", "position": 2, "item": {
           "@type": "CreativeWork",
-          "name": "ToursToDo PR",
-          "url": "https://github.com/danielsangronis1386",
-          "dateCreated": "2025-06-01",
-          "description": "Marketing website for ToursToDo Puerto Rico with tour catalog, island guide content, and Stripe-powered booking flow.",
-          "programmingLanguage": ["React", "Vite", "Stripe", "Vercel"],
+          "@id": "https://urawake.dev/case-studies/eliots-crm#work",
+          "name": "Eliot's Adventures CRM",
+          "url": "https://urawake.dev/case-studies/eliots-crm",
+          "dateCreated": "2026-02-01",
+          "description": "Internal booking and operations platform with Gmail parsing, automated booking creation, a waiver dashboard, and full customer history.",
+          "programmingLanguage": ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Gmail API", "Heroku"],
           "creator": { "@id": "https://urawake.dev/#daniel-sangronis" }
         }},
         { "@type": "ListItem", "position": 3, "item": {
           "@type": "CreativeWork",
+          "@id": "https://urawake.dev/case-studies/tourstodopr#work",
           "name": "ToursToDo CRM",
-          "url": "https://github.com/danielsangronis1386",
-          "dateCreated": "2025-09-01",
+          "url": "https://urawake.dev/case-studies/tourstodopr",
+          "dateCreated": "2025-12-10",
           "description": "Custom CRM managing leads, bookings, customer segments, email campaigns, and affiliate tracking with AI-powered lead qualification.",
-          "programmingLanguage": ["React", "Node.js", "PostgreSQL", "SendGrid", "Heroku"],
+          "programmingLanguage": ["React", "Vite", "Recharts", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe", "SendGrid", "Heroku"],
           "creator": { "@id": "https://urawake.dev/#daniel-sangronis" }
         }},
         { "@type": "ListItem", "position": 4, "item": {
           "@type": "CreativeWork",
-          "name": "ClientFlow",
-          "url": "https://github.com/danielsangronis1386",
-          "dateCreated": "2025-04-01",
-          "description": "Lightweight CRM and project tracker for freelancers to manage clients, track project status, log billable hours, and generate invoices.",
-          "programmingLanguage": ["React", "Node.js", "PostgreSQL", "Prisma"],
-          "creator": { "@id": "https://urawake.dev/#daniel-sangronis" }
-        }},
-        { "@type": "ListItem", "position": 5, "item": {
-          "@type": "CreativeWork",
-          "name": "Fitness Tracker",
-          "url": "https://github.com/danielsangronis1386",
-          "dateCreated": "2025-03-01",
-          "description": "Mobile-first fitness app for tracking daily workouts, sets, reps, and personal records with progress charts and a custom exercise library.",
-          "programmingLanguage": ["React", "Node.js", "PostgreSQL", "Recharts"],
-          "creator": { "@id": "https://urawake.dev/#daniel-sangronis" }
-        }},
-        { "@type": "ListItem", "position": 6, "item": {
-          "@type": "CreativeWork",
-          "name": "RollingLog",
-          "url": "https://github.com/danielsangronis1386",
-          "dateCreated": "2025-05-01",
-          "description": "Travel journaling platform where users document trips with geotagged entries, photos, and route maps.",
-          "programmingLanguage": ["React", "Mapbox GL", "Node.js", "PostgreSQL", "Cloudinary"],
+          "@id": "https://urawake.dev/case-studies/tourstodo-website#work",
+          "name": "ToursToDo PR Website",
+          "url": "https://urawake.dev/case-studies/tourstodo-website",
+          "sameAs": "https://tourstodopr.com/",
+          "dateCreated": "2026-05-01",
+          "description": "React storefront replacing a WordPress site, built around how travellers actually pick a tour. Tour catalog with filters, island guides, and Stripe booking.",
+          "programmingLanguage": ["React", "Vite", "React Router v7", "CSS Modules", "Stripe", "Vercel"],
           "creator": { "@id": "https://urawake.dev/#daniel-sangronis" }
         }}
       ]

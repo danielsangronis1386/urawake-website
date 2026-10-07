@@ -18,8 +18,11 @@ function TerminalCTA({
     const rootRef = useRef(null);
     const typedRef = useRef(null);
     // Reduced motion skips the reveal entirely, so it starts settled.
+    // Guarded for the prerender pass, where there is no window.
     const [started, setStarted] = useState(
-        () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        () =>
+            typeof window !== "undefined" &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
     );
 
     useEffect(() => {

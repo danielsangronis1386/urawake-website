@@ -78,8 +78,12 @@ p, span, li {
   font-weight: 400;
 }
 
+/* Labels, nav, meta lines. MonoBlaze is the same face the hero slogan and the
+   terminal prompt type in, so the small print speaks with the brand's voice
+   instead of falling back to the body face. Keep it to short uppercase runs:
+   its lowercase is stylised and tires the eye over a full sentence. */
 .mono {
-  font-family: "Inter", sans-serif;
+  font-family: "MonoBlaze", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 /* GLITCH TEXT EFFECT */
@@ -200,4 +204,18 @@ label[for] {
     background-attachment: scroll;
     opacity: 0.05;
   }
+}
+
+/* Available to screen readers and crawlers, invisible on screen. Used for
+   headings whose visual treatment can't carry the semantic text itself. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -1,5 +1,10 @@
 # URAWAKE Stackhouse
 
+> Web development studio in Los Angeles, California. Full-stack websites, CRMs,
+> and internal tools for small businesses, with a focus on tourism and hospitality.
+
+Last updated: 2026-08-29
+
 ## What is URAWAKE Stackhouse?
 URAWAKE Stackhouse is a web development studio founded by Daniel Sangronis, based in Los Angeles, California. We design and build full-stack web applications, CRMs, and digital tools for small businesses and startups across the United States.
 
@@ -15,8 +20,9 @@ We serve clients across the United States. Most current clients are based in Pue
 ## What does a typical project involve?
 Every project starts with brand and product strategy, then moves into design and development. We build everything to production. No handoffs, no half-finished work.
 
-## Who is Daniel Sangronis?
-Daniel Sangronis is a web developer and creative director based in Los Angeles, California. He started building in late 2025 and has delivered full digital presences for multiple businesses in the tourism and hospitality space. GitHub: https://github.com/danielsangronis1386 | LinkedIn: https://www.linkedin.com/in/daniel-sangronis-65210117a/
+## Who works at URAWAKE Stackhouse?
+Two people. Daniel Sangronis is a web developer and creative director based in Los Angeles who owns the code. Janyerlyn Morales owns the visual identity and brand design. Both work the same project at the same time, which is why the build matches the design.
+GitHub: https://github.com/danielsangronis1386 | LinkedIn: https://www.linkedin.com/in/daniel-sangronis-65210117a/
 
 ## Services
 - Full-stack development (React, Node.js, Django, PostgreSQL)
@@ -25,35 +31,38 @@ Daniel Sangronis is a web developer and creative director based in Los Angeles, 
 - UI/UX build (Figma to code, responsive, motion-enhanced)
 - Deployment and CI/CD (Vercel, Heroku, Netlify)
 
-## Projects
+## Case Studies
 
-### Eliot's Adventures
-Full website and custom CRM for a family-run Puerto Rico tour and taxi service. Features tour listings, travel guides, and online booking. Live at: https://www.eliotsadventures.com/
-Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma, Stripe, Gmail API, Heroku
+### Eliot's Adventures — tour booking website and CRM
+https://urawake.dev/case-studies/eliots-adventures
+Full website and custom booking system for a family-run Puerto Rico tour and taxi service that had no online presence. Built in 4 months (February to June 2026). Results: 100+ bookings and 100+ unique customers in the first four months, roughly 20 hours per month of manual work automated, 130+ waivers digitized, across 389 commits.
+Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma, Stripe, Gmail API, Heroku, PDFKit
+Live: https://www.eliotsadventures.com/
 
-### ToursToDo PR
-Public-facing marketing website for ToursToDo Puerto Rico. Includes tour catalog with filters, island guide content, FAQ section, and Stripe-powered booking flow.
+### Eliot's Adventures CRM — internal operations platform
+https://urawake.dev/case-studies/eliots-crm
+The operations engine behind the booking system: Gmail parsing, automated booking creation, a waiver dashboard, and full customer history in one platform. Built alongside the public site, February to June 2026.
+Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma, Gmail API, Heroku
+
+### ToursToDo PR — tour operator website
+https://urawake.dev/case-studies/tourstodo-website
+A React storefront replacing a WordPress site, built around how travellers actually pick a tour: tour catalog with filters, island guide content, FAQ, and a Stripe booking flow. Built May to July 2026, launched at tourstodopr.com in October 2026.
 Stack: React, Vite, React Router v7, CSS Modules, Stripe, Vercel
+Live: https://tourstodopr.com/
 
-### ToursToDo CRM
-Internal operations platform for the ToursToDo team. Manages leads, bookings, customer segments, email campaigns, and affiliate tracking with AI-powered lead qualification.
+### ToursToDo CRM — custom CRM and email automation
+https://urawake.dev/case-studies/tourstodopr
+From zero infrastructure and manual Gmail replies to a fully custom CRM with automated flows, a campaign engine, and an affiliate portal. Manages leads, bookings, customer segments, and affiliate tracking with AI-assisted lead qualification. In production.
 Stack: React, Vite, Recharts, Node.js, Express, Prisma, PostgreSQL, Stripe, SendGrid, Heroku
 
-### ClientFlow
-Lightweight CRM and project tracker for freelancers. Manage clients, track project status, log billable hours, and generate invoices.
-Stack: React, Vite, Node.js, Express, PostgreSQL, Prisma
-
-### Fitness Tracker
-Mobile-first fitness app for tracking daily workouts, sets, reps, and personal records. Includes progress charts and a custom exercise library.
-Stack: React, Vite, Recharts, Node.js, Express, PostgreSQL
-
-### RollingLog
-Travel journaling platform where users document trips with geotagged entries, photos, and route maps.
-Stack: React, Vite, Mapbox GL, Node.js, Express, PostgreSQL, Cloudinary
+## Key Pages
+- Home: https://urawake.dev/
+- Why work with us: https://urawake.dev/why-us
+- Meet the team: https://urawake.dev/team
 
 ## Tech Stack
-JavaScript, React, Vite, Python, Django, Node.js, Express, PostgreSQL, Prisma, REST APIs, Stripe, SendGrid, Gmail API, Mapbox GL, Recharts, HTML, CSS, Git, Vercel, Heroku, Netlify
+JavaScript, React, Vite, Python, Django, Node.js, Express, PostgreSQL, Prisma, REST APIs, Stripe, SendGrid, Gmail API, Recharts, HTML, CSS, Git, Vercel, Heroku, Netlify
 
 ## Contact
-- Email: daniel.sangronis1386@gmail.com
+- Email: info@urawake.dev
 - Website: https://urawake.dev/

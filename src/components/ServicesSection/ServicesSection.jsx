@@ -6,27 +6,27 @@ const TAGLINE = "Full-stack web development. Digital, urban, awake.";
 const SERVICES = [
     {
         name: "FULL STACK",
-        description: "End-to-end web applications built for real business needs. Not templates. From database design to UI, built to scale with your operation.",
+        description: "Web applications written around how your business actually runs, from the database to the screen. No page builders, no templates.",
         techs: ["REACT /", "NODE.JS /", "DJANGO /", "POSTGRESQL /"],
     },
     {
         name: "API INTEGRATION",
-        description: "Connect your site to the tools your business already runs on. Payments, email, bookings, and custom webhooks wired up and working from day one.",
+        description: "Your site talking to the tools you already pay for. Stripe takes the payment, a Gmail inbox turns Airbnb and Viator emails into bookings, and webhooks carry the rest.",
         techs: ["STRIPE /", "GMAIL API /", "REST /", "WEBHOOKS /"],
     },
     {
         name: "CRM & TOOLS",
-        description: "Custom internal platforms that replace spreadsheets. Leads, bookings, campaigns, and automation built specifically for how your team operates.",
+        description: "Internal platforms that replace the spreadsheet and the inbox. Leads, bookings, waivers, and email campaigns, laid out the way your team already works.",
         techs: ["LEADS /", "BOOKINGS /", "CAMPAIGNS /", "AUTOMATION /"],
     },
     {
         name: "BRAND TO WEB",
-        description: "From brand identity to live interface. I take your visual language or build it from scratch and turn it into a site that moves, converts, and represents your business at full force.",
+        description: "Bring your visual identity, or build one with Janyerlyn first. Either way it ends up as a site that looks like your business and is easy to book from.",
         techs: ["IDENTITY → WEB /", "RESPONSIVE /", "MOTION /", "CONVERSION /"],
     },
     {
         name: "DEPLOYMENT",
-        description: "Production-ready launches with proper CI/CD pipelines. Your site goes live clean, stays up, and gets updated without friction.",
+        description: "Launched on Vercel or Heroku with automatic deploys, so a fix or a new tour page goes live without taking the site down.",
         techs: ["VERCEL /", "HEROKU /", "NETLIFY /", "CI/CD /"],
     },
 ];
@@ -99,7 +99,7 @@ function ServicesSection() {
         <section className="services-section" id="services" ref={sectionRef}>
             <div className="section-label-vertical">SERVICES</div>
             <div className="services-body">
-                <p className="services-eyebrow mono">// What I build</p>
+                <p className="services-eyebrow mono">What I build</p>
 
                 {/* Moved out of the hero: this is where a visitor is actually
                     asking what the studio does. Wipes in like the rest. */}

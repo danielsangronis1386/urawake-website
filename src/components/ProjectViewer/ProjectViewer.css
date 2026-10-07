@@ -150,7 +150,6 @@
 }
 
 .viewer-label {
-  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -184,15 +183,6 @@
   margin-bottom: 1.5rem;
 }
 
-.viewer-about-label {
-  font-family: "Inter", sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 0.8rem;
-}
-
 .viewer-description {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
@@ -211,7 +201,6 @@
 }
 
 .viewer-tag {
-  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -250,7 +239,6 @@
 }
 
 .viewer-nav-count {
-  font-family: "Inter", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.4);
@@ -319,8 +307,8 @@
 .viewer-live-link {
   display: inline-block;
   margin-top: 1.25rem;
-  font-family: "Inter", sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
   color: var(--neon-green, #39ff14);
   text-decoration: none;
   letter-spacing: 0.1em;

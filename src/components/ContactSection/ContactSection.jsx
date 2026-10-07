@@ -18,19 +18,17 @@ function ContactSection() {
             </div>
 
             <div className="contact-form-row">
-            {/* LEFT: decorative */}
+            {/* LEFT: intro */}
             <div className="contact-left">
-                <p className="contact-eyebrow mono">// Estimate your website in under 60 seconds</p>
                 <h2 className="contact-display">HOW<br />MUCH?</h2>
                 <p className="contact-intro">
-                    Answer five quick questions and get a ballpark investment range for your project.
+                    Answer five questions and get a ballpark price range for your project.
                     No back-and-forth, no waiting on a quote.
                 </p>
                 <p className="contact-intro">
-                    Prefer to talk it through instead? Send your email to{" "}
+                    Rather talk it through? Email me at{" "}
                     <a href="mailto:info@urawake.dev" className="contact-email-link">info@urawake.dev</a>
                 </p>
-                <p className="contact-brand mono">URAWAKE STACKHOUSE</p>
             </div>
 
             {/* RIGHT: estimator */}

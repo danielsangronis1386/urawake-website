@@ -1,6 +1,11 @@
 const CASE_STUDIES = [
     {
         slug: "eliots-adventures",
+        // Real dates. Fed to JSON-LD; never derive these from prose.
+        dateStarted: "2026-02-01",
+        dateCompleted: "2026-06-30",
+        datePublished: "2026-06-22",
+        dateModified: "2026-08-09",
         title: "Eliot's Adventures",
         titleLabelWords: 0,
         metaTitle: "Eliot's Adventures: The Work | Full-Stack Tour Booking System | URAWAKE",
@@ -59,11 +64,16 @@ The business went from zero online presence to a fully operational booking syste
     },
     {
         slug: "eliots-crm",
+        // Real dates. Fed to JSON-LD; never derive these from prose.
+        dateStarted: "2026-02-01",
+        dateCompleted: "2026-06-30",
+        datePublished: "2026-06-22",
+        dateModified: "2026-08-09",
         title: "Eliot's Adventures CRM",
         titleLabelWords: 2,
         metaTitle: "Eliot's Adventures CRM: The Work | Custom Booking & Operations Platform | URAWAKE",
         metaDescription: "How URAWAKE built the internal operations platform behind Eliot's Adventures: Gmail inbox parsing, automatic Airbnb and Viator booking creation, waiver tracking, and a full booking calendar.",
-        subtitle: "The operations engine behind the booking system. Gmail parsing, automated booking creation, waiver dashboard, and full customer history in one platform",
+        subtitle: "The operations engine behind the booking system. Gmail parsing, automated booking creation, waiver dashboard, and full customer history in one platform.",
         industry: "Tourism & Hospitality",
         location: "Puerto Rico",
         duration: "4 months (Feb to Jun 2026)",
@@ -108,6 +118,10 @@ The CRM launched alongside the public website and handled over 100 bookings and 
         // outcome numbers, because none have been measured yet. Daniel to
         // rewrite with the real story and results.
         slug: "tourstodo-website",
+        // Real dates. Fed to JSON-LD; never derive these from prose.
+        dateStarted: "2026-05-01",
+        datePublished: "2026-08-09",
+        dateModified: "2026-10-06",
         title: "Tours ToDo Website",
         titleLabelWords: 0,
         metaTitle: "ToursToDo PR: The Work | Tour Operator Website | URAWAKE",
@@ -139,6 +153,10 @@ Routing runs on React Router v7, styles are scoped per component, and the whole 
     },
     {
         slug: "tourstodopr",
+        // Real dates. Fed to JSON-LD; never derive these from prose.
+        dateStarted: "2025-12-10",
+        datePublished: "2026-06-22",
+        dateModified: "2026-10-06",
         title: "Tours ToDo PR",
         titleLabelWords: 0,
         metaTitle: "ToursToDo PR: The Work | Custom CRM & Email Automation | URAWAKE",
@@ -160,7 +178,7 @@ The business was growing. The tooling underneath it was nonexistent, fragmented,
                 heading: "The problem",
                 body: `Every booking confirmation from FareHarbor arrived as an email. Every customer follow-up went out manually from Gmail. There was no centralized view of leads, customers, or subscribers as distinct groups. No automation. No drip sequences. No way to run a campaign without exporting a list and sending one by one.
 
-There was no CRM, no automation, no way to run a campaign without exporting a list and sending one by one. The team spent significant time every day doing work that should have been automatic.`,
+The team spent a large part of every day doing by hand what the software should have been doing for them.`,
             },
             {
                 heading: "What we built",
@@ -174,13 +192,11 @@ Bookings arrive via FareHarbor webhook and email parsing. Leads flow in from Wor
             },
             {
                 heading: "The results",
-                body: `Where there was nothing, there is now a full system built for this specific business.
-
-Zero manual emails go out for booking sequences. The Flow Engine handles every pre-tour and post-tour communication automatically. Three independent audience cohorts with dynamic segmentation give the team control over campaigns that did not exist before.
+                body: `Zero manual emails go out for booking sequences. The Flow Engine handles every pre-tour and post-tour communication automatically. Three independent audience cohorts with dynamic segmentation give the team control over campaigns that did not exist before.
 
 Eight external systems, FareHarbor, SendGrid, Gmail, Stripe, WordPress, Meta, Google Gemini, and Bokun, are consolidated into a single interface. The affiliate program runs itself. Waivers are signed digitally and stored as PDFs.
 
-The web migration from WordPress to React is in active development. The CRM is already in production.`,
+The CRM is in production. The public website moved off WordPress to React and launched in October 2026; it has its own case study.`,
             },
         ],
     },

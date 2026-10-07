@@ -117,7 +117,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: var(--cursor-pointer);
-  font-family: "Inter", sans-serif;
+  text-decoration: none;
   transition: color 0.15s ease, padding-left 0.15s ease;
 }
 

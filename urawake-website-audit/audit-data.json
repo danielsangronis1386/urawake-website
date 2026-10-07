@@ -1,0 +1,211 @@
+{
+  "summary": {
+    "health_score": 57,
+    "business_type": "Web development studio / freelance developer portfolio (Los Angeles, CA; tourism & hospitality SMB focus)",
+    "url": "https://urawake.dev/",
+    "audit_date": "2026-08-10",
+    "previous_audit": { "date": "2026-06-21", "health_score": 61 },
+    "top_findings": [
+      "No prerendering — every route returns the identical 11,856-byte HTML with the homepage title and canonical; all 7 sitemap URLs self-canonicalize to the homepage",
+      "Soft 404s across the entire URL space — the Vercel blanket rewrite plus the client-side catch-all return HTTP 200 for any path",
+      "/invoices/* and /proposals/* client documents are fully crawlable — no robots.txt Disallow, no noindex, 200 on every slug",
+      "www.urawake.dev is hard-broken — TLS certificate SAN mismatch, not an unredirected variant",
+      "The tourstodo-website case study ships placeholder draft copy on a live indexable route"
+    ],
+    "quick_wins": [
+      "Add Disallow: /invoices/ and /proposals/ to robots.txt (2 min)",
+      "Add www.urawake.dev in Vercel with redirect-to-apex to provision the cert (5 min)",
+      "Regenerate sitemap.xml with the 4 missing routes and real lastmod values (15 min)",
+      "Point homepage ItemList schema at own /projects and /case-studies URLs instead of the generic GitHub profile (15 min)",
+      "Link case studies directly from the homepage project grid — they are currently near-orphans (30 min)"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 58,
+      "weight": 0.22,
+      "what_works": [
+        "All security headers present and correct — CSP, HSTS with preload, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy",
+        "HTTP to HTTPS 308 redirect works; trailing-slash handling consistent",
+        "Hashed /assets/* served with immutable long-lived caching",
+        "robots.txt allows GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot and references the sitemap",
+        "Useful <noscript> fallback exists on the homepage"
+      ],
+      "findings": [
+        { "title": "Soft 404s on every URL", "severity": "Critical", "description": "/invoices/test-slug, /proposals/test-slug, and arbitrary nonexistent paths all return 200 with the identical homepage HTML. The <Navigate to=\"/\" replace /> catch-all in App.jsx:86 only fires after JS executes.", "recommendation": "Ship prerendering, then configure Vercel to serve a real 404 for unmatched paths." },
+        { "title": "Private client routes are crawlable", "severity": "Critical", "description": "public/robots.txt has no Disallow for /invoices/ or /proposals/, no route sets noindex, and each returns 200. Real client content renders once JS runs.", "recommendation": "Add robots.txt Disallow entries plus a noindex meta tag on those routes." },
+        { "title": "No prerendering — one set of metadata for the whole site", "severity": "High", "description": "Every route shares one <title>, one canonical (https://urawake.dev/), one meta description and one set of OG tags in raw HTML. Expect 'Duplicate, Google chose a different canonical' in Search Console.", "recommendation": "Add vite-react-ssg, which works with the existing react-router v7 setup." },
+        { "title": "www subdomain TLS failure", "severity": "High", "description": "curl -v returns exit 60 — certificate is CN=urawake.dev with no www SAN. Visitors typing www. get a browser security error, not a redirect.", "recommendation": "Add www.urawake.dev in Vercel domain settings with redirect-to-apex." },
+        { "title": "Fonts shipped as raw TTF and not preloaded", "severity": "Medium", "description": "Inter variable 874KB + 904KB, Archivo Black 89KB. Only logo.png is preloaded.", "recommendation": "Subset to WOFF2 and preload the fonts used above the fold." },
+        { "title": "No route-level code splitting", "severity": "Medium", "description": "All route components are statically imported in App.jsx, producing a single 308KB bundle.", "recommendation": "Wrap route components in React.lazy()." },
+        { "title": "No IndexNow integration", "severity": "Low", "description": "No IndexNow key or submission for Bing/Yandex, which feeds Microsoft Copilot citations.", "recommendation": "Add an IndexNow key file and ping on deploy." }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 61,
+      "weight": 0.23,
+      "what_works": [
+        "Four real case studies added since June, carrying concrete quotable outcomes (100+ bookings, ~20 hrs/month automated, 130+ waivers digitized)",
+        "Clean problem/solution/outcome heading structure in case studies",
+        "llms.txt is well written and clearly structured",
+        "Bio states specialty, location, and target client unambiguously"
+      ],
+      "findings": [
+        { "title": "Placeholder case study is live", "severity": "Critical", "description": "src/data/casestudies.js:105-140 contains draft copy with no real outcome numbers, published on the indexable /case-studies/tourstodo-website route.", "recommendation": "Finish the copy with real outcomes or remove the route until it is ready." },
+        { "title": "Zero testimonials or third-party validation", "severity": "Critical", "description": "No client quotes, reviews, or attributed statements anywhere in the codebase. Trustworthiness carries roughly 30% of E-E-A-T weight.", "recommendation": "Collect and publish 2-3 named client testimonials with company attribution." },
+        { "title": "/projects/:slug pages are thin and duplicative", "severity": "High", "description": "Roughly 40-80 words each, largely restating the linked case study.", "recommendation": "Either expand them into distinct content or canonicalize them to the case study." },
+        { "title": "/why-us and /team are thin", "severity": "High", "description": "Approximately 200-250 and 220 words respectively, for pages carrying the commercial-intent and trust load, with no case-study links or proof points.", "recommendation": "Expand /why-us to 700-900 words with target keywords; add proof points and internal links to /team." },
+        { "title": "Founder bio leads with tenure", "severity": "Medium", "description": "'Started building in late 2025' is honest but an Expertise headwind.", "recommendation": "Reframe around output — 389 commits, 32 data models, 8 integrations — rather than years." },
+        { "title": "Commercial keywords absent from /why-us", "severity": "Medium", "description": "The LA full-stack studio for tourism/hospitality SMBs framing is well hit in llms.txt but nearly absent from the page most likely to carry commercial intent.", "recommendation": "Work the target phrases into /why-us headings and body copy." },
+        { "title": "No explicit publish/modified dates on case studies", "severity": "Low", "description": "dateCreated is derived by regex from the free-text duration field, which breaks for entries like tourstodopr ('In progress, CRM in production').", "recommendation": "Add explicit ISO datePublished and dateModified fields to the case-study data." }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 62,
+      "weight": 0.20,
+      "what_works": [
+        "CaseStudyPage.jsx:33-88 is a model implementation — title, description, canonical, OG, Twitter, and JSON-LD with proper cleanup on unmount",
+        "Homepage title and meta description are well targeted and within length limits",
+        "lang=\"en\" set, viewport correct, full favicon set present"
+      ],
+      "findings": [
+        { "title": "/why-us and /team set no metadata at all", "severity": "High", "description": "Both routes inherit and keep the homepage canonical pointing at /, effectively declaring themselves to be the homepage.", "recommendation": "Add title, description, canonical, and OG tags following the CaseStudyPage pattern." },
+        { "title": "/projects/:slug sets only document.title", "severity": "High", "description": "ProjectPage.jsx:17 sets the title but no description, canonical, OG, or schema.", "recommendation": "Extend to full metadata coverage." },
+        { "title": "Case studies are near-orphan pages", "severity": "High", "description": "The only internal links come from ProjectViewer.jsx:89 and ProjectPage.jsx:116, both behind a click into a project. Nothing on the homepage links to them directly.", "recommendation": "Link case studies from the homepage project grid and the navbar." },
+        { "title": "Homepage h1 has no accessible name", "severity": "Medium", "description": "GlitchTitle splits the text into per-letter spans that are all aria-hidden=\"true\". Text remains in the DOM for crawlers but screen readers get nothing.", "recommendation": "Add a visually-hidden text node carrying the full heading." },
+        { "title": "/team has no h1", "severity": "Medium", "description": "AboutSection renders only h2 elements.", "recommendation": "Promote the page heading to h1 on the /team route." }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 58,
+      "weight": 0.10,
+      "what_works": [
+        "Four well-constructed JSON-LD blocks in index.html — ProfilePage/Person, WebSite, ProfessionalService with OfferCatalog, and a 6-item ItemList",
+        "@id graph references between Person, WebSite, and ProfessionalService are consistent",
+        "sameAs links to LinkedIn and GitHub present",
+        "Case-study CreativeWork schema is structurally valid"
+      ],
+      "findings": [
+        { "title": "Case-study JSON-LD is client-injected only", "severity": "Critical", "description": "CaseStudyPage.jsx:60-74 injects the CreativeWork block in a useEffect. Unreliable for Google's delayed second-wave rendering and invisible to Bing, social scrapers, and AI crawlers.", "recommendation": "Emit it in the prerendered HTML." },
+        { "title": "ItemList URLs point off-site", "severity": "Critical", "description": "5 of 6 CreativeWork items in index.html set url to the same generic https://github.com/danielsangronis1386 rather than the site's own pages.", "recommendation": "Point each item at its /projects/* or /case-studies/* URL." },
+        { "title": "Sitemap missing 4 live routes", "severity": "Critical", "description": "/why-us, /team, /projects/tourstodo-pr, and /case-studies/tourstodo-website all exist in App.jsx and the data files but are absent from public/sitemap.xml. Note that /case-studies/tourstodopr without the hyphen is correct and matches the slug in casestudies.js.", "recommendation": "Regenerate the sitemap from the route and slug definitions." },
+        { "title": "Fabricated dateCreated fallback", "severity": "High", "description": "CaseStudyPage.jsx:69 falls back to the literal string \"2026\", which is not valid ISO 8601 and is not tied to a real date.", "recommendation": "Add explicit ISO dates to the case-study data and drop the regex derivation." },
+        { "title": "Stale, uniform lastmod", "severity": "High", "description": "Every sitemap URL carries lastmod 2026-06-22, 49 days old and identical — a low-trust freshness signal.", "recommendation": "Emit real per-URL lastmod values at build time." },
+        { "title": "Three orphaned ItemList entries", "severity": "High", "description": "ClientFlow, Fitness Tracker, and RollingLog have no corresponding route in projects.js or casestudies.js.", "recommendation": "Remove them from the schema or build the pages." },
+        { "title": "ProfessionalService has no logo or image", "severity": "Medium", "description": "Blocks Organization logo rich-result and Knowledge Panel eligibility.", "recommendation": "Add a logo property pointing at a square brand image." },
+        { "title": "Injected CreativeWork.author restates the Person entity", "severity": "Medium", "description": "Uses a bare Person object instead of @id-referencing the homepage #daniel-sangronis node, splitting the entity.", "recommendation": "Reference by @id." },
+        { "title": "No BreadcrumbList", "severity": "Medium", "description": "Project and case-study pages carry no breadcrumb markup.", "recommendation": "Add BreadcrumbList to both page types." }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 58,
+      "weight": 0.10,
+      "what_works": [
+        "TBT 0ms on both tested pages — excellent interactivity headroom",
+        "CLS 0.000 on both tested pages — no layout shift",
+        "TTFB is only ~12% of the LCP budget; the server is not the bottleneck",
+        "Hashed assets with immutable caching"
+      ],
+      "findings": [
+        { "title": "LCP 5.1s on home, 5.0s on case study — Poor", "severity": "Critical", "description": "88% of LCP time (4.3-4.4s) is Render Delay: JS download, parse, hydrate, then the typewriter animation completing before the largest content paints.", "recommendation": "Prerender so real hero text paints before hydration." },
+        { "title": "Boot-splash does not help LCP", "severity": "High", "description": "Lighthouse identifies the LCP element as span.hero-typed on home and a body paragraph on the case study — not the preloaded /logo.png. React unmounts #boot-splash on hydrate, so the logo is never an eligible LCP candidate.", "recommendation": "Stop treating the splash as an LCP strategy; make real content paint early instead." },
+        { "title": "Typewriter effect gates the LCP element", "severity": "High", "description": "The hero eyebrow text is the LCP candidate and does not finish painting until the animation completes.", "recommendation": "Paint the final text immediately and animate as an enhancement, or move the effect off the LCP element." },
+        { "title": "Single 308KB JS bundle", "severity": "Medium", "description": "No route-level code splitting increases pre-hydration parse cost on every page.", "recommendation": "Introduce React.lazy() per route." },
+        { "title": "Lab data only", "severity": "Info", "description": "PageSpeed Insights hit its 240 QPM rate limit; results are from local Lighthouse CLI with simulated mobile throttling rather than CrUX field data.", "recommendation": "Re-run PageSpeed for field data once prerendering ships." }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 34,
+      "weight": 0.10,
+      "what_works": [
+        "robots.txt explicitly allows GPTBot, ClaudeBot, PerplexityBot, and OAI-SearchBot",
+        "llms.txt exists and is well formatted — most sites still lack one",
+        "Entity naming is perfectly consistent across index.html JSON-LD, llms.txt, and casestudies.js",
+        "sameAs links to LinkedIn and GitHub present",
+        "Case-study copy already contains concrete, reusable statistics that are citation-ready once reachable"
+      ],
+      "findings": [
+        { "title": "AI crawlers can see almost nothing", "severity": "Critical", "description": "GPTBot, ClaudeBot, and PerplexityBot do not execute JavaScript. Every route returns the same generic <noscript> block — one H1, one paragraph, a services list, one line per project. The entire case-study narrative in src/data/casestudies.js is unreachable.", "recommendation": "Prerender every route so the case-study prose is present in raw HTML." },
+        { "title": "llms.txt is stale and incomplete", "severity": "High", "description": "Links to client sites and GitHub instead of own /case-studies/* pages, describes an outdated 6-project model rather than the 4 real slugs, omits /why-us and /team, and has no last-updated date.", "recommendation": "Rewrite against the current route and slug inventory and add a date." },
+        { "title": "Prose is not structured for passage-level citation", "severity": "Medium", "description": "Case studies are paragraph-heavy rather than broken into self-contained 130-170 word direct-answer blocks, and headings are declarative rather than question-shaped.", "recommendation": "Restructure into question-headed answer blocks." },
+        { "title": "No multi-modal or community brand signals", "severity": "Medium", "description": "No YouTube content and no evident Reddit presence — the two highest-correlation off-site AI citation signals.", "recommendation": "Build presence on at least one." }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 55,
+      "weight": 0.05,
+      "what_works": [
+        "OG image is now a correct 1200x630 PNG with width, height, type, and alt declared — the June critical is resolved",
+        "Full favicon set present including apple-touch-icon and SVG",
+        "Footer textures already shipped as WebP"
+      ],
+      "findings": [
+        { "title": "Large unoptimized PNGs in build output", "severity": "Medium", "description": "Build output contains PNGs up to 917KB with no WebP or AVIF variants.", "recommendation": "Convert to WebP/AVIF with PNG fallback." },
+        { "title": "46.6MB of unused textures inside src/", "severity": "Medium", "description": "src/assets/textures/ holds 11 PNGs totaling roughly 46.6MB. Confirmed unused by grep and not currently bundled, but a live footgun if anyone imports one.", "recommendation": "Delete them or move them outside src/." }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1 (~1 hour total)",
+        "items": [
+          "Add Disallow: /invoices/ and /proposals/ to public/robots.txt (2 min)",
+          "Add noindex meta on the invoice and proposal routes (20 min)",
+          "Add www.urawake.dev in Vercel with redirect-to-apex to fix the TLS SAN failure (5 min)",
+          "Finish or unpublish the tourstodo-website placeholder case study (30 min)"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Add vite-react-ssg prerendering for all static routes — resolves soft 404s, per-route canonicals and OG, client-injected schema, AI-crawler blindness, and LCP in one change (4-6 hr)",
+          "Configure Vercel to return real 404s for unmatched paths once prerendered HTML exists (30 min)",
+          "Add full metadata to /why-us, /team, and /projects/:slug following the CaseStudyPage pattern (1 hr)",
+          "Regenerate sitemap.xml with the 4 missing routes and real per-URL lastmod (20 min)",
+          "Fix ItemList schema URLs, drop the 3 orphaned entries, add logo to ProfessionalService (30 min)",
+          "Replace the \"2026\" dateCreated fallback with real ISO dates (30 min)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Collect and publish 2-3 named client testimonials — the single biggest E-E-A-T gap",
+          "Link case studies directly from the homepage project grid (1 hr)",
+          "Expand /why-us to 700-900 words with commercial-intent keywords; expand /team with proof points (3 hr)",
+          "Resolve /projects/:slug vs /case-studies/:slug duplication (2 hr)",
+          "Rewrite llms.txt against the current route inventory with a last-updated date (45 min)",
+          "Restructure case-study prose into question-headed 130-170 word answer blocks (3 hr)",
+          "Add BreadcrumbList schema to project and case-study pages (45 min)"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Performance pass: route-level React.lazy(), WOFF2 font subsetting with preload, WebP/AVIF for the >900KB PNGs",
+          "Delete or relocate src/assets/textures/ (11 PNGs, ~46.6MB, unused)",
+          "Give the homepage h1 an accessible name and add an h1 to /team",
+          "Re-run PageSpeed for CrUX field data once prerendering ships",
+          "Submit the corrected sitemap in Search Console and watch for duplicate-canonical warnings to clear",
+          "Add IndexNow for Bing and Copilot",
+          "Build off-site AI-citation signals on YouTube and Reddit"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

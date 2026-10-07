@@ -11,6 +11,7 @@ function ProposalPage() {
     const { slug } = useParams();
     const ProposalComponent = PROPOSALS[slug];
 
+
     if (!ProposalComponent) {
         return (
             <div className="proposal-not-found">

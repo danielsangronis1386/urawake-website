@@ -127,23 +127,24 @@
   line-height: 1;
 }
 
-.about-bio {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 3rem;
+/* One accent line per person, running the length of their bio. A stripe on
+   every paragraph read as a row of alert boxes rather than one voice. */
+.about-bio-group {
   max-width: 520px;
+  margin-bottom: 3rem;
   border-left: 2px solid var(--neon-green);
   padding-left: 1.2rem;
 }
 
-/* BRUTALIST EMPHASIS */
-.bio-em {
-  color: #fff;
-  text-transform: uppercase;
-  font-family: "Inter", sans-serif;
-  font-size: 0.85em;
-  letter-spacing: 0.06em;
+.about-bio {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.4rem;
+}
+
+.about-bio:last-child {
+  margin-bottom: 0;
 }
 
 /* SOCIAL LINKS */
@@ -155,8 +156,8 @@
 }
 
 .about-link {
-  font-family: "Inter", sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
   color: #fff;
   text-decoration: none;
   letter-spacing: 0.1em;
@@ -265,10 +266,13 @@
     height: 280px;
   }
 
+  .about-bio-group {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
   .about-bio {
     font-size: 0.95rem;
-    margin-bottom: 2rem;
-    max-width: 100%;
   }
 
   .skills-grid {

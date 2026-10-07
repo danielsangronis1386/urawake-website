@@ -12,14 +12,6 @@ function ProjectPage() {
     const projectIdx = PROJECTS.findIndex((p) => p.slug === slug);
     const project = PROJECTS[projectIdx];
 
-    useEffect(() => {
-        if (project) {
-            document.title = `${project.title} | Daniel Sangronis`;
-        } else {
-            document.title = "Project Not Found | Daniel Sangronis";
-        }
-        return () => { document.title = "Daniel Sangronis"; };
-    }, [project]);
 
     useEffect(() => {
         setSlideIdx(0);
@@ -86,18 +78,17 @@ function ProjectPage() {
 
                 {/* RIGHT: project info */}
                 <div className="viewer-right">
-                    <div className="viewer-label">PROJECT</div>
+                    <div className="viewer-label mono">PROJECT</div>
                     <h1 className="viewer-title">{title}</h1>
                     <p className="viewer-subtitle">{subtitle}</p>
 
                     <div className="viewer-divider" />
 
-                    <div className="viewer-about-label">ABOUT</div>
                     <p className="viewer-description">{description}</p>
 
                     <div className="viewer-stack">
                         {stack.map((tag) => (
-                            <span key={tag} className="viewer-tag">{tag}</span>
+                            <span key={tag} className="viewer-tag mono">{tag}</span>
                         ))}
                     </div>
 
@@ -106,21 +97,21 @@ function ProjectPage() {
                             href={liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="viewer-live-link"
+                            className="viewer-live-link mono"
                         >
-                            // View live site →
+                            View live site →
                         </a>
                     )}
 
                     {caseStudySlug && (
-                        <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link" style={{ display: "block", marginTop: "0.5rem" }}>
-                            // The Work →
+                        <Link to={`/case-studies/${caseStudySlug}`} className="viewer-live-link mono" style={{ display: "block", marginTop: "0.5rem" }}>
+                            Read the case study →
                         </Link>
                     )}
 
                     <div className="viewer-nav">
                         <button className="viewer-nav-btn" onClick={goPrev} aria-label="Previous project">←</button>
-                        <span className="viewer-nav-count">
+                        <span className="viewer-nav-count mono">
                             {String(projectIdx + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
                         </span>
                         <button className="viewer-nav-btn" onClick={goNext} aria-label="Next project">→</button>

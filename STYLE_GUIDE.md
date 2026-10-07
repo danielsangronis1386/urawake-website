@@ -29,18 +29,21 @@ Estética **brutalist-glitch**: tipografía masiva en negro absoluto, acentos ne
 
 ## Tipografía
 
-| Familia              | Variable CSS / clase | Uso                                      |
-|----------------------|----------------------|------------------------------------------|
-| **Bebas Neue**       | `h1`–`h6`, `.hero-title` | Títulos y display, siempre uppercase |
-| **Inter Tight**      | Fallback de Bebas    | —                                        |
-| **Space Grotesk**    | `p`, `span`, `li`   | Cuerpo de texto, inputs                  |
-| **DM Mono**          | `.mono`, `.nav-link` | Labels, tags de stack, código            |
+| Familia            | Dónde                                   | Uso                                                        |
+|--------------------|-----------------------------------------|------------------------------------------------------------|
+| **Archivo Black**  | `h1`–`h6`, títulos display              | Títulos, siempre uppercase                                 |
+| **Inter**          | `p`, `span`, `li`                       | Cuerpo de texto, párrafos, inputs, opciones del estimador  |
+| **MonoBlaze**      | `.mono`, slogan del hero, `TerminalCTA` | Labels, nav, meta, tags de stack, enlaces cortos           |
+
+Las tres fuentes viven en `src/assets/fonts/` y se declaran en `src/index.css`.
+(Bebas Neue, Space Grotesk y DM Mono ya no se usan; esta guía las documentaba por error.)
 
 **Reglas tipográficas:**
-- Todos los headings: `font-weight: 400`, `text-transform: uppercase`, `line-height: 1`
-- Títulos grandes: `clamp(3.5rem, 7vw, 7rem)` — siempre fluidos con `clamp()`
-- Hero title: `clamp(5rem, 28vw, 100vw)` — ocupa todo el ancho
-- Letter-spacing en labels: `0.15em`; en títulos: `-0.02em` a `0.02em`
+- Todos los headings: `text-transform: uppercase`, `line-height: 1`
+- Títulos grandes: siempre fluidos con `clamp()`
+- MonoBlaze solo en tiradas cortas y en **uppercase**: su minúscula es estilizada y cansa en frases largas. Una frase completa en minúsculas va en Inter.
+- Un componente no debe forzar `font-family: "Inter"` sobre un elemento con clase `.mono`; deja que la clase decida.
+- Letter-spacing en labels: `0.1em`–`0.15em`; en títulos: `-0.02em` a `0.02em`
 
 ---
 
@@ -86,14 +89,23 @@ El subtítulo del hero tiene `padding-left: 3rem` para crear desalineación deli
 ## Componentes reutilizables
 
 ### Accent line
-`border-left: 2px solid var(--neon-green)` + `padding-left: 1.2rem` — usado en bio, success message, slide-text.
+`border-left: 2px solid var(--neon-green)` + `padding-left: 1.2rem`. Una sola línea por bloque de contenido (p. ej. `.about-bio-group` envuelve todos los párrafos de una bio), nunca una por párrafo: repetida en cada bloque se lee como una fila de alertas.
+
+### Prefijo `//`
+Es la voz de "comentario de código" de la marca y solo funciona si es escasa. Se usa en tres sitios: el slogan del hero (`// BUILD CONSCIOUS. CODE AWAKE.`), la acción del `TerminalCTA` (`// Let's talk`) y el código del 404. Labels, eyebrows, enlaces y documentos de cliente (facturas, propuestas) van sin `//`.
+
+### Colores de glitch
+Cyan, magenta y púrpura existen solo dentro de efectos glitch (capas RGB del hero, `.glitch-text`) y en el fondo del collage de retratos del equipo. Cualquier otro acento (hovers, labels, links) es `--neon-green`.
+
+### Copy
+Voz directa y concreta: nombrar clientes, herramientas y resultados reales (Stripe, Gmail, Airbnb/Viator, FareHarbor) en vez de frases genéricas ("built to scale", "without friction", "at full force"). Sin em dashes en el copy; usar dos puntos, comas o una frase nueva.
 
 ### Corner accents (portrait placeholder)
 `::before` / `::after` con `border-width` parcial para esquinas en neon-green (top-left y bottom-right).
 
 ### Stack tags
 ```css
-font-family: "DM Mono"; font-size: 0.65rem; letter-spacing: 0.1em;
+font-family: "MonoBlaze"; font-size: 0.65rem; letter-spacing: 0.1em;
 text-transform: uppercase; padding: 0.3rem 0.7rem;
 border: 1px solid rgba(255,255,255,0.2);
 ```
@@ -105,7 +117,7 @@ Borde blanco, fondo transparente. Hover: invertido (fondo blanco, texto negro). 
 Borde neon-green, visibles solo en hover del wrapper (`opacity: 0 → 1`). Hover del arrow: fondo neon-green, texto negro.
 
 ### Nav dropdown
-Fondo `#000`, `border: 1px solid var(--border)`, links en DM Mono uppercase. Hover: color neon-green + `padding-left` aumentado (shift derecha de 1.2 → 1.6rem).
+Fondo `#000`, `border: 1px solid var(--border)`, links en MonoBlaze uppercase. Hover: color neon-green + `padding-left` aumentado (shift derecha de 1.2 → 1.6rem).
 
 ---
 

@@ -13,7 +13,7 @@ export const PATHS = {
 export const STEPS = {
     projectType: {
         id: "projectType",
-        label: "01 / Project type",
+        label: "Project type",
         question: "WHAT TYPE OF PROJECT DO YOU NEED?",
         type: "single",
         options: [
@@ -29,7 +29,7 @@ export const STEPS = {
     // ── LANDING PAGE ──
     landing_goal: {
         id: "landing_goal",
-        label: "02 / Goal",
+        label: "Goal",
         question: "WHAT'S THE MAIN GOAL OF THIS PAGE?",
         type: "single",
         options: [
@@ -41,7 +41,7 @@ export const STEPS = {
     },
     landing_features: {
         id: "landing_features",
-        label: "04 / Extras",
+        label: "Extras",
         question: "DO YOU NEED ANY OF THESE?",
         hint: "Select all that apply, or skip.",
         type: "multi",
@@ -57,7 +57,7 @@ export const STEPS = {
     // ── BUSINESS WEBSITE ──
     business_pages: {
         id: "business_pages",
-        label: "02 / Scope",
+        label: "Scope",
         question: "HOW MANY PAGES DO YOU NEED?",
         type: "single",
         options: [
@@ -68,7 +68,7 @@ export const STEPS = {
     },
     business_features: {
         id: "business_features",
-        label: "04 / Features",
+        label: "Features",
         question: "WHAT DO YOU NEED ON THE SITE?",
         hint: "Select all that apply, or skip.",
         type: "multi",
@@ -85,7 +85,7 @@ export const STEPS = {
     // ── E-COMMERCE ──
     ecommerce_products: {
         id: "ecommerce_products",
-        label: "02 / Catalog",
+        label: "Catalog",
         question: "HOW MANY PRODUCTS WILL YOU SELL?",
         type: "single",
         options: [
@@ -96,7 +96,7 @@ export const STEPS = {
     },
     ecommerce_features: {
         id: "ecommerce_features",
-        label: "04 / Features",
+        label: "Features",
         question: "WHAT DOES YOUR STORE NEED?",
         hint: "Select all that apply, or skip.",
         type: "multi",
@@ -113,7 +113,7 @@ export const STEPS = {
     // ── CRM / DASHBOARD ──
     crm_users: {
         id: "crm_users",
-        label: "02 / Team size",
+        label: "Team size",
         question: "HOW MANY PEOPLE WILL USE IT?",
         type: "single",
         options: [
@@ -124,7 +124,7 @@ export const STEPS = {
     },
     crm_manages: {
         id: "crm_manages",
-        label: "03 / What to manage",
+        label: "What to manage",
         question: "WHAT DO YOU NEED TO MANAGE?",
         hint: "Select all that apply.",
         type: "multi",
@@ -138,7 +138,7 @@ export const STEPS = {
     },
     crm_features: {
         id: "crm_features",
-        label: "04 / Integrations",
+        label: "Integrations",
         question: "DO YOU NEED ANY INTEGRATIONS?",
         hint: "Select all that apply, or skip.",
         type: "multi",
@@ -154,7 +154,7 @@ export const STEPS = {
     // ── CUSTOM APP ──
     custom_type: {
         id: "custom_type",
-        label: "02 / App type",
+        label: "App type",
         question: "WHAT KIND OF APPLICATION?",
         type: "single",
         options: [
@@ -166,7 +166,7 @@ export const STEPS = {
     },
     custom_features: {
         id: "custom_features",
-        label: "04 / Core features",
+        label: "Core features",
         question: "WHAT DOES IT NEED?",
         hint: "Select all that apply, or skip.",
         type: "multi",
@@ -183,7 +183,7 @@ export const STEPS = {
     // ── SHARED ──
     design: {
         id: "design",
-        label: "03 / Design",
+        label: "Design",
         question: "DO YOU ALREADY HAVE A DESIGN?",
         type: "single",
         options: [
@@ -194,7 +194,7 @@ export const STEPS = {
     },
     timeline: {
         id: "timeline",
-        label: "05 / Timeline",
+        label: "Timeline",
         question: "WHAT'S YOUR EXPECTED TIMELINE?",
         type: "single",
         options: [

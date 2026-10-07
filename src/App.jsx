@@ -1,10 +1,9 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import './App.css'
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
-import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import ServicesSection from './components/ServicesSection';
 import ProjectPage from './components/ProjectPage/ProjectPage';
@@ -12,7 +11,11 @@ import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
 import ProposalPage from './components/ProposalPage/ProposalPage';
 import InvoicePage from './components/InvoicePage/InvoicePage';
 import WhyUsPage from './components/WhyUsPage/WhyUsPage';
+import TeamPage from './components/TeamPage/TeamPage';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
+import { usePageMeta } from './lib/seo';
+import { routeMeta } from './lib/routeMeta';
 
 const SECTION_URLS = {
   hero:     '/',
@@ -73,18 +76,31 @@ function HomePage() {
   );
 }
 
+// Every route's head tags come from one place, so the prerendered HTML and the
+// post-hydration DOM can't drift apart.
+function RouteMeta() {
+  const { pathname } = useLocation();
+  usePageMeta(routeMeta(pathname));
+  return null;
+}
+
 function App() {
   return (
+    <>
+    <RouteMeta />
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/projects/:slug" element={<ProjectPage />} />
       <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
       <Route path="/proposals/:slug" element={<ProposalPage />} />
-      <Route path="/team" element={<><Navbar /><AboutSection /><Footer /></>} />
+      <Route path="/team" element={<TeamPage />} />
       <Route path="/why-us" element={<WhyUsPage />} />
       <Route path="/invoices/:slug" element={<InvoicePage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      {/* Renders a real 404 page. Vercel serves the prerendered 404.html with a
+          404 status for unmatched paths, so crawlers get the right signal too. */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </>
   );
 }
 

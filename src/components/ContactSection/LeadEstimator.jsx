@@ -12,7 +12,10 @@ function LeadEstimator() {
     const done = stepIndex === path.length;
     const currentStepId = path[stepIndex];
     const step = STEPS[currentStepId];
-    const progress = Math.round((Math.min(stepIndex, path.length) / path.length) * 100);
+    // Until a project type is picked the path is only that first step, so the
+    // counter would read "1 / 1". Every branch is the same length; show that.
+    const totalSteps = path.length > 1 ? path.length : PATHS.other.length;
+    const progress = Math.round((Math.min(stepIndex, totalSteps) / totalSteps) * 100);
 
     const goTo = (index, dir) => {
         setDirection(dir);
@@ -54,9 +57,9 @@ function LeadEstimator() {
     };
 
     const buildText = (estimate, summary) => [
-        `URAWAKE STACKHOUSE — Project Estimate`,
+        `URAWAKE Stackhouse: project estimate`,
         ``,
-        `Estimated investment: ${formatPrice(estimate.low)} to ${formatPrice(estimate.high)}`,
+        `Ballpark range: ${formatPrice(estimate.low)} to ${formatPrice(estimate.high)}`,
         ``,
         ...summary.map((r) => `${r.question}\n${r.answer}`),
         ``,
@@ -74,7 +77,7 @@ function LeadEstimator() {
 
     const handleEmail = (estimate, summary) => {
         const text = buildText(estimate, summary);
-        const mailto = `mailto:info@urawake.dev?subject=${encodeURIComponent("New Project Estimate — urawake.dev")}&body=${encodeURIComponent(text)}`;
+        const mailto = `mailto:info@urawake.dev?subject=${encodeURIComponent("Project estimate from urawake.dev")}&body=${encodeURIComponent(text)}`;
         window.location.href = mailto;
     };
 
@@ -85,7 +88,7 @@ function LeadEstimator() {
         return (
             <div className="est" data-state="result">
                 <div className="est-result est-anim-forward">
-                    <p className="est-eyebrow mono">// Estimated investment</p>
+                    <p className="est-eyebrow mono">Ballpark range</p>
 
                     <p className="est-price">
                         {formatPrice(estimate.low)} <span className="est-price-sep">to</span> {formatPrice(estimate.high)}
@@ -122,7 +125,7 @@ function LeadEstimator() {
                     </div>
 
                     <button type="button" className="est-reset mono" onClick={restart}>
-                        // Start over
+                        Start over
                     </button>
                 </div>
             </div>
@@ -137,7 +140,7 @@ function LeadEstimator() {
 
             <div className="est-meta">
                 <span className="mono">{step?.label}</span>
-                <span className="mono">{stepIndex + 1} / {path.length}</span>
+                <span className="mono">{stepIndex + 1} / {totalSteps}</span>
             </div>
 
             <div className={`est-stage est-anim-${direction}`} key={currentStepId}>

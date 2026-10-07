@@ -18,7 +18,7 @@ function CajamarcaProposal() {
             {/* HEADER */}
             <header className="proposal-header">
                 <div className="proposal-header-inner">
-                    <p className="proposal-from mono">// Prepared by URAWAKE Stackhouse</p>
+                    <p className="proposal-from mono">Prepared by URAWAKE Stackhouse</p>
                     <h1 className="proposal-brand">CAJAMARCA.COM</h1>
                     <p className="proposal-heading-sub">Brand Identity Proposal: Two Creative Directions</p>
                 </div>
@@ -27,7 +27,7 @@ function CajamarcaProposal() {
             {/* INTRO */}
             <section className="proposal-intro">
                 <div className="proposal-container">
-                    <p className="proposal-eyebrow mono">// Creative Brief</p>
+                    <p className="proposal-eyebrow mono">Creative Brief</p>
                     <p className="proposal-intro-text">
                         The following two concepts represent distinct creative directions for the Cajamarca brand identity.
                         Each is built around a clear visual language, a defined tone, and a specific audience relationship.
@@ -42,7 +42,7 @@ function CajamarcaProposal() {
             {/* REFERENCES */}
             <section className="proposal-references">
                 <div className="proposal-container">
-                    <p className="proposal-eyebrow mono">// Creative References</p>
+                    <p className="proposal-eyebrow mono">Creative References</p>
                     <h3 className="proposal-ref-title">What We Studied. What We Rejected. What We Kept.</h3>
                     <p className="proposal-ref-intro">
                         You shared four references that define the competitive landscape for city and destination .com brands.
@@ -77,7 +77,7 @@ function CajamarcaProposal() {
                     </div>
 
                     <div className="proposal-ref-synthesis">
-                        <p className="proposal-ref-synthesis-label mono">// Our Direction</p>
+                        <p className="proposal-ref-synthesis-label mono">Our Direction</p>
                         <p className="proposal-ref-synthesis-text">
                             We took the mascot energy from IziPeru, the circular structure from Peru.com, the contrast and emblem authority from NewYork.com, and the regional specificity from Nashville.com.
                             Then we pushed further. Both concepts below are built to be more ownable, more scalable, and more distinctly Cajamarca than any of the references alone.
@@ -109,7 +109,7 @@ function CajamarcaProposal() {
 
                         <div className="proposal-concept-details">
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Form</p>
+                                <p className="proposal-detail-label mono">Form</p>
                                 <p className="proposal-detail-text">
                                     A circular badge format built for versatility. Works on merchandise,
                                     signage, digital platforms, and print with equal impact.
@@ -117,7 +117,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Color System</p>
+                                <p className="proposal-detail-label mono">Color System</p>
                                 <div className="proposal-color-strip">
                                     <div className="proposal-swatch" style={{ background: "#F5A623" }}>
                                         <span>Fiesta Gold</span>
@@ -132,7 +132,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Visual Language</p>
+                                <p className="proposal-detail-label mono">Visual Language</p>
                                 <p className="proposal-detail-text">
                                     Horizontal color stripes referencing festival flags and Peruvian textiles.
                                     A mountain range silhouette grounds the mark in the Cajamarca landscape.
@@ -141,7 +141,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Typography</p>
+                                <p className="proposal-detail-label mono">Typography</p>
                                 <p className="proposal-detail-text">
                                     Bold, playful script lettering. Communicates warmth and celebration
                                     without sacrificing readability at small sizes.
@@ -149,7 +149,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Best For</p>
+                                <p className="proposal-detail-label mono">Best For</p>
                                 <p className="proposal-detail-text">
                                     Tourism platforms, travel apps, merchandise, and audiences
                                     who value personality and cultural connection.
@@ -183,7 +183,7 @@ function CajamarcaProposal() {
 
                         <div className="proposal-concept-details">
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Form</p>
+                                <p className="proposal-detail-label mono">Form</p>
                                 <p className="proposal-detail-text">
                                     A high-contrast dark circular emblem. Structured, geometric,
                                     built to read as premium across all applications.
@@ -191,7 +191,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Color System</p>
+                                <p className="proposal-detail-label mono">Color System</p>
                                 <div className="proposal-color-strip">
                                     <div className="proposal-swatch proposal-swatch--light" style={{ background: "#111111" }}>
                                         <span>Obsidian</span>
@@ -203,7 +203,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Visual Language</p>
+                                <p className="proposal-detail-label mono">Visual Language</p>
                                 <p className="proposal-detail-text">
                                     A sleek mascot silhouette rendered in white against dark. Refined, not ornate.
                                     Heavy display lettering with tight tracking creates authority.
@@ -212,7 +212,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Typography</p>
+                                <p className="proposal-detail-label mono">Typography</p>
                                 <p className="proposal-detail-text">
                                     Heavy display type with strong geometric structure.
                                     Communicates confidence, modernity, and restraint.
@@ -220,7 +220,7 @@ function CajamarcaProposal() {
                             </div>
 
                             <div className="proposal-detail-block">
-                                <p className="proposal-detail-label mono">// Best For</p>
+                                <p className="proposal-detail-label mono">Best For</p>
                                 <p className="proposal-detail-text">
                                     Premium positioning, corporate partnerships, hospitality brands,
                                     and audiences who respond to authority and clean design.
@@ -247,7 +247,7 @@ function CajamarcaProposal() {
             {/* FOOTER CTA */}
             <section className="proposal-footer-cta">
                 <div className="proposal-container">
-                    <p className="proposal-eyebrow mono">// Next Steps</p>
+                    <p className="proposal-eyebrow mono">Next Steps</p>
                     <h3 className="proposal-cta-title">Which direction speaks to your brand?</h3>
                     <p className="proposal-cta-text">
                         Select a direction or share feedback and we will refine it into a complete brand system:

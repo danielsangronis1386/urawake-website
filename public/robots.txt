@@ -1,16 +1,26 @@
 User-agent: *
 Allow: /
+Disallow: /invoices/
+Disallow: /proposals/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /invoices/
+Disallow: /proposals/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /invoices/
+Disallow: /proposals/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /invoices/
+Disallow: /proposals/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /invoices/
+Disallow: /proposals/
 
 Sitemap: https://urawake.dev/sitemap.xml

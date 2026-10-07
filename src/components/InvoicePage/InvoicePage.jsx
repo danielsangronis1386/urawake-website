@@ -7,6 +7,7 @@ function InvoicePage() {
     const { slug } = useParams();
     const inv = INVOICES[slug];
 
+
     if (!inv) {
         return (
             <div className="invoice-not-found">
@@ -44,7 +45,7 @@ function InvoicePage() {
 
                 {/* BILL TO */}
                 <div className="invoice-bill-to">
-                    <p className="invoice-section-label mono">// Bill To</p>
+                    <p className="invoice-section-label mono">Bill To</p>
                     <p className="invoice-client-name">{inv.client.name}</p>
                     <p className="invoice-client-contact">{inv.client.contact}</p>
                 </div>
@@ -89,7 +90,7 @@ function InvoicePage() {
 
                 {/* PAYMENT */}
                 <div className="invoice-payment">
-                    <p className="invoice-section-label mono">// Payment</p>
+                    <p className="invoice-section-label mono">Payment</p>
                     {inv.paymentLink && (
                         <a href={inv.paymentLink} target="_blank" rel="noopener noreferrer" className="invoice-pay-btn">
                             Pay ${inv.total.toFixed(2)} Now →
@@ -105,7 +106,7 @@ function InvoicePage() {
 
                 {/* FOOTER */}
                 <footer className="invoice-footer">
-                    <p className="mono">// {inv.from.name} | {inv.from.web}</p>
+                    <p className="mono">{inv.from.name} | {inv.from.web}</p>
                 </footer>
 
             </div>

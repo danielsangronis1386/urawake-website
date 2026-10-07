@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./ProjectSection.css";
 import ProjectCard from "../ProjectCard";
 import ProjectViewer from "../ProjectViewer";
 import PROJECTS from "../../data/projects";
+import CASE_STUDIES from "../../data/casestudies";
 
 // Desktop: cards fly outward diagonally
 const GRID_DIRECTIONS = [
@@ -104,7 +105,7 @@ function ProjectSection() {
             <div className="section-label-vertical">PROJECTS</div>
 
             <div className="project-body">
-            <p className="project-section-subtitle">Selected work from my portfolio</p>
+            <p className="project-section-subtitle">Four builds for two tour operators in Puerto Rico</p>
 
             <div className="project-stage">
                 <div className={`project-grid${isScattered ? " grid-scattered" : ""}`}>
@@ -137,6 +138,23 @@ function ProjectSection() {
                     />
                 )}
             </div>
+
+            {/* The cards above open in a viewer, so they leave no crawlable link
+                behind. This index is the real path into the case studies, for
+                readers who want the long version and for crawlers either way. */}
+            <nav className="cs-index" aria-label="Case studies">
+                <p className="cs-index-label mono">Read the case studies</p>
+                <ul className="cs-index-list">
+                    {CASE_STUDIES.map((cs) => (
+                        <li key={cs.slug}>
+                            <Link to={`/case-studies/${cs.slug}`} className="cs-index-link">
+                                <span className="cs-index-title">{cs.title}</span>
+                                <span className="cs-index-sub">{cs.subtitle}</span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
             </div>{/* end project-body */}
         </section>
     );

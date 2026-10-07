@@ -1,285 +1,182 @@
-# SEO Audit — URAWAKE Stackhouse
-**URL:** https://urawake-website.vercel.app/
-**Date:** 2026-06-21
-**Business Type:** Freelance Developer Portfolio / Agency
-**Auditor:** Claude SEO
+# SEO Audit — URAWAKE Stackhouse (Re-Audit)
+
+**URL:** https://urawake.dev/
+**Date:** 2026-08-10
+**Previous audit:** 2026-06-21 (score 61/100) — archived at `FULL-AUDIT-REPORT-2026-06-21.md`
+**Business type:** Web development studio / freelance developer portfolio (Los Angeles, CA; tourism & hospitality SMB focus)
+**Stack:** Vite 7 + React 19 SPA, react-router v7, deployed on Vercel
 
 ---
 
-## SEO Health Score: 61 / 100
+## SEO Health Score: 57 / 100
 
-| Category | Score | Weight | Weighted |
-|----------|-------|--------|---------|
-| Technical SEO | 55/100 | 22% | 12.1 |
-| Content Quality | 40/100 | 23% | 9.2 |
-| On-Page SEO | 65/100 | 20% | 13.0 |
-| Schema / Structured Data | 88/100 | 10% | 8.8 |
-| Performance (CWV) | 70/100 | 10% | 7.0 |
-| AI Search Readiness | 80/100 | 10% | 8.0 |
-| Images | 50/100 | 5% | 2.5 |
-| **TOTAL** | | | **60.6 → 61** |
+| Category | Score | Weight | Weighted | vs. June |
+|---|---|---|---|---|
+| Technical SEO | 58/100 | 22% | 12.8 | +3 |
+| Content Quality | 61/100 | 23% | 14.0 | **+21** |
+| On-Page SEO | 62/100 | 20% | 12.4 | −3 |
+| Schema / Structured Data | 58/100 | 10% | 5.8 | **−30** |
+| Performance (CWV) | 58/100 | 10% | 5.8 | −12 |
+| AI Search Readiness | 34/100 | 10% | 3.4 | **−46** |
+| Images | 55/100 | 5% | 2.8 | +5 |
+| **TOTAL** | | | **57.0** | −4 |
 
----
+### Why the score went *down* despite real progress
 
-## Executive Summary
+This is not a regression in the site. Two things changed:
 
-URAWAKE Stackhouse is a single-page React app deployed on a Vercel subdomain. The schema
-implementation is genuinely strong (ProfilePage, Person, ProfessionalService, ItemList with
-6 projects), and AI crawler access is well configured. However, two structural blockers
-prevent this site from ranking: (1) **no custom domain** — zero domain authority accumulates
-on a `.vercel.app` subdomain, and (2) **fully JS-rendered content** — Google's initial HTML
-fetch returns nothing crawlable. These two issues alone cap the ceiling of any other SEO work.
+1. **Scope grew.** June audited one page. The site now has ~11 real routes (4 case studies, 4 project pages, `/why-us`, `/team`, home). Every new route inherits the SPA's rendering problem, so the same defect now costs more.
+2. **June scored the SPA problem too generously.** Schema was scored 88 and AI readiness 80 on the basis that the JSON-LD and llms.txt *exist*. They do — but they exist in a page that no non-JS crawler can read past the `<head>`. This audit scores what crawlers actually receive.
 
-### Top 5 Critical Issues
-1. No custom domain — hosting on `urawake-website.vercel.app`
-2. SPA with no server-side rendering — all content invisible to first HTML crawl
-3. OG image is SVG format — broken social sharing on Twitter/Facebook/LinkedIn
-4. Zero content pages — no blog, no case studies, no indexable text beyond the homepage
-5. Meta description is 165 chars — truncated in SERPs (limit: 160)
-
-### Top 5 Quick Wins
-1. Fix OG image to PNG/JPG (1200×630) — 30 min, fixes all social sharing immediately
-2. Trim meta description to ≤160 chars — 5 min
-3. Register a custom domain (e.g. `urawakestackhouse.com`) — sets the SEO foundation
-4. Add `<noscript>` fallback content so crawlers get something without JS
-5. Submit URL to Google Search Console and request indexing
+The genuine wins since June: custom domain shipped (`urawake.dev`), OG image converted to PNG, security headers completed, `<noscript>` fallback added, and four real case studies written. Content quality moved 40 → 61, the largest single improvement.
 
 ---
 
-## Technical SEO — 55/100
+## Top 5 Critical Issues
 
-### What Works
-- ✅ robots.txt allows all crawlers including AI bots (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot)
-- ✅ Sitemap.xml exists and is referenced in robots.txt
-- ✅ Canonical URL set correctly
-- ✅ `lang="en"` on `<html>`
-- ✅ HTTPS with HSTS (`max-age=63072000; includeSubDomains; preload`)
-- ✅ X-Frame-Options: DENY
-- ✅ X-Content-Type-Options: nosniff
-- ✅ CSP header present
-- ✅ Fast TTFB: 0.135s
+1. **No prerendering — every route serves identical HTML.** Confirmed live: `/`, `/why-us`, `/case-studies/tourstodopr`, and any invented URL all return the exact same 11,856-byte response with the homepage `<title>` and `<link rel="canonical" href="https://urawake.dev/">`. All 7 sitemap URLs self-canonicalize to the homepage in raw HTML. This is the root cause behind roughly half of every other finding in this report.
+2. **Soft 404s across the entire URL space.** `vercel.json`'s blanket rewrite plus the catch-all in `src/App.jsx:86` mean nonexistent paths return HTTP 200 with homepage content. Google has no way to learn a URL is invalid.
+3. **`/invoices/*` and `/proposals/*` are crawlable.** These are client-facing documents. `public/robots.txt` has no `Disallow`, no route sets `noindex`, and each returns 200. Any guessed or leaked slug is indexable, and real client content renders once JS runs.
+4. **`www.urawake.dev` is hard-broken.** Not an unredirected variant — a TLS SAN mismatch (cert is `CN=urawake.dev` with no `www` SAN). Anyone typing or linking `www.` gets a browser security error, not a redirect.
+5. **`tourstodo-website` case study ships placeholder copy.** `src/data/casestudies.js:105-140` contains draft text with no real outcome numbers, live on an indexable route.
 
-### Findings
+## Top 5 Quick Wins
 
-**CRITICAL — No Custom Domain**
-- Observation: Site lives on `urawake-website.vercel.app`. No custom domain detected.
-- Why it matters: Google treats `.vercel.app` as a shared subdomain. Domain Authority (DA), backlinks, and crawl budget don't transfer if you ever move. You can't rank competitively without owning your domain.
-- Fix: Register `urawakestackhouse.com` or `urawake.studio` or similar. Point it to Vercel. Update canonical, OG tags, sitemap, schema `@id` URLs.
-- How to know it worked: GSC shows the custom domain indexed; no more `.vercel.app` in search results.
-
-**CRITICAL — SPA With No SSR/SSG**
-- Observation: Raw HTML response contains only a `<div id="root"></div>`. All content — H1, section text, project descriptions — is rendered client-side by React.
-- Why it matters: Google's crawler fetches the raw HTML first. On the initial crawl, it sees an empty page. While Googlebot does execute JS in a second pass, this delays indexing by days or weeks per crawl cycle. Bing and most other crawlers don't execute JS at all.
-- Fix options (in order of impact):
-  1. **Pre-rendering**: Add `vite-plugin-ssg` or `@prerenderer/plugin-vite` to generate static HTML at build time
-  2. **Noscript fallback**: Add a `<noscript>` tag in `index.html` with core text content (name, services, contact)
-  3. **Migrate to Next.js or Astro** for full SSR/SSG (bigger lift, highest SEO ceiling)
-- How to know it worked: `curl https://yourdomain.com/` returns visible text content in raw HTML.
-
-**HIGH — Missing Referrer-Policy and Permissions-Policy Headers**
-- Current headers: CSP ✓, HSTS ✓, X-Frame ✓, X-Content-Type ✓
-- Missing: `Referrer-Policy`, `Permissions-Policy`
-- Fix: Add to `vercel.json` headers config.
-
-**MEDIUM — Sitemap Only Has 1 URL**
-- The sitemap is technically correct for a SPA. But if section anchors or future pages are added, update accordingly.
-- `lastmod: 2026-06-16` — update after each significant content change.
+1. Add `Disallow: /invoices/` and `Disallow: /proposals/` to `public/robots.txt` — 2 minutes, closes the client-document exposure. (Pair with a `noindex` meta on those routes, since robots.txt does not prevent indexing of linked URLs.)
+2. Add `www.urawake.dev` in Vercel domain settings with "redirect to apex" — provisions the cert and fixes the 301 in one step. ~5 minutes.
+3. Regenerate `public/sitemap.xml`: add `/why-us`, `/team`, `/projects/tourstodo-pr`, `/case-studies/tourstodo-website`; refresh the stale `lastmod` (currently 2026-06-22 on every URL). ~15 minutes.
+4. Point the homepage `ItemList` schema at your own `/projects/*` and `/case-studies/*` URLs instead of the generic GitHub profile — 5 of 6 items currently link off-site. ~15 minutes.
+5. Link case studies directly from the homepage project grid. They are currently reachable only after a click into a project viewer (`ProjectViewer.jsx:89`, `ProjectPage.jsx:116`) — near-orphan pages. ~30 minutes.
 
 ---
 
-## Content Quality — 40/100
+## Technical SEO — 58/100
 
-### What Works
-- ✅ llms.txt exists with clear, well-structured Q&A content
-- ✅ Bio text clearly states specialty, location, and target client
-- ✅ Portfolio projects listed with descriptions and tech stacks
+Full detail: `findings/technical.md`
 
-### Findings
+**Confirmed solid:** all security headers correct (CSP, HSTS with preload, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy — all the June gaps closed); HTTP→HTTPS 308 works; trailing-slash handling consistent; `/assets/*` immutable caching correct; robots.txt allows GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot and references the sitemap; a genuinely useful `<noscript>` fallback exists (homepage only).
 
-**CRITICAL — Zero Indexable Content in Raw HTML**
-- Observation: The body of the raw HTML response is `<div id="root"></div>`. No headings, paragraphs, or text visible to crawlers that don't run JS.
-- First-principle: Google can only rank content it has confirmed it can read. If content is only JS-rendered, it exists in a crawl probability state — sometimes indexed, often delayed, sometimes never.
-- Fix: Pre-render or add noscript fallback (see Technical section).
+**Critical — soft 404s on every URL.** `/invoices/test-slug`, `/proposals/test-slug`, and arbitrary nonexistent paths all return 200 with the identical homepage HTML. The `<Navigate to="/" replace />` catch-all only fires after JS executes.
 
-**HIGH — No Blog or Long-Form Content**
-- Observation: The site has zero content pages beyond the single-page portfolio.
-- Why it matters: The queries that bring clients — "full stack developer Los Angeles", "React developer for small business", "tourism website development", "custom CRM developer" — are answered by content (blog posts, case studies, guides), not portfolios.
-- Fix: Add 4–6 case study pages (one per major project) with 800–1200 words covering the problem, solution, tech stack, and outcome. Each page = a new indexable URL.
-- Leading indicator: GSC impressions for long-tail queries go from 0 to any number > 0 within 60 days of publishing.
+**Critical — private routes crawlable.** See Top 5 above.
 
-**HIGH — No Individual Project Pages**
-- Observation: All 6 projects are on the same URL (hash-based or scroll sections). Each project has no dedicated URL.
-- Fix: Create `/projects/eliots-adventures`, `/projects/clientflow`, etc. Each gets its own title, meta, schema, and content.
+**High — no prerendering.** Every route shares one `<title>`, one canonical, one meta description, one set of OG tags in raw HTML. Expect "Duplicate, Google chose a different canonical" in Search Console for the subpages. Recommended fix: `vite-react-ssg`, which works with the existing react-router v7 setup, over `vite-plugin-prerender`.
 
-**MEDIUM — E-E-A-T Signals Minimal**
-- No testimonials, no client logos, no published dates on projects, no press mentions.
-- Fix: Add one or two client quotes. Add "Built for [Client Name]" with a link to the live site. Schema already has `dateCreated` — make sure it matches visible content.
+**High — `www` TLS failure.** `curl -v` returns exit 60 (cert SAN mismatch), not a redirect.
+
+**Medium:** fonts shipped as raw `.ttf` (Inter variable 874KB + 904KB, Archivo Black 89KB) and not preloaded — only `logo.png` is; images up to 917KB PNG with no WebP/AVIF in the build output; single 308KB JS bundle with no `React.lazy()` route splitting.
+
+**Low:** no IndexNow integration for Bing/Yandex.
 
 ---
 
-## On-Page SEO — 65/100
+## Content Quality — 61/100 (was 40)
 
-### What Works
-- ✅ Title tag: "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse" (68 chars) — well-structured
-- ✅ Meta description present
-- ✅ Canonical set
+Full detail: `findings/content.md`
 
-### Findings
+The four case studies are the real improvement — they carry concrete, quotable outcomes ("100+ bookings", "~20 hrs/month automated", "130+ waivers digitized") and a clean problem/solution/outcome heading structure.
 
-**HIGH — No H1 in Raw HTML**
-- Observation: Zero `<h1>` tags found in raw HTML. The "URAWAKE" glitch title is a JS-rendered `<h1>` inside the React component.
-- Fix: Even with the SPA, add a static `<h1>` to the raw `index.html` inside a `<noscript>` block, or pre-render. Google's JS-rendered H1 carries less weight than an H1 in raw HTML.
+**Critical — placeholder case study live.** `tourstodo-website` (`casestudies.js:105-140`).
 
-**MEDIUM — Meta Description 165 Characters (Over Limit)**
-- Current: "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL. Custom websites and digital tools for small businesses across the United States."
-- 165 chars → truncated in SERPs at ~160.
-- Fix: "Full-stack web development by Daniel Sangronis. React, Node.js, Django, PostgreSQL — custom websites and digital tools for US small businesses." (143 chars)
+**Critical — zero testimonials or third-party validation.** No client quotes, reviews, or attributed statements anywhere in the codebase. Trustworthiness carries ~30% of E-E-A-T weight and this is the single largest missing lever.
 
-**MEDIUM — OG Title vs Page Title Mismatch**
-- Page title: "Daniel Sangronis — Full Stack Web Developer | URAWAKE Stackhouse"
-- OG title: "URAWAKE Stackhouse — Full-Stack Web Developer"
-- While not a ranking factor, consistency matters for brand signal.
+**High — `/projects/:slug` pages are thin** (~40-80 words) and largely duplicate their linked case studies. Either expand them or canonicalize them to the case study.
 
-**LOW — No Twitter/X Card Creator Attribution**
-- Add `<meta name="twitter:creator" content="@yourhandle">` if you have a Twitter/X account.
+**High — `/why-us` (~200-250 words) and `/team` (~220 words) are thin** for pages carrying the commercial-intent and trust load, with no case-study links or proof points.
+
+**Medium:** the founder bio leads with "started building in late 2025" — honest, but an Expertise headwind; reframe around output (389 commits, 32 data models, 8 integrations) rather than tenure. The target phrase (LA full-stack studio for tourism/hospitality SMBs) is well hit in `llms.txt` but nearly absent from `/why-us`.
+
+**E-E-A-T breakdown:** Experience 60 · Expertise 55 · Authoritativeness 35 · Trustworthiness 55 → weighted 51/100.
 
 ---
 
-## Schema / Structured Data — 88/100
+## On-Page SEO — 62/100
 
-### What Works
-- ✅ ProfilePage schema with @id
-- ✅ Person schema with sameAs (LinkedIn, GitHub)
-- ✅ WebSite schema
-- ✅ ProfessionalService schema with areaServed, priceRange, hasOfferCatalog
-- ✅ ItemList of 6 CreativeWork portfolio projects with dateCreated, description, programmingLanguage
-- ✅ Nested @id cross-references between entities (Person → ProfessionalService → WebSite)
+**Per-route metadata coverage is uneven:**
 
-### Findings
+| Route | Title | Description | Canonical | OG | JSON-LD |
+|---|---|---|---|---|---|
+| `/` | ✅ | ✅ | ✅ | ✅ | ✅ (4 blocks) |
+| `/case-studies/:slug` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `/projects/:slug` | ✅ | ❌ | ❌ | ❌ | ❌ |
+| `/why-us` | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `/team` | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-**MEDIUM — ProfessionalService Missing telephone and address**
-- Google uses phone and address for local signals even for remote businesses.
-- If you're comfortable listing an LA address or phone, add it. At minimum, add `"address": {"@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US"}`.
+`CaseStudyPage.jsx:33-88` is the model implementation — title, description, canonical, OG, Twitter, and CreativeWork JSON-LD, with proper cleanup on unmount. `ProjectPage.jsx:17` sets only `document.title`. `/why-us` and `/team` set nothing at all, so they inherit and keep the homepage canonical pointing at `/` — they are actively telling Google they are the homepage.
 
-**MEDIUM — CreativeWork Missing url for 5 of 6 Projects**
-- Only `Eliot's Adventures` has a `"url"` field. The other 5 projects have no URL.
-- Fix: Add URLs where available (even if GitHub links). Increases entity richness for AI search.
+**Heading structure:** `/team` renders `AboutSection`, which has only `<h2>` elements and no `<h1>`. The homepage `<h1>` is `GlitchTitle`, which splits the text into per-letter `<span aria-hidden="true">` elements — the text remains in the DOM for crawlers, but the heading has no accessible name for screen readers. Worth a visually-hidden text node.
 
-**LOW — No BreadcrumbList**
-- Not critical for a SPA, but if you add project pages, add breadcrumb schema.
-
-**LOW — No Review/AggregateRating Schema**
-- If any clients would leave a testimonial, a `Review` on the ProfessionalService unlocks star ratings in some SERP contexts.
+**Internal linking is the weak point.** The navbar links `/`, `/#anchors`, `/team`, `/why-us`. Nothing links to case studies except from inside a project view. Case studies are your best content and your least-linked pages.
 
 ---
 
-## Performance — 70/100
+## Schema / Structured Data — 58/100
 
-### What Works
-- ✅ TTFB: 0.135s — excellent (Vercel CDN edge delivery)
-- ✅ Static assets served from CDN with cache-control
-- ✅ Fonts from Google Fonts CDN
+Full detail: `findings/schema.md`
 
-### Findings
-PageSpeed Insights API returned no metric data (likely due to API rate limit without key). Estimated scores based on site architecture:
+The markup itself is well-constructed — that is not the problem. Placement and accuracy are.
 
-**MEDIUM — SPA JavaScript Bundle Load**
-- React SPA with 120-scanline glitch animation, multiple sections, and animations likely produces a large JS bundle.
-- Fix: Check bundle size with `vite build --mode production` output. Aim for <200KB gzipped JS.
-- Lazy-load sections below the fold. The glitch animation (120 scanlines × 7 letters = 840 DOM nodes) may block LCP.
+**Critical — CaseStudyPage JSON-LD is client-injected only** (`CaseStudyPage.jsx:60-74`). Unreliable for Google (delayed second-wave rendering), invisible to Bing, social scrapers, and AI crawlers.
 
-**MEDIUM — Glitch Animation Performance**
-- The GlitchTitle component creates 840+ span elements (120 scanlines × 7 letters) plus 2 channel layers each. This is a significant DOM size for the hero section.
-- Consider reducing SCANLINES to 40-60 or using CSS animations instead of JS-driven per-frame updates.
+**Critical — `ItemList` URLs point off-site.** 5 of 6 `CreativeWork` items in `index.html` set `url` to the same generic `https://github.com/danielsangronis1386` rather than your own pages.
 
-**LOW — OG Image Is SVG**
-- `og:image: https://urawake-website.vercel.app/og-image.svg`
-- Facebook, Twitter/X, LinkedIn, and WhatsApp do not render SVG as OG images. Your link previews will show no image or a broken image on every social share.
-- Fix: Generate a 1200×630 PNG from the SVG. Update all OG/Twitter image meta tags.
-- How to know it worked: Use [Facebook Debugger](https://developers.facebook.com/tools/debug/) and Twitter Card Validator on your URL — both should show the image preview.
+**Critical — sitemap missing 4 live routes:** `/why-us`, `/team`, `/projects/tourstodo-pr`, `/case-studies/tourstodo-website`. (Note: `/case-studies/tourstodopr` without the hyphen is *correct* — it matches the slug in `casestudies.js`. The sitemap's defect is incompleteness, not wrong slugs.)
+
+**High:** `dateCreated` falls back to the literal string `"2026"` (`CaseStudyPage.jsx:69`) — not valid ISO 8601, and a fabricated date. `lastmod` is 49 days stale and identical across all URLs. Three `ItemList` entries (ClientFlow, Fitness Tracker, RollingLog) have no corresponding route in `projects.js` or `casestudies.js`.
+
+**Medium:** `ProfessionalService` has no `logo`/`image`, blocking Organization logo rich-result and Knowledge Panel eligibility; the injected `CreativeWork.author` restates a bare `Person` instead of `@id`-referencing `#daniel-sangronis`; no `BreadcrumbList` anywhere.
+
+Corrected JSON-LD and a corrected `sitemap.xml` are written out in full in `findings/schema.md`.
 
 ---
 
-## AI Search Readiness — 80/100
+## Performance (CWV) — 58/100
 
-### What Works
-- ✅ `llms.txt` exists with clear FAQ-style Q&A
-- ✅ robots.txt explicitly allows GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot
-- ✅ ProfessionalService schema with structured service descriptions
-- ✅ Person schema with sameAs links to LinkedIn and GitHub (entity resolution)
-- ✅ `areaServed: "United States"` clearly scopes the service geography
+Full detail: `findings/performance.md`
 
-### Findings
+Lighthouse mobile, simulated throttle (PSI API hit its rate limit; re-run for CrUX field data):
 
-**MEDIUM — llms.txt Incomplete for Project Context**
-- The projects section in `llms.txt` starts ("### Eliot's Adventures") but the file is truncated — no project descriptions or links appear after the heading.
-- Fix: Complete the projects section in llms.txt with URL, description, and tech stack for each project.
+| Page | LCP | TBT | CLS | Perf |
+|---|---|---|---|---|
+| `/` | 5.1s ❌ | 0ms ✅ | 0.000 ✅ | 72 |
+| `/case-studies/tourstodopr` | 5.0s ❌ | 0ms ✅ | 0.000 ✅ | 70 |
 
-**MEDIUM — No Blog Content for AI Citation**
-- AI Overviews and ChatGPT cite specific passages from published content. Without any articles, case studies, or guides, there's no passage to cite.
-- The `llms.txt` helps for direct brand mentions but doesn't replace indexable page content for AI-generated answers about "web developers in LA" or "React developer for hospitality businesses."
+INP and CLS are excellent. LCP is the sole problem, and **the boot-splash is not helping it.** Lighthouse identifies the LCP element as `span.hero-typed` (the typewriter eyebrow) on home and a body paragraph on the case study — not `/logo.png`. Because React unmounts `#boot-splash` on hydrate, the preloaded logo is never an eligible LCP candidate once real content paints. 88% of LCP (4.3–4.4s) is Render Delay: JS download → parse → hydrate → typewriter animation completes. TTFB is only ~12% of the budget, so this is entirely client-render-gated, not a server problem.
 
-**LOW — No Speakable Schema**
-- For voice/AI-summary contexts, `Speakable` schema marks up which page content is most suitable for summarization. Optional but increasingly useful.
+The fix that actually moves LCP is making real hero text paint without waiting on hydration and the typewriter timers — which prerendering delivers alongside everything else.
 
 ---
 
-## Images — 50/100
+## AI Search Readiness (GEO) — 34/100
 
-**CRITICAL — OG Image in SVG Format**
-- Social platforms (Facebook, Twitter/X, LinkedIn, WhatsApp, iMessage) do not display SVG images in link previews.
-- Every time someone shares `urawake-website.vercel.app`, the preview card shows no image.
-- Fix: Export `og-image.png` (1200×630, PNG, <1MB) and update meta tags.
+Full detail: `findings/geo.md`
 
-**INFO — No Images in HTML**
-- The site uses CSS/text-only design (brutalist aesthetic). No `<img>` tags visible in raw HTML.
-- This means no image alt text issues — but also no visual content for Google Image Search.
+**Critical — AI crawlers see almost nothing.** GPTBot, ClaudeBot, and PerplexityBot do not execute JavaScript. Every route on the site returns the same generic `<noscript>` block: one H1, one paragraph, a services list, and one line per project. The entire case-study narrative — including the concrete metrics that would make you citable — is unreachable. `robots.txt` politely invites crawlers that then find an empty room.
 
----
+There is an irony worth noting: the Eliot's Adventures case study copy itself advertises that *that* client site is prerendered.
 
-## Action Plan
+**High — `llms.txt` is stale.** It links to client sites and GitHub rather than your own `/case-studies/*` pages, describes an outdated 6-project model instead of the 4 real case-study slugs, omits `/why-us` and `/team`, and carries no last-updated date.
 
-### Phase 1 — Critical Fixes (This Week)
+**Medium:** case-study prose is paragraph-heavy rather than broken into self-contained 130–170 word direct-answer blocks; headings are declarative ("The problem", "What we built") rather than question-shaped. No YouTube or Reddit presence — the two highest-correlation off-site AI-citation signals.
 
-| # | Action | Effort | Impact |
-|---|--------|--------|--------|
-| 1 | Register custom domain + point to Vercel | 2h | Critical |
-| 2 | Fix OG image: export PNG 1200×630 | 30min | High |
-| 3 | Trim meta description to ≤160 chars | 5min | Medium |
-| 4 | Add `<noscript>` fallback with name, services, contact | 1h | High |
-| 5 | Complete llms.txt project descriptions | 30min | Medium |
+**Bright spot:** entity naming is perfectly consistent across `index.html` JSON-LD, `llms.txt`, and `casestudies.js`, and `sameAs` links to LinkedIn and GitHub are present. That consistency is what holds the Authority sub-score at 45.
 
-### Phase 2 — High Impact (Weeks 2–3)
-
-| # | Action | Effort | Impact |
-|---|--------|--------|--------|
-| 6 | Add Referrer-Policy + Permissions-Policy headers in vercel.json | 30min | Medium |
-| 7 | Add `"address"` to ProfessionalService schema | 15min | Medium |
-| 8 | Add `"url"` field to 5 missing CreativeWork items in schema | 20min | Low |
-| 9 | Set up Google Search Console + submit sitemap | 1h | High |
-| 10 | Add Google Analytics or Plausible for traffic baseline | 1h | Medium |
-
-### Phase 3 — Content & Authority (Month 2)
-
-| # | Action | Effort | Impact |
-|---|--------|--------|--------|
-| 11 | Write 2 case study pages (Eliot's Adventures + ToursToDo CRM) | 3–4h each | High |
-| 12 | Add `telephone` to ProfessionalService schema | 10min | Low |
-| 13 | Add client testimonial + Review schema | 1h | Medium |
-| 14 | Investigate SSG/pre-rendering (vite-ssg or Astro migration) | varies | Critical long-term |
-
-### Phase 4 — Monitoring (Ongoing)
-
-| # | Action | Effort |
-|---|--------|--------|
-| 15 | Monitor GSC for indexation + impressions weekly | 15min/week |
-| 16 | Run `/seo drift baseline` to capture this state for future comparison | 5min |
-| 17 | Update sitemap lastmod after each content publish | automated |
+Heuristic platform estimates: Google AI Overviews ~30, Bing Copilot ~25, ChatGPT ~15, Perplexity ~15.
 
 ---
 
-## Key Insight
+## Images — 55/100
 
-The schema and meta setup on this site is better than 90% of freelance portfolios — that work is done. The gap is purely structural: **no custom domain + no crawlable HTML = Google can't confirm the site exists**. Fix those two things first. Everything else is optimization on top of a working foundation.
+OG image is now a correct 1200×630 PNG with dimensions, type, and alt declared — the June critical is resolved. Full favicon set present.
 
-The second biggest leverage point: **case studies beat portfolios for SEO**. A project gallery is not content — it's a UI. A 1000-word case study for Eliot's Adventures is an indexable page that answers "how to build a booking system for Puerto Rico tours" and can rank for it.
+Remaining: build output contains PNGs up to 917KB with no WebP/AVIF variants; the untracked `src/assets/textures/` directory holds 11 PNGs totaling ~46.6MB — confirmed unused by grep and not currently bundled, but a live footgun if anyone imports one. Delete them or move them out of `src/`.
+
+---
+
+## The one fix that unblocks everything
+
+Ten of the findings above — soft 404s, duplicate canonicals, per-route metadata, client-injected schema, AI crawler blindness, and the 5.1s LCP — collapse into a single root cause and a single fix: **prerender the routes at build time.**
+
+`vite-react-ssg` fits the existing react-router v7 setup and requires no framework migration. It emits real HTML per route, which simultaneously gives every page its own title/canonical/OG, puts JSON-LD in the raw HTML, makes case-study prose visible to AI crawlers, lets Vercel return real 404s for unknown paths, and paints hero content before hydration.
+
+Everything else in this report is worth doing. Nothing else in this report is worth doing *first*.

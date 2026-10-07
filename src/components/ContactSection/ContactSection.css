@@ -51,12 +51,6 @@
   gap: 1.5rem;
 }
 
-.contact-eyebrow {
-  font-size: 0.88rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #000;
-}
 
 .contact-display {
   font-family: "Archivo Black", sans-serif;
@@ -88,12 +82,6 @@
   word-break: break-all;
 }
 
-.contact-brand {
-  font-size: 0.82rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.4);
-}
 
 /* ===== RIGHT: FORM ===== */
 .contact-right {

@@ -21,10 +21,10 @@ const COLOR_LOGOS = [logoGreen, logoPink, logoMagenta, logoCyan]
 
 function HeroSection() {
     const [colorsReady, setColorsReady] = useState(false)
-    /* typing -> ready -> revealed */
-    const [phase, setPhase] = useState(() =>
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "ready" : "typing"
-    )
+    /* typing -> ready -> revealed.
+       Always starts at "typing" so the prerendered markup and the first client
+       render agree; reduced motion skips ahead in an effect below. */
+    const [phase, setPhase] = useState("typing")
     const { live, variant, start, stop } = useGlitchBreaks()
     const logoRef = useRef(null)
     const typedRef = useRef(null)
@@ -88,7 +88,10 @@ function HeroSection() {
        hero over to the wordmark. Hovering just brings that handover forward. */
     useEffect(() => {
         if (phase !== "typing") return
-        const t = setTimeout(() => setPhase("ready"), 1900)
+        // Reduced motion skips the type-out rather than starting elsewhere, so
+        // the prerendered markup and the first client render still agree.
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        const t = setTimeout(() => setPhase("ready"), reduced ? 0 : 1900)
         return () => clearTimeout(t)
     }, [phase])
 
@@ -132,6 +135,13 @@ function HeroSection() {
 
             {/* MAIN HERO CONTENT */}
             <div className="hero-center">
+                {/* The wordmark carries this visually, but it's an image, so the
+                    page needs the heading in text for crawlers and screen readers. */}
+                <h1 className="sr-only">
+                    URAWAKE Stackhouse: full-stack web development in Los Angeles for small
+                    businesses in tourism, hospitality, and beyond
+                </h1>
+
                 <div className="hero-eyebrow" style={{ "--chars": SLOGAN.length }}>
                     <span className="hero-typed" ref={typedRef}>{SLOGAN}</span>
                 </div>
