@@ -115,9 +115,8 @@ The CRM launched alongside the public website and handled over 100 bookings and 
         subtitle: "Replacing a WordPress site with a React storefront built around how travellers actually pick a tour",
         industry: "Adventure Tourism",
         location: "Puerto Rico",
-        duration: "In progress, awaiting client cutover",
-        // The client has not pointed their domain at the new build yet.
-        liveUrl: "https://tourstodopr-website.vercel.app/",
+        duration: "Built May to Jul 2026, launched Oct 2026",
+        liveUrl: "https://tourstodopr.com/",
         stack: ["React", "Vite", "React Router v7", "CSS Modules", "Stripe", "Vercel"],
         sections: [
             {
@@ -148,9 +147,7 @@ Routing runs on React Router v7, styles are scoped per component, and the whole 
         industry: "Adventure Tourism",
         location: "Puerto Rico",
         duration: "In progress, CRM in production",
-        // tourstodopr.com still serves the client's old WordPress site; the
-        // build lives on Vercel until they cut over.
-        liveUrl: "https://tourstodopr-website.vercel.app/",
+        liveUrl: "https://tourstodopr.com/",
         stack: ["React 18", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "SendGrid", "Gmail IMAP", "FareHarbor", "Stripe", "Google Gemini", "Bokun", "JWT", "Render", "Netlify"],
         sections: [
             {
