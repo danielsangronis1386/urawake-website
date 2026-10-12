@@ -135,13 +135,6 @@ function HeroSection() {
 
             {/* MAIN HERO CONTENT */}
             <div className="hero-center">
-                {/* The wordmark carries this visually, but it's an image, so the
-                    page needs the heading in text for crawlers and screen readers. */}
-                <h1 className="sr-only">
-                    URAWAKE Stackhouse: full-stack web development in Los Angeles for small
-                    businesses in tourism, hospitality, and beyond
-                </h1>
-
                 <div className="hero-eyebrow" style={{ "--chars": SLOGAN.length }}>
                     <span className="hero-typed" ref={typedRef}>{SLOGAN}</span>
                 </div>
@@ -192,8 +185,37 @@ function HeroSection() {
 
             </div>
 
+            {/* The wordmark says who we are; this says what we do and where,
+                so a visitor knows in the first second whether they're in the
+                right place. Plain markup, so it's in the prerendered HTML too. */}
+            <div className="hero-pitch">
+                <h1 className="hero-headline">
+                    Websites, online stores and booking systems for small businesses.
+                    <span className="hero-location mono">Los Angeles · working with clients in the US and abroad</span>
+                </h1>
+                <p className="hero-result">Built around how your business actually runs, not a template.</p>
+                <div className="hero-actions">
+                    <a href="/#estimate" className="hero-btn hero-btn--primary" onClick={(e) => jumpTo(e, "estimate")}>
+                        Get an instant estimate →
+                    </a>
+                    <a href="/#projects" className="hero-btn" onClick={(e) => jumpTo(e, "projects")}>
+                        See the work
+                    </a>
+                </div>
+            </div>
+
         </section>
     );
+}
+
+/* Glide to the section in place; the href stays a real link for crawlers. */
+function jumpTo(e, id) {
+    const el = document.getElementById(id)
+    if (!el) return
+    e.preventDefault()
+    window.history.pushState(null, "", `#${id}`)
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" })
 }
 
 export default HeroSection;

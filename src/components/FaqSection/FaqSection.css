@@ -1,0 +1,85 @@
+/* ===== FAQ =====
+   Same ledger as the case study index: thick white rules, big uppercase
+   questions, and a hard neon invert when a row is open or hovered. */
+.faq-section {
+    background: var(--black);
+    color: var(--white);
+    padding-block: clamp(4rem, 8vw, 7rem);
+    padding-inline: clamp(1.2rem, 5vw, 6rem);
+    border-top: 3px solid var(--white);
+}
+
+.faq-eyebrow {
+    color: var(--neon-green);
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+}
+
+.faq-title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(4rem, 14vw, 12rem);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    margin: 0 0 2rem;
+}
+
+.faq-list {
+    border-top: 3px solid var(--white);
+}
+
+.faq-item {
+    border-bottom: 3px solid var(--white);
+}
+
+.faq-q {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: clamp(1.2rem, 2vw, 1.8rem) 1rem;
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(1.2rem, 2.4vw, 2.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    cursor: var(--cursor-pointer, pointer);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* The global `span` rule sets Inter; the question keeps the display face. */
+.faq-q-text {
+    font-family: inherit;
+}
+
+.faq-q::-webkit-details-marker {
+    display: none;
+}
+
+.faq-q:hover,
+.faq-item[open] .faq-q {
+    background: var(--neon-green);
+    color: var(--black);
+}
+
+.faq-icon {
+    flex: none;
+    font-size: 1.4em;
+    line-height: 1;
+    transition: transform 0.15s ease;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-a {
+    margin: 0;
+    padding: 1.5rem 1rem 2rem;
+    max-width: 60rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    line-height: 1.6;
+}

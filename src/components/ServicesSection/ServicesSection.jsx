@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./ServicesSection.css";
 
-const TAGLINE = "Full-stack web development. Digital, urban, awake.";
+const TAGLINE = "Websites and systems built around how your business runs.";
 
 const SERVICES = [
     {
@@ -11,22 +11,22 @@ const SERVICES = [
     },
     {
         name: "API INTEGRATION",
-        description: "Your site talking to the tools you already pay for. Stripe takes the payment, a Gmail inbox turns Airbnb and Viator emails into bookings, and webhooks carry the rest.",
+        description: "Your site talking to the tools you already pay for. Stripe takes the payment, your inbox and email platform stay in sync, booking and shipping tools plug in, and webhooks carry the rest.",
         techs: ["STRIPE /", "GMAIL API /", "REST /", "WEBHOOKS /"],
     },
     {
         name: "CRM & TOOLS",
-        description: "Internal platforms that replace the spreadsheet and the inbox. Leads, bookings, waivers, and email campaigns, laid out the way your team already works.",
+        description: "Internal platforms that replace the spreadsheet and the inbox. Customers, orders, bookings, and email campaigns, laid out the way your team already works.",
         techs: ["LEADS /", "BOOKINGS /", "CAMPAIGNS /", "AUTOMATION /"],
     },
     {
         name: "BRAND TO WEB",
-        description: "Bring your visual identity, or build one with Janyerlyn first. Either way it ends up as a site that looks like your business and is easy to book from.",
+        description: "Bring your visual identity, or build one with Janyerlyn first. Either way it ends up as a site that looks like your business and is easy to buy from.",
         techs: ["IDENTITY → WEB /", "RESPONSIVE /", "MOTION /", "CONVERSION /"],
     },
     {
         name: "DEPLOYMENT",
-        description: "Launched on Vercel or Heroku with automatic deploys, so a fix or a new tour page goes live without taking the site down.",
+        description: "Launched on Vercel or Heroku with automatic deploys, so a fix or a new page goes live without taking the site down.",
         techs: ["VERCEL /", "HEROKU /", "NETLIFY /", "CI/CD /"],
     },
 ];
@@ -99,7 +99,7 @@ function ServicesSection() {
         <section className="services-section" id="services" ref={sectionRef}>
             <div className="section-label-vertical">SERVICES</div>
             <div className="services-body">
-                <p className="services-eyebrow mono">What I build</p>
+                <p className="services-eyebrow mono">What we build</p>
 
                 {/* Moved out of the hero: this is where a visitor is actually
                     asking what the studio does. Wipes in like the rest. */}

@@ -243,3 +243,47 @@
     max-width: none;
   }
 }
+
+/* ===== FIT TO THE COLUMN =====
+   The names used to be sized off the viewport (vw), but they live in the
+   column beside the vertical label, so long single words like INTEGRATION
+   ran past the edge and got clipped. Sizing off the block's own width (cqi)
+   keeps the longest word inside at every screen size. min-width: 0 stops a
+   long word from stretching the grid column past the screen. */
+.services-body {
+  min-width: 0;
+}
+
+.service-block {
+  container-type: inline-size;
+}
+
+.service-name .wipe-base,
+.service-name .wipe-fill {
+  font-size: clamp(1.6rem, 12cqi, 13rem);
+}
+
+.service-tech .wipe-base,
+.service-tech .wipe-fill {
+  font-size: clamp(1.2rem, 7.5cqi, 8.5rem);
+}
+
+/* The tagline had no side inset, so it sat flush against the divider. Same
+   inset as the eyebrow above it. A margin, not padding: the white fill layer
+   is absolutely positioned over the grey one, and padding would shift only
+   the grey. */
+.services-intro {
+  margin-inline: 4rem;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-intro {
+    margin-inline: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-intro {
+    margin-inline: 1.2rem;
+  }
+}

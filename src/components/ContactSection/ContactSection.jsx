@@ -17,7 +17,7 @@ function ContactSection() {
                 </svg>
             </div>
 
-            <div className="contact-form-row">
+            <div className="contact-form-row" id="estimate">
             {/* LEFT: intro */}
             <div className="contact-left">
                 <h2 className="contact-display">HOW<br />MUCH?</h2>

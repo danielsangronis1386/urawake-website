@@ -1,0 +1,44 @@
+/* ===== PROBLEM STRIP =====
+   Between the hero and the work: the client's week in their own words,
+   stacked like the case study index, thick rules and all. */
+.problem-section {
+    background: var(--black);
+    color: var(--white);
+    padding-block: clamp(4rem, 8vw, 7rem);
+    padding-inline: clamp(1.2rem, 5vw, 6rem);
+    border-top: 3px solid var(--white);
+}
+
+.problem-eyebrow {
+    color: var(--neon-green);
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    font-weight: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+}
+
+.problem-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 3px solid var(--white);
+}
+
+.problem-line {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(1.4rem, 3.4vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    padding: clamp(1.2rem, 2.2vw, 2rem) 0;
+    border-bottom: 3px solid var(--white);
+}
+
+.problem-answer {
+    margin: 2rem 0 0;
+    color: var(--neon-green);
+    font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}

@@ -1,5 +1,6 @@
 import PROJECTS from "../data/projects";
 import CASE_STUDIES from "../data/casestudies";
+import { faqSchema } from "../data/faq";
 import { SITE_URL, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE, breadcrumbSchema } from "./seo";
 
 /**
@@ -18,6 +19,7 @@ export function routeMeta(pathname) {
             description: DEFAULT_DESCRIPTION,
             path: "/",
             image: DEFAULT_IMAGE,
+            jsonLd: faqSchema(),
         };
     }
 

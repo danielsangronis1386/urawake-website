@@ -154,6 +154,7 @@ function ProjectSection() {
                         </li>
                     ))}
                 </ul>
+                <Link to="/why-us" className="cs-index-why mono">Why work with us →</Link>
             </nav>
             </div>{/* end project-body */}
         </section>

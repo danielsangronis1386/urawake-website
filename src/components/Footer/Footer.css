@@ -84,6 +84,13 @@
     letter-spacing: 0.05em;
 }
 
+.footer-location {
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+}
+
 .footer-email {
     font-family: "Inter", sans-serif;
     font-size: 0.78rem;

@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom'
 import { useEffect } from 'react'
 import './App.css'
 import Navbar from "./components/Navbar/Navbar";
@@ -6,6 +6,8 @@ import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
 import ContactSection from './components/ContactSection';
 import ServicesSection from './components/ServicesSection';
+import ProblemSection from './components/ProblemSection/ProblemSection';
+import FaqSection from './components/FaqSection/FaqSection';
 import ProjectPage from './components/ProjectPage/ProjectPage';
 import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
 import ProposalPage from './components/ProposalPage/ProposalPage';
@@ -21,6 +23,7 @@ const SECTION_URLS = {
   hero:     '/',
   projects: '/#projects',
   services: '/#services',
+  faq:      '/#faq',
   contact:  '/#contact',
 };
 
@@ -44,6 +47,7 @@ function HomePage() {
       document.getElementById('hero'),
       document.getElementById('projects'),
       document.getElementById('services'),
+      document.getElementById('faq'),
       document.getElementById('about'),
       document.getElementById('contact'),
     ].filter(Boolean);
@@ -68,8 +72,10 @@ function HomePage() {
     <div className="page-fade">
       <Navbar />
       <section id="hero"><HeroSection /></section>
+      <ProblemSection />
       <section id="projects"><ProjectSection /></section>
       <ServicesSection />
+      <FaqSection />
       <ContactSection />
       <Footer />
     </div>
@@ -84,10 +90,25 @@ function RouteMeta() {
   return null;
 }
 
+// Moving between pages inside the app keeps the old scroll offset, so a link
+// clicked near the bottom of one page landed near the bottom of the next.
+// New pages start at the top; back/forward (POP) keeps the browser's own
+// restore, and links with a #hash are left to scroll to their section.
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  const navType = useNavigationType();
+  useEffect(() => {
+    if (navType === "POP" || hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
+  return null;
+}
+
 function App() {
   return (
     <>
     <RouteMeta />
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/projects/:slug" element={<ProjectPage />} />
