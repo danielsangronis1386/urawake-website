@@ -107,6 +107,8 @@ function ProjectSection() {
             <div className="project-body">
             <p className="project-section-subtitle">Four builds for two tour operators in Puerto Rico</p>
 
+            <p className="project-swipe-hint mono" aria-hidden="true">Swipe to see more →</p>
+
             <div className="project-stage">
                 <div className={`project-grid${isScattered ? " grid-scattered" : ""}`}>
                     {PROJECTS.map((project, idx) => {

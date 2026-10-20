@@ -85,9 +85,48 @@
     margin-bottom: 2.5rem;
   }
 
-  .project-grid {
-    grid-template-columns: 1fr;
+  /* The 1fr column would otherwise grow to fit the scrolling row below. */
+  .project-body {
+    min-width: 0;
   }
+
+  /* Phones: one swipeable row instead of a tall stack. Each card snaps into
+     place and the next one peeks in from the right so it reads as scrollable. */
+  .project-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background: transparent;
+    border: none;
+  }
+
+  .project-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-grid > .project-card {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+  }
+
+  .project-section .project-swipe-hint {
+    display: block;
+    margin: 0 0 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.project-swipe-hint {
+  display: none;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
