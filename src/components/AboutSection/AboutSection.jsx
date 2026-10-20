@@ -31,7 +31,8 @@ function AboutSection({ asPage = false }) {
 
             {/* ── DANIEL ── */}
             <div className="about-left team-reveal" style={{ "--delay": "0s" }}>
-                <div className="collage-card">
+                {/* 1448 x 1086 photo */}
+                <div className="collage-card" style={{ "--photo-ratio": 4 / 3 }}>
                     <div className="collage-bg collage-bg--cyan" />
                     <div className="collage-word collage-word--back">AWAKE</div>
                     <div className="collage-photo-wrap">
@@ -87,7 +88,8 @@ function AboutSection({ asPage = false }) {
 
             {/* ── JANYERLYN ── */}
             <div className="about-left team-reveal" style={{ "--delay": "0.2s" }}>
-                <div className="collage-card">
+                {/* 1254 x 1254 photo */}
+                <div className="collage-card" style={{ "--photo-ratio": 1 }}>
                     <div className="collage-bg collage-bg--green" />
                     <div className="collage-word collage-word--back">AWAKE</div>
                     <div className="collage-photo-wrap collage-photo-wrap--offset">

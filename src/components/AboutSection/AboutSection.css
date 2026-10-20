@@ -25,11 +25,19 @@
   border-top: 1px solid var(--border);
 }
 
+/* Two equal columns. With plain 1fr the long names (SANGRONIS, JANYERLYN)
+   set the text column's minimum width and squeezed the photo column, which is
+   why the collage looked different on a laptop and on a large monitor. */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 5rem;
   padding: 6rem 4rem;
+}
+
+.about-left,
+.about-right {
+  container-type: inline-size;
 }
 
 .portrait-img {
@@ -119,7 +127,8 @@
 /* RIGHT COLUMN */
 .about-title {
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(3.5rem, 7vw, 7rem);
+  /* Sized to the column, not the screen: the longest name always fits. */
+  font-size: clamp(2.5rem, 14cqi, 7rem);
   font-weight: 400;
   text-transform: uppercase;
   color: #fff;
@@ -289,10 +298,15 @@
 }
 
 /* ===== COLLAGE CARD ===== */
+/* Everything in the collage is measured against the card's own width (cqi),
+   so it composes the same at every screen size. The card is square; the photo
+   box takes the photo's exact proportions (--photo-ratio = width / height), so
+   the whole picture shows with nothing cropped. */
 .collage-card {
+  --photo-ratio: 1;
   position: relative;
   width: 100%;
-  height: clamp(380px, 45vw, 620px);
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   will-change: transform;
   transform: translateZ(0);
@@ -314,7 +328,7 @@
 .collage-word {
   position: absolute;
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(4rem, 11vw, 13rem);
+  font-size: 26cqi;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.03em;
@@ -339,17 +353,17 @@
 /* photo container */
 .collage-photo-wrap {
   position: absolute;
-  top: 10%;
+  top: 50%;
   left: 12%;
   width: 72%;
-  height: 80%;
+  aspect-ratio: var(--photo-ratio);
+  transform: translateY(-50%);
   z-index: 2;
   overflow: hidden;
   box-shadow: 8px 8px 0 #000;
 }
 
 .collage-photo-wrap--offset {
-  top: 5%;
   left: 18%;
 }
 
@@ -364,30 +378,21 @@
 
 /* ===== COLLAGE MOBILE ===== */
 @media (max-width: 768px) {
-  .collage-card {
-    height: 380px;
-  }
-
-  .collage-word {
-    font-size: clamp(2.5rem, 14vw, 5rem);
-  }
-
+  /* Position only; the box keeps the photo's proportions on phones too. */
   .collage-photo-wrap {
-    top: 12%;
     left: 8%;
-    width: 80%;
-    height: 76%;
   }
 
   .collage-photo-wrap--offset {
-    top: 8%;
     left: 12%;
   }
 }
 
 @media (max-width: 1440px) {
+  /* The top padding clears the fixed nav bar, which otherwise sat over the
+     DEVELOPER label on laptop screens. */
   .about-grid {
     gap: 3rem;
-    padding: 4rem 2.5rem;
+    padding: 6rem 2.5rem 4rem;
   }
 }
