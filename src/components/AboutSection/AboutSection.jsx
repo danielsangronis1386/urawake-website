@@ -53,15 +53,17 @@ function AboutSection({ asPage = false }) {
                 </p>
                 <p className="about-bio">
                     My focus is startups and small businesses that need more than just a website.
-                    I work across the United States building UI/UX, from structure and interaction
-                    to a live, fast, functional product. When a project needs brand direction, I collaborate with
-                    graphic designers and creatives, guiding the visual identity and copywriting as creative director.
-                    My main clientele is in tourism and hospitality, but I take on projects across industries.
+                    I build the UI/UX from structure and interaction through to a live, fast, working product.
+                    When a project needs brand direction, I work with my graphic design collaborators
+                    and guide the visual direction as creative director.
+                    My business happened to start in tourism and hospitality, and most of my clients
+                    still come from there, but I take on projects across industries.
                 </p>
                 <p className="about-bio">
-                    What I care about: if something on the page doesn't help a visitor understand
-                    the business or book with it, it goes. Motion is there when it shows you
-                    something, not to fill space.
+                    What I care about is function. I design websites and systems that are interactive
+                    for the people using them and that lead visitors, step by step, to understand
+                    the business and book with it. If something on the page isn't connected to that
+                    goal, it goes. Nothing is there just to fill space.
                 </p>
                 </div>
 

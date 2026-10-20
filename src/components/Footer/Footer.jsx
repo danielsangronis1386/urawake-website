@@ -21,7 +21,7 @@ function Footer() {
 
             <div className="footer-bottom">
                 <span className="footer-copy">© {year} Daniel Sangronis. All rights reserved.</span>
-                <span className="footer-location">Los Angeles · working with clients in the US and abroad</span>
+                <span className="footer-location">Los Angeles, California, USA</span>
                 <a href="mailto:info@urawake.dev" className="footer-email">info@urawake.dev</a>
             </div>
         </footer>

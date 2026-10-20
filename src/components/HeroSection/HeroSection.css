@@ -820,11 +820,17 @@
   color: var(--neon-green);
 }
 
+/* A deck under the headline: same face and case, smaller and dimmed, so it
+   reads as part of the hero's type system rather than a stray body sentence. */
 .hero-result {
   grid-area: result;
-  margin: 0.6rem 0 0;
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.75);
+  margin: 0.9rem 0 0;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(0.9rem, 1.15vw, 1.1rem);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .hero-actions {

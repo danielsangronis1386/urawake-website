@@ -191,7 +191,7 @@ function HeroSection() {
             <div className="hero-pitch">
                 <h1 className="hero-headline">
                     Websites, online stores and booking systems for small businesses.
-                    <span className="hero-location mono">Los Angeles · working with clients in the US and abroad</span>
+                    <span className="hero-location mono">Los Angeles, California, USA</span>
                 </h1>
                 <p className="hero-result">Built around how your business actually runs, not a template.</p>
                 <div className="hero-actions">

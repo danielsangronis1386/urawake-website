@@ -9,6 +9,13 @@ const SCROLL_LINKS = [
     { label: "Contact",   id: "contact"  },
 ]
 
+// Desktop has room for every destination in one row, so the About group is
+// flattened there. The hamburger keeps it nested on small screens.
+const PAGE_LINKS = [
+    { label: "Team",   path: "/team"   },
+    { label: "Why Us", path: "/why-us" },
+]
+
 function scrollToSection(id) {
     const el = document.getElementById(id)
     if (el) {
@@ -105,6 +112,15 @@ function Navbar({ logoOnly = false }) {
         setAboutOpen(false)
     }
 
+    /* In-app swap for page links; the href stays real for crawlers and
+       middle-clicks. ScrollToTop in App starts the new page at the top. */
+    function handlePageLink(e, path) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+        e.preventDefault()
+        handleNavLink()
+        navigate(path)
+    }
+
     /* The href stays a real link for crawlers and middle-clicks, but the click
        is handled in-app: on home we glide back to the top, and from another
        route we swap the view without a full page reload. */
@@ -135,6 +151,32 @@ function Navbar({ logoOnly = false }) {
 
             {!logoOnly && (
                 <>
+                    {/* Desktop: links in the bar. Hidden under 769px, where
+                        the hamburger below takes over. */}
+                    <nav className="nav-bar" aria-label="Main">
+                        {SCROLL_LINKS.map(({ label, id }) => (
+                            <a
+                                key={id}
+                                className="nav-bar-link mono"
+                                href={`/#${id}`}
+                                onClick={(e) => handleScrollLink(e, id)}
+                            >
+                                {label}
+                            </a>
+                        ))}
+                        {PAGE_LINKS.map(({ label, path }) => (
+                            <a
+                                key={path}
+                                className="nav-bar-link mono"
+                                href={path}
+                                aria-current={location.pathname === path ? "page" : undefined}
+                                onClick={(e) => handlePageLink(e, path)}
+                            >
+                                {label}
+                            </a>
+                        ))}
+                    </nav>
+
                     <div
                         className={`hamburger ${menuOpen ? "open" : ""}`}
                         onClick={() => { setMenuOpen(prev => !prev); setAboutOpen(false); }}

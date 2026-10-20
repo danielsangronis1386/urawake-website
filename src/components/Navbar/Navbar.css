@@ -173,7 +173,54 @@
   border-bottom: none;
 }
 
+/* ===== DESKTOP BAR =====
+   Same black-and-hairline box as the dropdown, so the links stay legible over
+   photos and the grain while the bar is pinned. */
+.nav-bar {
+  pointer-events: all;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.nav-bar-link {
+  padding: 0.8rem 1.1rem;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  transition: color 0.15s ease;
+}
+
+.nav-bar-link:last-child {
+  border-right: none;
+}
+
+.nav-bar-link:hover,
+.nav-bar-link[aria-current="page"] {
+  color: var(--neon-green);
+}
+
+/* The hamburger and its dropdown are the small-screen menu only. Scoped under
+   .navbar because HeroSection.css still carries older copies of these rules
+   and loads after this file. */
+@media (min-width: 769px) {
+  .navbar .hamburger,
+  .navbar .nav-dropdown {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .nav-bar {
+    display: none;
+  }
+
   .navbar {
     top: 0.8rem;
     left: 1.2rem;
