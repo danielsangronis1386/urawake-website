@@ -121,6 +121,10 @@ export function routeMeta(pathname) {
         return { title: "Invoice | URAWAKE Stackhouse", description: "", path, noindex: true };
     }
 
+    if (path.startsWith("/testimonial/")) {
+        return { title: "Leave a Testimonial | URAWAKE Stackhouse", description: "", path, noindex: true };
+    }
+
     if (path.startsWith("/proposals/")) {
         return { title: "Proposal | URAWAKE Stackhouse", description: "", path, noindex: true };
     }

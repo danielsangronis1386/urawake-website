@@ -1,0 +1,165 @@
+/* ===== TESTIMONIAL PAGE =====
+   Private, one link per client. Same brutalist kit as the rest of the site:
+   black ground, thick white rules, Archivo Black, neon for the one action. */
+.tm-page {
+    min-height: 100vh;
+    background: var(--black);
+    color: var(--white);
+}
+
+.tm-container {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding-block: clamp(7rem, 12vw, 10rem) clamp(4rem, 8vw, 6rem);
+    padding-inline: clamp(1.2rem, 5vw, 3rem);
+}
+
+.tm-eyebrow {
+    color: var(--neon-green);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+}
+
+.tm-title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+}
+
+.tm-lede {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 3rem;
+    max-width: 40rem;
+}
+
+.tm-link {
+    color: var(--neon-green);
+}
+
+.tm-form {
+    border-top: 3px solid var(--white);
+    padding-top: 2rem;
+    display: grid;
+    gap: 1.8rem;
+}
+
+.tm-field {
+    display: grid;
+    gap: 0.6rem;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.tm-label {
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--neon-green);
+    padding: 0;
+}
+
+.tm-input {
+    width: 100%;
+    background: transparent;
+    border: 3px solid var(--white);
+    border-radius: 0;
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    padding: 0.9rem 1rem;
+}
+
+.tm-input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.tm-input:focus {
+    outline: none;
+    border-color: var(--neon-green);
+}
+
+.tm-textarea {
+    resize: vertical;
+    min-height: 10rem;
+}
+
+.tm-count {
+    justify-self: end;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.tm-credit {
+    gap: 0.8rem;
+}
+
+.tm-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    cursor: var(--cursor-pointer, pointer);
+}
+
+.tm-radio input {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--neon-green);
+    margin: 0;
+}
+
+/* Off-screen rather than display:none, which some bots know to skip. */
+.tm-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.tm-error {
+    margin: 0;
+    padding: 1rem;
+    border: 3px solid #ff2d78;
+    color: var(--white);
+}
+
+.tm-submit {
+    justify-self: start;
+    padding: 1.1rem 1.8rem;
+    background: var(--neon-green);
+    border: 3px solid var(--neon-green);
+    color: var(--black);
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-radius: 0;
+    cursor: var(--cursor-pointer, pointer);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tm-submit:hover:not(:disabled) {
+    background: var(--white);
+    border-color: var(--white);
+}
+
+.tm-submit:disabled {
+    opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+    .tm-submit {
+        justify-self: stretch;
+    }
+}

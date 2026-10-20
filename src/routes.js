@@ -1,6 +1,7 @@
 import PROJECTS from "./data/projects";
 import CASE_STUDIES from "./data/casestudies";
 import INVOICES from "./components/InvoicePage/invoices";
+import TESTIMONIAL_INVITES from "./data/testimonialInvites";
 
 const PROPOSAL_SLUGS = ["cajamarca"];
 
@@ -41,6 +42,10 @@ export function getRoutes() {
 
     for (const slug of PROPOSAL_SLUGS) {
         routes.push({ path: `/proposals/${slug}`, indexable: false });
+    }
+
+    for (const slug of Object.keys(TESTIMONIAL_INVITES)) {
+        routes.push({ path: `/testimonial/${slug}`, indexable: false });
     }
 
     routes.push({ path: "/404", indexable: false });

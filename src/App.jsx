@@ -15,6 +15,7 @@ import InvoicePage from './components/InvoicePage/InvoicePage';
 import WhyUsPage from './components/WhyUsPage/WhyUsPage';
 import TeamPage from './components/TeamPage/TeamPage';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import TestimonialPage from './components/TestimonialPage/TestimonialPage';
 import Footer from './components/Footer/Footer';
 import { usePageMeta } from './lib/seo';
 import { routeMeta } from './lib/routeMeta';
@@ -117,6 +118,7 @@ function App() {
       <Route path="/team" element={<TeamPage />} />
       <Route path="/why-us" element={<WhyUsPage />} />
       <Route path="/invoices/:slug" element={<InvoicePage />} />
+      <Route path="/testimonial/:slug" element={<TestimonialPage />} />
       {/* Renders a real 404 page. Vercel serves the prerendered 404.html with a
           404 status for unmatched paths, so crawlers get the right signal too. */}
       <Route path="*" element={<NotFoundPage />} />
