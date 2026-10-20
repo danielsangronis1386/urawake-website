@@ -6,6 +6,8 @@ import logoPink from "../../assets/logos/logos/LOGO-08.png"
 import logoMagenta from "../../assets/logos/logos/LOGO-09.png"
 import logoCyan from "../../assets/logos/logos/LOGO-10.png"
 import isotipo from "../../assets/logos/isotipos/ISOTIPO-10.png"
+import grunge from "../../assets/textures/grunge-pitch.jpg"
+import useParallax from "../../lib/useParallax"
 
 const logo = "/logo.png"
 
@@ -28,6 +30,10 @@ function HeroSection() {
     const { live, variant, start, stop } = useGlitchBreaks()
     const logoRef = useRef(null)
     const typedRef = useRef(null)
+    const heroRef = useRef(null)
+    const textureRef = useRef(null)
+
+    useParallax(heroRef, textureRef)
 
     /* No pointer to hover with, so the hero plays itself: it runs while the
        logo is on screen and the tab is in front, and stops otherwise. */
@@ -121,7 +127,16 @@ function HeroSection() {
     }, [])
 
     return (
-        <section className="hero-container" data-phase={phase}>
+        <section className="hero-container" data-phase={phase} ref={heroRef}>
+
+            {/* Same grunge as the pitch band, faded so the wordmark stays the
+                loudest thing here. Drifts slower than the page on scroll. */}
+            <div
+                className="hero-texture"
+                ref={textureRef}
+                style={{ backgroundImage: `url(${grunge})` }}
+                aria-hidden="true"
+            />
 
             {/* Noise overlay */}
             <div className="hero-noise" aria-hidden="true" />

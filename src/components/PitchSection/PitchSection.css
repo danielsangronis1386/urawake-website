@@ -7,6 +7,22 @@
   color: var(--white);
   padding: 5rem 2.5rem;
   border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Grunge texture behind the pitch. Taller than the section so there is
+   room for it to drift as the page scrolls (see useParallax). */
+.pitch-texture {
+  position: absolute;
+  inset: -40vh 0;
+  z-index: -1;
+  background-color: var(--black);
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  will-change: transform;
 }
 
 .pitch {

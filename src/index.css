@@ -167,10 +167,10 @@ label[for] {
    Left out on purpose: the neon-green contact section, where a screen blend
    would wash the colour out; Services, whose wipe-in text needs a flat surface
    to read against; the hero, which already runs its own noise layer that this
-   one only muddied; and Meet the Team, where the portraits carry the surface.
+   one only muddied; Meet the Team, where the portraits carry the surface; and
+   the Projects section on the home page.
 
    To pull this back out, delete this block. Nothing else references it. */
-.project-section,
 .whyus-page,
 .project-page,
 .invoice-page,
@@ -179,7 +179,6 @@ label[for] {
   isolation: isolate;
 }
 
-.project-section::after,
 .whyus-page::after,
 .project-page::after,
 .invoice-page::after,
@@ -196,7 +195,6 @@ label[for] {
 }
 
 @media (max-width: 900px) {
-  .project-section::after,
   .whyus-page::after,
   .project-page::after,
   .invoice-page::after,
