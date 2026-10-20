@@ -1,0 +1,81 @@
+/* ===== PITCH =====
+   Same type, rule and button as when this sat at the foot of the hero, now a
+   band of its own between Projects and Services. */
+.pitch-section {
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+  padding: 5rem 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.pitch {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "headline actions";
+  align-items: end;
+  column-gap: 3rem;
+  border-top: 3px solid var(--white);
+  padding-top: 1.5rem;
+}
+
+.pitch-headline {
+  grid-area: headline;
+  margin: 0;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  max-width: 22ch;
+}
+
+.pitch-actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pitch-btn {
+  display: inline-block;
+  padding: 1rem 1.6rem;
+  border: 3px solid var(--neon-green);
+  background: var(--neon-green);
+  color: var(--black);
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.pitch-btn:hover {
+  background: var(--white);
+  border-color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .pitch-section {
+    padding: 3.5rem 1.2rem;
+  }
+
+  .pitch {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "headline"
+      "actions";
+    padding-top: 1rem;
+  }
+
+  .pitch-actions {
+    margin-top: 1.4rem;
+  }
+
+  .pitch-btn {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 0.9rem 1rem;
+  }
+}

@@ -6,7 +6,7 @@ import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
 import ContactSection from './components/ContactSection';
 import ServicesSection from './components/ServicesSection';
-import ProblemSection from './components/ProblemSection/ProblemSection';
+import PitchSection from './components/PitchSection/PitchSection';
 import FaqSection from './components/FaqSection/FaqSection';
 import ProjectPage from './components/ProjectPage/ProjectPage';
 import CaseStudyPage from './components/CaseStudyPage/CaseStudyPage';
@@ -73,8 +73,8 @@ function HomePage() {
     <div className="page-fade">
       <Navbar />
       <section id="hero"><HeroSection /></section>
-      <ProblemSection />
       <section id="projects"><ProjectSection /></section>
+      <PitchSection />
       <ServicesSection />
       <FaqSection />
       <ContactSection />

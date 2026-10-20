@@ -185,37 +185,15 @@ function HeroSection() {
 
             </div>
 
-            {/* The wordmark says who we are; this says what we do and where,
-                so a visitor knows in the first second whether they're in the
-                right place. Plain markup, so it's in the prerendered HTML too. */}
-            <div className="hero-pitch">
-                <h1 className="hero-headline">
-                    Websites, online stores and booking systems for small businesses.
-                    <span className="hero-location mono">Los Angeles, California, USA</span>
-                </h1>
-                <p className="hero-result">Built around how your business actually runs, not a template.</p>
-                <div className="hero-actions">
-                    <a href="/#estimate" className="hero-btn hero-btn--primary" onClick={(e) => jumpTo(e, "estimate")}>
-                        Get an instant estimate →
-                    </a>
-                    <a href="/#projects" className="hero-btn" onClick={(e) => jumpTo(e, "projects")}>
-                        See the work
-                    </a>
-                </div>
-            </div>
+            {/* The visible pitch lives in its own section after the projects;
+                the page's top-level heading stays here, first in the document. */}
+            <h1 className="sr-only">
+                Websites, online stores and booking systems for small businesses.
+                URAWAKE Stackhouse, Los Angeles, California, USA.
+            </h1>
 
         </section>
     );
-}
-
-/* Glide to the section in place; the href stays a real link for crawlers. */
-function jumpTo(e, id) {
-    const el = document.getElementById(id)
-    if (!el) return
-    e.preventDefault()
-    window.history.pushState(null, "", `#${id}`)
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" })
 }
 
 export default HeroSection;

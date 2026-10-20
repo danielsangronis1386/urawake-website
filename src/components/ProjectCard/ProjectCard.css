@@ -93,10 +93,6 @@
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 0.3rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 /* STATE: selected card stays in place but dims slightly */
