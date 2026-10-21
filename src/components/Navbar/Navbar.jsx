@@ -9,7 +9,7 @@ const SCROLL_LINKS = [
     { label: "Contact",   id: "contact"  },
 ]
 
-// Desktop has room for every destination in one row, so the About group is
+// Desktop has room for every destination in one row, so the Studio group is
 // flattened there. The hamburger keeps it nested on small screens.
 const PAGE_LINKS = [
     { label: "Team",   path: "/team"   },
@@ -26,7 +26,7 @@ function scrollToSection(id) {
 
 function Navbar({ logoOnly = false }) {
     const [menuOpen, setMenuOpen] = useState(false)
-    const [aboutOpen, setAboutOpen] = useState(false)
+    const [studioOpen, setStudioOpen] = useState(false)
     const logoRef = useRef(null)
     const navRef = useRef(null)
     const lastScrollY = useRef(0)
@@ -97,7 +97,7 @@ function Navbar({ logoOnly = false }) {
     function handleScrollLink(e, id) {
         e.preventDefault()
         setMenuOpen(false)
-        setAboutOpen(false)
+        setStudioOpen(false)
         if (isHome) {
             scrollToSection(id)
         } else {
@@ -109,7 +109,7 @@ function Navbar({ logoOnly = false }) {
 
     function handleNavLink() {
         setMenuOpen(false)
-        setAboutOpen(false)
+        setStudioOpen(false)
     }
 
     /* In-app swap for page links; the href stays real for crawlers and
@@ -127,7 +127,7 @@ function Navbar({ logoOnly = false }) {
     function handleHomeLink(e) {
         e.preventDefault()
         setMenuOpen(false)
-        setAboutOpen(false)
+        setStudioOpen(false)
 
         if (isHome) {
             window.history.replaceState(null, "", "/")
@@ -179,7 +179,7 @@ function Navbar({ logoOnly = false }) {
 
                     <div
                         className={`hamburger ${menuOpen ? "open" : ""}`}
-                        onClick={() => { setMenuOpen(prev => !prev); setAboutOpen(false); }}
+                        onClick={() => { setMenuOpen(prev => !prev); setStudioOpen(false); }}
                         aria-label="Toggle menu"
                     >
                         <span></span>
@@ -204,15 +204,15 @@ function Navbar({ logoOnly = false }) {
                             </a>
                         ))}
 
-                        {/* About: nested */}
+                        {/* Studio: nested */}
                         <button
-                            className={`nav-link mono nav-link--parent ${aboutOpen ? "active" : ""}`}
-                            onClick={() => setAboutOpen(prev => !prev)}
+                            className={`nav-link mono nav-link--parent ${studioOpen ? "active" : ""}`}
+                            onClick={() => setStudioOpen(prev => !prev)}
                         >
-                            About
-                            <span className="nav-arrow">{aboutOpen ? "▲" : "▼"}</span>
+                            Studio
+                            <span className="nav-arrow">{studioOpen ? "▲" : "▼"}</span>
                         </button>
-                        <div className={`nav-sub ${aboutOpen ? "nav-sub--open" : ""}`}>
+                        <div className={`nav-sub ${studioOpen ? "nav-sub--open" : ""}`}>
                             <a className="nav-link mono nav-link--sub" href="/team" onClick={handleNavLink}>
                                 Meet the Team
                             </a>

@@ -12,7 +12,7 @@ function Footer() {
                     <img src={logo} alt="URAWAKE Stackhouse" />
                 </a>
                 <nav className="footer-nav">
-                    <a href="/team">About</a>
+                    <a href="/team">Studio</a>
                     <a href="/#projects">Projects</a>
                     <a href="/#services">Services</a>
                     <a href="/#contact">Contact</a>
