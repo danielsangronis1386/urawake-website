@@ -636,9 +636,14 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* A full screen on a phone is mostly empty black around a short logo, so
+     the band is cut down and the next section shows sooner. */
   .hero-container {
     padding: 0;
     overflow: hidden;
+    height: 60vh;
+    height: 60svh;
+    min-height: 26rem;
   }
 
   .hero-top-right {
