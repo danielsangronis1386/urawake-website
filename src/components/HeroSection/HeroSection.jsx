@@ -141,13 +141,6 @@ function HeroSection() {
             {/* Noise overlay */}
             <div className="hero-noise" aria-hidden="true" />
 
-            {/* TOP LEFT: identity */}
-            <div className="hero-top-left mono">
-                <p>Daniel Sangronis</p>
-                <p>Web Developer</p>
-                <p className="hero-brand-tag">URAWAKE Stackhouse</p>
-            </div>
-
             {/* MAIN HERO CONTENT */}
             <div className="hero-center">
                 <div className="hero-eyebrow" style={{ "--chars": SLOGAN.length }}>

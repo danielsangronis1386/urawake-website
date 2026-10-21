@@ -36,24 +36,6 @@
   opacity: 0.35;
 }
 
-/* TOP LEFT */
-.hero-top-left {
-  position: absolute;
-  top: 2rem;
-  left: 2.5rem;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.55);
-  z-index: 1;
-}
-
-.hero-brand-tag {
-  color: var(--neon-green) !important;
-  font-weight: 600;
-}
-
 /* TOP RIGHT */
 .hero-top-right {
   position: absolute;
@@ -657,12 +639,6 @@
   .hero-container {
     padding: 0;
     overflow: hidden;
-  }
-
-  .hero-top-left {
-    top: 1.2rem;
-    left: 1.2rem;
-    font-size: 0.78rem;
   }
 
   .hero-top-right {
